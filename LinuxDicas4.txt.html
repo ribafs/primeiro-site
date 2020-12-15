@@ -1,0 +1,795 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			NEWS ESPELHO DA LISTA LINUX-BR
+
+O Mateu Cordeiro Inssa fez um "espelho" de nossa lista no provedor
+dele, e pode ser acessado por:
+
+news://news.innova.com.br/local.linux-br
+
+é um newsgroup normal, e a gente pode acessa-lo normalmente.
+				-----------
+
+			FONTES MAIORES NO XWINDOW
+
+Eu atualmente uso o meu X com 1280x1024.
+>  
+>  Mas existem vários programas e principalmente páginas que usam fontes MUITO pequenas e ficam ilegíveis.
+
+Ola Raul,
+ Experimente colocar os paths das fontes 100dpi antes das de 75, no seu
+ XF86Config...
+				------------
+
+				CEDILHA NO WP8
+
+o Word Perfect está
+funcionando perfeitamente, a não ser por um porblema, não conseguia
+utilizar a cedilha, todos os acentos saiam normal menos a cedilha, como
+eu já tinha visto msgs anteriores com esta dúvida, resolvi escrever a
+solucão q eu utilizo aqui, qndo eu quero utilizar cedilhas eu clico em
+INSERT e depois em SYMBOL, aí vc clica em MULTINACIONAL q a cedilha vai
+estar lá no ¨meio¨, bom é meio trabalhoso mas é o único meio q eu
+descobri, se alguém souber de outro mais prático, por favor me corrija e
+divulgue ele!!! Espero ter ajudado!
+--------
+Com a ajuda do Cavassin, consegui inserir o cedilha no WordPerfect.
+Minha solução (devem haver outras) foi:
+1) Preferi editar o teclado do XWP80 ao invés de criar outro. 
+2) Chame o WordPerfect como root (deve pedir a licença, mas não ligue).
+Se não chamar como root, você vai ter que criar outro teclado (isto
+vai ficar mais claro adiante). 
+3) Menu Preferences -> Keyboard  
+4) Aqui e que aparece a opção de ou editar o XWP8 ou criar outro
+teclado. Eu preferir Edit _XWP8_ 
+5) Aparece a janela do  Keyboard Editor. 
+6) Procure o c + Alt (selecione-o). Selecione "Play a Keyboard script"
+7) Clique no quadrado em branco. Digite Crtl-W 
+8) Aparece o menu Symbols. No Set, escolha Multinacional. 
+9) Na terceira linha está o cedilha minúsculo. Selecione-o. O Indicador
+Number deve ir para 1,39. Clique OK.
+10) Deve ter aparecido um cedilha minúsculo no quadrado, outrora
+totalmente branco. 
+11) Clique Assign Script. 
+12) Repita os passos de 6 a 11 para o Ç . 
+13) Clique OK. 
+14) O cedilha minúsculo vai estar no Alt-c e o maiúsculo no
+Alt-Shift-C. 
+ 
+P.S.: você pode alterar o teclado default sem chamar o xwp como root.
+Basta alterar as permissões dos arquivos _XWP8_.wgk no diretório onde
+você instalou o WP. Ou ainda alterar todas as permissões daquele
+diretório (só que você vai ter que ser root para fazer isto :) 
+Thadeu Penna
+				-----------
+
+			SOLUÇÃO PARA DUAS RESOLUÇÕES NO X
+
+Tenho um monitor Samsung SyncMaster 700s (17"). Minha placa de vídeo é
+uma Trident
+TGUI 9680 que o sistema (XConfigurator) identificou como TG9660. Ela tem
+2MB de
+RAM (acho que todas deste modelo vêm só com isso).
+
+Uso dois modos: 1280x1024 com 8bpp e 1024x768 com 16bpp. 
+Para isso editei o arquivo XF86Config, retirando todos os modelines
+exceto
+os 1024x768 @ 70 Hz e 1280x1024 @ 61 Hz (no caso específico de meu
+sistema).
+
+Desta maneira (se não esqueci nada) o X nasce com 1280x1024 e 8bpp. Para
+usar
+o Netscape com uma resolução melhorzinha, abro outra sessão do X:
+
+$ startx -- :1 -bpp16 &
+
+e como é 16 bpp, ela abre com 1024x768.
+
+Conforme preciso, vou alternando entre sessões com Ctrl_Alt_F7 e
+Ctrl_Alt_F8.
+
+A vantagem é que não preciso mais ficar teclando Ctrl_Alt_+ o tempo
+todo,
+principalmente quando entrava no sistema (no boot) e em algum modo
+estranho
+(tela virtual, baixa resolução) e tinha que ficar caçando com Ctrl_Alt_+
+até encontrar um modo decente.
+				------------
+
+	CALCULANDO A MEMÓRIA NECESSARIA PARA UMA PLACA DE VÍDEO
+
+Para conseguirmos 16 cores por pixel de imagem precisamos de 2 elevado à 
+quarta potência, ou seja, precisamos de 4 bits. Para 256 cores, vamos ter 
+que usar 8 bits.
+Para 65.536 cores (high color) necessitamos de 16 bits e para 16,7
+milhões de cores, usaremos 24 bits. Existem ainda placas que trabalham com
+32 bits de cor. Assim, o cálculo para memória de vídeo é feito da seguinte 
+forma: memória de vídeo necessária (em bits) = número de colunas x número de
+linhas x número de bits para as cores. Por exemplo, se você quiser trabalhar
+na resolução de 800 x 600 (800 colunas e 600 linhas) com 256 cores (8 bits 
+para cor), sua placa de vídeo terá que possuir a seguinte memória: 800x600x8
+bits, que é igual a 3840000 bits, ou ainda, 480.000 bytes (aproximadamente 
+0,5 MB). Ou seja, uma placa com 1 MB vai trabalhar tranqüilamente nesta
+configuração. Se você quiser trabalhar com 1280 colunas, 1024 linhas e 32
+bits de cor vai precisar de 1280x1024x32 = 41943040 bits = 5242880 bytes = 
+5 MB de memória para placa de vídeo. Como as placas normalmente só trabalham
+com potências de 2 para memória, você vai ter que usar uma placa com 8 MB. 
+Os aplicativos vão precisar de mais memória de vídeo se eles usarem uma 
+maior resolução ou número de cores. Em geral, só os aplicativos gráficos 
+necessitam de maiores resoluções e cores.
+				---------------
+
+			PROBLEMA COM A TRIDENTE 9680
+
+Ha pouco tempo tive problema semelhante com a TGUI9680. Descobrimos aqui
+na faculdade q era um problema com o driver acelerador grafico da Trident.
+O q fizemos foi desabilita-lo no arquivo /etc/XF86Config como segue:
+
+
+Section "Screen"
+   Driver          "Accel"  <====== Substitua Accel por Noaccel
+   Device          "Primary Card"
+   Monitor         "Primary Monitor"
+
+Abracos,
+Seibel.
+				-------------
+
+				ALIAS
+
+"alias" do arquivo "/etc/bashrc."
+ 
+    la ja existia as linhas abaixo
+ 
+  alias diskon="mount /dev/fd0 /mnt/floppy" # Monta disquete
+  alias diskoff="umount /dev/fd0"                  # Desmonta disquete
+  alias cdrom.on="mount /mnt/cdrom"          # Monta o CD-ROM (declara no fstab)
+  alias cdrom.off="umount /mnt/cdrom"        # Desmonta o CD-ROM
+   * tive como referencia  Hugo Cisneiros, hugo@netdados.com.br
+    eu inclui as seguintes linhas
+ 
+    alias a:="cd /mnt/floppy"      # muda o drive para o disco flexisivel
+    alias d:="cd /mnt/cdrom"     # muda o drive para o cd-rom
+ 
+ 
+   Depois de alterado o proxima seção de trabalho voce podera utilizar "diskon" para montar o disquete e "a:"para
+ir ao seu diretorio, e "diskoff"  para desmontar o disquete. o mesmo acontecendo com "cdrom.on'"," cdrom.off" e
+"d:"
+Paulo C. S. Reis
+pcreis@scmci.org.br
+------
+Os aliases sao normalmente definidos no /etc/profile ou /etc/login ou
+/etc/bashrc e valem para todos os usuarios. Aliases individuais podem ser
+colocados nos arquivos ~/.bashrc, ~/.login, etc. Leia as man pages dos
+shells envolvidos para saber. Por exemplo, se nao for o bash, mas, sim, o
+zsh, voce tera que criar um arquivo chamado ~/.zlogin e /etc/zprofile.
+------
+coloque no /etc/profile ou no .bash_profile do user :
+ alias ls="ls --color=auto"
+
+Assim o ls apresenta uma saida colorida....eh bom para localizar o que eh
+link, arquivo, executavel, ...
+				--------------
+
+			Solucao para Sound Blaster AWE 32/64
+
+alias net-pf-4 off
+alias net-pf-5 off
+alias sound sb
+alias midi awe_wave
+post-install awe_wave /usr/local/bin/sfxload synthgm.sbk
+options sb io=0x220 irq=9 dma=1 dma16=5 mpu_io=0x330
+				--------------
+
+			RECUPERANDO O LILO PERDIDO
+
+Em caso de se perder o lilo e não se conseguir mais acesso ao Linux via boot pelo pelo HD, então pode-se dar o boot via disquete (do linux) e no prompt
+digitar "lilo" e enter para recuperar o lilo.
+				-------------
+
+			INSTALAÇÃO DO KDE NO SLACKWARE
+
+instalar o KDE no Slackware 3.6 basta pegar os arquivos:
+
+ftp://ftp.cdrom.com/pub/linux/slackware-current/slakware/xap1/qt_1_42.tgz
+ftp://ftp.cdrom.com/pub/linux/slackware-current/slakware/xap1/kde.tgz
+
+Depois digitar os comandos:
+
+installpkg qt_1_42.tgz
+installpkg kde.tgz
+
+Fica prontinho, nao precisa configurar mais nada se o teu xserver estiver
+rodando normalmente.
+Fred
+				--------------
+
+			ADICIONAR ITEM DE MENU NO FVWM
+
+Como eu posso adicionar um item no menu do fvwm?
+> 
+> Eu tenho o RH5.1, instalei o LICQ, e gostaria de chama-lo pelo menu.
+
+1) Procure pelo arquivo system.fvwm2rc
+2) Copie como ~/.fvwm2rc
+3) Edite a vontade. Esta' na secao AddToMenu.
+4) Leia e releia o "man fvwm2".
+5) Divirta-se.
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+-------
+Como eu posso adicionar um item no menu do fvwm?
+
+$ vi .fvwmrc
+
+Popup "Utilities"
+        Title   "Program Menu"
+        Exec    "Xterm"         exec xterm &
+        Exec    "Rxvt"          exec rxvt -bg Black -fg Wheat &
+        Exec    "Color Xterm"   exec xterm-color &
+        Exec    "Meu programa"  exec /path/do/programa -opcoes &
+
+So' complementando, se voce nao tiver um .fvwmrc, copie o 
+/etc/X11/fvwm/system.fvwmrc para ~/.fvwmrc, ou altere o proprio
+/etc/X11/fvwm/system.fvwmrc, so' que ai' valera' para todos os
+usuarios da maquina.
+				-------------
+
+			USANDO FONTES TRUE TYPE NO LINUX
+
+
+1- Copie as suas fontes .TTF para o dir /usr/X11R6/lib/X11/fonts/TrueType. Para
+usar as fontes tanto no Linux quanto no rWin, apague o dir TrueType e crie um
+link simbolico para o dir de fontes no windows (ln -s /dos/windows/fonts
+TrueType).
+2- Entre no dir onde estao as TTF e rode o ttfkfdir (se vc n tiver, pega em    
+http://www.darmstadt.gmd.de/~pommnitz/xfsft.html)
+3- Pegue o arquivo que ele criar (fonts.scale) e copie como fonts.dir (nao
+mova, copie). Se voce estiver na particao do win, nao ha como criar symlink,
+entao o negocio e copiar mesmo.
+4-coloque a linha "xset +fp /usr/X11R6/lib/X11/fonts/TrueType" (sem aspas) em
+algum arquivo de inicializacao do X (aqui eu coloquei no ~/.Xsession).
+Da proxima vez que voce entrar no X, ja vai poder usar TTF. Mas se voce esta se
+mordendo de ansiedade pra ver ttf no X, digite a linha xset...(mesma q acima).
+
+Em caso de duvidas: 
+/usr/X11R6/lib/X11/doc/TrueType/
+http://www.freetype.org
+http://www.darmstadt.gmd.de/~pommnitz/xfsft.html
+man 1 xset
+DJCrow <djcrow@vetor.com.br>
+				------------
+
+				PRINT SCREEN NO AFTERSTEP
+
+No afterstep eh soh dar
+"PrintScreen", e ele vai salvar no HD um screen.xwd (um formato de imagem), aih vc pode
+converter pra jpeg ou gif no gimp ou xv... T+ 
+Felipe Russo 
+				------------
+
+			CONFIGURAÇÃO DO SM3 NE
+
+Depois de esquentar os neuronios perder algumas centenas de fios de cabelo,
+consegui configurar a resolução 800x600. Ai vai, para aqueles que "ainda"
+tem um monitor SyncMaster 3, configure no arquivo XF86Config:
+
+Section "Monitor"
+   Identifier  "SyncMaster 3"
+   VendorName  "Samsung"
+   ModelName   "3"
+   BandWidth   45.0
+   HorizSync   30-40
+   VertRefresh 50-87
+   Modeline    "640x480"  25  640  672  768  800  480  490  492  509
+   ModeLine    "800x600"  36  800  824  896 1024  600  601  603
+ 625 -hsync -vsync
+   Modeline    "1024x768" 45 1024 1040 1210 1267  768  777  785  817
+Interlace
+EndSection
+-------
+Não sei qual sua distribuição e nem qual o monitor, então vou tentar ser
+mais generico possivel.
+
+Primeiro, tenha certeza de que sua placa de vídeo esta configurada
+corretamente. Depois, observe a sessão "Monitor" do seu arquivo. Tentarei
+descrever o que fiz no meu.
+
+Procure no manual do monitor os valores de frequencia horizontal em kHz,
+vertical em Hz e dot clock (ou dot frequency, ou pixel frequency, algo
+assim) em Mhz, tipo de polarização do sinal de sincronismo de vídeo e a
+largura de faixa (ou Bandwidth) em Mhz(confusão, né) PARA CADA MODO DE
+RESOLUCAO!!!.
+
+Deve existir uma tabela com este valores, por exemplo, no meu caso,
+encontrei para 800x600:
+
+fH=35.45 Khz
+fV=46 Hz
+dot freq=36 Mhz   <--- este é o mais importante!
+pol horiz=+/-     <--- positivo ou negativo (tanto faz, teoricamente)
+pol verti=+/-
+
+Como ficou meu XF86Config:
+
+Section "Monitor"
+   Identifier  "SyncMaster 3"
+   VendorName  "Samsung"
+   ModelName   "3"
+   BandWidth   45.0
+   HorizSync   30-40
+   VertRefresh 50-87
+   Modeline    "640x480"  25  640  672  768  800  480  490  492  509
+   ModeLine    "800x600"  36  800  824  896 1024  600  601  603
+ 625 -hsync -vsync
+   Modeline    "1024x768" 45 1024 1040 1210 1267  768  777  785  817
+Interlace
+EndSection
+
+traduzindo:
+
+Identifier, VendorName, ModelName: dados do fabricante (Identifier tem que
+bater na sessao Display)
+
+Bandwidth: Largura de faixa do monitor (MHz)
+
+HorizSync: Faixa que engloba todos os valores encontrados no manual. Vc pode
+especificar os valores discretos, separados por virgula, que "deveria"
+funciona. No meu caso não funcionou pois dependia do que a placa de video
+"poderia" oferecer.
+
+VertRefresh: Idem
+
+Modeline: por exemplo, linha "800x600", este é o modo (tem que bater na
+sessao display),
+36 é o dot frequency (MHz), os valores 800 ate 625 não alterei, ou seja,
+copiei de uma linha já existente, -hsync e -vsync especificam polarizações
+negativas para sincronismo horizontal e vertical - optei por negativa pois a
+positiva não funcionou, mesmo o manual informando que poderia ser
+utilizada - verifique o seu.
+
+Voce pode tentar também "man XF86Config" que explica todos estes parametros
+
+Agora é só queimar uns fios de cabelo...
+Celso Fassoni
+			-------------
+
+			ACENTUAÇÃO NO LYX
+
+Creio que os mapas do LyX sejam semelhantes aos do KlyX. Neste eu
+resolvi os cedilhas colocando as linhas:
+
+ \kxmod acute c "\\c{c}"         # c cedilla
+ \kxmod acute C "\\c{C}"         # C cedilla
+
+no arquivo portuges.kmap.
+
+[]s
+Wanderlei Antonio Cavassin
+				-------------
+
+		Interface Grafica Trava o micro Placa 3DImage985 AGP
+
+Edite o arquivo /usr/X11R6/lib/X11/Cards
+
+e procure por "3DImage975"
+----->
+NAME Trident 3DImage975 AGP (generic)
+CHIPSET 3dimage975
+SERVER SVGA
+NOCLOCKPROBE
+LINE     Option     "noaccel"
+<-----
+Coloque esta última linha, após rode o Xconfigurator normalmente.
+Eliphas Levy <eliphas@conectiva.com.br>
+				------------
+
+		INSTALAÇÃO E CONFIGURAÇÃO DO KDE NO SLACKWARE 3.6
+
+baixei os dois arquivos
+kde.tgz e qt_1_42.tgz do ftp abaixo
+ftp.cdrom.com/pub/linux/slackware-current/slakware/xap1/
+Entao instalei assim installpkg  qt_1_42.tgz e depois installpkg
+kde.tgz (parece que a ordem e importante).
+Entao para acessar o kde usa-se o startx (nao mais o kde).
+Aqui no ambiente grafico (de que gosto muito) minha primeira
+providencia foi mudar o idioma para o portugues brasil: Centro de
+Controle KDE - Ambiente de Trabalho e Idioma.
+Outra coisa de que gostei foi da nova pasta Aplicativos Nao KDE
+que ja traz o Netscape.
+Configurei o kppp para acesso a internet legal.
+Caso algum colega iniciante tenha alguma duvida e so falar.
+Abracos (e mais uma vez: valeu Fred!)
+
+P.S.: para quem não sabe o Hugo traduziu o manual do KDE
+(www.netdados.com.br/tlm/arquivos).
+				----------
+
+			    USO DO GHOSTWRITER
+
+O ghostwriter é um programa para abrir e imprimir arquivos gráficos 
+tipo PostScript (tipo .ps). Este é um padrão criado pela Adobe para
+arquivos gráficos, que se baseia em construção vetorial de objetos:
+por exemplo, se quero uma reta, digo que ela começa no ponto (x1,y1)
+e acaba no ponto (x2,y2), com espessura de l, cor azul marinho etc.
+Comparando-se com padrões como o bitmap do DOS, que tem uma matriz
+de pontos preenchida com pontos de cores diferentes, o PostScript
+tem duas grandes vantagens:
+- o código necessário para se gerar uma figura fica extremamente
+  compacto;
+- pode-se dar zoom (dependendo do aplicativo) sem perda de resolução
+  até os limites da própria definição no arquivo.
+- a vantagem anterior torna este padrão extremamente atraente para
+  desktop publishing, artes gráficas em geral.
+
+O padrão Acrobat (.pdf) também da Adobe tem várias das características
+do PostScript, mas com maior portabilidade, devido à bilbioteca
+restrita e padronizada.
+
+O PostScript tem várias desvantagens:
+- é interpretado, ou seja, o leitor de arquivo .ps deve ler e entender
+  o arquivo, inclusive os tipos de letras etc. que são objeto de
+  padrões (tipo I, II etc.). Se este leitor não tiver aquela
+  biblioteca específica, nada feito;
+- esta desvantagem torna este padrão difícil de ser implementado
+  em aplicações "em tempo real" (joguinhos etc.);
+- impressoras Post-Script têm processadores internos que lêem o
+  arquivo e interpretam-no, gerando a saída "bitmapeada" conforme
+  a resolução que o freguês quer.
+- no mundo DOS/Windows este padrão é virtualmente desconhecido.
+  A Microsoft seguiu outros caminhos, como os fontes TrueType etc.,
+  com o intuito principal de não pagar royalties à Adobe nem a
+  ninguém.
+
+O Ghostwriter é um aplicativo gratuito (GPL) que lê e imprime
+Post-Script mesmo em impressoras não PostScript. Ele possui
+uma interface gráfica chamada Ghostview, que mostra arquivos
+.ps e .pdf, e os "imprime" para impressoras que não podem 
+interpreta-los (quase todas ;-)).
+
+Para chamar o Ghostview na linha de comando: 
+
+[meu computador]$gv
+
+Para chamar o Ghostwriter na linha de comando: 
+
+[meu computador]$gs
+
+(não faça isso ;-). Você não saberá usa-lo assim. Use o 
+Ghostview).
+
+Mas ele está instalado no menu de opções em distribuições como
+o RedHat.
+
+Ah, ia me esquecendo: o PostScript é um padrão muito popular
+no mundo UNIX.
+
+Quaisquer incoerências e incorreções, por favor escrevam-me.
+
+Wilson Komatsu - Instructor (M.Sc.) - wilsonk@usp.br
+				------------
+
+		CORTAR AS DUAS ÚLTIMAS LINHAS DE UM ARQUIVO
+
+ como eu posso fazer pra eliminar as duas ultimas linhas de um arquivo texto, de
+> dentro de um shell script?
+
+Utilize uma combinacao do awk com o wc. Assim:
+
+file=/meu/arquivo/a/ser/cortado
+total=`wc -l $file|awk '{ print $1; }'`
+awk 'NR <= $total - 2' < $file
+--
+  thiagom@usa.net  talha@geocities.com  ICQ UIN: 1967141 Thiago Macieira
+				-----------
+
+			GERENCIAMENTO DE PACOTES RPM
+
+Como faço para verificar quais pacotes estão instalados no Linux,
+---
+rpm -qa
+
+Voce nao pode instalar um pacote se ele ja estiver instalado (ainda que
+versao antiga). O que voce pode fazer e' remover o antigo e instalar o
+novo OU, o que e' recomendavel, faca uma atualizacao, com:
+rpm -Uv <pacote_novo.rpm>
+
+Para saber qual apache esta rodando, digite:
+rpm -q apache
+--
+  thiagom@usa.net  talha@geocities.com
+				-------------
+
+			MENSAGEM DE BOAS VINDAS DO SLACK/RH
+
+ola pessoal sou novato no linux e to tendo alguns problemas , coloquei o
+   kernel 2.2.1 , sobre o 2.0.34, não deu uma msg de erro durante a upgrade ,
+   mas quando eu reinicio , ele continua com 2.0.34
+-----
+tem um arquivo no seu /etc q se chama issue, ele eh a msg q vc
+configura pro seu linux, o default do slack 3.5 eh "Welcome to linux 2.0.34, c pode colocar o q c
+quiser nesse arquivo... a instalacao do kernel mais novo nem se preocupa com ele..T+ 
+
+Felipe Russo 
+-------
+Se o seu linux for o slack tá certo , se for o redhat copie o zImage
+para /boot/vmlinuz, e para ambos edite a linha que contem
+"vmlinuz-2.0.34" para "vmlinuz" no lilo.conf.
+				---------------
+
+			MUDANDO O PROMPT DO LINUX
+
+Como faco para mudar o prompt do linux.
+-----
+man bash
+Procure pelas variáveis PS1 e PS2. 
+E lembre-se: root é apenas para a administração do sistema!!!
+				-------------
+
+			LINUX ENTRAR AUTOMATICAMENTE NO XWINDOW
+
+Edite o arquivo /etc/inittab e mude o 
+id:3:initdefault:
+para
+id:5:initdefault:
+				--------------
+
+				LILO
+
+Sempre que mexeres no lilo.conf deves rodar o lilo.
+				--------------
+
+				SITES LINUX
+
+1) Sites Primários (procure por mirrors). 
+
+ftp://ftp.redhat.com
+ftp://ftp.conectiva.com.br
+ftp://linusp.usp.br/pub/mirror/(conectiva,redhat,contrib.redhat) 
+
+2) RPMFIND.net
+Arquivo de RPM's organizado por letra,data, distribuições, etc.:
+http://rufus.w3.org/linux/RPM/index.html
+
+3) Se não encontrar no rufus:
+http://filewatcher.org
+procure por nome_do_pacote*rpm
+
+4) http://ftpsearch.lycos.com/
+Coloque no Search type: Case insensitive multiple substrings search 
+procure por nome_do_pacote*rpm
+(pode ordenar a saída por distância, data, etc..)
+
+Para achar .deb's e tgz, substitua redhat por sua distribuição em 1)
+www.debian.org
+www.slackware.com
+
+ou rpm por deb ou  tgz  em 3) e 4)
+
+-- 
+Thadeu Penna
+				------------
+
+				QUEDA DE ENERGIA
+
+o linux nao eh a prova de queda de energia, se parar a forca vc perdeu tudo, 
+hehe .No problema jah esta a dica, rode o fsch atraves de um disco de boot 
+e ele resolve.
+Felipe Russo
+				----------
+
+				WINDOWS VER LINUX
+
+Editar o arquivo /etc/fstab
+--------
+Da uma olhada no meu, as linhas 3,4,5 referem-se a
+particoes mountadas... 
+
+/dev/hda7       swap        swap        defaults   0   0 
+/dev/hda6       /        ext2        defaults   1   1 
+/dev/hda1      /mnt/C       vfat     defaults  1    0 
+/dev/hdb1      /mnt/D       vfat     defaults  1    0 
+/dev/hda5      /mnt/E       vfat     defaults  1    0 
+/dev/hdd       /cdrom        iso9660       ro   0   0 
+none             /proc    proc        defaults   0   0 
+
+Felipe Russo 
+				------------
+
+			ATUALIZAÇÃO DO XFREE86
+
+Se sua versao antiga for 3.3.2.x , vc deve proceder da seguinte maneira:
+1- atualizar o X server q vc usa no momento...ex: XF86_SVGA...pra atualizar
+esse X server vc
+deve baixar o XFree86-SVGA-3.3.3.1-1.i386.rpm e digitar "rpm -Uvh
+XFree86-SVGA-3.3.3.1-1.i386.rpm",
+se nao for XF86_SVGA vc deve descobrir qual eh e atualizar!
+2-vc deve atualizar os libs do XFree86 com esse arquivo:
+XFree86-libs-3.3.3.1-1.i386.rpm e digitar
+"rpm -Uvh XFree86........"
+3- depois vc deve fazer update do arquivo XFree86-3.3.3.1-1.i386.rpm
+digitando tb "rpm -Uvh Xfree86...."
+Fazendo isso vc deve atualizar o XFree86....fiz isso e comigo funcionou! :-)
+
+Sobre sua placa nao posso fazer nada pois nao a conheco e nao sei como
+configura-la!
+
+Abracos,
+Milton
+				-------------
+
+			MONTAR UMA PARTIÇÃO FAT 16
+
+mount -t vfat /dev/hdc1 /mnt/fat
+				--------------
+
+				PROBLEMAS COM O MODEM
+
+Aí vai uma dica para quem enfrenta problemas com seu modem. No minicom, há
+uma parte onde se configura a inicialização do modem. O meu modem não
+funcionou com aquela string default que veio junto do minicom. Como meu
+modem não é US.Robotics eu coloquei a string de inicialização universal :
+AT&C1E1X4 , serve para todos modens.
+Mas se o seu for US. Robotics coloquem AT&F1, olha pessoal, é batata. Se o
+modem não conseguir tom de discagem, façam o seguinte: modem universal:
+AT&C1E1X3 e US. Robotics: AT&F1X3 . OK, Abraços
+Luciano Castro <killers@conex.com.br>
+--------
+1) Se for PnP, use o isapnptools
+2) Confira o link /dev/modem (talvez nao precise)
+3) Configure com o setserial
+4) Tire a linha com "lock" do /etc/ppp/options
+				-------------
+
+				MODEM COM ISAPNP
+
+Seguinte, tenho o Red Hat 5.2 e pelo menos aqui meu
+modem PnP funcionou. Execute o comando "pnpdump |more " (deve estar em /sbin
+ou /usr/sbin)...ele vai lhe mostar uma configuração geral do se hardware
+PnP.(tipo portas de acesso, endereçamento....). O proximo passo eh criar o
+arquivo /etc/isapnp.conf
+Para facilitar execute "pnpdump >/etc/isapnp.conf e  apenas edite o
+isapnp.conf. Agora eh só selecionar as portas e endereços que devem ser
+habilitados, salvar o arquivo e executar "/sbin/isapnp /etc/isapnp.conf".
+Pelo menos até aí eu consegui chegar e executar o "setserial" para habilitar
+meu modem.
+				---------------
+
+			PERSONALIZANDO O LOGIN
+
+É só editar o arquivo /etc/rc.d/rc.local.   As informações do prompt de
+login são passadas por este arquivo.
+				--------------
+
+			VERSÃO DE BIBLIOTECAS GLIB
+
+Para saber qual a versão da glib que está instalada basta digitar :
+
+    rpm -qa | grep glib
+				--------------
+
+				MENSAGEM DO DIA
+
+Acho que o que o Francisco está pedindo é o " message of the day":  a
+mensagem que aparece após o login do usuário, certo? Neste caso é o
+arquivo /etc/motd. 
+				-----------
+
+				LILO
+
+Abaixo transcrevo uma adaptacao do
+capitulo sobre LILO do livro "Using Linux" da QUE, sobre o que eh e como funciona o LILO. 
+Desculpem a extensao da mensagem, mas acredito que as informacoes abaixo serao de grande valia
+para muita gente. 
+
+O programa LILO (LInux LOader) eh o carregador padrao do Linux. Esse programa eh a mais
+flexivel das rotinas de partida do Linux. O LILO pode ser configurado para residir no registro
+principal de inicializacao do seu HD ou no setor de inicializacao (ou de partida) de uma particao de
+um HD. Voce tera de tomar essa decisao ao instalar o Linux; dependendo do seu sistema, uma ou
+outra funcionara melhor para voce. 
+Voce nao entendeu nada disso? Nao se preocupe... Os modernos PCs incializam quase da mesma
+forma que um PC fabricado em 1982. Entretanto, o hardware mudou tanto que o processo de
+partida requer que o sistema operacional e a rotina de partida para o sistema operacional estejam
+conscientes dos varios rodeios que forma implementados nos PCs para suportarem itens tais como
+HD maiores. 
+O procedimento de partida para cada PC eh relativamente direto quando visualizados a distancia.
+Ele funciona da seguinte forma: 
+
+1. Quando o PC eh ligado, o processador inicia a execucao do codigo na BIOS. Esse codigo
+dimensiona a memoria, testa o processador e o hardware e inicializa o hardware para um estado
+conhecido. 
+2. A BIOS entao procura pela unidade de disco de partida (geralmente um disquete ou um HD); se
+eh um HD, a BIOS le o registro principal de partida e o executa. Esse registro principal de partida
+(geralmente instalado pelo DOS ou Win95/98) procura pela primeira particao ativa e, depois, tenta
+carregar esse registro de partida. 
+3. O registro de partida da particao contem instrucoes sobre como carregar a rotina de partida. As
+limitacoes de tamanho estao em efeito aqui, portanto a rotina de partida deve ser bem pequena. O
+DOS em si eh pequeno o suficiente para se encaixar ai, assim, para um sistema DOS, o processo de
+partida eh finalizado. Outros terao um programa aqui que carrega o kernel do sistema operacional e
+o inicializa, como o LILO que carrega o kernel do Linux, descapacta-o e, depois, inicializa-o. A
+memoria que a rotina de partida usa eh entao, em geral, reclamada pelo sistema operacional que foi
+inicializado. 
+
+As opcoes do LILO sao definidas e configuradas enquanto o Lunix esta em execucao, o que
+significa que se o LILO nao inicializa o Linux, voce deve usar os seus discos de inicializacao de
+emergencia para acessar o disco rigido do sistema e, depois, configurar o LILO. Talvez voce tenha
+de experimentar para determinar se o LILO funciona melhor no registro principal de partida do seu
+disco rigido ou no setor de inicializacao da sua particao primaria. 
+O LILO le a sua configuracao a partir de um arquivo no diretorio /etc do sistema chamado lilo.conf.
+Esse arquivo informa ao LILO o sistema operacional para o qual ele deve configurar-se e onde
+instalar a si mesmo. A sua parte basica eh o arquivo lilo.conf, o qual informa ao LILO para inicializar
+somente um sistema operacional, como abaixo: 
+
+boot=/dev/hda4 
+map=/boot/map 
+install=/boot/boot.b 
+prompt 
+timeout=50 
+image=/boot/vmlinuz-2.036-0.7 
+label=linux 
+root=/dev/hda4 
+read-only 
+
+Esse arquivo informa ao LILO para posicionar-se no setor de inicializacao da particao /dev/hda4,
+para esperar por cinco segundos pela entrada do usuario no prompt LILO: e para inicializar o kernel
+vmlinuz-2.036-0.7 no diretorio /boot da particao /dev/hda4. O LILO exibe um prompt e espera por
+cinco segundos por uma entrada antes de inicializar a primeira imagem do arquivo lilo.conf. Observe
+que o valor de tempo de espera para cinco segundos eh 50 - o LILO mede o tempo em
+incrementos de 0,10 segundos. 
+
+Qualquer coisa, estamos por aqui.... 
+
+Abracos!!!! 
+Walter Brick ICQ 2662901</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

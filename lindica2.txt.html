@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			Instalei o Linux
+
+Você acaba de instalar o Linux, com os pacotes que quis, programas legais, 
+coisas interessantes, criou um usuário pra você (se não, crie agora!), se 
+logou como esse usuário, deu o password e agora esta no prompt olhando para a 
+tela neste exato momento, se perguntando: "O que faço agora?"
+
+Calma, vamos agora fazer um "teste", vamos fazer tarefas que você faria no 
+DOS, vamos comparar os dois sistemas, vamos começar vendo o básico de tudo.
+
+Lembre-se que está seção é um apanhamento geral do resto do manual. Você pode 
+encontrar coisas aqui que não encontrara em outras seções. Aqui você vai 
+encontrar o básico de tudo, se quiser mais detalhes, veja também as outras 
+seções deste manual. Com certeza você sairá com muito conhecimento.
+
+		Vamos agora aprender coisas simples:
+
+- Como sair do Linux. Se você estiver no modo texto (terminal), é só digitar 
+  CTRL+ALT+DEL, se você estiver no X-Window, você terá primeiro que digitar  
+ CTRL+ALT+BACKSPACE, depois você digita CTRL+ALT+DEL. Nunca dê Reset   na 
+"tora", pois isso pode danificar seu sistema de arquivos, e algumas coisas   
+você fez não vão ser salvas.
+
+- O Linux tem uma coisa que o DOS não tem, permissões, acessos. Você está 
+logado   como um usuário normal, e de repente quer executar algum programa ou 
+editar algum   arquivo mas quando tenta, dá "Permisson Denied". Quer dizer o 
+que você está tentando   não é possível fazer por você como esse usuário. O 
+usuário que pode fazer tudo, eu   disse TUDO no sistema, é o root, ou seja, o 
+administrador do sistema.
+
+- Você agora está no prompt. Se o prompt terminar em $ você estará como 
+usuário   normal, e quando estiver terminando em #, você está como root. Você 
+agora quer obter   ajuda, tente o bom e velho:
+
+	$ help
+
+Este comando lhe dá ajuda sobre o bash (uma shell), se você quiser ajuda 
+sobre um determinado comando, tente os manuais online:
+
+	$ man comando
+
+Isso invoca o manual do comando. Você pode tentar também:
+
+	$ apropos comando
+	$ whatis comando
+
+e pressione 'q' para sair.
+
+- Quando você vê a sintaxe do comando, você terá que saber que:
+
+Na sintaxe do comando: $ tar -tf < file.tar > [> redir_file]
+o < ... > significa uma coisa essencial ao comando
+o ( ... ) significa uma coisa opcional
+
+No exemplo acima, "file.tar" tem que ser identificado, e "> redir_file" é 
+opcional.
+
+
+ Notas:
+
+- * mostra todos os arquivos exceto os ocultos; 
+- .* mostra todos os arquivos ocultos;
+-  *.* mostra somente os que tiverem  um "." (sem aspas) no meio, seguido de 
+caracteres; 
+- p*r mostra tudo que começar com p e terminar com r; 
+- *c* mostra todos os arquivos que tiverem um c no meio.
+
+- Quando usado more, pressione SPACE  para ler o arquivo, q ou CTRL-C para 
+sair, less é melhor e deixa que você use as setas do teclado.
+
+-  Não há UNDELETE, então pense duas vezes antes de apagar alguma coisa;
+
+- Adicionando aos < > >> do DOS, o Linux tem 2> para redirecionar mensagens 
+de erro (stderr); 2>&1 redireciona srderr para stdout, enquanto 1>&2 
+redireciona stdout para stderr;
+
+- O Linux tem mais um wildcardL o []. Use [abc]* mostra arquivos começando 
+com a, b, c; *[I-N,1,2,3] mostra arquivos terminando com I,J,K,L,M,N,1,2,3;
+
+- Não existe um DOS RENAME; para isso se utiliza mv *.xxx *.yyy;
+
+- Use cp -i e mv -i para ser avisado quando um arquivo está para ser 
+sobrescrito.
+
+			Multi-tarefa
+
+O Linux é um sistema multi-tarefa, por isso, ele pode ser acessado por vários 
+consoles ao mesmo tempo, assim como pode ser rodado vários programas ao mesmo 
+tempo. Para mudar o console do 1 a 6, utilize:
+
+ALT+N                       (Onde N é o número do console)
+
+Exemplo:
+
+ALT+1, ALT+2, ALT+3, ALT+4, ALT+5, ALT+6
+
+Agora você pode ir para o próximo console e o antecedente com:
+
+ALT+RIGHT                   (Vai pra 1 console A FRENTE)
+ALT+LEFT                    (Vai pra 1 console ATRÁS)
+
+Se você quiser ir para outra sessão sem sair do console, utilize o comando 
+su:
+
+su < usuário >
+
+Exemplo:
+
+su root
+
+Para sair da sessão:
+
+$ exit
+
+Notas:
+
+1. Quando usando rmdir, o diretório para remover tem que estar vazio. Para 
+deletar o diretório com o que contém dentro, use rm -R (em seu risco)
+2. O caractere '~' é um atalho para o nome do seu diretório home. Os comandos 
+cd ou cd ~ fazem você ir para seu home de onde você estiver. o comando cd 
+~/tmp leva você para /home/voce/tmp.
+3. cd - um undo para o último cd.
+
+		Utilizando Floppy no LINUX
+
+Para montar um floppy disk, isto é, um disco flexível, você terá que utilizar 
+o comando 'mount'. Você terá que ter o driver e o device respectivamente 
+(fd0, fd1, fd2, etc). Então você deverá digitar:
+
+mount /dev/fd0 /diretório_ao_disco_ser_acessado
+
+Um exemplo:
+mount /dev/fd0 /mnt/disk
+
+Isto fará com que você acesse o conteúdo do disquete que foi para o diretório 
+/mnt/disk. Quando você quiser retirar o disco geralmente deve-se 
+'desmontá-lo' primeiro. Digite:
+
+umount /dev/fd0
+
+Você pode também fazer o seguinte, criar um script, que se chama, por exemplo 
+de 'diskon' (Para ativar) e 'diskoff' (Para desativar). Então para melhor 
+utilização, coloque este arquivo em um diretório PATH, ou então coloque o 
+PATH  no diretório onde você quiser colocar os scripts.
+
+			Configurando PATH
+
+Para ver os atuais diretórios que estão como PATH, digite o seguinte:
+echo $PATH
+
+Se o diretório desejado não estiver na lista, coloque-o assim:
+PATH=$PATH:/diretorio/a/ser/colocado/no/path
+
+Isso colocará o /diretorio/a/ser/colocado/no/path no PATH.
+
+Obs: Essas instruções são válidas somente para uma seção! Ou seja, são 
+temporários. Se você quiser colocar um PATH permanente, coloque num profile 
+pessoal. Se quiser ser um PATH GLOBAL, coloque o diretório no arquivo 
+/etc/profile aonde indicado.
+
+			Manipulando usuários no LINUX
+
+Para adicionar um usuário em seu sistema, você deve proceder assim:
+- Digite o comando 'adduser';
+- O sistema vai pedir o Login, escolha-o;
+- Depois vai pedir uma série de coisas, aperte (enter) até aparecer 
+'password';
+- Escolha o password e pronto. O usuário foi cadastrado no arquivo 
+/etc/passwd .
+
+Se este usuário quiser acessar permissões de outros usuários, o seguinte 
+comando deve ser usado: 
+su (usuario)
+
+Depois de ter digitado isso, o sistema vai pedir o password do (usuário), 
+coloque-o e assim, você poderá acessar tudo o que o outro acessa. Para sair 
+desse 'acesso' ao seu login normal, digite 'exit'
+
+Obs: O usuário root é o administrador do sistema, ou seja, ele controla TUDO. 
+Aliás, ele que dá as permissoes para outros usuários. Então lembre-se, se 
+você for cadastrar um usuário você deve estar com o poder do root.
+
+Para apagar um usuário, deve-se proceder assim:
+
+- Edite o arquivo /etc/passwd e procure a linha equivalente a:
+  (usuário):(senha criptografada):(ID do grupo):(Grupo):(Home):(Shell);
+- Retire esta linha, e o login não mais existirá;
+- Apague o diretório HOME do usuário(se existir);
+- Apague o arquivo /var/spool/(usuario) e pronto. Descadastrado.
+
+Dica: É aconselhável você adicionar um login diferente de root, para que você 
+não faça nenhuma 'besteira sem querer' ao usar o login do root, mas quando 
+você quiser usar o root como usuário, utilize o comando 'su', que você pode 
+ver logo acima.
+
+Criando outro usuário com o poder de root:
+
+- Faça os procedimentos de criar um usuário normal;
+- Edite o /etc/passwd com um editor de texto comum;
+- Vá na linha do usuário e edite para:
+  (usuário):(senha criptografada):0:0:(Home):(Shell) e pronto
+                                  ^ ^
+Então o usuário terá todo o poder do root por padrão.
+
+			Recompilando o Kernel
+
+Para recompilar seu kernel para uma versão nova que você pegou, você deve 
+prosseguir como descrito abaixo. Os * significam opcionais. Que vem 
+explicações depois.
+
+cd /usr/src
+rm -rf linux
+tar xvfz ondeeleestiver/linux-2.0.34
+ln -s linux-2.0.34 linux
+cd linux
+make menuconfig (*) Aqui você pode substituir por make config (console) make 
+xconfig (x-windows)
+make dep
+make clean
+make zImage
+make zdisk (*) Aqui é para se você quer um disco de boot
+make zlilo (*) Aqui é para compilar o LILO também
+make modules
+make modules_install
+lilo (*) Instalação do LILO
+init 6 (*) Reinicialização
+
+Neste exemplo, usamos o linux-2.0.34 que é a atualização para o kernel
+2.0.34.
+Agora se você quer recompilar seu kernel sem a atualização, somente para 
+reconfigurar ele, vá direto ao:
+
+cd /usr/src/linux
+make menuconfig (*) Aqui você pode substituir por make config (console) make 
+xconfig (x-windows)
+make dep
+make clean
+make zImage
+cp /usr/src/linux/arch/i386/boot/zImage /boot/vmlinux
+make zdisk (*) Aqui é para se você quer um disco de boot
+make zlilo (*) Aqui é para compilar o LILO também
+make modules 
+make modules_install
+lilo (*) Instalação do LILO
+init 6 (*) Reinicialização
+E prontinho...
+
+	    Usando partições LINUX no Windows 95/98 e vice-versa
+
+Quem tem os dois sistemas(Win59+Linux) sempre quer ter os dois no seu 
+controle, para isso, temos que enxergar ambas partições, para ter um controle 
+maior.
+Mas como fazer isso? Temos aqui 2 métodos para enxergar Win95 no Linux...
+
+- Verifique em qual partiçõo (/dev/hd??) está o Win95 (aqui: /dev/hda1)
+- Escolha um diretorio para a partiçõo ser montada (aqui: /mnt/win95)
+- Digite: mount /dev/hda1 /mnt/win95
+
+Com isso, a partiçõo Win95 está vizualizada no diretório /mnt/win95 Porém, 
+isso só dá acesso numa sessõo, para o linux carregar logo no boot, adicione a 
+partiçõo no arquivo /dev/inittab
+
+...Agora o método para vizualizar o Linux no Win95
+Existem 2 programinhas que fazem isso:
+
+- Linux Read - Só não permite escrever na partiçõo
+  Endereço: Disponível como lread??.zip em Simtel.net
+
+- ?????????? - Vizualiza partições ext2fs
+  Endereço: http://www.globalxs.nl/home/p/pvs/
+
+Para montar uma partiçõo tradicional, usamos o comando: mount /dev/hd? 
+/destino (e.g. mount /dev/hd1 /dos) Mas se a partiçõo for win95, e os 
+arquivos tiverem extensõo maior que 8digitos.3digitos, esses arquivos 
+aparecerõo "truncados", tipo, em vez de eu adoro sorvete.html fica 
+euador~1.htm... Para nõo acontecer isso, temos que montar a partiçõo com 
+parâmetros vfat, para isso, compile seu kernel para suportar vfat e ao for 
+montar a partiçõo, utilize o comando: mount -t vfat /dev/hd? /destino (ex. 
+mount -t vfat /dev/hda /win95) Outro jeito, para alguém que monta as 
+partições na inicializaçõo, tem de se editar o arquivo /etc/fstab, e em vez 
+da palavra msdos, você coloca vfat.</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

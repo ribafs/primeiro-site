@@ -1,0 +1,475 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>				DISTRIBUIÇÕES -2
+
+Pra ISP, vc tem que cuidar muito de seguranca. Eu instalo sempre o Debian,
+pq o RedHat eh muito inseguro - (aos gurus, antes de me baterem, favor
+lembrar dos Bugs da PAM, Bind, Apache e outros exploits do RH 5.0, 5.1 e
+5.2). O Slack serve tbm - tem menos bugs de seguranca, mas tem o seguinte
+problema: para qualquer upgrade maior no site ou de versao vc vai ter de
+REINSTALAR o sistema inteiro, se nao quiser ficar fazendo remendos por mais
+de uma semana... O Debian faz a atualizacao completa do sistema via
+Internet, eh soh apontar o Dselect (instalador de pacotes do Debian) para
+um site ftp com a versao mais nova, e ele se encarrega de mudar tudo sem
+precisar reboot, e sem tirar os servicos criticos do teu provedor (http,
+mail, dns, etc) do ar por mais de cinco minutos, e sem a necessidade de vc
+ter de mexer muito na config dos pacotes atualizados (a menos que o pacote
+tenha se modificado muito, o Debian utiliza os mesmos .conf que vc jah
+tinha!). O maior problema do Debian eh o tempo de instalacao: Uma
+instalacao SEGURA de um ISP SEGURO leva de 12 a 18 horas de trabalho
+(intall e configuracao completa) e nao eh muito palatavel... 
+Rico Ferrari
+------------
+Após anos usando o Slackware e atualmente usando um Guarani, eu gostaria
+de saber o que é customizável no Slackware que não é num RH. E o que é
+mais versátil também, se possível. 
+Essa idéia que estais passando é ilusória. Tudo o que fazes num Slackware
+é possível se fazer do mesmo modo num RH. "Mas eu edito arquivos no
+Slackware". Eu também no RH. 
+"Mas o sistema é mais lento". Só se for mal configurado. 
+Toda e qualquer distribuição bem configurada dá um ótimo desempenho. O que
+muda são os métodos mais comumente usados para fazer estas configurações
+mas nada impede que você aja do mesmo modo no Slackware e no RH. 
+Jorge Godoy <jorge@bestway.com.br>
+-----------
+Oi, Jorge
+>Após anos usando o Slackware e atualmente usando um Guarani, eu gostaria
+Após anos, tambem, usando todas as distribuicoes que pude (menos a Stampede
+- falha que estarei corrigindo no proximo mes)  :) Posso concluir algumas
+coisas...
+>de saber o que é customizável no Slackware que não é num RH. E o que é
+Seguranca dos programas INET?
+
+>mais versátil também, se possível. 
+>Essa idéia que estais passando é ilusória. Tudo o que fazes num Slackware
+>é possível se fazer do mesmo modo num RH. "Mas eu edito arquivos no
+>Slackware". Eu também no RH. 
+>"Mas o sistema é mais lento". Só se for mal configurado. 
+Se vc for pelos defaults de uma ou de outra, vc terah um sistema mais lento
+na instalacao RedHat. Certo, nao se deve usar defaults, mas a maioria dos
+novos usuarios instala ateh o sendmail, mesmo sem ter ideia do que ele eh
+(em quantas distribuicoes ele eh default? faca as contas...)
+
+>Toda e qualquer distribuição bem configurada dá um ótimo desempenho. O que
+Todo Kernel Linux tem otimo desempenho, desde que otimamente configurado.
+Isto comeca pela instalacao. Ou nao?
+
+>muda são os métodos mais comumente usados para fazer estas configurações
+>mas nada impede que você aja do mesmo modo no Slackware e no RH. 
+
+Isto ateh pode ser verdade se o rapaz fizer o que o Thadeu Pena sugeriu em
+outro email, de compilar e modificar a mao o que for de missao critica...
+Por que o RH costuma vir bugado e com a seguranca baixa nas compilacoes
+originais ( http://ext2.org/99/02/imoore2.html ), e justamente naquilo que
+eh mais critico, ou seja, soft (piece of code) que entra em contato direto
+com o duro e selvagem coracao do Mundo, as centenas de (BONS)
+hackers/crackers que hah pela internet afora. Se vc acha que um sistema
+RedHat, Suse ou Slack instalado como vem em binario sao sistemas seguros,
+me passe o endereco Inet de seu provedor que tenho uns conhecidos que
+querem ve-lo de perto  :^D
+(Brincando!)
+Eu soh pergunto porque arriscar num sistema de missao critica com o RH
+quando o Debian eh conhecido por sua seguranca e estabilidade? Por que eh
+mais dificil de instalar? Mas nao eramos nos da lista que diziamos que
+administradores de sistemas tem de ler e aprender? 
+Nao conheco o Guarani para tecer uma opiniao sobre ele, mas se ele usa as
+mesmas opcoes de compilacao que o RedHHat (do qual deriva), nao posso
+apostar tanto em sua seguranca, assim. 
+Se minha argumentacao nao foi suficiente, na Ext2 deste mes tem artigo
+falando sobre o mesmo assunto: http://www.ext2.org
+Rico Ferrari
+suporte@ivixnet.com
+---------
+Na verdade pra quem ja chegou la e sabe unix e manuseia
+diariamente, todos os sistemas sao customizaveis.
+        Concordo que se vc tem a senha do root vc coloca o que que
+quiser e onde quiser, mas convenhamos, tu te logar como root
+dar um "rm file' e o RH perguntar y/n e o cumulo! Vc esta
+logado como root, entao vc TEM certeza do que esta fazendo,
+se nao tem, nao se log como root.
+        Outra coisa, o RH eh voltado mais para usuario final (eh
+mais voltado para a parte comercial (Nao vamos entrar em
+outra flame, eh claro que eh gratuito, GNU, e tal, mas gira
+MUITA grana en torno do RH, e quanto mais WinLike ele ficar
+mais dinheiro vai rolar)) entao possui muitos escriptzihos
+para "facilitar" a vida do usuario, que no fundo so
+atrapalham.
+        O Slackware eh mais leve (nao falo em performance, mas
+IMSHO tb) tem menos arquivos pra se configurar (vc vai
+direto onde quer, nao precisa dar voltas e olhar (esse aqui
+faz isso e chama aquele, que por sua vez faz aquilo e chama
+outro..)
+        Agora escrevendo esse email me dei conta de uma coisa, na
+verdade o principal: SIMPLICIDADE.  isso resume tudo.
+obs.: usei RH por 3 anos antes de ser apresentado ao
+maravilhoso mundo do Slackware rodando com um AfterStep em
+cima!
+Bruno de Oliveira Ferrarese       TCPWrapper@zaz.com.br
+-----------
+> >de saber o que é customizável no Slackware que não é num RH. E o que é
+> Seguranca dos programas INET?
+
+Que segurança? Como administrador é sua obrigação fechar o acesso a tudo o
+que não seja necessário. Isso é feito facilmente no RH e no Slackware
+editando-se o /etc/hosts.deny e acrescentando-se a linha "ALL:ALL".
+Libere, depois, em qualquer distribuição, no /etc/hosts.allow os serviços
+carregados pelo inetd que você desejar.
+Esse é o _mínimo_ de segurança. É óbvio que muitas outras coisas são
+necessárias, mas em qualquer distribuição.
+> >mais versátil também, se possível. 
+> >Essa idéia que estais passando é ilusória. Tudo o que fazes num Slackware
+> >é possível se fazer do mesmo modo num RH. "Mas eu edito arquivos no
+> >Slackware". Eu também no RH. 
+> >"Mas o sistema é mais lento". Só se for mal configurado. 
+> Se vc for pelos defaults de uma ou de outra, vc terah um sistema mais lento
+> na instalacao RedHat. Certo, nao se deve usar defaults, mas a maioria dos
+> novos usuarios instala ateh o sendmail, mesmo sem ter ideia do que ele eh
+> (em quantas distribuicoes ele eh default? faca as contas...)
+
+No Slackware o sendmail também é instalado por default... 
+
+> >Toda e qualquer distribuição bem configurada dá um ótimo desempenho. O que
+> Todo Kernel Linux tem otimo desempenho, desde que otimamente configurado.
+> Isto comeca pela instalacao. Ou nao?
+
+Isso começa antes da instalação. Começa no planejamento de como será feita
+a instalação. Não se pode simplesmente instalar e exigir uma performance
+ultra alta. Planeje partições, o que instalar e você terá uma máquina de
+ótima performance. Em qualquer distribuição. 
+
+> Isto ateh pode ser verdade se o rapaz fizer o que o Thadeu Pena sugeriu em
+> outro email, de compilar e modificar a mao o que for de missao critica...
+> Por que o RH costuma vir bugado e com a seguranca baixa nas compilacoes
+> originais ( http://ext2.org/99/02/imoore2.html ), e justamente naquilo que
+> eh mais critico, ou seja, soft (piece of code) que entra em contato direto
+> com o duro e selvagem coracao do Mundo, as centenas de (BONS)
+> hackers/crackers que hah pela internet afora. Se vc acha que um sistema
+> RedHat, Suse ou Slack instalado como vem em binario sao sistemas seguros,
+> me passe o endereco Inet de seu provedor que tenho uns conhecidos que
+> querem ve-lo de perto  :^D
+
+Ainda é função do administrador de um sistema se manter atualizado... A
+distribuição vem desatualizada até pelo fato de ser um CD. O tempo de
+prensagem e venda do CD o torna obsoleto... A cada dia surgem novos bugs e
+novas correções. O sistema que você roda hoje e que foi instalado ontem
+está obsoleto. Pode não existir o patch, mas existe o bug.
+Eu gero muitos RPMs quando não encontro o RPM da versão atualizada... 
+
+> Eu soh pergunto porque arriscar num sistema de missao critica com o RH
+> quando o Debian eh conhecido por sua seguranca e estabilidade? Por que eh
+> mais dificil de instalar? Mas nao eramos nos da lista que diziamos que
+> administradores de sistemas tem de ler e aprender? 
+
+Exatamente. E ele pode fazer isto em qualquer distribuição. O RH é o mais
+acessível pela pseudo-facilidade. É fácil chegar e escolher "Server"
+e deixar ele instalar sozinho. Não é assim que um administrador deve agir.
+A dificuldade em se planejar o sistema é a mesma... Mudam, como eu disse,
+as ferramentas para administra-lo. Use apenas o pkgtool no seu Slackware
+para você ter uma idéia do caos que é tentar manter uma base 100%
+atualizada. Eu faço isso automaticamente, tornando meus programas
+atualizados por um mirror/uma fonte de confiança.
+
+> Nao conheco o Guarani para tecer uma opiniao sobre ele, mas se ele usa as
+> mesmas opcoes de compilacao que o RedHHat (do qual deriva), nao posso
+> apostar tanto em sua seguranca, assim. 
+Eu preferiria parar no "tecer uma opinião sobre ele". Falar sobre o que
+não se conhece é cair em erro. O Guarani é bem diferente do RH nos
+pacotes. São mais atualizados e com várias correções feitas pelo pessoal
+da Conectiva e pelos autores dos pacotes. 
+
+> Se minha argumentacao nao foi suficiente, na Ext2 deste mes tem artigo
+> falando sobre o mesmo assunto: http://www.ext2.org
+
+Não vi nada de mais lá. Apenas uma comparação Debian/RH. 
+No link que você indicou (http://www.ext2.org/99/02/imoore2.html) está um
+comentário interessante:
+
+"The best distribution will be the one that works best for you.
+ For me it's Debian GNU/Linux."
+ ^^^^^^
+Essa também é minha filosofia. Para mim, o Guarani foi excelente. 
+
+Vamos partir para o lado administrativo: 
+- gerencie pacotes no Slackware: upgrade, instalação e desinstalação.
+- garanta que, após instalado, um pacote tem todas as condições para
+  funcionar, precisando apenas do ajuste fino (quando e feito sozinho ele 
+  não é otimizado, pois deve funcionar em diversas máquinas diferentes)
+- garanta que você possui um método seguro de validar _todos_ os arquivos
+  instalados contra alterações
+- outras...
+- (Só para ser chato, já que posso estar me metendo numa Flamewar, porque
+  o pessoal da Debian cogitou em trocar o dpkg por rpm?? :-))) Veja na
+  DebianWeek. 
+Vamos partir para o lado operacional:
+- Plug'n'Play.
+- Inovações tanto em Hardware quanto em Software
+- Apoio a projetos externos
+Apoio comercial:
+- Em quem as grandes empresas estão investindo? (O seu
+  gerente/diretor/chefe vai querer saber...)
+
+Eu quero deixar claro que o objetivo NÃO é iniciar uma flamewar. É
+esclarecer que não existe uma distribuição melhor ou pior. Existe a
+distribuição que mais agrada a você ou a que mais agrada a mim... 
+Eu NÃO defendo a RH. Eu NÃO defendo a Slackware. Eu defendo apenas uma
+distribuição: a que eu uso. (E NÃO é nem mais a Guarani, pois muitas
+coisas foram alteradas para satisfazerem o meu estilo de trabalho... O
+Guarani foi apenas a base) 
+Como sempre respondo quando me perguntam qual é a melhor distribuição: "A
+melhor é aquela que você sabe mexer e que está bem configurada". 
+Jorge Godoy <jorge@bestway.com.br>
+----------
+>Não quero discutir se o Debian, ou RH é o melhor, mas das questões que você
+>levantou...
+A intencao nao foi de apontar essa ou aquela distribuicao como melhor ou
+pior, apenas apontar algo que eh de dominio publico na comunidade Linux:
+Para missao critica, ISPs ou maquinas na Internet, o Debian eh mais
+indicado. Elencar todos os motivos que me fazem afirmar isto consumiria
+muito espaco, e poderia suscitar uma flamme war que eu nao estou realmente
+disposto a travar.
+
+>Esses bus/exploits não são dos programas em si e não do RH?
+Sao Bugs/exploits presentes na maioria das vezes no software compilado pela
+RH. Por exemplo: o feio Bug da PAM (Pluggable Authentication Modules)
+presente no RH 5.0 e 5.1 nao ocorreu em outras distribuicoes. Porque? Para
+entender, lembre-se de que os programas distribuidos como binarios com
+todas as distribuicoes sao compilados ou pre-compilados, apesar de
+acompanharem os fontes. Ao compilar um fonte, o sujeito tem uma serie de
+decisoes a tomar, e uma serie de escolhas a fazer. No RH essas
+escolhas/decisoes sao feitas por cerca de 60 programadores contratados e
+que tem de cumprir prazos de lancamento para as novas versoes entrarem no
+mercado. No Debian, essas escolhas e decisoes sao feitas por mais de 500
+voluntarios em todo o mundo, gente desde engenheiros da NASA ateh meninos
+de dezesseis anos escolhidos/engajados por apenas dois criterios:
+competencia+vontade de fazer o melhor SO do mundo (isto nao quer dizer, nem
+eu quero dizer, necessariamente, que tenham atingido seu objetivo, ou
+estejam perto disso). Apenas significa que os objetivos sao diferentes. O
+RH eh insuperavel em seu intento de popularizar o Linux/Unix. Coisas como
+Xconfigurator sao, simplesmente maravilhosas para quem jah teve de editar o
+xf86config a mao. O Gnome, a instalacao, o Linuxconf, etc, diferenciam
+muito bem o RH de quase todos os outros (atente tbm para o Suse e o
+TurboLinux, se facilidade eh seu objetivo), mas daih a dizer que vc pode
+confiar seu ISP a uma distribuicao que tem falhas graves de compilacao em
+quase todas as versoes, eh algo bem complicado. Eu usei RH 2.0, 3.1, 3.2,
+4.0, 4.2 e jah instalei o 5.2 num PII Soho que tenho em casa, e apesar de
+ter melhorado muito em diversos aspectos, ele continua inseguro. Procure
+informacao a respeito na rootshell ou exploit.org . 
+
+>O RH é uma distribuição.
+>Mas acima de tudo, a filosofia deles não é só fazer o upgrade quando o
+>programa estiver seguramente testado?
+Nao. O que mais se ve sao patches para isso e aquilo no RedHat. Nao estou
+dizendo que as outras nao tenham bugs e falhas de seguranca, apenas afirmo
+(respaldado em diversas fontes) que o RH eh, das distribuicoes conhecidas,
+a que sai do forno com maior quantidade de bugs, ok?
+
+>O Debian não usa esses programas?  Se sim, de que forma ele difere?
+Usa estes e mais 1500. Sao 2000 pacotes de software num soh CD, com
+programas jah configurados que jah devem ter feito vc passar noites em
+claro baixando por ftp o similar em RPM  :)
+
+>O RPM já não faz tudo isso?
+Upgrade online para daemons criticos num ISP? PUF, PUF.. Sorry. Sinto lhe
+dizer que em algumas vezes vc vai ter de se virar com configs extras e
+mensagens bem cripticas e - horror dos UNIX! - reinstalar seu sistema "from
+Scratch"/do zero...
+Rico Ferrari
+----------
+On Mon, 8 Feb 1999, Bruno de Oliveira Ferrarese wrote:
+
+>       Concordo que se vc tem a senha do root vc coloca o que que
+> quiser e onde quiser, mas convenhamos, tu te logar como root
+> dar um "rm file' e o RH perguntar y/n e o cumulo! Vc esta
+> logado como root, entao vc TEM certeza do que esta fazendo,
+> se nao tem, nao se log como root.
+
+Ou, retire a linha:
+
+alias rm="rm -i"
+
+dos seus arquivos de configuração do root. Ele nunca mais vai te
+perguntar.
+
+>       Outra coisa, o RH eh voltado mais para usuario final (eh
+> mais voltado para a parte comercial (Nao vamos entrar em
+> outra flame, eh claro que eh gratuito, GNU, e tal, mas gira
+> MUITA grana en torno do RH, e quanto mais WinLike ele ficar
+> mais dinheiro vai rolar)) entao possui muitos escriptzihos
+> para "facilitar" a vida do usuario, que no fundo so
+> atrapalham.
+
+??? Será?
+>       O Slackware eh mais leve (nao falo em performance, mas
+> IMSHO tb) tem menos arquivos pra se configurar (vc vai
+> direto onde quer, nao precisa dar voltas e olhar (esse aqui
+> faz isso e chama aquele, que por sua vez faz aquilo e chama
+> outro..)
+
+Acho isso interessante. Ao invés de cirar diversas entradas no cron, uma
+para cada programas rodado a cada hora, por exemplo, eu os copio todos
+dentro de /etc/cron.hourly que o RH automaticamente os executa a cada
+hora. Isso não é frescura, é conforto e facilidade para gerenciar. Não
+quer mais rodar? chmod -x arquivo_dentro_do_etc_cron_hourly
+
+>       Agora escrevendo esse email me dei conta de uma coisa, na
+> verdade o principal: SIMPLICIDADE.  isso resume tudo.
+
+Exactly. simplicidade, conforto e facilidade de realizar tarefas simples e
+tarefas complicadas. Podes ir direto nos arquivos no RH, sem medo nenhum.
+As ferramentas existem para facilitar (e até aumentar a segurança, algumas
+vezes...) e não são de uso obrigatório. 
+
+> obs.: usei RH por 3 anos antes de ser apresentado ao
+> maravilhoso mundo do Slackware rodando com um AfterStep em
+> cima!
+
+After ruliz :-)) hehehehe...
+Usei-o no Slack, uso-o no RH, vou usá-lo até....... :-)))
+MAS, isso é outra flamewar... :-)))
+Jorge Godoy <jorge@bestway.com.br>
+-----------
+Oi, Raul,
+
+
+>Sem querer aumentar a flame war, mas já aumentando :-)
+Nao estamos numa flame war, fique bem claro. Estamos sudavelmente
+confrontando opinioes.
+
+>Existem programas como:
+>AutoRPM,
+>rpmwatch,
+>rhlupdate
+>entre outros que fazem exatamente isso, atualizam via FTP.
+
+Falta entao falar do Dselect: Ele nao faz atualizacoes automaticas sem a
+intervencao de um Sysadmin. A diferenca eh que as atualizacoes (que
+iniciaram apos o comando de um Sysadmin humano, consciente do que estah
+fazendo e que tem centenas de tarefas a fazer num site, alem de bancar a
+babah de um server)  :)
+do Debian resultam em 99,5% dos casos em atualizacoes redondas, sem que se
+necessite qualquer coisa alem de vc fazer um telnet pra sua porta 80 e ver
+o dump, pingar sua maquina, passar um SCAN com Satan, chkexploit , NMAP ou
+o que quer que seja, etc, ou seja, conferir se realmente nao houve nenhum
+problema e seu site estah de peh e seguro. Vc pode fazer isso tanto por
+FTP, quanto por NFS, Samba, particao em outro disco rigido local ou CD no
+prato do Server.
+
+>Eu como Sysadmin (ou pelo menos tentando ser :-> ), acho essas ferramentas
+>viáveis apenas no intuito de ter os pacotes comigo.
+>
+>mas para isso, prefiro fazer um mirror dos Updates (Red Hat, Conectiva) com
+>o programa de mirror do sunsite.
+
+Que bom, isto funciona pra vc, maravilha, por que mudar? 
+
+>Mas não gosto de te-los atualizando sozinho.  Eu prefiro atualizar na mão e
+>saber o que foi atualizado, o que mudou.  Principalmente no que se refere a
+>configurações.
+NENHUMA atualizacao eh feita sem a sua intervencao. Vc estah confundindo as
+coisas. O modo de funcionamento do Dselect estah respondido mais abaixo.
+
+
+>Esses dias fiz um upgrade do apache 1.2.x para 1.3.x
+Vc cometeu um pequeno engano: O apache 1.2.X eh bastante diferente nos
+arquivos de configuracao e nos modulos do apache 1.3.X e portanto vc nao
+pode fazer uma atualizacao direta e indolor com RPM. Sabe o que o script
+Debian disse para a mesma atualizacao? Algo assim: "As configuracoes do
+Apache estao substancialmente modificadas na versao 1.3.x . Me acompanhe
+nos passos e modulos que deseja inserir (vamos tentar suas configs
+anteriores) e nos novos itens do pacote. Nao deixe de conferir suas
+configuracoes apos a atualizacao. Quer prosseguir?" (Se quiser te mando o
+dump em ingles em PVT).
+
+Cinco minutos depois estava tudo normal, o apache estava exatamente com os
+mesmos valores de config, rodando, e com os novos itens ok. O sistema nao
+saiu do ar por mais de dez minutos, etc, e estou com o apache mais novo.
+Bobagem, se vc prefere fazer essas coisas a mao em sua maquina. Eu tenho
+dezenas delas para fazer e preciso otimizar meu tempo, e cuidar de que meu
+servico e o nome da empresa em que trabalho nao estejam vinculados a
+problemas de qualquer ordem. :)
+
+
+>Só que ele vinha com o mod_SSL junto.  O que aconteceu?  Ele parou de
+>funcionar porque não tinha as bibliotecas instaladas (e por má construção
+>dele), ele não reclamou da falta das mesmas.
+
+O Dpkg pode chegar ateh mesmo a te apontar um provavel site onde estah a
+biblioteca que estah faltando em seu sistema. Otimizar o tempo de novo.
+
+>Antes que digam "viu só o problema do RPM/RedHat", esse pacote não era da
+>RedHat e o problema foi de construção do mesmo.
+>
+>Mas de qualquer forma o ponto era que os arquivos de configurações não eram
+>mais compatíveis e por isso ele voltou para um default até que eu
+>atualizasse-o.
+
+>Imagine o que teria acontecido se ocorresse isso no meio da noite e só dia
+>seguinte (imagine um fim de semana) você descobrisse que o seu Servidor de
+>WEB esta parado por causa de uma atualização.
+
+De novo: nada do que o Debian faca ou venha a fazer eh contra o seu
+consentimento - nao existe atualizacao no Debian sem que um ser vivo logado
+como root tenha expressamente mandado fazer (algo como root agreement)  :^P
+
+>Por favor, senhores, essas são apenas as minhas impressões.
+>Quanto a flame war, ela não precisa ser uma flame war.  Mas por favor, não
+>se acanhem de dizer algo por medo de transforma-la em uma.
+>Acho que essas discussões são as mais proveitosas da lista.
+
+Soh uma ultima pergunta: Vc jah usou o Debian?
+Se nao, pegue um tempinho livre em uma maquina com pelo menos 600MB livres
+e brinque um pouco com ele. (ah, e muna-se de paciencia, vc vai precisar
+dela )  :)
+Rico Ferrari
+suporte@ivixnet.com</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

@@ -1,0 +1,498 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>		CONECTANDO LINUX AO PROVEDOR INTERNET
+
+1. Introdução.
+
+Este documento tem por função descrever como utilizar o Linux para
+conectar-se a um Provedor Internet através de uma linha discada. Por
+enquanto ainda não são abordadas a utilização de softwares de mail, news,
+etc.
+
+Assim que sobrar um tempinho, estarei lançando um "kit conexão", que poderá
+ser utilizado em qualquer máquina com Perl instalado.
+
+1.1 Acentuação
+
+Este documento foi escrito na Língua Portuguesa, portanto contém acentução.
+Se você não consegue visualizar os caracteres acentuados, você tem as
+seguintes opções, em ordem:
+
+a) Ler o Portuguese-HOWTO (sim, este É em português - *quase* igual ao
+nosso!) 
+b) Utilizar o software "joe" na leitura, digitando: telematica:~$ joe -asis conexao.txt
+
+2. Procedimentos iniciais.
+
+Você deve ter instalado os softwares de rede (pacote N, no Slackware - nem
+todos são necessários), além de ter compilado o kernel com suporte a PPP.
+
+Identifique em qual saída serial o seu modem está conectado. Lembre-se:
+
+DOS   -   Linux
+COM1      /dev/cua0 (/dev/ttyS0)
+COM2      /dev/cua1 (/dev/ttyS1)
+COM3      /dev/cua2 (/dev/ttyS2)
+COM4      /dev/cua3 (/dev/ttyS3)
+
+Logo após, utilize o "su" para tornar-se root (você não está lendo este
+documento como root, está?) crie um symlink de /dev/modem para a serial na
+qual seu modem se encontra. Por exemplo (no caso do modem encontrar-se em
+/dev/cua1 - COM2):
+
+telematica:/home/farias# ln -s /dev/cua1 /dev/modem
+
+Esta ação produzirá o seguinte:
+
+telematica:/home/farias# ls -l /dev/modem
+lrwxrwxrwx   1 root     root          4 Jan 18  1997 /dev/modem -> /dev/cua1
+
+A configuração padrão normalmente permite acesso direto à /dev/modem apenas
+para o usuário root.
+
+Você pode utilizar o software "minicom" para testar sua configuração e para
+observar as sequências de conexão do seu Provedor. Você irá precisar delas
+se desejar automatizar o processo de conexão.
+
+2.1 Arquivos de Configuração.
+
+Novamente, estas tarefas devem ser feitas com o usuário root. Edite os
+seguintes arquivos:
+
+#/etc/hosts.deny
+ALL: ALL
+#End of /etc/hosts.deny
+
+#/etc/hosts.allow
+ALL: 127.0.0.1
+#End of /etc/host.allow
+
+Para obter maiores informações sobre estes arquivos, consulte "man 5
+hosts_access". Estou considerando que você nao esteja conectado à uma LAN
+e/ou que não tenha acesso à um IP estático (se você não sabe o que é, com
+certeza nao tem).
+
+Neste ponto, você precisa saber qual é o name server (DNS server) de seu
+provedor e edite o arquivo "/etc/resolv.conf".
+
+#/etc/resolv.conf
+search . provedor.com.br
+nameserver 222.222.222.222
+nameserver 333.333.333.333
+nameserver 444.444.444.444
+#End of /etc/resolv.conf
+
+Você pode utilizar até 3 name servers, que serão consultados em ordem, no
+caso do anterior nao responder.
+
+Modifique agora o arquivo "/etc/hosts".
+
+#/etc/hosts
+localhost 127.0.0.1
+0.0.0.0   telematica
+#* "telematica" é o nome de minha maquina, troque pelo nome da sua.
+#End of /etc/hosts
+
+Uma mínima configuração é necessária em "/etc/networks".
+
+#/etc/networks
+loopback 127.0.0.1
+localnet 0.0.0.0
+#End of /etc/networks
+
+Você precisa agora configurar as opções a serem utilizadas pelo pppd,
+durante a conexão. Para isto, crie o arquivo "/etc/ppp/options":
+
+# /etc/ppp/options (NO PAP/CHAP)
+#
+# Prevent pppd from forking into the background
+-detach
+# If you are using a STATIC IP number, edit the 0.0.0.0 part of the
+# following line to your static IP number.
+0.0.0.0:
+#
+# use the modem control lines
+modem
+# use uucp style locks to ensure exclusive access to the serial device
+lock
+# use hardware flow control
+crtscts
+# create a default route for this connection in the routing table
+defaultroute
+# do NOT set up any "escaped" control sequences
+asyncmap 0
+# use a maximum transmission packet size of 552 bytes
+mtu 552
+# use a maximum receive packet size of 552 bytes
+mru 552
+#
+#-------END OF SAMPLE /etc/ppp/options (no PAP/CHAP)
+   
+Este arquivo tem funcionado nos Provedores que já tive oportunidade de
+testar.
+
+Aconselho ainda a criação do arquivo /etc/ppp/scripts/ppp-off, contendo o
+seguinte:
+
+#!/bin/sh
+######################################################################
+# /etc/ppp/scripts/ppp-off 
+#
+# Determine the device to be terminated.
+#
+if [ "$1" = "" ]; then
+	DEVICE=ppp0
+else
+	DEVICE=$1
+fi
+
+######################################################################
+#
+# If the ppp0 pid file is present then the program is running. Stop it.
+if [ -r /var/run/$DEVICE.pid ]; then
+        kill -INT `cat /var/run/$DEVICE.pid`
+#
+# If the kill did not work then there is no process running for this
+# pid. It may also mean that the lock file will be left. You may wish
+# to delete the lock file at the same time.
+        if [ ! "$?" = "0" ]; then
+                rm -f /var/run/$DEVICE.pid
+                echo "ERROR: Removed stale pid file"
+                exit 1
+        fi
+#
+# Success. Let pppd clean up its own junk.
+        echo "PPP link to $DEVICE terminated."
+        exit 0
+fi
+#
+# The ppp process is not running for ppp0
+echo "ERROR: PPP link is not active on $DEVICE"
+exit 1
+# --------- End of /etc/ppp/scripts/ppp-off
+
+Com isto, já é possível testar uma conexão manual ao provedor. Se tudo
+funcionar como desejado, poderemos automatizar o processo.
+
+3 Conexão.
+
+3.1 Conexão Manual.
+
+Você pode utilizar o "minicom", que tem a possibilidade de sair sem ressetar
+o modem (Ctrl + A + Q ou Alt + Q). Agora você deve logar-se como "root"
+("su" não irá funcionar). Disque para seu Provedor, logue-se (informe seu
+username e senha quando solicitado), e estabeleça PPP no servidor (digitando
+"ppp" ou selecinando a opção equivalente em algum menu - depende do
+provedor). Você poderá observar o aparecimento de "lixo" em sua tela, tipo:
+
+~y}#.!}!}!} }8}!}$}%U}"}&} } } } }%}& ...}'}"}(}"} .¸y}
+
+Agora saia do minicom sem ressetar o modem (Alt + Q), e no prompt do shell,
+digite (como root):
+
+telematica:~# pppd -d -detach /dev/modem &
+
+A opção -d habilita o debug, o que poderá ajudá-lo na resolução de
+problemas.
+
+Alguns segundos depois, você poderá verificar a interface PPP, digitando:
+
+telematica:~# ifconfig ppp0
+
+Deverá aparecer algo como:
+
+----------------------------------------------------------------------------
+ppp0      Link encap:Point-Point Protocol
+          inet addr:200.248.171.138  P-t-P:200.248.171.4  Mask:255.255.255.0
+          UP POINTOPOINT RUNNING  MTU:1500  Metric:1
+          RX packets:276 errors:0 dropped:0 overruns:0
+          TX packets:268 errors:0 dropped:0 overruns:0
+-----------------------------------------------------------------------------
+
+Onde:
+
+* inet addr: indica o seu número IP para esta conexão.
+* P-t-P: indica o número IP do servidor.
+
+Se tudo ocorreu bem, parabéns, pois você está conectado. Contudo, existe um
+porém. Se, por acaso, você não conseguir acessar outros hosts que não seja o
+roteador do provedor (neste caso, 200.248.171.4), você deve verificar a
+tabela de roteamento do kernel. Digite:
+
+telematica:~$ /sbin/route
+Kernel routing table
+Destination     Gateway         Genmask         Flags MSS    Window Use Iface
+vendetta.conesu *               255.255.255.255 UH    1500   0        0 ppp0
+localnet        *               255.255.255.0   U     1500   0        8 eth0
+loopback        *               255.0.0.0       U     3584   0       31 lo
+default         vendetta.conesu *               UG    1500   0       21 ppp0
+
+Se não aparecer uma rota default, ou então demorar muito para aparecer toda
+a tabela de roteamento, é provavel que o pppd esteja tendo problemas para
+configurar a rota default. Isto poderá acontecer no caso de já existir uma
+rota default *antes* de você rodar o pppd. Neste caso, digite (como root):
+
+telematica:/home/farias# /sbin/route del default
+
+É provavel que esta rota esteja sendo definida nos scripts rc de
+inicialização do Linux (/etc/rc.d/rc.inet1, no SlackWare), portanto comente
+as linhas necessárias.
+
+Teste agora a resolução de nomes, "pingando" um site que você tenha certeza
+que esteja on-line. Você irá notar que haverá uma certa demora até que o
+nome seja resolvido, mas se este atraso não for demais, está tudo OK.
+
+Se tudo funcionou como desejado, desconecte-se digitando (como root):
+
+telematica:/home/farias# /etc/ppp/scripts/ppp-off
+PPP link to ppp0 terminated.
+
+Se o script nao funcionar, chame o minicom, digite +++ para interromper o
+modem e depois ATH0 para desligar, quando receber o "OK" do modem.
+
+Agora já é possível automatizar a conexão.
+
+3.2 Automatizando o processo de conexão.
+
+Eu utilizo scripts para o "chat" na automatização da conexão, os quais nunca
+me deram problemas, portanto nunca me preocupei em aprender a utilizar o
+"dip".
+
+Com estes scripts, você necessitará digitar apenas um comando para
+estabelecer conexão com seu provedor de acesso. IMPORTANTE: Somente utilize
+estes scripts se você testou a conexão manual e a mesma funcionou 100%!!
+
+Para executar tais scripts, você precisará ser root, ou membro do grupo do
+pppd (lembrei deste fato agora, e não pretendo reescrever este documento
+abordando esta facilidade, portanto utilize root, ou leia o PPP-HOWTO). Os
+scripts funcionam da seguinte maneira: quando o modem disca para o provedor,
+esperamos um prompt de login do servidor, mandamos o login/username. Depois
+esperamos um prompt de senha, e a enviamos.
+
+#!/bin/sh
+# /etc/ppp/scripts/ppp-on
+#
+# Este script não é seguro, já que é possivel visualizar os argumentos
+# através do 'ps', mas é bastante fácil de entender. Se desejar algo
+# melhor, RTFM 'n' do your own!
+#
+TELEPHONE=277997	# Número a ser discado
+ACCOUNT=farias		# Username
+PASSWORD=it'sasekrit!	# Senha para este username
+LOCAL_IP=0.0.0.0	# IP local. Dinâmico = 0.0.0.0
+REMOTE_IP=0.0.0.0	# IP remoto. Geralmente 0.0.0.0
+# NETMASK=255.255.255.0	# Netmask, se necessário.
+#
+# Exportar variáveis para que estejam disponíveis para o script ppp-on-dialer
+export TELEPHONE ACCOUNT PASSWORD
+# 
+# Localização do script 'ppp-on-dialer'. TEM que ser o caminho absoluto,
+# não me pergunte o porquê!
+#
+DIALER_SCRIPT=/etc/ppp/scripts/ppp-on-dialer
+#
+# Inicia a conexão
+# 
+# A maioria das opções estão informadas no arquivo /etc/ppp/options.
+#
+exec /usr/sbin/pppd /dev/cua1 19200 \
+	$LOCAL_IP:$REMOTE_IP \
+	connect $DIALER_SCRIPT
+/bin/setserial /dev/cua1 spd_vhi # modems 14.400 ou maior (> UART 16550A)
+# -------- End of /etc/ppp/scripts/ppp-on
+
+A seguir, o script ppp-on-dialer.
+
+#!/bin/sh
+# /etc/ppp/scripts/ppp-on-dialer
+#
+# Segunda parte dos scripts de conexão...
+# 
+exec chat						\
+	TIMEOUT		30				\
+	ABORT		'\nBUSY\r'			\
+	ABORT		'\nNO ANSWER\r'			\
+	ABORT		'\nRINGING\r\n\r\nRINGING\r'	\
+	''		\rAT				\
+	'OK-+++\c-OK'	ATH0				\
+	TIMEOUT		45				\
+	OK		ATDT$TELEPHONE			\
+	BIS		''				\
+	login:--login:	$ACCOUNT			\
+	assword:	$PASSWORD			\
+ 	'ption'		'4'
+# ------ End of /etc/ppp/scripts/ppp-on-dialer
+
+Para maiores informações sobre scripts de conexão, leia a manpage do chat, o
+PPP-HOWTO.
+
+3.2.1 Testando os scripts de conexão.
+
+Logue-se como root em um VC (virtual console) ou xterm e digite:
+
+telematica~# tail -f /var/log/messages
+
+(ou seja lá qual seja seu arquivo de log)
+
+Em outro VC ou xterm, também como root, digite:
+
+telematica:~# /etc/ppp/scripts/ppp-on &
+[1] 678
+
+Se você não rodar o script em background (utilizando o '&'), você não terá o
+prompt liberado até que o pppd termine (quando o link é terminado).
+
+Agora, retorne ao VC (ou xterm) onde o log está sendo mostrado. Você deverá
+observar algo semelhante ao que segue (desde que tenha especificado a opção
+'-v'para o chat):
+
+Aug  6 16:34:43 telematica pppd[677]: pppd 2.2.0 started by root, uid 0
+Aug  6 16:34:44 telematica chat[678]: timeout set to 30 seconds
+Aug  6 16:34:44 telematica chat[678]: abort on (\nBUSY\r) 
+Aug  6 16:34:44 telematica chat[678]: abort on (\nNO ANSWER\r) 
+Aug  6 16:34:44 telematica chat[678]: abort on (\nRINGING\r\n\r\nRINGING\r) 
+Aug  6 16:34:44 telematica chat[678]: send (rAT^M) 
+Aug  6 16:34:44 telematica chat[678]: expect (OK) 
+Aug  6 16:34:44 telematica chat[678]: rAT^M^M 
+Aug  6 16:34:44 telematica chat[678]: OK -- got it 
+Aug  6 16:34:44 telematica chat[678]: send (ATH0^M) 
+Aug  6 16:34:44 telematica chat[678]: timeout set to 45 seconds
+Aug  6 16:34:44 telematica chat[678]: expect (OK) 
+Aug  6 16:34:44 telematica chat[678]: ^M 
+Aug  6 16:34:45 telematica chat[678]: ATH0^M^M 
+Aug  6 16:34:45 telematica chat[678]: OK -- got it 
+Aug  6 16:34:45 telematica chat[678]: send (ATDT277997^M) 
+Aug  6 16:34:45 telematica chat[678]: expect (BIS) 
+Aug  6 16:34:45 telematica chat[678]: ^M 
+Aug  6 16:35:01 telematica chat[678]: ATDT277997^M^M 
+Aug  6 16:35:01 telematica chat[678]: CONNECT 14400/REL-LAPM V.42 BIS -- got it 
+Aug  6 16:35:01 telematica chat[678]: send (^M) 
+Aug  6 16:35:01 telematica chat[678]: expect (login:) 
+Aug  6 16:35:01 telematica chat[678]: ^M 
+Aug  6 16:35:01 telematica last message repeated 2 times
+Aug  6 16:35:01 telematica chat[678]:             -----------------------------------------------^M 
+Aug  6 16:35:01 telematica chat[678]:             |                 CYCLOM-MP/RA                |^M 
+Aug  6 16:35:01 telematica chat[678]:             | Copyright(C) 1995,1996 CYCLADES Corporation |^M 
+Aug  6 16:35:01 telematica chat[678]:             -----------------------------------------------^M 
+Aug  6 16:35:01 telematica chat[678]: ^M 
+Aug  6 16:35:01 telematica chat[678]: ^M 
+Aug  6 16:35:01 telematica chat[678]: tom login: -- got it 
+Aug  6 16:35:01 telematica chat[678]: send (farias^M) 
+Aug  6 16:35:02 telematica chat[678]: expect (assword:) 
+Aug  6 16:35:02 telematica chat[678]:  ^M 
+Aug  6 16:35:02 telematica chat[678]:  
+Aug  6 16:35:02 telematica chat[678]: Invalid user name.^M 
+Aug  6 16:35:02 telematica chat[678]: tom login: farias^M 
+Aug  6 16:35:02 telematica chat[678]: Password: -- got it 
+Aug  6 16:35:02 telematica chat[678]: send (censored!^M) 
+Aug  6 16:35:02 telematica chat[678]: expect (option) 
+Aug  6 16:35:03 telematica chat[678]:  ^M 
+Aug  6 16:35:03 telematica chat[678]: ^M 
+Aug  6 16:35:03 telematica chat[678]: CYCLOM-MP/RA Main Menu 
+Aug  6 16:35:03 telematica chat[678]: ^M 
+Aug  6 16:35:03 telematica pppd[677]: Serial connection established.
+Aug  6 16:35:03 telematica chat[678]: 1. Telnet                 2. Logout                     3. Ping^M 
+Aug  6 16:35:03 telematica chat[678]: 4. PPP^M 
+Aug  6 16:35:03 telematica chat[678]:  
+Aug  6 16:35:03 telematica chat[678]: Select option -- got it 
+Aug  6 16:35:03 telematica chat[678]: send (4^M) 
+Aug  6 16:35:04 telematica pppd[677]: Using interface ppp0
+Aug  6 16:35:04 telematica pppd[677]: Connect: ppp0 <--> /dev/cua1
+Aug  6 16:35:05 telematica pppd[677]: local  IP address 200.248.171.146
+Aug  6 16:35:05 telematica pppd[677]: remote IP address 200.248.171.6
+
+Observe as últimas 3 linhas de log. Se você receber estas, existem boas
+chances de você estar conectado! :-) Agora, teste a conexão, primeiramente
+'pingando' o "remote IP". Logo após, faça o mesmo com o IP de um site que
+sabidamente esteja on-line. Depois destes dois testes, utilize nomes ao
+invés de IP's para testar o seu "/etc/resolv.conf".
+Algo deu errado? Observe o log, veja onde aconteceu algo estranho (se *tudo*
+lhe parece estranho, de uma olhada no PPP-HOWTO ou ISP-Hookup-HOWTO e
+situe-se melhor!). Em último caso (eu disse ú-l-t-i-m-o), mande um mail para
+farias@spock.ucpel.tche.br com o log da conexão (ei! não mande todo o
+/var/log/messages!), que assim que eu lembrar minha senha nesse servidor eu
+leio e respondo! :-)
+Se tudo ocorreu bem, você pode navegar à vontade, pois você já faz parte da
+grande rede!!
+
+3.2.2 Desconectando...
+
+Para desconectar-se, utilize o script /etc/ppp/scripts/ppp-off. Novamente,
+você deve ser root para executar esta tarefa (ou membro do grupo do pppd,
+mas isto é outra história...). Você poderá observar o seguinte no arquivo de
+log (ou algo semelhante):
+
+Aug  6 16:36:23 telematica pppd[677]: Terminating on signal 2.
+Aug  6 16:36:23 telematica pppd[677]: Connection terminated.
+Aug  6 16:36:23 telematica pppd[677]: Exit.
+
+4. Conclusão
+
+A idéia básica deste documento era apenas ajudar os usuários a estabelecerem
+uma conexão PPP com um provedor de acessos. Quanto à utilização de softwares
+clientes, como browsers, leitores de e-mail, programas de ftp, etc,
+aconselho a leitura do ISP-Hookup-HOWTO ou então entre em contato com seu
+Linux Guru local. Ainda não consegui organizar meu tempo para criar um
+documento mais abrangente.
+
+Espero que este documento possa ajudar qualquer usuário com o mínimo de
+conhecimento em Unices a conectar-se a Internet. Se meu objetivo não foi
+alcançado, solicito que entrem em contato comigo para que se possa melhorar
+este breve e simples tutorial. A intenção é tornar o Linux um SO o mais
+amigável possível, e embora seja uma tarefa difícil, é algo que *pode* ser
+acabado, se um dia for *iniciado*!
+
+Vagner Farias
+farias@atlas.ucpel.tche.br
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

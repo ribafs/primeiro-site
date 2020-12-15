@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			CONFIGURAÇÃO DO LINUX NA INTERNET
+
+Seu problema com certeza esta nos arquivos de
+configuracao pra conexao PPP. 
+Vc podia facilitar e usar pppsetup pra configurar a conexao, e apos isso usar ppp-go pra conectar e
+ppp-off pra desconectar. Se 
+vc tiver o pppsetup faca isso... mas caso vc nao tenho, vamos lah: 
+Certifique-se de que os seguintes arquivos estejam configurados assim: 
+
+/etc/hosts/ 
+  127.0.0.1 localhost 
+  0.0.0.0 russo (russo eh na minha maquina, coloque seu host aih, eh o mesmo q nome do
+computador no windows, nao vai importar muito) 
+
+/etc/resolv.conf 
+  domain seuprovedor.com.br (coloque o dominio do seu povedor, sem www) 
+  nameserver 200.200.200.200 (aki coloque o DNS do seu provedor) 
+  nameserver 200.200.200.201 (aki coloque mais 1 se quiser, nao eh necessario pra funcionar) 
+
+/etc/hosts.deny 
+  ALL:ALL 
+
+/etc/networks 
+  loopback 127.0.0.1 
+  localnet 0.0.0.0 
+
+Pronto...tudo configurado... agora eh soh ir no minicom, discar, conectar, por user e senha, sair do
+minicom sem resetar o modem e dar um pppd -d -detach /dev/modem e para desconectar kill all
+pppd. 
+
+Uff... espero q resolva... T+ 
+
+Feliep Russo 
+				----------------
+
+			VER PARTIÇÃO WINDOWS NO LINUX E VV
+
+Para ver a particao Windows no linux use o seguinte comando:
+mount -t vfat /dev/hda1 /win95
+
+sendo que o diretorio "win95" vc devera criar no raiz da sua particao
+linux.
+A opcao -t vfat fara com que vc vizualize os arquivos sem truncar os
+nomes extensos do Win95.
+
+Para fazer o inverso (ver o linux no win95) vc precisa de um programa.
+Vc podera encontra-lo em http://www.ano2001.ml.org
+				----------------
+
+				MONTANDO CD ROM
+
+Se vc tiver o linux funcionando, tem que montar o CD-ROM:
+Primeiro cria um diretório na raiz (como root) com mkdir  /cdrom
+e depois dá um mount
+mount  -t  iso9660 -r  /dev/hdd  /cdrom
+(hda => primeiro master, hdb => primeiro slave,
+hdc => segundo master, hdd => segundo slave)
+Tem que lembrar de desmontar ao terminar: umount /dev/hdd /cdrom
+				-----------------
+
+			ENDEREÇO DO WINE (WINDOWS EMULATOR)
+
+			http://www.winehq.com
+				-----------------
+
+			MAIS DOIS LIVROS SOBRE LINUX
+
+- Dominando o Linux de Matt Welsh e Lar Kaufman e
+- Programando para Linux da Makron Books ( vem com o CD do Slackware 96 ), que ensida desde a instalar o Linux (partição, boot e rootdisk) até à programar em CGI, C++, Perl, TCL e Java. Até agora, tem-se mostrado um bom livro para iniciantes. Preço: R$ 47,00
+---
+PROGRAMANDO PARA LINUX Autor: REICHARD KEVIN
+          Editora: MAKRON BOOKS Preco: R$ 59.00 (na LTC)
+				-----------------
+
+			UTILITÁRIOS DOS PARA DESFRAGMENTAÇÃO
+ORG, DOG e SAFPAK, EM:
+ftp://ftp.SimTel.com/pub/simtelnet/msdos/diskutil/
+
+				-------
+			COLOCANDO O KDE NO PATH
+
+Calma Walter, eu não sei qual o seu computador, mas os pacotes que vcoê pegou
+são pra linux para processadores alpha e não intel (i386). Se for este o 
+problema então você deve abaixar os pacotes que tenham xxx.386.rpm
+Outra coisa tente, pegar o qt (acho que esta na versão 1.41, não sei) também 
+rpm.
+Assim vai te facilitar e muito a sua instalação.
+Depois de tudo isto instale os pacotes do KDE, e simplismente faça um arquivo
+chamado .xinitrc no diretório /root com as seguintes linhas:
+
+export PATH=/opt/kde/bin:$PATH
+startkde
+
+Salve tudo isto, e depois
+
+startx e veja se funcionou.
+
+Acho que é isto,
+
+Richard <(*o*)>
+------
+				--------------------
+			
+			UPGRADE DO NETSCAPE NO LINUX
+
+Caso voce tenha baixado a versao em RPM apenas entre como root e execute
+
+rpm -U netscape*
+
+que sera feito o upgrade
+				--------------------
+			
+			SCRIPT PARA MONTAR/DESMONTAR DISCO
+
+Se vc quiser um botão automático, crie/edite (com o vi ou emac) um arquivo
+em um diretório que esteja no seu path e escreva o comando que vc quer,
+Ex.:  mount /dev/fdo e salve com um  nome de uma letra apenas, como M. Faça
+o mesmo p/ desmontar e salve como U. Agora use o comando chmod p/ tornar
+seus arquivos executáveis:
+chmod +x M
+chmod +x U
+
+Isso seria um .Bat do MSDOS
+Pronto, ao digitar M e U vc estará montando e desmontando o disquete.
+Esse procedimento não é aconselhável, mas se vc for o único responsável
+pelo seu sistema...
+				----------------------
+
+			    COMO ENCONTRAR AS BIBLIOTECAS
+
+Para saber quais as Libraries que vc tem fica facil da seguinte maneira..
+
+ldconfig -v | more
+
+ou visualize os diretorios onde contem bibliotecas em /etc/ld.so.conf
+				----------------------
+				
+				OPENSOUND SYSTEM
+
+Onde eu encontro o pacote de sftware da OSS
+(Open Sound System) da 4 Front Technologies?
+---
+www.opensound.com
+				----------------------
+
+			PERMITINDO A OUTRO USUARIO USAR MOUNT/UMOUNT
+
+Se acresentar 'user' no /etc/fstab
+acredito que qualquer usuario pode dar o mount ou umount no CDROM !~
+ 
+estou errado ?
+				----------------------
+
+			PLACAS DE SOM OMBOARD TX-PRO OU BX-PRO
+
+Ah tah, saquei, entao eh vc deve ter uma TxPro II ou uma BxPro, conheco essas placas, trabalho muito com elas...
+a sound card onboard eh padrao "Sound Blaster Pro", e nao "Sound Blaster 16", ate no windows da o mesmo
+pau... o windows detecta como sb16 soh q nao funciona metade das coisas... soh q no CD q veio com a mother
+tem o driver pra windows, entao nao tem problema..no caso do linux, o negocio complica... nao sei onde diabos c
+vai achar o driver..
+				----------------------
+	 		       MONTANDO PARTIÇÃO FAT 32
+
+Voce pode tentar montar a particao Fat-32 (WIn95) usando o comando mount
+da seguinte forma: 'mount -t vfat /dev/hdax /mnt/dos (este eh o ponto de
+montagem que vc escolhe). Eh o que eu uso aqui com o meu Red Hat.
+				----------------------
+				UTILITÁRIO SCREEN
+
+O SCREEN permite que você emule terminais ANSI/vt100, que podem ser
+multiplicados para até 10 pseudo-terminais.
+
+        Ou seja, ao executar o programa, você tem um pseudo-terminal no seu
+console. Faz as conexões necessárias, como por exemplo, um ftp, e retorna
+para o seu console, onde voce poderá trabalhar normalmente.
+        Aí você me pergunta: mas se eu já tenho 6 consoles virtuais no linux, para
+que vou querer mais 10??
+        Se você está trabalhando direto na sua máquina, realmente pode utilizar os
+6 consoles numa boa. Mas, quando falamos em uma conexão remota, você não
+tem como ter acesso aos consoles virtuais, certo??
+        Outra razão pelo qual eu utilizo o SCREEN: é sabido que os ftp's mais
+comuns tem uma taxa de transmissão muito lenta quando nos conectamos direto
+a eles. Para baixar o StarOffice, por exemplo, que tem um pouco mais de 60
+Megas, eu acessei o servidor do meu provedor via telnet, iniciei uma seção
+SCREEN, de dentro do screen fiz o ftp para o mirror que me interessava e
+deixei baixando os arquivos. Saí do SCREEN, desconectei do meu provedor e
+voltei a trabalhar. Não é o meu caso, mas se eu estivesse utilizando um
+telefone e pagando pelas horas de acesso ao meu provedor, eu também estaria
+economizando esta grana!
+
+        O estranho é que não encontrei em lugar nenhum da documentação, nenhuma
+URL, seja para Web ou para ftp sobre o SCREEN. Sugiro então que você
+procure no FastFTP Search (http://ftpsearch.lycos.com/ ) por
+"screen*.tar.gz" e/ou "screen*.rpm" - sem as aspas, é claro...
+        No Slackware eu tenho o screen-3.7.4.tar.gz (390 K)
+        No CD do RedHat tem o módulo screen-3.7.4-3.i386.rpm
+        Qualquer dúvida, estamos ai...
+Abração!
+Walter Brick
+				----------------------
+
+			CRIANDO O SWAP APÓS A INSTALAÇÃO
+
+ 1 - O espaco da particao valera a memoria entao deixe ele devidamente 
+criado....
+ 2 - digite: mkswap -c /dispositivo(/dev/hda2 - no seu caso) tamanho
+ 3 - digite swapon /dev/hda2 (no seu caso)
+ 4 - existe um arquivo no diretorio etc chamado fstab adicione (no final 
+do arquivo) esta linha:
+# device             diretory            type           options
+/dev/hda2            none                swap           sw
+ 5 - reinicie o linux.
+ 6 - digite: free
+ 7 - ai vai aparecer uma tabela e la vc vera o se ele ativou sozinho
+				-----------------------
+	 			    COMANDO MOUNT
+
+Em 1o lugar, ao inves de vc digitar na mao o mount, vamos colocar num arquivo, o /etc/fstab, eh ele
+q controla tudo, assim qdo vc entra no linux ja ta tudo "mountado". 
+
+/dev/hda7       swap        swap        defaults   0   0 
+/dev/hda6       /        ext2        defaults   1   1 
+/dev/hda1      /mnt/C       vfat     defaults  1    0 
+/dev/hdb1      /mnt/D       vfat     defaults  1    0 
+/dev/hda5      /mnt/E       vfat     defaults  1    0 
+/dev/hdd       /cdrom        iso9660       ro   0   0 
+none             /proc    proc        defaults   0   0 
+
+Da soh uma olhada aih em cima, a 1a linha ta falando sobre minha particao Linux Swap, vc tb deve
+ter feito uma... 
+A segunda linha refere-se a particao Linux native.. 
+A 3a 4a sao particoes FAT32 e a 5a FAT16, ahh, lembre-se q os diretorios C, D e E devem ser
+criados, senao ele nao vai conseguir "mountar" a particao num diretorio q nao existe... 
+e a penultima linha eh a do CDROM... T+ 
+Felipe Russo
+				---------------------
+
+				LER O MAPA DE CARACTERES
+
+ler o map de caracteres... eh "loadkeys filename.map"
+				---------------------
+
+				ARQUIVOS DE INICIALIZAÇÃO
+
+Arquivos de inicializacao:
+
+/etc/rc.d/
+				---------------------
+
+				MONTANDO A FAT 32
+mount -t vfat /dev/hda3 /mnt
+				---------------------
+
+			LOCALIZAÇÃO DO KERNEL DO LINUX (MONKEY)
+
+Em que diretorio se localiza o kernel do Monkey Linux?
+-----
+Vc diz o source? 
+Acho q eh padrao em todos linux, /usr/src/ 
+				----------------------
+
+				ACENTUAÇÃO NO LINUX
+
+Eu tb usei as dicas da Hp pois meu teclado é ABNT2, eu tive q fazer os dois usando o script de diacard e usando
+o Xmodmap para identificar as teclas mortas só assim funcionou. 
+(ver arquivo da matrix).
+---------
+Vou explicar para o Red Hat. Lá é fácil.
+    Os arquivos estão em ftp.conectiva.com.br/pub/linux/keytables
+    Os arquivos devem ser copiados para /usr/lib/kbd/keytables
+    Depois disso, segue-se uma fórmula de bolo. Edita-se o /etc/profile e o
+/etc/rc.d/rc.sysinit. Mas não precisa dessa fórmula, descrita em muitos 
+lugares. Basta digitar setup, escolher o item que trata de teclado, 
+selecionar o teclado desejado e pronto. Ao reiniciar, o teclado estará 
+configurado.
+            João Eriberto Mota Filho
+            eriberto@nutecnet.com.br
+---------
+Copie os arquivos .map para o diretorio:
+/usr/lib/kbd/keytables 
+
+Inclua a linha no /etc/profile:
+LC_CTYPE=ISO-8859-1
+export LC_CTYPE 
+
+Execute os comandos com parametros:
+setfont latin1u-16.psf
+loadkeys nome_do_mapa_desejado   # arquivo .map 
+
+Para setar o fontes no startup inclua alinha abaixo no
+/etc/rc.d/rc.local
+setfont lat1u-16.psf 
+Texto por: Joao Luiz Barbosa 
+Faça o download:
+http://www.ano2001.ml.org/keytabs/br-abnt.map
+http://www.ano2001.ml.org/keytabs/br-abnt2.map
+http://www.ano2001.ml.org/keytabs/us-acentos.map
+Renato Preti
+				----------------------
+
+				CONFIG.SYS PARA ACESSO A CD
+
+Caso vc tenha tudo acrescente essas linhas no seu config.sys
+...
+device=c:\(diretorio onde esta o arquivo)\sbide.sys /d:cdrom /p:(*)
+install=c:\(diretorio onde esta o arquivo)\mscdex.exe /d:cdrom
+...
+(*)
+1f0,14 -> para IDE primaria
+170,15 -> para IDE secundaria
+
+Marcio Lacerda
+mawl@mandic.com.br
+				----------------------
+				CONFIGURANDO A INTERNET
+
+Configurando o PPPSETUP, vc exclui a necessidade de configurar outros files... ele mesmo faz
+isso... 
+Qto a sua pergunta sobre o resolv.conf, pode ser: 
+nameserver XXX.XXX.XXX.XXX (dessa forma vc ja especifica um DNS) 
+ou pode ser: 
+search uol.com.br (dessa forma vc manda ele procurar por um DNS num dominio) 
+Se vc souber o DNS eh melhor a de cima..aih ele nao perde tempo "cacando" um DNS... 
+
+Ja que vc esta configurando tudo na mao...ao inves de usar o ppp-go, faca assim, eh a forma mais
+dificil mas vc vai ver aonde esta o problema: 
+
+1 - Entre no minicom 
+2 - atdtxxxxxxxxx (onde xxx eh o telefone do seu provedor!) 
+3 - qdo conectar vai pedir user e senha, digite - os 
+4 - se aceitar user e senha vai comecar a aparecer uns caracteres estranhos... 
+5 - de "alt + z" (para abrir o menu do minicom), depois de "q" (para sair do minicom sem resetar o
+modem).. 
+6 - vc estara dessa forma de volta ao prompt, a conexao modem -> modem esta feita, agora faca a
+conexao PPP da seguinte forma: 
+ pppd -d /dev/modem 
+7 - pronto, a conexao esta feita (o pppd usa as configuracoes dos files q vc fez manualmente) 
+
+Essa eh a forma mais complicada mas eh a q eu uso, pq nem sempre uso o mesmo username, entao
+preciso ligar pelo minicom 
+pra nao ter q ficar sempre alterando o script do pppsetup. 
+Ahh, pra desconectar vc pode usar "killall pppd"... 
+
+T+ e espero q agora funcione!! 
+
+Felipe Russo 
+webmaster@bonagura.com.br 
+				------------------
+
+		SISTEMA OPERACIONAL QNX QUE CABE NUM DISQUETE DE 1.44
+
+Ola! Isso nao tem muito a ver com linux... mas todo mundo q esta aki eu
+acho q tem interesse por sistemas operacionais alternativos,  entao vou
+falar...
+Vamos lah..quem me deu a dica foi nosso amigo Spooky, q tb comecou a
+acessar nossa lista... o site eh www.qnx.com.
+Esse QNX eh um sistema operacional q roda em 1 diskete de 1.44Mb, e nem
+sequer usa o HD. Incrivel? Eh sim, incrivel, eh soh colocar no drive, e
+dar um boot na maquina, e ele ja roda. Ele eh grafico, tem ferramenta
+para acessar a internet, um browser q aceita html 3.2 e ainda sobra
+espaco para um file manager e um joguinho! e repito: ele nem tasca no
+seu HD, seu HD fica paradinho, eh tudo diskete e memoria.
+No site da QNX tem o programa q faz o diskete do sistema. Tem pra
+Windows e pra linux, e ja vem tudo compilado, eh soh "destarear" e
+executar (certifique-se de que seu A: nao esta mountado) o programinha.
+Tenho certeza q c's vao achar fantastico, eu achei! T+
+Felipe Russo
+webmaster@bonagura.com.br
+				------------------
+
+			CRIANDO ATALHOS NO AFTERSTEP
+
+É soh c dar uma olhada em /usr/local/share/afterstep/start/ 
+Olha qq arquivo q tem lah q c jah vai entender como criar um atalho... Ahh, depois q criar outro
+arquivo nao esqueca de dar Quit -> Update All ou Update Start Menu
+				-------------------
+
+				USO DO WGET
+Programa tipo o Get Right.
+para usar o wget, basta digitar no console :
+   wget url_completo_do_arquivo
+   para continuar o downalod basta digitar:
+   wget -c url_completo_do_arquivo
+				-------------------
+
+			CONFIGURAÇÃO DO X WINDOWS > 256 CORES
+
+Pelo jeito há várias pessoas com problemas com monitores Samsung.
+O meu é Samsung SyncMaster 3 e uso o monitor " Super VGA " na confoguração
+do X-Windows. Funciona apenas com 256 cores e modo 480x640.
+-------
+Olá li sua mensagem e tive o mesmo problema da resolução do monitor que não passava
+dos 640x480, porém resolvi isto com uma "ganbiarra". A forma que eu utililizei para
+aumentar a resolução foi utilizando o Xconfigurator do Red Hat (Utilizo o Marumbi),
+se for esta a sua versão isto vai te servir.
+
+* Quando chega na parte "qual o seu monitor" em vez de selecionar o SyncMaster 3 ou
+3Ne, utilize o monitor SyncMaster 500/500 Ms, com esta escolha você vai conseguir
+resolução de até 1024x768, quanto ao fidelidade das cores (High color, True Color,
+etc) isto vai depender da memória da sua placa de video, se vc tiver uma placa de
+vídeo com 4 mb acho que vc consiguira uma resolução de 1024x768 com 32bpp.
+Bem acho que é isto, espero ter ajudado,
+Richard
+				--------------------
+
+				ATUALIZAÇÃO DO KERNEL
+
+Voce saberia me dizer o que eu tenho que atualizar  para poder utilizar
+> o kernel 2.2.1 ou existe algum texto que diz o que eu deva atualizar ?!?!
+
+O próprio kernel traz isso:
+
+/usr/src/linux/Documentation/Changes
+
+Dê uma olhadinha. Numa página da linuxhq (www.linuxhq.com) há esta
+informação também.
+-------
+Simplesmente descompacte o kernel entre no dir docs e leia o arquivo
+Changes que la fala tudo que se deve atualizar.
+				-------------------
+
+			DEBIAN INICIALIZA CDROM AUTOMATICAMENTE
+
+Estou com um pequeno problema, toda vez que o Linux, Debian 2.0, eh
+> inicializado o CD Rom eh montado automaticamente, no kernel esta com a opcao
+> modulo ativada. Li os scripts de inicializacao mas nao encotrei nada, entao
+> alguem poderia me dar uma ajuda ?!?!?!
+
+No /etc/fstab coloque a opção "noauto" (sem aspas) na linha do CD.
+Maiores informações: man fstab e, se não me engano, Tips-HOWTO e
+Installation-HOWTO.
+				-------------------
+
+				SUPORTE AO LINUX
+
+Voce fala isso porque nao existe nenhuma empresa chamada Linux Corp.
+que possua um suporte oficial, mas na verdade os suportes oficiais de
+empresas sao as menos recomendadas: existem varias empresas que
+prestam suporte tecnico no ambiente Windows, obviamente pago.
+A mesma coisa acontece com o Linux: a Conectiva, por exemplo, oferece
+suporte tecnico pago para sistemas Linux. Jah existem centros de suporte
+na Bahia, Goias, Mato Grosso do Sul, Rio Grande do Sul e Sao Paulo,
+somente contando os certificados pela Conectiva.
+
+Alias, isso eh uma nova forma de ganhar dinheiro: criar um centro de
+suporte na sua regiao e divulgar seus servicos, mostrando que o
+Linux eh confiavel e que qualquer problema pode ser resolvido pela
+seu suporte.
+
+Alem disso, hah tambem centros de treinamento, o que ajuda a
+aumentar o numero de administradores que conhecem o sistema
+operacional.
+
+A ideia de que voce tem que fazer tudo sozinho eh coisa do
+passado, e isso deve ser abolido da cabeca dos mais ceticos...
+
+--
+[]'s Murphy
+
+E-mail: murphy@tropical.com.br</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

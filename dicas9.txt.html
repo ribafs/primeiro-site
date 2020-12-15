@@ -1,0 +1,3541 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>				DICAS 2
+
+				PLACA DE REDE
+
+Ok, Gente,
+
+Peço auxílio a vocês:
+Instalei a placa de rede através do modprobe -ne
+e forneci o endereco e o IRQ da placa NE2000.
+No boot, o Linux detecta minha placa, NE2000 found at 0x240 IRq=3
+Bem, gostaria de acessar meus arquivos que estão no outro micro Windows98,
+e que roda uma rede Microsoft. Qual o próximo passo ? 
+Posso fornecer alguns dados para vocês me ajudarem:
+--------------------------------------------------------
+A rede consiste em 2 micros.
+Num deles, roda só Windows98, e o nome da maquina se chama MEGA2
+No outro micro, roda o Linux, e também Windows98 através do LILO.
+Quando ele roda Windows98, a rede já está funcionando beleza, toda
+configurada, inclusive roda o Wingate, para compartilhamento de um modem
+que existe na primeira máquina: (a MEGA2)
+Pois bem,
+O primeiro micro, (Mega2), que roda o Wingate, tem como servidor de DNS:
+200.253.245.2 que é o DNS do meu provedor.
+e como Host: dihelson
+e como dominio: netcariri.com.br
+e como IP (do TCP/IP compatível com NE2000) 192.168.0.1
+e como máscara de sub-rede: 255.255.255.0
+É Claro que na configuracão de TCP/IP da Dial-Up permanece IP dinâmico...
+
+O nome da segunda máquina (A que tem o Linux, e que Eu quero configurar),
+se chama Mega1 no Windows.Ela possui IP fixo: 192.168.0.2 (seguindo a
+sequencia 192.168.0.1), que aponta para a primeira máquina, e possui como
+Host: dihelson2
+e como dominio: netcariri.com.br
+E agora ? será que com esses dados aí, dá pra vocês me darem alguma Luz em
+como repasso essas informacões e outras mais para as configuracões de Rede
+do Linux ?
+
+Agradeco muitíssimo desde já,
+[]'s
+Dihelson Mendonca
+------------------
+> Gostaria de saber se alguem da lista esta usando o Linux para acessar um server
+> novell da rede Interna.
+> 
+> Gostaria de saber como fazer isso e se é possível montar esta unidade remota
+> novelll como um diretorio local.
+
+  No Guarani eu alterei o arquivo '/etc/sysconfig/network' acrescentando 
+as seguintes linhas :
+
+IPX=yes
+IPXAUTOPRIMARY=on
+IPXAUTOFRAME=on
+
+  E tornei os executáveis '/usr/bin/ncpmount' e '/usr/bin/ncpumount' SUID
+( o que é um risco ) para que os usuários possam fazer a montagem
+
+  Não esqueça de instalar o pacote "ipxutils", é nele que estão os
+programas que vão configurar a interface "eth0" para o IPX.
+  Roxo
+----------------
+Dihelson Mendonca wrote:
+> 
+> Oi, pessoal,
+> 
+> Após configurar a interface, no Startx, fiz umas alteracões nos nomes de
+> HOSTS, etc, e quando agora, Eu dou um boot, o Linux fica um tempão,
+> tentando ativar o Sendmail, depois pula para o :
+> "Inicializando servicos SMB"
+> fica aí, e Para.................
+
+Voce alterou o nome da sua maquina direto no arquivo de hosts?
+Se for, pode ser este o problema. Voce nao deve alterar o nome da
+maquina diretamente no arquivo, pois existem varios programas que
+dependem dele, quando quiser alterar o nome da maquina use o comando
+'hostname novo_nome'.
+Para tentar resolver inicie o Linux passando a opcao 'linux 1' no prompt
+do Lilo, isso fara o Linux entrar no modo monousuario, tente mudar o
+nome novamente.
+
+> Alguma dica? Aliás, como faco pra configurar a minha rede no Linux, pra
+> acessar minha maquina Windows ? roda rede Microsoft.
+
+Se sua placa ja estiver funcionando normalmente, de uma lida no
+SMB-HOWTO, la diz o que vc precisa para acessar uma rede Windows.
+-- 
+Fabio Henrique
+---------------
+> é simples: Estou aqui, tentando ainda instalar minha rede, de um micro
+> Linux, pra outro Windows.
+> Após configurar a interface, no Startx, fiz umas alteracões nos nomes de
+> HOSTS, etc, e quando agora, Eu dou um boot, o Linux fica um tempão,
+> tentando ativar o Sendmail, depois pula para o :
+> "Inicializando servicos SMB" 
+> fica aí, e Para.................
+> E agora, como é que Eu faco pra ele pular essa parte e cair no prompt ?
+> Já dei Control+C, Control-TUDO, a unica coisa que ainda funciona é
+> Coltrol+ALT+DEL, aí, é de matar, ne ??
+> Alguma dica? Aliás, como faco pra configurar a minha rede no Linux, pra
+> acessar minha maquina Windows ? roda rede Microsoft.
+
+        Entra como Linux single e edita... os arquivos que voce mudou para
+voltar ao normal... ou entao tira o samba do rc.3  (acho que estah
+neste)...
+--------------
+Nao recorro muito aa lista sem antes ter esgotado meus parcos conhecimento
+sobre o assunto, mas este jah estah esgotado a umas 2 semanas...  :)
+
+        Estou tentando configurar uma NE2000, setada para IRQ 10, IO 340 e nao
+estou conseguindo. Estou fazendo o seguinte:
+
+1- Entro no linuxconf
+2- Vou a Ambiente de Rede
+3- Coloco 0x340 em E/S e 10 em IRQ para o adaptador 1
+4- Quando tento prosseguir, uma mensagem aparece dizendo que hah um erro na
+linha 1 do arquivo /etc/resolv.conf e nao consigo sair disso.
+
+Neste arquivo hah apenas a palavra "search" na primeira e unica linha.
+
+Como eh que eu poderia configurar minha placa de rede?  Vi que um programa
+chamado nodprobe talvez pudesse ajudar, mas este parece nao estar presente
+na minha instalacao. Minha instalacao eh a seguinte:
+
+MII 300 numa PC100 (M577)
+64MB RAM
+Trident AGP 9750
+NE2000
+Linux Conectiva Guarani 3.0
+
+Se alguem puder me ajudar, agradeceria. No Win98 estah funcionando OK com
+os outros micros.
+
+PS: Quando eu faco um "Reply" para a lista, esta mensagem nao eh
+direcionada automaticamente para a lista, mas tao somente para o usuario da
+lista que eu escolhi no Reply. Para que eu envie para a lista, devo apagar
+o nome do gajo e entao colocar o endereco linux-br@bazar..... Por que eh
+que esta lista nao reporta no FROM que veio da lista?
+
+[]'s do amigo Emidio
+-----------
+linha 1 do arquivo /etc/resolv.conf e nao consigo sair disso.
+> 
+> Neste arquivo hah apenas a palavra "search" na primeira e unica linha.
+        O "search" precisa de um parametro. No caso, um dominio em que ele
+vai procurar nomes "incompletos" que voce de.
+        Por exemplo, se voce coloca lah "search nutecnet.com.br" e
+digitar, no seu netscape, 'www', ele vai procurar 'www.nutecnet.com.br'.
+        Mas esta linha eh dispensavel. Pode apaga-la. No seu
+/etc/resolv.conf soh eh necessaria uma linha, da forma
+        nameserver <ip>
+
+        Em que <ip> eh o ip do DNS do seu provedor. Alias, normalmente
+voce vai ter duas linhas desssas, uma pro DNS primario e uma pro
+secundario.
+        E isso nao tem nada a ver com a sua placa de rede, alias...
+
+                rbp
+
+> PS: Quando eu faco um "Reply" para a lista, esta mensagem nao eh
+> direcionada automaticamente para a lista, mas tao somente para o usuario da
+> lista que eu escolhi no Reply. Para que eu envie para a lista, devo apagar
+> o nome do gajo e entao colocar o endereco linux-br@bazar..... Por que eh
+> que esta lista nao reporta no FROM que veio da lista?
+        Se voce der "reply to all recipients", vai pra quem mandou E pra
+lista. Isto eh pra encorajar as pessoas a nao mandarem qualquer resposta
+pra lista e a pensarem antes de enviar algo.
+ Rodrigo Bernardo Pimentel          <rbp@pobox.com>|
+		
+			KERNEL 2.2.5 E IMPRESSORAS
+
+On Thu, 8 Apr 1999, Valdemir Melechco Carvalho wrote:
+
+> Tambem tive exatamente o mesmo problema. Ja' enviei questoes para esta
+> lista (ha' algum tempo atras), para a lista da Debian e para a do
+> LINUSP.
+
+Ola
+ qual e extamente o problema que vcs estao tendo com a impressora??
+ testei algumas impressoras no kernel 2.2.5 e nao tive problemas.
+ Funcionou melhor que nos kernels 2.0.
+ Lembre-se que o kernel 2.2 mudou o modo como o ele usa o porta paralela.
+ Agora tem um "driver" generico para a porta (parport) e um para o
+ dispositivo que vai ser usado (impressora, zip, etc).
+ Dica de conf. do kernel:
+  Linux Kernel v2.2.5 Configuration
+                                General setup
+<M> Parallel port support                                
+<M>    PC-style hardware  
+                             Plug and Play support
+[*] Plug and Play support                             
+<M>   Auto-probe for parallel devices 
+                             Character devices
+<M> Parallel printer support                      
+[*]   Support IEEE1284 status readback  
+
+no /etc/conf.modules coloque:
+alias parport_lowlevel parport_pc
+
+O "IEEE1284 status readback" permite que leia a porta, ex: cat /dev/lp0
+
+A numeracao das lps comeca em "0". Independente da IO da porta.
+Paulino Kenji Sato               |    Universidade Estadual de Maringa
+mailto:paulino@dfi.uem.br     
+---------------
+> Tambem tive exatamente o mesmo problema. Ja' enviei questoes para esta
+> lista (ha' algum tempo atras), para a lista da Debian e para a do
+> LINUSP.
+> Continuo tambem sem solucao. Desisti de ter um impressora ligada ao Linux,
+> o que e' extremamente lamentavel... Foi a unica vez em que o Linux me
+> deixou na mao ate' agora.
+
+Palpites:
+
+1) Mudar de lp1 para lp0 (motivos no parport.txt).
+2) Tentar podar o parport como pooling, sem usar o IRQ.
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+			
+				LIB PRO COREL 3.5
+
+
+>Baixei o Corel 3.5 for Linux e instalei ele no meu Linux, mas quando tentei
+>executar ele pediu por um tal de libwix.so. Alguém sabe onde encontro essa
+>lib?
+
+A LIB está no próprio Corel, basta vc fazer o seguinte no profile do usuário
+(.bash_profile) que terá
+deireito a usar o Corel:
+
+crie estas variáveis:
+
+CORELHOME=/diretorio_de_instalação/corel (no meu caso o rpm colocou ele em
+/opt/corel)
+LD_LIBRARY_PATH=/diretorio_de_instalação/corel/linux_i386 (no meu caso
+/opt/corel/linux_i386)
+
+exporte as variáveis
+
+no seu PATH adicione:
+:$CORELHOME/linux_i386:$LD_LIBRARY_PATH
+
+execute o profile e divirta-se!
+
+			RAD OBJECT PASCAL FOR LINUX
+
+
+visite a pagina http://www.informan.com.br/ice_cub.html
+--------------
+MySQL - http://www.tcx.se
+
+Leia a licença, não é GPL mas é livre para uso, não para comercialização
+de um produto que requeira o mesmo.
+
+        - Arnaldo
+
+					
+				PLACA DE TV
+
+Consegui funcionar a placa de TV AimsLab VideoHighway TR288i no Linux.
+Usei o Wine para executar o software de controle da placa (que está
+instalado no Windows 95). Para isso precisei alterar o arquivo
+/etc/wine.conf adicionando as seguintes linhas na seção [ports]:
+
+read=0x500,0x502
+write=0x500,0x502
+
+obs: a minha placa está configurada para usar o endereço 500.
+Depois executo o seguinte comando:
+
+wine /mnt/win95/tr288i/tv288.exe
+
+Mas só está funcionando com o root, então executo o su antes. Com um
+usuário normal o programa avisa que o endereço não está configurado
+corretamente.
+Precisei também reconfigurar o alinhamento da imagem, pois a resolução
+que uso no Linux é diferente no Windows,  executando o arquivo
+cf288.exe.
+Acho que agora não tem mais nada em minha máquina que dê motivo pra eu
+ainda usar o win95. :)
+[]s
+Daniel
+
+PS: Esta máquina está com o Conectiva Linux Marumbi, kernel 2.0.36 e
+wine 990328.
+				
+			GERENCIADORES DE JANELA E X
+
+Qual a diferença entre o X e Gerenciador de janelas, se eu ñ me
+> engano Gerenciador de janelas seria o kde ou WMaker, e o X que bicho é
+> este?????
+        Bem, vamos lah. Vou ser bem simplista.
+        O X eh o "servidor grafico". Em Unix (e Linux), o ambiente grafico
+funciona como cliente-servidor. O X, no caso, eh o servidor. Os programas
+que voce abre no X (xterm, netscape, etc) sao clientes. Ou seja, eles se
+"conectam" no X e sao abertos. Daih voce poder chamar programas de fora do
+X e eles aparecem no X (experimento: abra o X, digite Ctrl-Alt-F2, voce
+vai cair numa tela nao grafica, digite "DISPLAY :0.0" sem aspas, digite
+"xterm" sem aspas, digite Ctrl-Alt-F7 pra voltar pro X e veja lah aparecer
+o xterm que voce chamou do console). Alias, eh possivel fazer isso mesmo
+de outra maquina, alem de "requisitar" programas para o seu X (jah abri
+muito Emacs de outras maquinas no meu X).
+        Bem, entao, resumindo, o X eh o servidor grafico.
+        Soh que, por decisao de design do pessoal que desenvolveu o X, ele
+nao se preocupa com a aparencia, com menus, com nada disso (experimente
+digitar no console soh "X", ao inves de "startx"; daih pode repetir a
+experiencia acima).
+        Daih entram os gerenciadores de janelas (window managers). Eles
+sao os responsaveis por definir a aparencia e comportamento das janelas,
+mouse etc no seu X.
+        O KDE e o Gnome sao um pouco diferentes disso. Nao sao window
+managers (wm), mas ambientes graficos integrados. O Gnome ateh aceita que
+voce rode um wm ao mesmo tempo em que ele eh rodado (o KDE, que eu saiba, 
+nao). Eles se preocupam em integrar os objetos que estao no seu X. Isso
+possibilita, por exemplo, "Drag and drop".
+ Rodrigo Bernardo Pimentel          <rbp@pobox.com>
+-----------------
+X, X11, X11R6, X Windowing System, X Windowing System Version 11 ou X
+Windowing System Version 11 Release 6: conjunto de especificações de como
+um sistema gráfico deve ser, incluindo comunicação entre o cliente X (o
+programa sendo rodado) e o servidor X (o que cuida realmente dos gráficos
+da tela)
+
+XFree86: implementação do X11R6 para plataformas Intel 386 e superiores.
+
+Aplicativo X: um programa qualquer que contate o servidor X para poder
+apresentar-se graficamente na tela.
+
+Gerenciador de Janelas: um aplicativo X especial que é o responsável por
+dar às janelas do ambiente gráfico o seu visual. É ele o responsável por
+barras de título, bordas, botões nas barras, arrastamento e
+redimensionamento de janelas, etc. Cada Gerenciador de Janelas tem seu
+visual diferente. Em inglês, window manager; não confundir com Window
+Maker, que é um dos gerenciadores de janelas que existem.
+
+KDE: conjunto de aplicativos e padrões para rodar sob o X. Um deles é um
+gerenciador de janelas, o kwm.
+
+Window Maker: um dos gerenciadores de janelas que existem.
+
+GNOME: semelhante ao KDE, é um conjunto de aplicativos e padrões para rodar
+sob o X.
+
+
+--
+ Thiago Macieira
+
+				MONTAR DISQUETE
+
+Uma solucao um pouco mais limpa seria colocar essas informações no /etc/fstab:
+/dev/fd0    /mnt/floppy    vfat    defaults,noauto,user    1    1
+
+daí, é só utilizar
+mount /mnt/floppy
+ou
+mount /dev/fd0
+
+para montar.
+
+Ou, também existe o fdmount. Só que ele não funciona com VFAT.
+
+
+--
+ Thiago Macieira
+
+				PERMISSÕES
+
+
+> 1- pq mesmo eu usando o umask 000 ele continua mudando as permissoes (
+> subraindo 022 )?
+
+Não deveria. Mas lembre-se de que o umask só vale para arquivos sendo
+criados, não os sendo modificados. Os modificados mantêm as permissões.
+
+No entanto, pode ser que o programa que está usando para criar o arquivo
+esteja forçando o umask 022. Não deveria.
+
+> 1.1- pq depois de um boot o umask volta para 022
+
+Porque em alguma linha dos scripts de inicialização tem uma linha "umask
+022". Ou esse é o padrão.
+
+Tanto faz. Apenas coloque "umask 0" nos scripts de logon.
+
+> 2- pq eu mesmo deixando o dono e o grupo dono como nobody ele troca para
+> usuario e grupo de usuario
+
+Não deve. Só o superusuário tem o poder de trocar um arquivo de dono. E,
+mesmo assim, não é o costume alterar o dono quando se edita um arquivo. Já o
+grupo é outra história: a cada edição, ele normalmente assume o grupo padrão
+do usuário fazendo as modificações (GID). A não ser que o diretório seja
+setgid.
+
+> 3- pq mesmo alterando o padrao de criacao de arquivos e diretorios pelos
+> usuarios no linuxconf para 777 ele continua trocando as permissoes para
+> 755
+
+Essa eu não sei.
+
+Só para confirmar ou negar uma suspeita: você não estaria criando esses
+arquivos via Samba, estaria?
+
+
+--
+ Thiago Macieira - UFOT Registry number: 1001
+ *thiagom@iname.com
+				DUAL BOOT - LILO
+> hd com Linux como master e o com o Windows como escravo, configurei no
+> linuxconf para que a inicialização do win95 fosse em /dev/hdb1, mas quando
+> escolho para entrar no Windows ele diz q disco está sem sistema, eu sei que
+> se eu tivesse instalado primeiro o Windows o lilo faria automaticamente o
+> Dualboot, mas eu ñ quero instalar o Linux de novo.
+
+O Windows não gosta de ficar no HD escravo.
+
+Coloque-o como mestre (tradução de maste) e o Linux como escravo (que heresia!
+:-P). Depois, utilizando um disco de boot (você vai precisar), reconfigure o
+LILO para que o Windows seja /dev/hda1 e o Linux, /dev/hdb1.
+
+Lembre-se também de alterar o /etc/fstab do Linux para apontar para as partições
+corretas.
+
+--
+ Thiago Macieira 
+
+			COMPILAR KERNEL
+
+> Tenho o linux Red Hat 5.2 (Apollo) com o kernel 2.0.0.36.
+> Quando eu tendo compilar o kernel /usr/sbin/linux/make config, eu recebo
+> a seguinte mensagem:
+>
+> make: *** No rule to make target `config`.  Stop.
+
+Passos para compilar o kernel:
+1) refletir se você realmente precisa/quer compilar o kernel;
+2) ler o Kernel HOWTO;
+3) ter certeza que leu o Kernel HOWTO;
+4) verificar se você tem instalado o compilador, o make e o código fonte do
+kernel;
+5) se você leu o Kernel HOWTO, deve saber o que fazer aqui.
+make menuconfig
+
+O seu erro provavelmente ocorre no passo 4.
+
+
+--
+ Thiago Macieira
+--------------
+> Tenho o linux Red Hat 5.2 (Apollo) com o kernel 2.0.0.36.
+> Quando eu tendo compilar o kernel /usr/sbin/linux/make config, eu recebo 
+> a seguinte mensagem: 
+> 
+> make: *** No rule to make target `config`.  Stop.
+
+/usr/sbin ou /usr/src?
+
+Para compilar um programa, voce precisa:
+1) Ter o codigo fonte;
+2) Ter o compilador;
+3) Ter o make;
+4) Rodar o make no lugar certo, onde existe o Makefile.
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+		SCRIPT PARA ACESSO AO ZIP DRIVE
+
+
+
+> como eu e podem se deparar com o mesmo problema ou semelhante... Criei um
+> arquivo 'zip', coloquei as duas instruções lá. Fiz um chmod 755 zip. E um
+> criei um ícone na barra de tarefas do icewm para: /diretório/zip. Que
+> felicidade!
+        Complementando, fiz algo um pouquinho mais elaborado, pra poder
+usar a impressora tb. Carrego o modulo da impressora no boot.
+        Passo o tipo de filesystem do zip como parametro pro script. Por
+default, ele usa ext2.
+        Vendo agora, fiz algumas mudancazinhas, pode ter algum erro. 
+
+#!/bin/bash
+# rbp@pobox.com
+
+if [ "$1" == "-" ]
+    then
+    umount /zipdrive
+    PPA=`lsmod | grep ppa | cut -f 1`
+    if [ PPA == "ppa" ]
+           then
+           # Tira ppa"
+           rmmod ppa
+    fi
+    LP=`lsmod | grep lp | cut -f 1`
+    if [ $LP != "lp" ]
+           then
+           # Insere impressora
+           modprobe lp
+    fi
+else
+    if [ "$1" == "" ]
+        $TYPE='ext2'
+    else
+        $TYPE=$1
+    fi
+    # Checa se o modulo de impressora estah carregado e o remove,
+    # se estiver
+    LP=`lsmod | grep lp | cut -f 1`
+    if [ $LP == "lp" ]
+           then
+           # Tira impressora
+           rmmod lp
+    fi
+    PPA=`lsmod | grep ppa | cut -f 1`
+    if [ PPA != "ppa" ]
+           then
+           # Insere ppa
+           modprobe ppa
+    fi
+    mount -t $TYPE /dev/sda4 /zipdrive
+fi
+
+ Rodrigo Bernardo Pimentel          <rbp@pobox.com>
+			
+			PLACAS DE VIDEO AGP
+
+
+Uma boa solucao, que vai servir pra uma serie de placas AGP de ultima
+geracao eh dada na pagina do RedHat
+Va neste espelho do ftp do RedHat
+
+ftp://ftp.eecs.umich.edu/pub/linux/redhat/ftp.redhat.com
+
+e entre no diretorio XBF
+Eh um driver para uma serie de placas:
+ 
+Tested Video Cards
+ 
+ * Real3D Starfighter AGP
+ * Diamond Stealth II/G460 AGP
+ 
+Reported Working Video Cards:
+ 
+ * 3DVision-i740 AGP
+ * ABIT G740 8MB SDRAM
+ * AGP 2D/3D V. 1N, AGP-740D
+ * ARISTO i740 AGP (ART-i740-G)
+ * ASUS AGP-V2740
+ * Chaintech AGP-740D
+
+ EONtronics Picasso 740
+ * EONtronics Van Gogh
+ * Everex MVGA i740/AG
+ * Flagpoint Shocker i740 8MB
+ * Gainward CardExpert 740 8MB
+ * Gigabyte Predator i740 8MB AGP
+ * Hercules Terminator 128 2X/i AGP
+ * Intel Express 3D AGP
+ * Jaton Video-740 AGP 3D
+ * Joymedia Apollo 7400
+ * Leadtek Winfast S900  
+ * Machspeed Raptor i740 AGP 4600
+ * Magic-Pro MP-740DVD
+ * MAXI Gamer AGP 8 MB
+ * Palit Daytona AGP740
+ * QDI Amazing I
+ * Soyo AGP (SY-740 AGP)
+ * VideoExcel AGP 740  
+ * ViewTop ZeusL 8MB
+* Winfast S900 i740 AGP 8MB
+ 
+No readme ele explica toda a instalacao e tem tambem um xf86config proprio
+que ja vem com essas placas.
+
+Vale a pena, comigo funcionou beleza numa placa intel AGP 3D de 8 mb
+falou
+
+espero ajudar a todos
+TATIANA
+
+				ZERANDO O WTMP
+
+
+> "Antonio S. Martins Jr." wrote:
+> > 
+> > >  Como zero o wtmp?? (criar um arquivo novo)
+> > 
+> >   #mv wtmp wtmp.old
+> >   #touch wtmp
+> >
+> Putz, Antonio, eu não sou tão cru assim... (~;
+> Queria saber se tem um "roll over" do tipo que vem no xtacacsd (tacupd
+> -R)...
+
+Use o logrotate. Configure-o para algo assim:
+
+/var/log/wtmp {
+    monthly
+    rotate 0
+}
+
+ELIPHAS
+
+				IMPRESSORA EPSON LX 300
+
+
+a impressora vc pode configurar no control-panel ... como epson
+dot-matrix 9pins ....... se nao der certo use o apsfilter q vc acha em
+ftp.cdrom.com/pub/linux/slackware-current/contrib
+
+qualquer duvida --> ICQme 23929775
+
+				LINGUAGEM PARA TRATAR TEXTO
+
+
+>       Uns meses atras li sobre uma linguagem usada para tratar arquivos
+> texto, os programas dessa tal linguagem eram mais ou menos assim:
+> ... 
+>       Sendo que o meio eh executado uma vez para cada linha. Nao consigo me
+> lembrar o nome dessa tal linguagem. Alguem por aih sabe?
+> 
+
+O nome da linguagem é awk
+ \|/ --- \|/   Augusto Cesar Campos - brain@matrix.com.br
+
+				IMAGEM DE HD
+
+dd if=<device do hd a ser copiado> of=<hd de destino> bs=1024k count=<tamanho
+do hd/particao>
+
+faca backup antes !
+
+aconselho a compactar tudo ( tar cvfzdp hd.tgz / ) , passar pro outro hd e
+descompactar.
+                Carlos Eduardo Gorges        
+             e-mail: carlos@racco.com.br  
+
+				USO DE CD POR USUARIOS COMUNS
+
+Estou com um problema q acredito ser bem simples sua solucao, mas
+> devido a minha pouquissima experiencia com o Linux, estou "apanhando"...
+>      Somente o Root tem acesso ao CD-ROM no caso de escutar musicas, cd's
+> de audio (pelo menos nao testei com cd's de soft.), Onde configuro isso ?
+
+Quanto a acessar discos montados (CD-Rom), voce precisa colocar no
+/etc/fstab a opção "noauto,ro,user", isto é, sem montagem automática,
+read-only, e user accessible.
+Para acesso a musicas é diferente, pois voce não precisa montar.  O que
+pode estar aontecendo é permissão de leitura no dispositivo (/dev/xxxx).
+Veja qual dispositivo usado e as permissões de acesso.  Voce pode usar
+"strace -o strace.saida <comando para tocar musicas>" e depois analisar o
+que ficou no arquivo strace.saida.
+
+Um abraco,
+Rildo
+
+			CRIANDO NOVAS PARTIÇÕES APÓS A INSTALAÇÃO
+
+
+> E possivel utilizar o Disk Druid após a instalacao para criar novas
+> partiçoes?
+
+  Após a instalação você pode usar o 'fstool'.
+
+  Roxo
+
+				WINDOW MANAGERS LEVES
+
+O WM mais leve é, sem dúvida, o menos conhecido deles, e que está em
+todas as distribuições :  TWM
+
+  O 'twm' com um "session manager", como o 'xsm', é extremamente leve e
+funcional.  Só que usualmente ele não tem um "look'n'feel" 3D, e por isto
+as pessoas não gostam de usá-lo.  As fres^H^H^H^Hflexibilidades usuais dos
+"desktops" não estão presentes nele.
+
+  Uma outra opção seria usar o FVWM.  É este que eu uso normalmente, tanto
+no Linux como no AIX, IRIX, Solaris e outros Unices.  Também é bastante
+leve e funcional.   Este era o que eu usava quando tinha o meu jeguinho (
+486SX33 ), tá certo que o Netscape levava um tempinho para abrir, mas eu
+conseguia usá-lo.
+  Roxo
+-----------
+>       Quer uma interface leve?? flwm, wm2, ou entao o enigmatico twm
+> (isso sim que eh interface simples! Nao tem nem como chamar um programa
+> (soh via xterm))... eu particularmente uso a flwm... se quiser eu te passo
+
+  Isto não é verdade.  Você pode usar o 'xsm' ( X Session Manager ) ou
+configurar o '~/.twmrc' para configurar os menus.  Você não terá ícones
+poluindo o seu terminal. ;)))
+  Roxo
+------------
+OK, vou dizer os WMs (Window managers) que normalmente uso (gosto de 
+cambiar de cando em vez...)... flwm (baseado na Fast Light Toolkit, fltk) 
+é o que uso ultimamente, icewm, wm2, scwm...
+
+Tudos eles sào pequenos, nâo embotan a pantalha com estúpidos e inúteis 
+iconos e coisas semelhantes e o mais importante: sâo rápidos e mui 
+cómodos pra um programador: podes lanzar vários xterm (ou no meu caso 
+rxvt) e teis workspaces pra tirar os grandes programas (netscape pra ler 
+a documentaçâo, o tkdesk pra fedelhar com os ficheiros, etc...)
+
+Persoalmente atopo o KDE, WM, FVWM e similares (Afterstep é uma 
+modificacçâo do fvwm) molestos, incómodos de usar e ademais quitan 
+recursos ao wish, ao python e ao gcc... sâo proibidos no meu GNU/Linux... :)
+
+De feito, os verdadeiros programadores perdem o tempo lendo manpages e
+configurando o Makefile, nâo o WM.... ;)
+
+saudos dende uma fria Galiça,
+d@
+
+
+				WMWARE
+
+
+        ja' estou usando o VMWARE em casa e nao tenho do que me queixar. Apenas
+coloco os seguintes pontos:
+        - Instalacao trivial; (conferir INSTALL)
+        - Para rodar o Win95, instalei o MS-DOS, dentro da maquina virtual,
+instalei os drivers de CD-ROM depois instalei o Win95 de dentro do
+CD-ROM... (o MS-DOS particionei o HD virtual, formatou e intalou o dos
+na boa)
+        - Ele se comunica perfeitamente com o Linux como se fosse outra maquina
+na mesma rede, inclusive com outro IP;
+        - Se for configurado IPFWADM, e etc, o Win95 tambem acessa a Internet
+atraves do Linux, consequentemente;
+        - Nao me aprofundei em possibilidades de rodar um MS-Win ja' instalado
+em outra particao...
+
+        No mais, pra mim vale a pena.
+ELLERY
+
+			ARQUIVOS CORE
+
+o arquivo core e utilizado pelo SO para copiar os dados, carregados na
+memoria, oriundos de um programa q tentou ser rodado mas q foi interrompido
+por um em erro. Ele e muito util para debugar os problemas, mas tomam muito
+espaco.
+-------------
+O core e'  uma imagem ou copia da memoria que o aplicativo estava usando quando
+ele causou uma exessao, ou seja, deu um problema.
+
+ Eles servem para quando voce estiver usando um aplicativo com dados super
+importantes e ele der problemas e ser kilado. Voce tem como recuperar esses
+dados ( nao e' facil ) a partir do core.
+                Carlos Eduardo Gorges  
+-----------
+
+O arquivo /proc/kcore nao pode ser apagado! E' a memoria ram da sua
+maquina.
+
+[]s Christian
+ 
+			INSTALAÇÃO DO GNOME 1.0
+
+
+Você baixou o diretório /redhat/ inteiro do FTP?
+
+caso afirmativo:
+
+rpm -Uvh --nodeps --force *rpm
+
+que deverá resolver.
+
+
+[]'s
+Raul Dias
+				PÁGINA DO PROJETO DO LIVRO
+
+
+So para avisar o pessoal, coloquei uma página com os tópicos,
+http://www.ufba.br/~kroger/linux/livro/projeto.html
+
+				CONTRUINDO RPMS
+
+
+>       Naum sou programador ainda.... :) mas.. traduzir software jah dah
+> pra comecar... soh pergunto uma coisinha... se pego um software, como o
+> WxFTP por exemplo, como faco pra ele comecar a usar o gettext, traduzi
+> metade dele direto no codigo, soh depois que descobri esse tal de
+> gettext, como usa-lo, documentacao, etc...
+>       Como o Arnaldo fez com o rpm ( acho )
+
+No caso do rpm eu só traduzi. Internacionalizei: minicom, fetchmail, parte
+do util-linux, newt, dialog, net-tools, discos de instalação do Conectiva
+Linux, etc.
+
+>       Como crio os .po e como  faco pro software usa-lo, outra
+> questao...
+
+O melhor mesmo é ver um exemplo simples, recomendaria baixar uma versão do
+mouseconfig, programa pequeno e já internacionalizado, disponível em
+ftp://ftp.conectiva.com.br/pub/conectiva/3.0/SRPMS/mouseconfig*src.rpm.
+
+Siga estes passos:
+
+1. obtenha o mouseconfig*src.rpm (pacote com os fontes utilizados para
+gerar as rpms para cada plataforma. Ex.: mouseconfig*i386.rpm para a
+plataforma intel, mouseconfig*alpha.rpm para a plataforma alpha, etc)
+
+2. instale-o:
+
+rpm -ivh mouseconfig*src.rpm
+
+3. vá até o diretório /usr/src/redhat/SOURCES
+
+4. descompacte o mouseconfig*tar.gz ou mouseconfig*.tar.bz2
+
+5. procure a rotina main e veja as chamadas a setlocale, bindtextdomain e
+textdomain, veja a documentação para estas rotinas através do comando
+
+info gettext
+
+6. vá até o diretório po e veja o Makefile, como ele chama o xgettext, que
+é usado para extrair as mensagens marcadas com _() e N_() nos fontes.
+
+Mas recomendo assinar a lista lie-br, pois a mesma é dedicada
+especificamente à internacionalização e tradução de pacotes de livre
+distribuição e já está com umas 130 pessoas que poderão te ajudar com mais
+rapidez.
+
+>       Puxei um source da net este em formato .tar.gz descompactei ele e
+> tinha la.. ./configure && make && make install   pronto tenho tudo
+> compilado e que vai rodar em minha maquina.... pergunta, como faco para
+> criar um .rpm a partir deste codigo binario compilado, OBS: Nao tenho a
+> menor ideia de como fazer isso :) sejam claros :)) assim depois de puxar o
+> source da net traduzo, compilo-o, crio o .rpm e mando pra net, conectiva
+> sei lah mais onde OKz... to morrendo de vontade de fazer esse trabalho soh
+> naum sei como....
+> 
+>       Thiago Martins
+
+               - Arnaldo
+
+				CONFIGURAÇÃO DO LILO
+
+edite o arquivo de configuração do lilo em /etc/lilo.conf
+certamente neste arquivo já terá as configurações para iniciar o linux,
+basta adicionar no final do arquivo o seguinte:
+---------------------------- inicio
+other = /dev/hda1
+label = win95
+table=/dev/hda
+-------------------------- fim
+
+obs: vc deverá alterar "hda1" para a partição correta e "hda" coloque a
+tabela correta.
+Se o HD for primary master será hda1 e hda, se for primary slave será hdb1 e
+hdb, se for secondary master hdc1 e hdc; e assim por diante.
+
+
+Quando aparecer: "lilo boot", digite linux ou apenas enter para entrar no
+linux e win95 para entrar no windows.
+------------
+
+O HD master pode ser qualquer um, o lilo gerencia isso. Pode deixar o master
+com o Windows e instalar o Linux no Slave ou Secondary master/slave. No
+final da instalação o linux pergunta onde quer instalar o lilo. Instale-o no
+MBR do master.
+Para iniciar o Windows, vc deverá configurar o lilo. Entre no linux e edite
+o arquivo /etc/lilo.conf e adicione o seguinte:
+
+--------------inicio
+other = /dev/hda1
+label = win95
+table = hda
+--------------fim
+
+ps: essa conf. é para windows instalado no Primary Master!
+Ozéias Rocha
+
+			DBF X MSQL
+
+Bom se o programa for em Clipper ele tem DBF e se tem DBF ele 
+pode ser importado pro MySQL ( SQL ) entao teria algo mais simples  e 
+bem mais apresentaver. 
+ 
+        Sem falar nas facilidades pois so necessitaria de uma maquina 
+com algum browser ee o PHP3 + Apache para manipular o banco  de dados 
+imclusive poderia disponibilizar para o usuario uma visualizacao   de 
+como andas o pagamento dele no provedor unclusive ele poderia fazer a 
+atulizacao de seus dados via web mesmo. 
+ 
+        Seria um bom diferencial para seu provedor em  relacao aos ou 
+tros provedores nao acha??????? 
+ 
+        Poderia ate fazer algo  semelhante o que tenho por  aqui tipo 
+poderia controlar o provedor inteiro via WEB ( relacao de acesso e pa 
+gamento ), poderia bloquear o acesso, poderia disponibilizar as horas 
+usadas, usuarios conectados, alteracao de senha e tudo  mais o que es 
+tivesse em sua mente pois com o SQL me abriu um leque  de opcoes imen 
+so que eu nao vislumbrava a tempos atraz. 
+ 
+        Hoje sou  um defensor de Linux + SQL + Apache + PHP3 para uma 
+administracao de  provedores de  pequeno e medio  porte pois traz uma 
+simplicidate no controle total  do usuario que no meu  caso eu nao ti 
+nha ideia de como podria ser feito. 
+ 
+        Para quem quer testar nao ira se arrepender pois e otimo e eu 
+vou terminando por aqui se nao hehehe fico falando, falando e falando 
+e o ideal e testar e comprovar o que estou dizendo. 
+Robney C. P. Issa 
+
+		ACENTUAÇÃO EM CLIENTES DE E-MAIL
+
+Acentuação em E-Mail
+Novidades
+
+   * 21/03/1999: Criado.
+
+Muita gente diz que no Linux você não consegue mandar mails com acentos.
+Isso não é verdade.
+
+O que você precisa é de um programa que suporte letras acentuadas, e
+configurá-lo corretamente. E isso não é uma exclusividade do Linux: é a
+mesma coisa com aplicativos do Windows ou de qualquer outro Sistema
+Operacional. Se o suporte for falho, você vai ter problemas em enviar
+mensagens acentuadas.
+
+Para exemplificar: a versão em japonês do InternetMail e do InternetNews da
+Microsoft usava, como padrão, caracteres não compatíveis com a Internet.
+Você enviava uma mensagem, e apenas pessoas que usavam o InternetMail
+conseguiam ler a sua mensagem. Não sei se isso foi corrigido no Outlook, mas
+a imagem da Microsoft ficou bastante comprometida entre os usuários mais
+experientes.
+
+1. Conjunto de Caracteres (charsets)
+
+Antes de mais nada, devemos saber o que são os charsets.
+
+1.1. Charsets
+
+Quando o computador foi criado nos Estados Unidos, eles criaram uma tabela
+de caracteres com o alfabeto, números e outros sinais, como parênteses,
+exclamação etc. Para isso, 128 caracteres eram o suficiente, e portanto eles
+criaram um charset de 7 bits chamado ASCII.
+
+Porém, no mundo existem vários países que usam letras acentuadas, e 128
+caracteres se tornaram insuficientes. Assim, foram criados charsets de 8
+bits (256 caracteres). Entretanto, mesmo 8 bits são insuficientes para
+guardar todas as letras acentuadas e especiais que são usadas nas línguas
+européias, sem contar os alfabetos cirílico (Rússia) e grego, que são
+totalmente diferentes dos alfabeto que nós usamos.
+
+Assim, foram criados vários charsets de 8 bits, e normalizados pela ISO
+(International Standardation Organization). Todos eles são compatíveis com o
+ASCII nos primeiros 128 caracteres, diferenciando-se entre si nos últimos
+128 caracteres.
+
+Se você quiser ler um texto em russo ou em sueco, basta mudar o charset (se
+o programa suportar, é claro). Um programa corretamente implementado não
+deve ter dificuldade em mostrar várias línguas.
+
+Para alguns países da Ásia, onde se usam ideogramas, o charset é de 16 bits.
+Nesse caso, os aplicativos devem ser modificados para poderem trabalhar com
+esses caracteres.
+
+Devemos nos lembrar também que, dentro de um mesmo país, pode haver mais de
+um charset sendo usado. Por exemplo, aqui no Brasil usamos o ISO-8859-1 no
+Linux, e o IBM 850 no DOS, que são incompatíveis. No Japão, existem 3
+charsets diferentes (JIS usado na Internet, shift-JIS usado no
+DOS/WIN/MacOS; EUC usado no UNIX).
+
+Os charsets mais usados aqui no Brasil são:
+
+   * ASCII: charset de 7 bits, sem os caracteres acentuados. É o padrão nos
+     Estados Unidos.
+   * ISO-8859-1: charset e 8 bits, com caracteres acentuados usados nos
+     países da Europa Ocidental. O português é incluído nesse charset.
+   * IBM 850: charset de 8 bits, usado no DOS. Muita gente já deve ter
+     percebido que os caracteres acentuados escritos no DOS ficam "errados"
+     no Windows9x ou no Linux.
+
+1.2. Limitações dos charsets atuais
+
+O problema é: você só consegue usar um charset por vez. Portanto, você não
+consegue ler um texto que tenha letras acentuadas em português e alfabeto
+cirílico (charset ISO-8859-5) ao mesmo tempo. Outro exemplo: você manda um
+texto em português para um amigo que mora na finlândia (charset ISO 8859-4).
+Ele pode ter dificuldades em ler o texto se estiver usando um sistema
+operacional finlandês que não permita mudar de charset.
+
+Para solucionar esses problemas, um novo código de 16 bits (65536
+caracteres), chamado de Unicode, pretende padronizar todos esses charsets em
+um. Isto é, você poderá ler caracteres europeus ou asiáticos sem ter que
+mudar os charsets, e ao mesmo tempo!
+
+A princípio, os arquivos somente com alfabeto ficariam maiores, pois usariam
+2 bytes por caracter ao invés de 1 byte. Para evitar isso, foi criada uma
+forma alternativa para o encoding do Unicode (UTF-8):
+
+  1. UTF-16: os caracteres são definidos em 16 bits, com possibilidade de
+     expansão para mais de 1 milhão de caracteres.
+  2. UTF-8: usa caracteres de bits variáveis. Um caractere alfabético usaria
+     apenas 7 ou 8 bits, e caracteres asiáticos usariam 16 bits.
+
+Mas ainda persiste um problema: japoneses, chineses e coreanos (que seriam
+os mais beneficiados pelo Unicode) não gostaram muito da maneira com que a
+tabela de caracteres foi definida. Eu não sei os detalhes, mas dizem que
+houve uma simplificação exagerada prejudicando a compatibilidade com as
+normas atualmente utilizados.
+
+2. Particularidades do e-mail
+
+A Internet foi criado nos Estados Unidos, quando a largura de banda era
+estreita. Por isso, os servidores só deixavam passar caracteres de 7 bits, o
+que é o suficiente para o ASCII.
+
+Quando a Internet passou a ser usado no mundo inteiro, foi preciso modificar
+o padrão para poder transmitir caracteres de 8 bits (Europa) e de 16 bits
+(Ásia). Para isso, foram criados o "quoted-printable" para os caracteres de
+8 bits e outras implementações locais para os países que usam caracteres de
+16 bits (por exemplo, o JIS no Japão).
+
+Esses métodos usam apenas 7 bits de informação, mas usam os
+escape-characters para poderem transmitir caracteres extras. Por exemplo,
+"São Paulo" se torna "S=E3o Paulo" quando transmitido no modo
+"quoted-printable". O grande problema desse método é que apenas mailers que
+o suporta consegue mostrar os caracteres corretamente. Um editor de texto,
+por exemplo, mostra os códigos, e não os caracteres acentuados.
+
+Mais recentemente, os servidores mail passaram a aceitar caracteres de 8
+bits. Portanto, ficou muito mais fácil para os mailers trabalharem com
+caracteres de 8 bits. Mas alguns servidores (especialmente nos Estados
+Unidos e na Ásia) continuam a transmitir apenas em 7 bits. Portanto, se você
+usar um charset de 8 bits a sua mensagem _pode_ ficar com os caracteres
+trocados (o "ç" se torna "g" e assim por diante).
+
+O Thiago Macieira me informou que o Sendmail é capaz, inclusive, de fazer
+conversões de 8 bits para 7 bits e vice-e-versa.
+
+3. Programas de E-mail problemáticos
+
+O e-mail pode ser mandado de um país para outro com grande facilidade.
+Porém, o charset usado na mensagem pode ser diferente do usado normalmente
+pelo receptor. Por exemplo, o caractere "õ" do charset ISO-8859-1 (que
+usamos aqui no Brasil) sairia como "o com duplo agudo" em um país que usa o
+charset ISO-8859-2.
+
+Para contornar isso, basta indicar o charset usado no conteúdo da mensagem
+no cabeçalho (header), e o mailer interpretá-lo corretamente.
+
+Temos aqui como exemplo o cabeçalho de algumas mensagens:
+
+   * Transmitido em 8 bits:
+
+     Content-Type: TEXT/plain; charset=iso-8859-1
+     Content-Transfer-Encoding: 8BIT
+
+   * Transmitido em 7 bits:
+
+     Content-Type: Text/Plain; charset=iso-8859-1
+     Content-Transfer-Encoding: quoted-printable
+
+   * Mensagem em japonês, transmitido em 7 bits:
+
+     Content-Type: Text/Plain; charset=iso-2022-jp
+     Content-Transfer-Encoding: 7bit
+
+O problema é que alguns programas de e-mail ignoram esse procedimento.
+Alguns mandam sem especificar o charset, e outros simplesmente mandam
+caraceres acentuados com charset=ASCII! Alguns exemplos:
+
+   * Kmail (falta o charset):
+
+     Content-Type: text/plain
+     Content-Transfer-Encoding: quoted-printable
+
+   * Yahoo (charset errado):
+
+     Content-Type: text/plain; charset=us-ascii
+
+   * Hotmail (falta o charset, não tem o encoding):
+
+     Content-Type: text/plain
+
+Muitos programas de e-mail são tolerantes, e (provavelmente usando o charset
+padrão) mostram as letras acentuadas corretamente mesmo sem esses dados. Mas
+isso porque é uma mensagem em português mandada para alguém que mora no
+Brasil, pois se fosse em outra língua, provavelmente daria problemas.
+
+Outros são rigorosos, e acabam mostrando caracteres errados. Por exemplo, o
+mailer que eu uso consegue mostrar praticamente todos os charsets existentes
+automaticamente (se tiver as fontes). Mas ele precisa do charset para isso,
+e mensagens enviadas por esses mailers ficam corrompidas.
+
+4. Como configurar o seu programa de mail
+
+Basicamente, você deve configurar o seu programa para transmitir os dados
+usando o charset ISO-8859-1. A transmissão em si pode ser feito em 7 bits
+(quoted-printable) ou em 8 bits, mas nesse caso existe a possibilidade
+(remota, hoje em dia) de você ter as letras acentuadas transmitidas
+erradamente.
+
+4.1. Pine
+
+Dica do Rodrigo Bernardo Pimentel:
+
+Entrar no menu de configuração: no menu principal, digitar 's' (Setup)
+depois 'c' (Config).
+Algumas páginas abaixo fica a opção "chacter-set". Coloque "iso-8859-1" como
+valor.
+Digite 'e' pra sair do menu de configuração, 'y' pra salvar as mudanças e
+pronto.
+
+O Pine não tem suporte direto pra acentuar, a acentuação deve estar
+configurada no ambiente (console e/ou X).
+
+4.2. Rmail, VM e outros baseados no Emacs
+
+Também enviado pelo Rodrigo Bernardo Pimentel:
+
+Antes de mais nada: para acentuar no Emacs você deve digitar:
+
+M-x standard-display-european
+M-x iso-accents-mode
+M-x iso-accents-customize portuguese
+
+Pra tornar definitivo, colocaque os comandos no ~/.emacs:
+
+(standard-display-european t)
+(iso-accents-mode t)
+(iso-accents-customize "portuguese")
+
+Iga
+
+			Kroger.xinitrc
+
+#!/bin/sh
+xmodmap .Xmodmap
+exec /usr/bin/wmaker
+#exec /opt/kde/bin/startkde
+#exec icewm | aterm
+#exec afterstep
+#exec fvwm2
+#exec qvwm
+#exec twm | xterm
+!!! next line added by Gglyph
+xset fp+ /home/kroger/Fonts/type1
+
+			PROBLEMAS COM O GCC++
+
+
+
+> checking for a C++-Compiler...
+> checking for g++... (cached) g++
+> checking whether the C++ compiler (g++  -s) works... no
+> configure: error: installation or configuration problem: C++ compiler
+> cannot create executables.
+
+Acho que o seu g++ esta' com problemas...
+
+[root@Nexus /root]# rpm -qf /usr/bin/g++
+gcc-c++-2.7.2.3-8
+[root@Nexus /root]#
+
+Verifique esse pacote:
+
+[root@Nexus /root]# rpm --verify gcc-c++
+[root@Nexus /root]# mv /usr/bin/g++ /usr/bin/g++.or
+[root@Nexus /root]# rpm --verify gcc-c++
+missing    /usr/bin/g++
+[root@Nexus /root]# mv /usr/bin/g++.or /usr/bin/g++
+[root@Nexus /root]# ls -l /usr/bin/g++
+-rwxr-xr-x   2 root     root         5160 out 25  1997 /usr/bin/g++
+[root@Nexus /root]# chmod a-x /usr/bin/g++
+[root@Nexus /root]# rpm --verify gcc-c++
+.M......   /usr/bin/c++
+.M......   /usr/bin/g++
+[root@Nexus /root]#
+
+Ou seja, ele vai te indicar se ha' algo anormal com o programa. Se tudo
+estiver ok, ele nao mostra nenhuma mensagem e te disponibiliza o prompt
+para o proximo comando...
+
+Sds,
+Jorge Godoy.                <jorge@bestway.com.br>
+
+
+			PAPÉL DE PAREDE PARA WM
+
+> Alguém poderia me dizer onde mudo a cor de fundo - background - no icewm? Dá 
+> pra colocar papel de parede? 
+	Independente do window manager, pode usar o xsetroot. 
+	$ man xsetroot 
+		rbp 
+------------
+Bem , o papel de parede voce pode mudar pelo xview (xv) ...tem um 
+comandinho legal para ele fazer isso altomaticamente : xv -root imagem .. 
+acho que e'  isso mesmo .... 
+Coloque esse comando em um arquivo de inicializacao do ice (ai eu nao sei) 
+mas se voce souber me avisa .... 
+-----------
+coloque no fvwm95.xinit
+xv -root <figura>
+---------
+Estou tentando  colocar um figura como backgroud no fundo do meu fvwm95,
+> tentei pelo Xv e consegui, mas nao consigo salvar as alteracoes que foram
+> feitas, ao chamar o XWindows ele retorna com o fundo anterior. Alguem
+> saberia me responder como faco para salvar essa figura.
+        Coloque o comando em seu ~/.xinitrc , este script eh rodado toda
+vez que voce inicia o X (pelo startx; pelo xdm o arquivo eh ~/.xsession).
+        Alias, esta informacao certamente estah no historico (porque eu
+mesmo jah respondi a esta pergunta algumas vezes).
+                rbp
+
+			DOSEMU
+
+De: Eduardo F. F. Duca <winston@berlim.connect.com.br> 
+3. Qdo eu rodo o XDOS, ele carrega a tela de apresentacao do Win95 
+(provavelmente pq eu fiz a imagem com o command.com dele), mas ai a tela 
+fica preta e nao da pra ver o qeu eu escrevo (so na janela)... tenho qeu 
+escreer CLS (sem ver) e dar enter pra depois aparecer a linah deocmando... 
+Grato pela ajuda.. 
+ 
+ 
+ 
+    Esta informação está no dosemu-HOWTO, abra o arquivo e de um search 
+na string "msdos.sys", em todo caso: 
+ 
+    edite o arquivo msdos.sys do seu hdimage e coloque as seguintes linhas 
+    [Options] 
+    Logo=0 
+    BootGUI=0 
+ 
+Rui 
+ruisb@mailbr.com.br 
+
+			WINDOW MAKER
+
+Vai ai um dica pra quem usa o WindowMaker, a versao mais nova dele e a 
+0.52.x, utilizando-se o WM com versoes acima da 0.50.x voces podem usar 
+o wmakerconf que e um utilitario que substitui o WPrefs, ele 
+possibilitar configurar opcoes que nao sao possiveis pelo WPrefs. A 
+versao mais nova do wmakerconf e a 1.99.1, mas para usa-la e necessario 
+estar com o GTK+1.2.0. 
+--  
+Fabio Henrique
+
+
+			CEDILHA DO WORD PERFECT 8
+
+			ç no CorelWordPerfect 
+ 
+Quando eu tento colocar o ccedilha aparece um c com acento em cima ( á ao invés de 
+a um c ), e não o ç como deveria ser.  O ç está na parte de Simbolos. 
+Alguém sabe como posso dar um geito nisso ?? 
+ 
+Está no histórico, mas tá difícil de encontrar :-/  
+Vá lá, está aqui uma cópia da solução do Thade Penna e do Cavassin da  
+Conectiva. 
+<SOLUÇÃO> 
+Fico meio desconcertado ao colocar solução no SUBJECT, isto é apenas um 
+workaround :) 
+Com a ajuda do Cavassin, consegui inserir o cedilha no WordPerfect. 
+Minha solução (devem haver outras) foi: 
+1) Preferi editar o teclado do XWP80 ao invés de criar outro.  
+2) Chame o WordPerfect como root (deve pedir a licença, mas não ligue). 
+Se não chamar como root, você vai ter que criar outro teclado (isto 
+vai ficar mais claro adiante).  
+3) Menu Preferences -> Keyboard   
+4) Aqui e que aparece a opção de ou editar o XWP8 ou criar outro 
+teclado. Eu preferir Edit _XWP8_  
+5) Aparece a janela do  Keyboard Editor.  
+6) Procure o c + Alt (selecione-o). Selecione "Play a Keyboard script" 
+7) Clique no quadrado em branco. Digite Crtl-W  
+8) Aparece o menu Symbols. No Set, escolha Multinacional.  
+9) Na terceira linha está o cedilha minúsculo. Selecione-o. O Indicador 
+Number deve ir para 1,39. Clique OK. 
+10) Deve ter aparecido um cedilha minúsculo no quadrado, outrora 
+totalmente branco.  
+11) Clique Assign Script.  
+2) Repita os passos de 6 a 11 para o Ç .  
+13) Clique OK.  
+14) O cedilha minúsculo vai estar no Alt-c e o maiúsculo no 
+Alt-Shift-C.  
+ 
+P.S.: você pode alterar o teclado default sem chamar o xwp como root. 
+Basta alterar as permissões dos arquivos _XWP8_.wgk no diretório onde 
+você instalou o WP. Ou ainda alterar todas as permissões daquele 
+diretório (só que você vai ter que ser root para fazer isto :)  
+Thadeu Penna                  
+
+		COMANDOS PARA LOCALIZAR ARQUIVOS
+
+> > Quais as vantagens do locate em relação ao bom  e velho "whereis" ?
+>
+> Nao sei. Realmente nao costumo usar o whereis. Estou acostumado com o
+> locate. Ate gostaria que alguem que usa os dois comentasse as
+> diferrencas.
+
+Mais um para a lista, o find. O find é bastante poderoso, permitindo que
+você escolha os atributos que um arquivo deve ter para ser encontrado.
+
+Uso simples:
+find -name nome.do.arquivo
+(utilize aspas se precisar de mascaras [* e ?])
+
+Ele permite buscas poderosas, como:
+find /usr/src/linux -name ppp.c -type f
+
+Mais informacoes,
+man find
+--
+ Thiago Macieira
+
+			GERANDO RPMS DE FONTES
+
+Basicamente, você não colocou os arquivos necessários na seção %files
+do seu arquivo spec. Fica meio difícil eu te explicar em um e-mail como
+fazer isso, mas o melhor que eu posso fazer é te apontar para uma documentação
+excelente:
+
+   http://www.rpm.org/
+
+   Lá tem o livro "Maximum RPM", que pode ser considerada a bíblia do
+desenvolvimento de pacotes RPM. Ele poderá te solucionar esta dúvida, e
+te mostrar dicas ótimas sobre a arquitetura RPM.
+
+   Um exemplinho *massa* que eu vou te dar:
+
+rpm -qa --qf "%{name} %{buildhost}\n" | grep -v conectiva | cut -d ' ' -f 1
+
+   Este comando mostraria todos os pacotes do seu sistema que não foram
+construidos em uma máquina da Conectiva (Ou seja, se você utiliza o Guarani,
+mostraria todos os pacotes que não são parte da distribuição original.)
+Rodrigo Parra Novo
+Conectiva Informatica
+
+			HISTÓRIA DO C
+
+So' complementando o C foi criado em 1974, foi usado nos efeitos especias do
+filme guerra nas estrelas e deriva do BCPL(algol + assembler)
+
+A - Algol
+B - BCPL
+C - C que conhecemos hoje 
+                Carlos Eduardo Gorges        
+             e-mail: carlos@racco.com.br  
+
+			DICA SIS 6326
+
+Eu consegui configurar a placa 6326 com o servido xsvga que vem com o
+Guarani, mas a imagem nao ocupa a tela inteira, fica faltando um dedo de
+cada lado. Se vc conseguir com outro servidor, por favor me avisa.
+
+Pra configurar a SIS 6326 tenta: 
+The server detects the amount of RAM on the card
+incorrectly, so you have to specify it. Here are 
+the options from my config file:
+
+Section "Device"
+Identifier "SIS 6326"
+VendorName "SIS"
+BoardName "6326"
+VideoRam 8192
+Option "sw_cursor"
+EndSection
+
+
+Subsection "Display"
+Depth 24
+Modes "1024x768" "800x600" "640x480"
+ViewPort 0 0
+Option "no_bitblt"
+Option "no_imageblt"
+Option "noaccel"
+Option "power_saver"
+EndSubsection
+
+Exprimentation shows that you can leave off "noaccel",
+but I don't know if this improves performance.
+
+Roberto Dariva wrote:
+> Consegui configurar minha placa de video agp SiS6326 de 8mb e entro no
+> modo gráfico beleza, mas quando vou usar o botão direito do mouse para
+> abrir o menu de opções ele aparece todo preto. Já fui no wmaker para
+> tentar configurar e não consigo.
+------------
+Solução:
+Queria agradecer a todos, que me responderam, enviando suas soluções
+para o meu problema e quero dizer que funcionou. Como quase nunca vejo
+agrdecimentos nesta lista, aqui vai o meu muito obrigado.
+E para quem ta com o mesmo problema que o meu aqui vai tudo que foi
+feito para o reconhecimento da minha placa
+uma SiS 6326 AGP on board com 8Mb.
+
+1º . Baixei o XFree86 3.3.3, aqui segue um endereço onde pode acha-lo
+ftp.sj.univali.rct-sc.br na pasta /pub/conectiva
+
+2º . Baixei o arquivo SiS-Config, voce pode acha-lo
+no endereço:
+http://ano2001.sti.com.br/pub/SiSConfig.tar.gz
+desconpactei e executei  root> make 2
+
+3º editei no XF86Config as linhas
+Option "no_accel"
+Option "no_bitblt"
+
+mudei a quantidade de memoria, so detectava 1024, pus 8192(8Mb).
+
+segundo foi explicado pela galera da lista.
+
+Bom deu certo e meu video ta rolando. 
+Falou Galera da Linux-br.
+Té.
+Marcelo
+-----------
+Pablo, Daniel e demais listeiros
+
+Sou novo em Linux e tambem tenho a mesma placa com chipset 
+SiS530. Instalei-o pela primeira vez no sábado passado e, quando 
+chamava o KDE vinha uma tela exótica, e tinha que dar CTRL-Alt-
+Backspace para poder sair dela, e ainda assim, quando voltava ao 
+modo texto a tela ficava cheia de caracteres incompreensíveis. 
+Com algumas mudanças, ficou legível, mas numa resolução de 
+uns 300X200.
+
+Seguindo as instruções dadas pelos colegas da lista, adicionando 
+uns "Options" sugeridos, consegui fazer aparecer a tela toda, em 
+várias resoluções (algumas maiores que a tela física), só que 
+utilizando como parâmetro outro chipset (SiS 6326).
+
+MAS: a imagem fica com "fantasmas", parece dobrada, e continua 
+impossível trabalhar com ela.
+
+PERGUNTO: isto tem solução, alterando alguma coisa no 
+XFConfig, ou será que não há como fazer funcionar com outro 
+chipset?
+
+No FAQ do XFree diz que os chipsets SiS 530 e 620 ainda não 
+são suportados pela versão corrente do XFree, mas fazia uma 
+referência ao FTP da SUSE, dizendo que haveria um drive em, que 
+será incluído no próximo lançamento do XFree:
+
+ftp://ftp.suse.com/pub/suse_update/X/XFCom/xsis/glibc2/
+
+Estive lá e baixei os arquivos xsis-3.0-0.i386.rpm e 
+xsis-990317.tgz (eram os únicos no endereço). Instalei 
+o RPM (suponho que o outro contém a mesma coisa em 
+outro formato, ou não?).
+
+Continua não funcionando. Experimentei mudar o chipset 
+(no XFConfig) para SiS 530 e vem uma mensagem dizendo 
+que ele não existe ou não conhecido, ou algo assim...
+
+PERGUNTO: Além de dar "rpm -ivh arquivo", eu preciso 
+fazer mais alguma coisa para instalar o drive?
+
+Mais uma pergunta: como faço para ver todas as 
+mensagens que o KDE deixa na tela, e não apenas as 
+últimas que são mostradas quando saio dele? Ficam 
+gravadas em algum log?
+
+Um abraço a todos, e antecipadamente agradecido pelas 
+respostas que me puderem dar.
+
+PS: Se o Daniel, ou alguém querendo ajudar, quiser ver 
+meu XFConfig, eu mando depois...
+
++===============================================+
+|       Augusto  Tavares  Rosa  Marcacini       |
+|           -- São Paulo-SP Brasil --           |
++===============================================+
+| Home Page: http://members.xoom.com/marcacini  |
+| E-mail:    mailto:mrcacini@usp.br             |
+
+			DOCUMENTAÇÃO SOBRE LATEX
+
+
+Uma documentacao legal do Latex pode ser encontrado no seguinte endereco
+(ja segue a query pronta..). Bom lembrar que o latex ainda pode ser
+convertido pra man, e rtf (e sei la mais quantos formatos...).
+
+http://tug.ctan.org/cgi-bin/cataloguesearch.pl?CATSTRING=latex
+
+[]'s
+Sergio.
+
+			ACENTUAÇÃO NO DEBIAN
+
+
+Ai galera pra quem usa esta distribuicao, eu acabei de colocar na rede um pequeno
+tutorial e os arquivos necessarios para configurar o teclado para acentuar no Linux,
+como eu já disse eu agora toh conseguindo acentuar perfeitamente varios programas.
+A pagina esta no meu site. O endereco e o seguinte
+http://www.geocities.com/SiliconValley/Network/3336
+
+		CREATIVE LABS DRIVERS FOR LINUX
+
+
+A Creative Labs estah investindo em drivers de seu hardware pra Linux:
+http://www.progressive-comp.com/Lists/?l=linux-ggi&m=91750053603759&w=2
+
+
+			ISPELL BR
+
+Bem, uma dica pra quem ainda acredita em "provas" assim:
+
+        http://www.ime.usp.br/~ueda/br.ispell/
+---------
+
+> > "Esteje" é prova da falta de um corretor ortográfico em português no
+> > Linux
+
+>       Bem, uma dica pra quem ainda acredita em "provas" assim:
+>       http://www.ime.usp.br/~ueda/br.ispell/
+
+>       Taih. Dicionario em Portugues para o Linux. Eh inclusive
+> distribuido na Debian (acho que na Red Had e Conectiva tambem, nao tenho
+> certeza).
+>       Alias, jah havia mandado isso ha pouco tempo, pra lista.
+
+So para quem ainda precisa de "provas": ele e' distribuido na Red Hat e
+Conectiva, so que nesse caso, em portugues, e' claro. :-)
+E ainda tem o Aspell, que pretende ser melhor que o ispell:
+http://metalab.unc.edu/kevina/aspell/
+
+[]'s
+
+Pedro Kroger
+
+			DOSEMU
+
+eu uso o dosemu-0.98.5
+
+dentro do subdiretorio existe um scripts de nome setup-hdimage, rode,
+apos executar mandeio buscar montar a imagem a partir de /dev/fd0 e coloque um
+disco
+com o sistema dos no driver A   imagem sera gerada dentro do diretorio
+/var/lib/dosemu
+
+			PLACA DE SOM OPL3SA
+
+Eu tenho uma placa de som destas, da Yamaha. Esta placa não era reconhecida
+pelas versões de Linux mais antigas mas o Guarani já pode trabalhar com ela.
+Rode o programa sndconfig. Quando aparecer o menu do tipo de placa indique o
+tipo certo (cuidado pq existem vários tipos de OPL-?). Depois aparece um
+menu onde se configura os endereços de DMA e as IRQs. Se vc estiver usando
+também o Ruindows, coloque as mesmas configurações dele. Se tudo estiver
+certo, vc ouvirá uma frase de teste e ele perguntará se vc ouviu
+corretamente e sairá do programa. A partir daí (e nos próximos boots), o som
+estará configurado.
+
+			BACKUP ATRAVÉS DE DISQUETES
+
+> Alguém conhece um programa bom para realizar backup em disquetes( 1.44
+> )?
+>
+
+ o split eh otimo para isso...
+man split e vera' :)
+------------
+tar cvfM /dev/fd0 diretorio
+       ^
+       |
+       |
+man tar
+<texto suprimido>
+       -M, --multi-volume
+              cria/lista/extrai arquivos multivolumes
+<texto suprimido>
+
+        - Arnaldo
+
+			PLACA DE VÍDEO OMBOARD SIS 540
+
+Manoel, por favor veja se a ultima versao do XFCom_SiS suporta estas
+placas, pois apesar da SIS 540 nao estar listada a SIS 530 esta, se a 540
+for um "superset" da 530 voce podera conseguir faze-las funcionar. :)
+
+http://www.suse.de/XSuSE/XSuSE_E.html#sis
+
+Caso funcione por favor nos relate suas experiencias para que possamos
+eventualmente liberar uma rpm atualizada para os usuarios de nossas
+distribuicoes.
+
+           - Arnaldo
+
+			EXCLUIR PARTIÇÕES LINUX
+
+Passo 1: entre no Linux (pelo disco de instalacao, o instalado no HD, sei lah..
+;)
+Passo 2: no console, digite fdisk
+Passo 3: modifique o tipo de sistema de arquivos (t) da particao D (/dev/hda5,
+eu creio) para tipo 6 (MSDOS >= 32Mb)
+Passo 4: grave estas alteracoes (w) e reinicie o computador.
+Passo 5: entre no FDISK do DOS e confirme se a particao D eh uma particao
+MS-DOS valida.
+Passo 6: formate-a.
+Alexandre Hautequest
+hquest@linuxbr.com.br
+
+				BACKUP DO KERNEL
+
+é simples, copie o kernel que está funcionado com outro nome:
+cp /boot/vmlinuz-seu-kernel-atual /boot/vmlinuz-seu-kernel-de-panico
+
+e coloque a entrada para ele no /etc/lilo.conf
+
+[...]
+image = /boot/vmlinuz-seu-kernel-atual
+  label = linux --------------------------> label padrão
+  root = /dev/hdb1
+image = /boot/vmlinuz-seu-kernel-de-panico
+  label = linux1 -------------------------> label que você quiser
+  root = /dev/hdb1
+[...]
+
+finalmente é só dar o velho lilo -v e pronto.
+
+Dai quando voce for atualizar seu kernel, sempre tera o velho
+vmlinuz-seu-kernel-de-panico pronto para ser acionado no boot com
+Lilo linux1
+
+Aqui eu devo ter uns 3 ou 4 kernels :-)
+
+			BACKUP DE CONFIGURAÇÕES
+
+Outra dica legal para não perder os arquivos de configuração é colocar
+todos, ou ao menos os mais importantes e que você levou mais tempo para
+configurar em uma partição separada de backup e fazer um link para os
+diretórios de origem:
+
+mv /etc/sudoers /backup/etc/sudoers
+ln -s /backup/etc/sudoers /etc/sudoers
+
+Assim você terá em uma partiçào separada todos seus arquivos de
+configuração. No caso de algum pânico é so linkar tudo novamente (podes
+até fazer um scrip para isso :-)
+
+			PAPÉL DE PAREDE
+
+wmsetbg -t /patch-da-imagem/imagem.ext
+
+Para isso você tem que ter o wmaker instalado, o que não é o caso, já que
+você usa o fvwm. Então...
+
+xv -quit -root /patch-da-imagem/imagem.ext
+
+Coloque isso em algum script que o fvwm chame, ou crie uma entrada de menu
+para ele, em último caso...
+Eliphas!
+
+			USO DO SUDO
+
+> Detalhes: como root, rodo /usr/sbin/visudo. Ele abre o arquivo sudoers e
+> tento incluir a linha:
+> 
+> ribafs        ALL=PASSWD:        /bin/mount,        /bin/umount,
+> /bin/date
+
+Bem, aqui o meu /etc/sudoers está assim:
+
+# Cmnd alias specification
+Cmnd_Alias  MISC=/bin/rm,/bin/cat,/usr/bin/pico /etc/sudoers
+
+# User privilege specification
+root    ALL=(ALL) ALL
+kroger   ALL=(ALL) NOPASSWD: ALL
+cantarelli   ALL=(ALL) NOPASSWD: ALL    
+elizabeth    ALL=ALL,!MISC
+
+Como você vê, o kroger pode fazer tudo com o sudo! êta pretensão :-)
+ja a elizabeth so pode fazer o que está no MISC.
+Alias eu gosto de usar variáveis pois ficar mais fácil gerenciar, mas
+poderia ser tudo no lugar do MISC também.
+Acho que no seu caso ficaria:
+ribafs       ALL=(ALL) NOPASSWD: /bin/mount, etc
+
+acho que é NOPASSWD que você quer, não? Não lembro se ele tem o comando
+PASSWD, mas como ele sempre pede a senha como padrão...
+------------
+kkross  ALL=NOPASSWD:  /sbin/shutdown -[rh] now 
+----------
+
+Dica (do man visudo):
+export VISUAL=/usr/bin/emacs
+(ou seu editor preferido)
+
+O visudo irá utilizá-lo.
+
+Ou será que era export EDITOR?
+---------
+tente ALL=ALL para você mesmo. Você irá se permitir fazer qualquer coisa com
+o sudo, não só montar e desmontar partições, acertar a hora e instalar
+pacotes.
+
+Não é exatamente assim. Ele solicita a senha toda vez que você não o usou há
+menos de cinco minutos.
+
+Em outras palavras, ele irá solicitar a senha para você uma primeira vez. Se
+você não usá-lo por cinco minutos, ele pede de novo.
+
+
+			LISTA DE WINMODENS
+
+http://www.kc.net/~gromitkc/winmodem.html
+
+
+				MODEM OCUPADO NO KPPP
+
+
+Eu esta com estes erros...
+
+achei a solução na lista da CRHL
+
+
+O meu modem e um USR 56K PnP Int
+
+Antes de vc configurar vc tem que fazer o linux "enxergar"  placa que e
+'PnP' isso vc faz editando o arquivo /etc/isapnp.conf o meu ficou assim.
+
+# (DEBUG)
+(READPORT 0x0203)
+(ISOLATE)
+(IDENTIFY *)
+
+# Card 2: (serial identifier cb fe c5 ad a5 70 30 72 56)
+# USR3070 Serial No -20599387 [checksum cb]
+# Version 1.0, Vendor version 0.0
+# ANSI string -->U.S. Robotics 56K Voice INT<--
+#
+# Logical device id USR3070
+#
+# Edit the entries below to uncomment out the configuration required.
+# Note that only the first value of any range is given, this may be changed
+if required
+# Don't forget to uncomment the activate (ACT Y) when happy
+
+(CONFIGURE USR3070/-20599387 (LD 0
+
+(IO 0 (BASE 0x03e8))
+(INT 0 (IRQ 5 (MODE +E)))
+(ACT Y)
+))
+(WAITFORKEY)
+
+O CONGIRURE USR????? e identificado pelo pelo programa este arquivo vc cria
+com o programa :
+
+# pnpdump > /etc/isapnp.conf
+
+Depois, em /etc/rc.d/rc.local acrescente no final dele as seguintes linha:
+
+setserial /dev/cua2 irq 5 autoconfig
+setserial /dev/cua2 spd_vhi
+setserial /dev/cua2
+stty -echo < /dev/cua2
+
+faça o link "ln -sf /dev/cua2 /dev/modem
+
+e use na configuração do modem a porta /dev/modem, e não use /dev/cua2
+diretamente.
+
+As minha configurações no Win :
+
+COM3
+IRQ 5
+0x3E8
+
+Bem foi assim que resolvi o meu ..
+vi muita gente passando a mesma coisa e espero que consigam....
+
+
+				IMPOSSÍVEL
+
+
+"Por nao saber que era impossivel foi la e fez"
+			Anthony di Saint Exuperry
+
+
+				URLS DE ASTROLOGIA FOR LINUX
+
+
+        Galera, devido aos pedidos, estou passando as URLs onde encontrei o
+programa de astrologia. So achei um, Astrolog 4.1. Ainda nao tive tempo de
+instalar em casa. Vou tentar roda-lo debaixo do cygwin tambem.
+
+http://public.antipope.org/paganlink/library/astrology/astrolog.html
+Este foi o primeiro onde achei. O arquivo neste site acho que esta
+danificado, pois quando descompactava so me gerava um arquivo, todo
+embaralhado. Mas o site e interessante assim mesmo pelos outros programas
+que possui. Nao sabia que esoterismo em Linux estava tao em alta.
+
+http://ftp.telepac.pt/pub/Linux/games/amusements/divination/
+Deste diretorio eu baixei o arquivo que consegui descompactar sem problemas.
+Tem outras coisas legais la tambem.
+
+http://www-stat.uni-klu.ac.at/RPMS/suse-6.0/fun1/astrolog-4.10-26.i386.html
+Mais um site pro programa, em RPM e com um pouquinho de informacoes mais
+detalhadas.
+
+[]'s
+
+Cesar
+
+				SCRIPT PARA IDENTIFICAR BROWSER
+
+
+
+> > tenho notado ultimamente que varias HPs verificam
+> > o browser e o SO do usuario... como isso eh feito?
+> >
+> > Uma "feature" do Apache?
+
+> nao um script em java.
+
+Nao, Geralmente esta variaveis de ambiente sao passadas pelo browser,
+o que faz parte do protocolo http, por exemplo
+
+HTTP_USER_AGENT, REMOTE_ADDR, REMOTE_HOST, etc
+
+O netscape e o explorer entregam de bandeja o seu SO
+
+Faca um script em perl do tipo abaixo, coloque no cgi-bin,
+e va ate http://localhost/cgi-bin/script.pl e veja...
+
+#!/usr/bin/perl
+print "content-type: text/html
+
+Seu browser eh: $ENV{'HTTP_USER_AGENT'}";
+Pablo
+
+				SIS 530 AGP
+
+
+> Estou tendo problemas para configurar o xfree86,  minha placa de video
+> eh uma sis 530 AGP (on board).
+> ja tentei instalar outros drivers sis , incluindo o 6326 mas nao
+> funcionou, eu li na lista que mesmo o 6326 tem que configurar
+> manualmente o arquivo etc/X11/XF86Config, mas este disretorio ano consta
+> no diretorio /etc.
+> 
+> alguma sugestao? qualquer uma eh muito bem vinda!
+
+Procure pelos X-servers da Suse,
+
+A suse tem um time de desenvolvedores exclusivos  para escreverem
+X-servers para placas novas, ou ainda nao suportadas pelo XFree,
+Antes eles se chamavam Xsuse, mas para nao pensarem que era algo
+comercial mudaram de nome, eu eu me esqueci qual !!!!
+
+Mas de qualquer forma da uma olhada no site da suse - www.suse.com
+Pablo Costa
+pablo@linusp.usp.br
+
+			INSTALAÇÃO DO DEBIAN
+
+De: Marcelo Vanzin <vanzin@ruralsp.com.br>
+
+> Bem, um tempo atrás disse que estaria instalando o Debian 2.1 aqui,
+>porque tinha zoado meu Slackware e tava afim de trocar mesmo.
+> Pois é, me entregaram is dois "binary CD's" do Slink na terça, e já
+>fui dar minha olhadela. :-)
+>
+>1. Início
+>
+> Começa rodando um scriptzinho "boot.bat" no DOS. Precisei dar um boot
+>na máquina pra entrar em DOS, por causa da minha placa de vídeo que é
+>fresca. (No computador de um amigo foi só "Reiniciar em modo MS-DOS".)
+> Ele carrega o Linux e começa a fazer algumas perguntas.
+>
+> Essa parte acho que assustaria qualquer iniciante. Quem não entender
+>um pouco, fuja do Debian. :-)
+>
+> Ele faz algumas perguntas esquisitas e meio confusas, sobre
+>configurar drivers, pra não falar a confusão que é as perguntas que
+>ele faz sobre o boot manager. Na minha máquina tive que criar um
+>lilo.conf na mão lendo a man page porque não me entendi com o que o
+>Debian tava perguntando (e nem existe algo bonitinho e muito funcional
+>como o "liloconfig" do Slackware). Beleza, lilo instalado. O meu amigo
+>usa o Partition Magic, portanto não precisou do LILO.
+>
+> Gostei bastante foi do fdisk que o Debian usa (cfdisk). É um "fdisk
+>com uma GUI", mesmo que a GUI seja em modo texto. :-) Bem fácil de
+>usar, mesmo.
+>
+> Estranho é ele perguntar duas vezes onde está o seu CD. Mas beleza,
+>deixa os cara. :-)
+>
+> Um reboot e continuamos...
+>
+>2. Instalando os pacotes
+>
+> Depois de pedir um password pro root e se você quer criar um usuário,
+>começa mais uma sabatina de perguntas confusas. (Pode ser que numa
+>segunda análise, possam ser melhores, e eu tava meio viajando mesmo.
+>:-) )
+> Numa delas respondi "No" e acabei caindo no utilitário "dselect" pra
+>instalar os pacotes. Mais sobre ele abaixo.
+>
+> Descobri ontem instalando na casa dum amigo que se tivesse respondido
+>"Yes" tinha caído numa tela bem simplezinha de escolha, com algumas
+>opções como "Server", "Developer", "Workstation", "Desktop", etc, com
+>pacotes "pré-escolhidos", além de uma opção pra criar uma instalação
+>personalizada. Como fiquei p*** por ter que mexer no dselect e nem
+>saber que tinha aquilo, resolvi sair daquela bixisse e voltar pro que
+>interessa, botar os neurônios pra funcionar um pouco: vamos ao
+>dselect. :-)
+>
+> Eu acho que o dselect pode ser descrito como o programa mais
+>anti-newbie-friendly da face da Terra. :-) Tem uma interface confusa,
+>cheia de letras :-), é difícil de achar e constantemente você se
+>perde. As mensagens que você recebe sobre problemas de dependências
+>quando escolhe/retira um pacote não ajudam nada nisso. :-) Passei uns
+>40 minutos escolhendo o que queria e lidando com problemas de
+>dependências (tem pacote pra kct no Debian, muitos inúteis). É o tipo
+>de programa que ia fazer um leigo sair correndo da frente do
+>computador (eu tava quase atirando o teclado na parede :-) ).
+>
+> Após escolher os pacotes, cliquei em "Install" e ele copiou tudo,
+>depois começou a configurar os pacotes. Tudo normal, exceto pelo
+>smail: não entendi nada da configuração dele, e nem sei como tá. Puxa,
+>como era fácil configurar o sendmail no Slackware... depois vou ver
+>que que eu faço da vida. :-)
+>
+> Após isso, o sistema já pode ser utilizado normalmente, sem reboot.
+>
+>
+>3. Pós-parto I: minha máquina
+>
+> Fiz uma instalação "enxuta" na minha máquina, sem a maioria dos
+>pacotes, pois vou compilar muitas coisas.
+> Primeiro foram as configurações: servidor de fontes TrueType,
+>xf86config (XF86Setup não roda na minha placa fresca), etc, e tudo
+>funcionando (graças ao santo /usr/doc pra configurar o xfstt, que usa
+>a porta 7101 no Debian contra a 7100 que eu usava no Slackware).
+> Fui pro /etc fuçar, rezando encontrar algo fácil, e me deparei com
+>aquele esquema SysV de inicialização... quase tive um ataque cardíaco.
+>:-) Mas comecei a me entender com o bixo, e achei um script onde posso
+>colocar minhas coisas. :-)
+> Configurei o login (alguém sabe como dar um "clear" quando dou
+>logout, a la RedHat?), apaguei motd (que tem uma mensagem xarope),
+>configurei meu prompt (a la RedHat, [\u@\h \w]\$ ), tudo oks.
+> Tudo rodando bem, começamos a compilar coisas. :-) Já coloquei o egcs
+>1.1.2 (não compilou o pgcc 1.1.2, mas vou tentar de novo), binutils
+>2.9.1.19a (coisa assim, apesar de achar que o Debian já vem com essa),
+>qt 1.44 (básico, KDE... :-) )... assim que tiver tempo, boto o kernel
+>2.2, baixo o Netscape, faço outras coisas.
+>
+>
+>4. Pós-parto II: Máquina do amigo
+>
+> Como antes de fuçar meu amigo tem que aprender a mexer no Linux, a
+>instalação dele foi mais completa. Depois de copiar todos os pacotes
+>que escolhi, o sistema tava rodando.
+> Ele colocou o Debian pq segundo ele o X insistia em não funcionar no
+>computador dele quando ele colocou o RedHat. Rodei o XF86Setup,
+>escolhi a placa dele (ATI Xpert@Play), configurei o monitor (tinha o
+>manual!), as resoluções (1024x768x24bpp) e digitei "startx", pra ver o
+>Window Maker aparecer na minha frente. :-)
+> Configurei o xfstt pra ele, e uma ou outra coisinha, e já tava tudo
+>funcionando. Easy, easy. :-) Tempo que demorou? Uns 40 minutos, desde
+>que digitei "boot.bat".
+>
+>
+>5. Impressões
+>
+> - Não gostei muito do esquema dos arquivos de inicialização... vou
+>ver se me entendo com eles.
+>
+> - O dpkg (tipo rpm) é bastante interessante. Ah, tem o rpm também,
+>além do alien (pra transformar .rpm em .deb).
+>
+> - Não vem comnenhum desktop manager "usável" pro X. Vem com milhares
+>de Window Manager (não instalei nenhum), mas não tem KDE, e só tem o
+>GNOME 0.30 (é legal, mas não sou tão masoquista assim. :-) ).
+>
+> - O /usr é bem mais limpo que no Slackware.
+>
+> Bem, taí, agora vou passar umas semanas compilando coisas, depois
+>penso se vou usar o Netscape do Linux pra postar mensagens ou não. :-)
+>|              Marcelo Vanzin                |
+>|           vanzin@ruralsp.com.br            |
+>| http://www.geocities.com/SunsetStrip/6308/ |
+
+			DESINSTALAR O LILO
+
+A melhora maneira de desinstalar o lilo e utilizando o comando: "lilo
+-u"
+Eu acho que eh isso, mas de um "man lilo" antes para ter certeza.
+
+				FLAG SHIP
+
+Agora a Multisoft (FLAGSHIP) tem um representante oficial para todo o
+Brasil, anotem:
+
+Inso - Informática e Serviços S/C Ltda
+São Paulo - SP
+Tel: (011) - 820-0962
+E-Mail: inso@dialdata.com.br
+
+Para aqueles que não sabem o FlagShip é um compilador de programas
+CLIPPER, dBase e Fox para Unix e Linux extremamente fácil de usar.
+
+
+				MODEM MWAVE
+
+Existe um site especializado em Mwave, que por sinal é uma ótima
+placa, que trabalha em cima de tecnologia chamada DSP (Digital Signal
+Processor) que é um modem por software e não por hardware, o que habilita
+quem tem o Mwave 28.8 fazer o download do software para fazer o upgrade
+para 33.6 e em breve para 56.6, pois estes drivers já existem para alguns
+modelos de Mwave (acho que Mwave Parrot). Para o linux, já existe o suporte
+para a Emulação da SoundBlaster, basta acessar este endereço e procurar lá
+que ele existe.
+ http://24.112.114.171/
+
+			MODENS RECOMENDADOS PARA LINUX
+
+Complementando a resposta do colega:
+
+      O ideal eh voce conseguir um modem ISA e que tenha jumpers, o que vai
+lhe permitir desativar o plug n' play. Evite os modems PCI e sob hipotese
+nenhuma compre um "winmodem".
+      Alternativamente voce pode conseguir um modem externo de qualquer
+marca que vai funcionar bem.
+
+                                                                                                        []'s
+
+On Fri, 23 Apr 1999, [iso-8859-1] Ozéias Rocha wrote:
+
+> US Robotics ou Motorola.
+
+			NET-PF-6
+
+1 - Sua dúvida no net-pf-6 já foi bastante explorada e está no histórico
+da lista.
+            Mas vou ser um bom samaritano -
+            Edite o arquivo conf.modules e coloque a seginte linha.
+            alias net-pf-6 off
+              Lá vc vai saber porque deste erro q nâo tem nada relacionado com
+seu netscape.
+
+			INSTALAÇÃO DO GNOME 1.0
+
+1. segui essa seqüência de instalação:
+
+a. glib (compilado com --prefix=/usr)
+b. gtk+ (compilado com --prefix=/usr)
+c. imlib
+d. orbit
+e. libgtop (compilado com --without-gnome)
+f. gtk-engines
+g. gnome-libs
+h. gnome-core
+i. control-center
+j. mc
+l. gnome-utils
+
+OBS: coloquei --prefix=/usr em "a" e "b" porq eu já
+tinha versões anteriores instaladas ai como o default
+é o ./configure colocar em /usr/local/lib usei essa
+opção pra ficar em /usr/lib, bem ... outro motivo é
+porq as bibliotecas ficando em dir. diferentes vc vai
+ter dois lib[glib|gtk].so.versão ... ai desse jeito o
+sistema vai te falar q não encontrou o lib na versão
+certa.
+
+OBS 2: todos os pacotes eram .tar.gz
+Cibo Matto <ourfriendsoffrolixeight@yahoo.com>
+
+			PLACA SIS 530 AGP
+
+<corta>
+> PERGUNTO: isto tem solução, alterando alguma coisa no 
+> XFConfig, ou será que não há como fazer funcionar com outro 
+> chipset?
+<corta>
+
+Você tem que informar ao X qual o server que ele vai usar.
+
+ln -sf /usr/X11R6/bin/XFCom_SiS /etc/X11/X
+
+Como fazer:
+http://www.conectiva.com.br/~eliphas/howto/sis_530_e_620-como_fazer.html
+
+-- 
+Eliphas
+
+			PLACA DE SOM OPL3 SAX
+
+Eu tenho uma dessas placas com chip Yamaha OPL3-SAX. Placa plug&pray,
+jumperless. Inclusive foi barra instalar no Windows, pois era um caso
+de ovo/galinha, pois o software precisava estar instalado, mas a placa
+não, mas sem a placa o sotware reclamava... Coisas de plug&pray.
+
+Quando eu rodava o RedHat 5.1 com kernel 2.0.36, eu usei 
+a versão limitada (free) do OSS, que deixava funcionando a placa 
+por quinze minutos, precisando depois a gente reiniciar o aplicativo.
+
+Agora estou com o Guarani, kernel 2.2.6. Eu queria fazer o som funcionar
+sem o OSS Free, logo tentei o sndconfig, que inclusive tem entre as
+opções a famigerada OPL3-SA3. Rodei mas não consegui fazer funcionar.
+
+#####################################################################
+
+Aí fiz o que deveria ter feito desde o começo: li a documentação ;->.
+
+Aonde? Quando a gente descarrega um kernel do http://www.br.kernel.org, 
+a gente abre o arquivo "xxx.tar.gz" dentro do usr/src/, chamando o
+diretório de, p.ex., /usr/src/kernel-2.2.6. Lá dentro a gente encontra 
+um diretório chamado Documentation, e lá dentro, um chamado sound. E
+dentro deste, um arquivo chamado OPL3-SA2. É só ler e fazer o que o
+Scott Murray disse e um abraço.
+
+Dicas: 
+
+- Verifique, dentro do Windows se possível, qual a interrupção (IRQ)
+  que sua placa usa. O do Scott é IRQ7, a minha é IRQ5;
+- Você vai precisar rodar o isapnp para achar sua placa. Esta é a parte
+  mais dolorida. Rode "pnpdump" para criar dentro do diretório /etc
+  o arquivo isapnp.conf. CUIDADO! se já existir um arquivo com este
+nome,
+  ele será deletado. Edite este arquivo como o Scott falou, tomando
+  cuidado para que o primeiro endereço seja 0x0000 e não 0x0220 como o
+  pnpdump vai criar (linha com    (IO 0 (BASE 0x0000))    );
+- Edite o arquivo /etc/conf.modules (ou seria o modules.conf? ;->) para
+  colocar as linhas que o Scott sugere. Tome cuidado com o IRQ da linha
+  do  "options opl3sa2" para que seja igual ao IRQ escolhido acima. Ah,
+  estou supondo que o kmod está rodando, para que os módulos de som
+  sejam automagicamente carregados;
+- Ah, me esquecia: compile (ta bom, Roxo, o pessoal vai se borrar e vir
+  reclamar aqui na lista ;->) o kernel com o som em módulo. Escolha os
+  módulos SoundBlaster, MSS, AD1848 (ou era CS4248, este não tenho
+certeza),
+  OPL3 e, é claro, OPL3SA2. Como você vai escolhe-los como módulos, não
+há 
+  necessidade de se setar os IRQs, DMAs etc. Deixe para seta-los no
+  arquivo conf.modules;
+- Rode o famoso "cat linux.au > /dev/audio" para ouvir o Linus dizer
+  como ele pronuncia "Linux";
+- Problemas? Siga as dicas do Scott ;->.
+
+Ah, consigo ouvir CDs também :-). Estou com o Wmcdplay e/ou o XPlayCD
+com
+as teclas um pouco erraticas (às vezes funcionam, às vezes estão
+inativas,
+tem cheiro de permissão. Depois de consertar eu conto...
+Wilson Komatsu - Instructor (Dr.Eng.) - wilsonk@usp.br
+-------------
+
+> #>Agora estou com o Guarani, kernel 2.2.6. Eu queria fazer o som funcionar
+> #>sem o OSS Free, logo tentei o sndconfig, que inclusive tem entre as
+> #>opções a famigerada OPL3-SA3. Rodei mas não consegui fazer funcionar.
+> 
+>         Eu tenho o cerne 2.0.36... sera que eu tenho chance de fazer essa
+> #*$&%^ dessa placa funcionar numa boa ou vou ter que dar um jeito de
+> arrumar um cerne mais novo??? :)
+
+Eu cheguei a instalar o sndconfig mais novo (o do Guarani/RedHat 5.2)
+que, dizem, faz o milagre ;->. Mas comigo não fez. Eu chuto que a
+solução
+é um cerne da série 2.2.#. Acho que o "suporte" a esta #*$&%^ está 
+interno ao cerne, e não com alguma configuração do sndconfig. Aliás,
+o sndconfig é, em minha opinião, como o Xconfigurator. Bunitim, mas
+não resolve. A solução são ferramentas menos gráficas e alguma 
+configuração na unha nos arquivos certos. Minha opinião, baseada em
+uso frustrado desses dois aplicativos.
+Wilson Komatsu - Instructor (Dr.Eng.) - wilsonk@usp.br
+
+			INSTALAÇÃO DO KDE 1.1 NO RED HAT 5.X
+
+ Baixei os arquivos:
+kde-installer-1.1-5rh5x.i386.rpm
+kdesupport-1.1-5rh5x.i386.rpm
+kdelibs-1.1-5rh5x.i386.rpm
+kdebase-1.1-5rh5x.i386.rpm
+kde-applications-1.1-5rh5x.i386.rpm
+(Isso para Red Hat 5.x).
+Alem da lib qt-1.42
+
+No diretorio de download havia um arquivo Readme que dizia para instalar
+primeiro o Kde-Installer, que este criaria dois scripts de instalação dos
+outros pacotes.
+
+Comecei desinstalando todo o meu kde 1.0 existente: 
+rpm -qa | grep kde       (para saber o nome dos pacotes)
+rpm -e                   (em cada um)
+
+Nao lembro se removi a qt-1.40 ou se atualizei.
+
+- O primeiro a ser instalado foi o da qt: rpm -Uvh qt-1.42-3rh51.i386.rpm
+- Depois o Installer: rpm -ivh kde-installer-1.1-5rh5x.i386.rpm
+- Com a instalacao do installer, sao criados dois scripts de instalacao, dos
+quais so usei um. Eles sao criados em /usr/sbin, sao o install-kde-1.1 e o
+install-kde-1.1-apps. Usei apenas o install-kde-1.1. 
+Rodei com ./install-kde-1.1 e sai respondendo as perguntas. Diretorio onde estao
+os pacotes rpm, ...
+
+- Depois de tudo instalado, peguei o pacote kdestart do kde 1.0 e instalei
+usando rpm -ivh --force (Dica do colega Linuxer).
+
+Faltava apenas reiniciar o micro e tava la o novo kde: bem mais rapido, estavel
+e com varios recursos extra.
+
+
+			OTIMIZAÇÃO DO KERNEL
+
+São apenas os passos para a otimização do kernel para trabalhar mais de acordo
+com seu micro.
+Ele colocou para o Guarani, mas creio que é similar para outros Red Hats.
+
+1) Instalar os fontes do Kernel (caso ainda não tenha instalado):
+rpm -ivh /mnt/cdrom/conectiva/RPMS/kernel-source*i386.rpm
+
+2) cd /usr/src/linux
+Aqui linux é apenas um link. Por que existe este link?
+
+3) make config           (Responder as perguntas. Cuidado que algumas são
+vitais).
+
+4) cp .config /usr/src/redhat/SOURCES/kernel-2.0.36-i386.config.conectiva
+
+5) cd /usr/src/redhat/SPECS e
+rpm -v -ba kernel-2.0.36.spec
+
+Se for o caso, alterar o release em /usr/src/redhat/SPECS/kernel-2.0.36.spec
+
+(aqui, o meu diretório SPECS está vazio).
+
+		   COMPILANDO O KERNEL PARA SOPORTAR CDRW
+
+Para que os  programas de gravacao de CD reconhecam seu drive (cdrecord
+1.6.1), voce devera ativar a opcao de emulacao SCSI no seu Kernel e
+recompila-lo...
+para tanto segue abaixo uma receita de bolo que recebi do amigo Erich
+Chaves Bastos (Brasilia), e que dei uma completada nas informacoes:
+
+Entre no LINUX como root
+
+va para /usr/src/linux
+
+execute=> make menuconfig  (se voce preferir, atraves do ambiente X, dentro
+de um xTERM qualquer, a partir do diretorio /usr/src/ execute xconfig)
+
+Na opcao BLOCK DEVICES deixe selecionada apenas as opcoes IDE/ATA-2 disk e
+SCSI emulation support
+
+Block devices  --->
+       [ ]    Use old disk-only driver on primary interface
+      <*>    Include IDE/ATA-2 DISK support
+      < >    Include IDE/ATAPI CDROM support
+      < >    Include IDE/ATAPI TAPE support
+      < >    Include IDE/ATAPI FLOPPY support
+      <*>    SCSI emulation support
+      [*]    CMD640 chipset bugfix/support
+
+Note que o suporte a CDROM IDE/ATAPI foi desabilitado e habilitado o suporte a
+emulação SCSI.
+
+Em seguida selecione:
+    SCSI support  --->
+      <*> SCSI support
+      --- SCSI support type (disk, tape, CD-ROM)
+      < > SCSI disk support
+      < > SCSI tape support
+      <M> SCSI CD-ROM support
+        [ ]   Enable vendor-specific extensions (for SCSI CDROM)
+      <M> SCSI generic support
+       --- Some SCSI devices (e.g. CD jukebox) support multiple LUNs
+        [ ] Probe all LUNs on each SCSI device
+       [*] Verbose SCSI error reporting (kernel size +=12K)
+
+Nesta opção vc deverá ativar o suporte a CD-ROM SCSI  e SCSI generico, note
+que
+"Probe all LUNs on each SCSI device" foi desabilitada.
+
+Em Filesystems, habilitar apenas suporte aos códigos de página:
+437 - USA/CA
+855 - DOS cirilyc
+860 - DOS português
+NLS - ISO 8859-1 - Português e outros.
+
+NFS Filesystem support - Para conexão local de micros Unix: SLIP, PLIP, PPP 
+e Ethernet.
+
+
+Após feito isso recompile seu kernel normalmente,
+
+                make dep
+                make clean
+                make zImage (se for superior a 2.2.0 utilize bzImage)
+		Esta demora um pouco, pois esta etapa e a responsavel por
+recompilar o kernel.
+
+		Apagar ou renomear /lib/modules/2.0.36 (por seguranca).
+
+                make modules
+                make modules_install
+
+Nao se preocupe com a quantidade de mensagens qua vai passar na tela, e
+normal... (se e que pode ser normal uma enorme quantidade de mensagens..
+Hehehe)
+
+Dependendo do seu micro, toda a compilacao devera levar em torno de 10
+minutos.
+
+Em seguida copie a imagem do kernel para o diretorio mais adequado - se for
+Red Hat e o /boot - No exemplo abaixo considerei o kernel 2.0.36
+
+      cp arch/i386/boot/zImage /bot/vmlinuz-2.0.36
+
+se vc tiver utilizado o bzImage:
+
+      cp arch/i386/boot/bzImage /bot/vmlinuz-2.0.36
+
+depois e so dar o reboot na maquina
+
+ao reiniciar vc deverá receber uma msg semelhante a essa:
+    scsi0 : SCSI host adapter emulation for IDE ATAPI devices
+    scsi : 1 host.
+    Vendor: HP        Model: CD-Writer+ 8200   Rev: 2.02
+    Type:   CD-ROM                             ANSI SCSI revision: 02
+    Vendor: CREATIVE  Model: CD820E.1v0738200  Rev: 1.01
+    Type:   CD-ROM                             ANSI SCSI revision: 02
+    scsi : detected total.
+
+Observe que suas unidades de CD passarão a ser tratadas como unidades SCSI.
+
+Isso é validado para a versão 1.6.1 do cdrecord.
+
+Espero ter ajudado...
+
+Um grande abraco
+Djalma Valois Filho <dvalois@cxpostal.com>
+
+
+			OTIMIZANDO O KERNEL PARA SUPORTAR PPP
+
+em /usr/src existe o folder linux OU um symlink com esse nome. Caso
+nao exista, deve haver qualquer coisa assim como linux-2.0.3x..
+
+no primeiro caso, como root:
+
+# make menuconfig
+
+Habilitar em General Setup: [*] Networking support
+Habilite Network Device Support
+
+E habilite [*] Ppp (Point to Point) Support.
+
+se nao existir o symlink, crie-o
+
+# ln -s linux-2.0.3x linux
+
+			ENLIGHTENMENT E GNOME
+
+> Como faço para terminar uma sessão do enlightenment, não achei nada
+> para que eu possa sair e só consigo através do Ctrl+Alt+Backspace.
+
+
+Aquele X no canto inferior direito é para isso, basta clicar nele!!!
+
+> Como faço para que o panel do Gnome inicie junto com o enlightenment.
+># Alexandre H Silva
+
+
+coloque no ~/.xinitrc
+
+              /usr/bin/gnome-session
+
+e inicialize com startx.
+Se outro gerenciador for carregado no lugar do enlightenment, terás de
+executar o configurador do Gnome para selecionar o enlightenment como
+gerenciador padrão.
+
+ps.: com o Gnome carregado, não saia do gerenciador pelo enlightenment, pois
+o Gnome continuará sendo executado e não terás mais visível as "bordas" de
+suas janelas. Saia pela opção do Gnome.
+
+Até. André.
+
+				RESOLV.CONF
+
+alterar o /etc/hosts colocando o localhost como 127.0.0.1 (edite-o)
+  alterar o ifconfig que inicia o loopback para 127.0.0.1. No slackware
+está em
+/etc/rc.d/rc.inet1, a linha é algo como:
+  /sbin/ifconfig lo 127.0.0.1
+  Para saber se qual a setagem corrente, use 
+  ifconfig, deveria aparecer lo como 127.0.0.1. O 127.0.0.1 tem
+roteamento automático e não precisa somar a rota. Este roteamento
+automático parece que
+funcionava com 127.0.0.0 mas deixou de funcionar em alguma versão do
+kernel.
+
+				KPPP OPÇÕES
+
+         Quando usava o kppp costuma colocar como parâmetros do pppd as
+opções:
+ asyncmap 0
+ -detach
+ E funcionava normalmente, sem elas retornava o mesmo erro que no
+seu caso.
+
+				SIS 6326
+
+Este configura a SiS 6326 (sis530) para 1024x768x16bits como default, =
+mas estao habilitados o 800 e o 640.
+
+Mas atenção: Se colocar 8Mb de vídeo na bios o mouse fica um =
+quadrado e o desktop não funciona, a mesma coisa vale se colocar 8Mb no =
+XF86Config...
+O problema é que a forma como o chip usa a memória é "dobrando" a =
+memória, ou seja, ele usa 8Mb mas ele "empacota" dois bytes em um... é =
+um rolo só, mas no fim é assim: se colocar 2Mb no XF86Config, tem =
+que ter 4Mb na bios, funciona com dois mas logo logo trava o vídeo...
+
+
+			COMPILAÇÃO DE FONTES
+
+- Instalar os pacotes do Desenvolvimento/Linguagem;
+- Instalar todas as glibc;
+- Libstdc-devel;
+- Kernel-headers;
+- Automake e cia.
+
+
+		ENTENDENDO PARÂMETROS E CORES DO LS --CORES -F
+
+Você está se referindo à saída de um ls com cores e com a opção -F. As cores
+podem variar de distribuição para distribuição, mas o -F não. O geral é assim:
+/ (azul)    diretório
+@ (ciano)    link simbólico
+@ (vermelho)    link simbólico quebrado
+* (verde)    executável
+= (rosa)    socket
+| (marrom)    pipe
+(amarelo)    dispositivo
+
+Os executáveis são identificados pelos seus atributos e são exibidos com a cor
+verde e seguidos do asterisco (*). Para rodá-los, escreva seu nome. Se não
+incluir o nome do diretório, só irá encontrar os executáveis no $PATH.
+
+--
+ Thiago Macieira - UFOT Registry number: 1001
+ *thiagom@iname.com*
+
+			PERMISSOES DE ARQUIVOS/DIRETORIOS
+
+
+> -rwsrwsrwT   ...
+>    ^  ^  ^
+
+        s: setuid. Quem executar seu arquivo vai assumir o id do dono
+do arquivo por um tempo (durante a execucao). Usa-se isso, por exemplo, no
+Quake p/ console, que precisa usar a svgalib (que soh pode ser usada pelo
+root).
+        t: "sticky bit". Faz com que soh o dono do arquivo naquele
+diretorio possa apaga-lo (o arquivo). Usado no /tmp (todo mundo pode
+colocar arquivos lah, mas soh o dono de um arquivo pode apaga-lo.
+
+        As letras em maiusculas indicam um modo que na faz sentido. Por
+exemplo, o setuid bit em um arquivo nao executavel ou o sticky bit em um
+arquivo (e nao um diretorio).
+
+> onde nnn são os 3 algarismos das permissões a atribuir. Notei, em alguns
+> how-tos, a sintaxe com 4 algarismos, isto é, nnnn, como em chmod 0745
+> file.txt. A que se refere o quarto algarismo? 
+        Os dois bits de que falei.
+
+        Mais informacoes 
+        $ man chmod (fala inclusive das duas descricoes que dei, mas menos
+extensivamente, eh verdade)
+Rodrigo Bernardo Pimentel          <rbp@pobox.com>
+
+			ATALHOS NO DESKTOP DE WINDOW MANAGERS
+
+como colocar atalhos no menu da interface gráfica?
+vá ao diretório /etc/X11/wmconfig.cada arquivo aqui é um ítem de menu.
+use um como exemplo para criar um ítem novo.
+usaremos como exemplo o conteúdo do arquivo/etc/X11/wmconfig/gimp:
+gimp name "The GIMP"gimp description "GNU Image Manipulation Program"
+gimp icon "wilbur.xpm"gimp mini-icon "mini-wilbur.xpm"gimp exec "gimp &"
+gimp group Graphicsseguindo essa estrutura, pode-se criar um ítem de
+menu para qualquer aplicativo do sistema:meuaplicativo name "meu aplicativo"
+meuaplicativo description "meu aplicativo é muito bom"
+meuaplicativo icon "arquivo-do-ícone.xpm"
+meuaplicativo mini-icon "arquivo-do-mini-ícone.xpm"
+meuaplicativo exec "rota/executável-do-aplicativo &"
+meuaplicativo group "GrupoDoMeuAplicativo"
+criado o arquivo do ítem de menu, use o aplicativo
+wmconfig para gerar o arquivo de configuração.
+wmconfig --output=nome-da-interfacepodendo ser "nome-da-interface":
+fvwm2, fvwm95, mwm, afterstep, icewm, wmaker, kde
+obs.: note que para alguns gerentes de janela como o
+KDE, a saída desde comando é uma estrutura de
+diretórios, e para outros como o icewm, a saída é o
+próprio arquivo de configuração do gerente jogado na
+saída padrão, então deve-se executar como:
+wmconfig --output=nome-da-interface > arquivo
+sendo "arquivo" o nome do arquivo de configuração dogerente requerido.
+para maiores informações: man wmconfig
+
+
+			INSTALAÇÃO DO DEBIAN LINUX 2.0
+
+Dando o boot pelo CD-ROM :
+No Boot  precione ENTER.
+
+Depois vai aparecer várias informações, pressione ENTER.
+O processo de instalação é dividido em etapas. A primeira etapa vai servir para configurar
+o teclado. Escolha NEXT se   for configurar o teclado, ou escolha ALTERNATE para pular
+esta etapa. Esta regra.
+
+Escolha agora o tipo do teu teclado, o mais comum é o  US, que já vem selecionado.
+
+Agora ele vai pedir para particionar o HD ( caso voce escolher NEXT ), esta etapa não
+ é necessária se você já particionou seu HD com outro programa.
+
+Depois de selecionar NEXT, ele vai perguntar qual o HD que você deseja particionar
+ ( /dev/hda é um exemplo, que indica o HD master primário ). Selecione o HD e dê OK.
+
+Você pode usar qualquer outro programa dque particione seu HD. O programa de instalação 
+do Debian vai usar o cfdisk. Nós recomendamos que você vá para outro terminal ( ALT+F2 e 
+ENTER ) e utilize o programa fdisk, que tem uma seção especial só para ele.
+
+Depois de particionado, o programa de instalação vai perguntar se você deseja inicializar 
+e ativar o SWAP, se você deseja somente ativar o SWAP ou não deseja usar SWAP. SWAP é a 
+memória virtual, nós teremos que inicializar e ativar, pois estamos partindo do zero, 
+então vamos escolher NEXT. Ele vai pedir para selecionar a partição SWAP, de nossa 
+instalação só vai haver um SWAP, então é só dar ENTER. Depois ele vai perguntar se você 
+deseja checar por BAD-BLOCKS na partição SWAP ( recomendamos que escolha Sim ), e logo 
+após ele pergunta se você tem certeza que quer checar, pois vai perder todos os dados na 
+particão do SWAP. Escolha sim e espere um pouco.
+
+Agora ele pergunta se você quer inicializar uma partição Linux ou quer montar uma partição 
+já inicializada. Da nossa instalação, iremos selecionar NEXT. Depois é só selecionar a 
+partição a ser inicializada. Ele pergunta se quer checar por BAD-BLOCKS ( recomendamos 
+que sim ). Então ele perde para confirmar . Dê sim, e então espere ! :o)
+Agora ele vai perguntar se você quer instalar seu Linux na partição que você acabou de 
+inicializar, dê YES.
+
+Logo Após ele pergunta se você quer instalar o Kernel ( núcleo do sistema operacional ) 
+e Módulos, Claro que iremos fazer isso, então dê NEXT.
+
+Agora ele pergunta de onde você vai instalar o Linux, ou seja, onde estão os arquivos de 
+instalação. Nós utilizaremos o CD-ROM. Ele vai pedir para você selecionar onde está o CD-ROM. Você terá que ver no boot ( caso você não saiba ), paraisso aperrte ALT+F4 >-) e veja algo como :
+<4> hdd: CREATIVE CD2422E, Atapi CD-ROM drive
+
+No nosso caso fooi /dev/hdd, veja no seu caso. Depois ele pede para você colocar o cd do Debian no drive de CD-ROM, coloque-o :o).  Ele pergunta depois onde estão os arquivos de instalação, geralmente estão em /debian. 
+Agora ele pede o arquivo resc1440.bin que ele vai usar para instalar o kernel e módulos. Escolha LIST ( aconselhável ) para ele listar uma série de diretórios. Escolha MANUAL se vocé quiser indicar onde está o arquivo. Se você escolheu MANUAL, o arquivo geralmente fica em :
+        /instmnt/debian/main/disks-i386/2.0.10_1998-07-21
+
+Agora é a configuração dos dispositivos do sistema, prossiga com NEXT. Primeiramente não há nada instalado, ou seja, tem um "-" ( caso já esteja instalado aparece um "+" ) ao lado   do nome. Para instalá-los você dá ENTER na opção que deseja. Vai aparecer uma tela dizendo que ele não está instalado. Escolha INSTALL e tecle ENTER ( caso já esteje instalado, no lugar de INSTALL aparece REMOVE ). Logo após aparece uma tela para você adcionar algum argumento, mas basta teclar ENTER.
+Na nossa instalação usamos estes módulos :
+
+        FS      à BINFMT_ADUT, NFS *, NLS_*, SMBFS, UMSDOS, VFAT
+        IPV4    à Todos menos IPIP
+        MISC    à LP
+        NEXT    à DUMMY, NE, NE2K-PLIP, PPP, IPX 
+
+Depois é só selecionar EXIT. Agora é configurar sua "Rede interna" ( Network ), dê NEXT. 
+Uma série de configurações será definida agora, começando com o HOSTNAME. O HOSTNAME é o
+ nome da máquina, você pode colocar qualquer nome, no nosso caso colocamos LINUX-SE. 
+
+Agora configurando para uma conexão com a internet . Primeiro ele pergunta o DOMÍNIO do 
+seu provedor, coloque e depois confirme. Ele pergunta o endereço IP local do seu sistema, 
+na nossa instalação colocamos 192.168.1.51. ele pergunta então o NETMASK, usamos 
+255.255.255.0. No BROADCAST nós escolhemos a primeira opção. Agora ele pergunta se você 
+vai usar um GATEWAY, escolha sim e coloque o IP do teu provedor. Ele pergunta onde está 
+o DNS, esclolha a primeira opção. Depois aparece um quadro com todas as configurações, 
+confirme com YES. 
+
+Agora escolha PPP, caso esta máquina seja a que vai se conectar na internet.
+
+Configurações básicas prontas. Agora vamos instalar! Escolha NEXT e depois indique o 
+source da mesma maneira que um pouco anteriormente, na hora de reconhecer o resc1440.bin, 
+lembra? Agora é instalando.
+
+Próxima etapa: Configurar o sistema básico. Primeiro ele pergunta sobre o TIMEZONE, 
+selecione GMT e do outro lado seu País ( BRAZIL ), caso a escolha tenha sido BRAZIL, 
+escolha a região onde você mora.
+Se você deseja iniciar o Linux direto do computador selecione NEXT, caso contrário, pule 
+esta etapa. Aqui escolhemos NEXT. Ele pergunta se você quer bootar do setor de 
+inicialização do HD principal, Nós dissemos YES. Depois, caso você tenha 2 sistemas 
+operacionais escolha não, caso contrário escolha sim. No nosso caso escolheriamos sim, 
+mas por causa de vocês escolhemos não.
+
+A próxima etapa é criar um Boot Disk ( recomendável ) , escolhemos NEXT. Coloque um 
+disquete vazio e dê ENTER, o programa de instalação irá criar um boot disk, espere.
+O momento da verdade se aproxima!! Dê next para rebootar o computador, ele pergunta se 
+você realmente quer rebootar, dê YES.
+
+Caso o sistema depois de rebootado não consiga iniciar o linux ou então inicie outro 
+sistema ( ex: rWindows ), utilize o bootdisk criado na instalação e instale o LILO ( veja 
+como na seção 2 do manual ). Você também pode definir a partição do Linux como bootável, 
+isto você pode ver nna seção do FDISK.
+
+Quando o Linux bootar, ele vai pedir para definir seu password, ou seja, o password do 
+usuário root, escolha um. Depois ele pergunta se você quer adcionar outro usuário, isto 
+fica por sua conta. Depois ele pergunta se você quer ativar o SHADOW ( encriptador dos 
+passwords do sistema ), isto é extremamente recomendado para sua segurança. Logo após, 
+caso você não tenha dispositivos PCMCIA instalados e você configurou para aceitar, ele 
+pergunta se você quer remover, já que não usa. No nosso caso escolhemos YES ( remover ).
+
+Agora ele pergunta se você quer instalar pacote por pacote, no nosso caso escolhemos não.
+
+Agora vai aparecer um quadro com o tipo de sistema que você vai querer, abaixo segue uma 
+tabela com descrições :
+
+ADMIN           à Para administradores de sistemas                              (~ 305 MB )
+BASIC           à O sistema enxuto, quase sem nada                              (~   25 MB )
+DEVEL_COMP      à Ambiente para grandes desenvolvimentos                        (~ 404 MB )
+DEVEL_STD       à Ambiente para desenvolvimento em C padrão                     (~ 340 MB )
+DIALUP          à Máquinas Caseiras                                             (~ 420 MB )
+SERVER_COMP     à Servidor ( Add. Mailing list, backup, News, Samba, Squid )    (~   50 MB )
+SERVER_STD      à Servidor Básico ( FTP, WEB, DNS, NIS, POP )                   (~   40 MB )
+WORK_SCI        à Ambiente de trabalho científico                               (~ 500 MB )
+WORK_STD        à Estação padrão de trabalho científico                         (~ 382 MB )
+CUSTOM          à Tarefas de sistema personalizadas
+
+        No nosso caso escolhemos DIALUP. Escolha conforme suas necessidades. Dê ENTER. 
+Se você selecionou algum tipo de instalação acima, selecione [A]ccess, [U]pdate e 
+[I]nstall. Se não, não pule a opção [S]elect, pois esta opção é quem vai escolher os 
+pacotes. Vamos agora por opções.
+
+        [A]CCESS à Aqui é de onde voc6e vai instalar, no nosso caso, escolhemos cd-rom. 
+Depois indicamos /dev/hdd ( onde está o cd-rom ). Depois ele pergunta em que diretório 
+estão os pacotes. Indique debian/main/binary_i386. Agora coloque 'none' para localizar os
+ programas que não são de graça ( a não ser que você queira ). Agora ele pergunta de um 
+diretório se o debian não for US. Dê ENTER duas vezes.
+
+        [U]PDATE à Aqui somente atualiza os pacotes e as informações sobre eles.
+
+        [S]ELECT à Como nós previamente já escolhemos o tipo de instalação, pulamos esta 
+parte. Isto serve para escolher o que você quer instalar.
+
+        [I]NSTALL à Agora ele vai instalar os pacoetes. Observe que beleza! Durante a 
+instalação, o programa vai perguntar algumas configurações, indique conforme suas 
+necessidades.
+
+
+By Eitch ( Hugo Cisneiros ) and {Lulla} ( Luiz Henrique )
+
+
+			LIMITAÇÃO DE PARTIÇÕES
+
+> O problema e que so existe devices ate o hd?16, ele quer criar o hd?17 mas
+> o MAKEDEV diz:
+> ./MAKEDEV: don't know how to make device "hda17"
+>
+> entao:
+>  Como se cria o /dev/hda17 ???
+
+Se o MAKEDEV não sabe criar, você tem que usar o mknod na marra.
+
+De acordo com o /usr/src/linux/Documentation/devices.txt, as partições dos HDs
+nas IDEs 0 e 1 em PCs são da seguinte forma:
+major: 3
+minor: drive * 64 + partição
+Ou seja, hda = 0 * 64 + 0 = 0
+hda1 = 0 * 64 + 1 = 1
+hda17 = 0 * 64 + 17 = 17
+hdb = 1 * 64 + 0 = 64
+hdb1 = 1 * 64 + 1 = 65
+etc.
+
+daí, use o mknod. Não lembro bem sua sintaxe (leia-se: man mknod), mas seria
+algo do tipo:
+mknod b 3 17 /dev/hda17
+(b de block, em oposição a c de character)
+
+E lembre-se de acertar as permissões:
+chown root.disk /dev/hda17
+chmod 640 /dev/hda17
+(ou como preferir)
+
+>  exite limitacao quando o numero de particoes logicas??
+
+Hmm, não sei. Mas, se existir, aposto que é uma potência de 2 :-). Embora você
+tenha acabado de cruzar o número 16, você tem somente 12 partições lógicas.
+Portanto, se o limite for de 16 partições lógicas, você poderia ir até o
+hda20.
+
+
+INSTALAÇÃO DE PACOTES SRC DO RED HAT
+
+Note que src.rpm não são instalados como os binários. Você deveria
+ rpm --rebuild rpm-3-3--1.src.rpm
+ e depois instalar o binário criado em /usr/src/redhat/RPMS/i386     
+
+
+			USO DO TAR PARA BACKUP EM MULTIVOLUME
+
+como usar o tar com volumes múltiplos?
+supondo o nome do arquivo "grande.tgz" e disquetes de 1,44 Mb
+tar -cvM -L 1350 -f /mnt/floppy/grande_em_partes.tgz grande.tgz
+     |||      |                   |                      |
+     |||      |                   |                      +-- origem
+     |||      |                   +---------- destino
+     |||      +------------------------------ tamanho de cada parte
+     ||+------------------------------------- volumes Múltiplos
+     |+-------------------------------------- detalhado
+     +--------------------------------------- criar
+
+			FAVORITOS -> BOOKMARK			
+
+
+No Windows tem um programa (www.tucows.com) que converte os favoritos do IE4 e
+IE5 para o bookmarks (um arquivo HTML) do Netscape. No Linux eu não sei se tem
+um programa que faça isso, mas deve ter, procure no Linuxberg
+(www.linuxberg.com).
+
+Depois que você fazer essa conversão entre no seu home (suponhamos que seja
+root).
+
+/root/.netscape
+
+Apague ou renomeie o arquivo bookmarks.html
+
+E copie o gerado pela conversão para o mesmo diretório (/root/.netscape).
+
+Renomeie para bookmarks.html.
+
+Pronto, só executar o Netscape!
+Alexandre
+
+				RECONHECIMENTO DE VOZ NO LINUX
+
+A IBM lançou uma versão beta do SDK ViaVoice (um reconhecedor de fala) para
+Linux.
+
+Para saber mais e baixar o programa,
+
+http://www.software.ibm.com/is/voicetype/dev_linux.html
+
+A IBM está apostando mesmo no Linux :-)
+
+
+				DICA DO SAMBA
+
+
+Para quem usa o Samba como servidor de arquivos no Linux, estes
+parâmetros são INDISPENSÁVEIS no smb.conf :
+
+   socket options = TCP_NODELAY SO_SNDBUF=8192 SO_RCVBUF=8192
+   read prediction = yes
+   debug level = 0
+
+Sem eles, o Samba é uma carroça. Com eles, é uma Ferrari. Ou melhor,
+McLaren.
+
+				AUMENTAR PARTIÇÃO DO LINUX
+
+Criar uma partição maior e fazer um link entre ambas.
+
+
+				CORRIGINDO BUG DO KPPP
+
+
+Eu estava usando o KDE 1.0 e tudo funcionava beleza (exceto o maldito kmail,
+que simplesmente sumia ao baixar os mails; mas isso é outra história).
+
+Então eu instalei o KDE 1.1 e o kppp começou a dar esse problema de "The ppd
+daemon died unexpectedely !". De cada 10 tentativas de discagem, em 1
+conseguia a conexão e nas outras dava o problema.
+
+E mais estranho ainda: Usando as opções de Autenticação do kppp como
+"script-based" ou "terminal-based" tudo funcionava sem problemas. O problema só
+dava quando eu escolhia autenticação como PAP ou CHAP.
+
+A solução que eu encontrei foi a seguinte: na configuração do kppp deixei a
+Autenticação como PAP e no Login Script adicionei um Send. Isso mesmo, um Send
+vazio, sem nada depois.
+
+Fiz isso achando que esse Send enviasse o  CR (ou será LF?) que suponho o pppd
+estivesse esperando. IMHO esse kppp que estou usando (versão 1.6.2 release 182)
+tem um bug e não envia o último CR para a partida do pppd.
+
+Claro, isso é o que eu suponho, mas o fato é que o kppp começou a funcionar sem
+problema nenhum.
+
+Alô gurus de plantão, será que é isso mesmo?
+
+Cláudio
+
+
+			SITES DE LINGUAGEM C
+
+
+divirta-se
+
+http://www.turbopower.com/bcb
+ftp://garbo.uwasa.fi/pc/bgidriv
+ftp://garbo.uwasa.fi/pc/c-lang
+http://www.bcbdev.com
+http://www.cobb.com/cpb/index.htm
+http://members.aol.com/charliecal/
+http://www.terravista.ciclone.com.br/praiabrava/1953
+http://www.cerfnet.com/~mpcline/C%2b%2b-FAQs-Lite/
+http://www.freecode.com/
+http://webnz.com/robert/cpp_site.html
+http://www.genitor.com/resources.html
+http://www.research.att.com/~bs/C++.html
+http://www.europa.com/~viper/
+
+saudacoes,
+irado furioso com tudo
+
+				MATAR O NETSCAPE
+
+ Alguem sabe se e possivel matar o programa de outra maneira? O que fazer
+> nesses casos? Dicas? Pistoleiros? :-))))
+        kill -9 pid
+
+        O kill -9 (ou -KILL) nao quer nem saber. Mata independente do que
+estiver acontecendo. Normalmente, nao eh bom usa-lo, por ser um tanto
+"brusco". Os programas normalmente sabem lidar com os outros sinais
+mandados pelo kill e lidam com eles de forma a nao haver perda de dados,
+etc.
+        Mas, em uma situacao extrema...
+
+                rbp
+
+
+				CONFIGURAÇÃO DO POSTILION
+
+
+> Seguinte: instalei o Postilion (nenhum problema), mas nao estou
+> encontrando qualquer configuracao dos servidores de POP e SMTP, onde
+> eu colocaria os servidores do meu provedor. Alguem que esteja
+> utilizando o Postilion poderia me dar umas dicas de como configura-lo?
+
+Oi, 
+
+para configurar o SMTP vá em INFO => Preferences => Sending
+ai você configura o SMTP.
+
+Para o POP você tem de criar uma MailBox para cada conta que tiver.
+
+Eu recomendo que você use o fetchmail para buscar os e-mails
+e o procmail caso deseje filtragem.
+
+Dessa forma todos ficam localmente no seu micro e você pode usar o 
+POSTILION, Pine, Mutt, TkRAT, Kmail, Balsa ou qualquer outro programa
+capaz de ler mailboxes. 
+
+abraços,
+
+Raul Dias 
+
+
+			INSTALANDO O GNOME 1.0 PELOS FONTES
+
+1. segui essa seqüência de instalação:
+
+a. glib (compilado com --prefix=/usr)
+b. gtk+ (compilado com --prefix=/usr)
+c. imlib
+d. orbit
+e. libgtop (compilado com --without-gnome)
+f. gtk-engines
+g. gnome-libs
+h. gnome-core
+i. control-center
+j. mc
+l. gnome-utils
+
+OBS: coloquei --prefix=/usr em "a" e "b" porq eu já
+tinha versões anteriores instaladas ai como o default
+é o ./configure colocar em /usr/local/lib usei essa
+opção pra ficar em /usr/lib, bem ... outro motivo é
+porq as bibliotecas ficando em dir. diferentes vc vai
+ter dois lib[glib|gtk].so.versão ... ai desse jeito o
+sistema vai te falar q não encontrou o lib na versão
+certa.
+
+OBS 2: todos os pacotes eram .tar.gz
+
+		COMO SER UM BOM ADMINISTRADOR DE SISTEMAS
+
+Estou passando para vocês informações de como se tornar um bom
+administrador Unix (Linux). Informações estas colhidas da revista "Sys
+Admin" de Julho de 1998.
+A matéria é "10 Steps to Becoming a Unix Administrator" (10 passos para
+se tornar um administrador Unix):
+
+1 - Aprenda, pelo menos, 80 comandos básicos do Unix (Linux).
+  - Aprenda a estrutura do sistema de arquivos.
+  - Inscreva-se num curso de, pelo menos, 40 horas sobre o básico do
+Unix (Linux).
+  - Leia o livro "UNIX System Administration Handbook".
+  - Leia o livro "Life with UNIX: A Guide for Everyone".
+  - Leia o livro "Learning the VI Editor".
+  - Leia o livro "Essential System Administration" segunda edição.
+
+2 - Leia mais sobre o editor VI.
+  - Inscreva-se em um curso sobre operação e administração do sistema
+Unix (Linux).
+  - Aprenda sobre o boot e o shutdown do sistema e sobre os
+procedimentos de backup e restore.
+  - Leia o livro "Learnig the Korn Shell".
+  - Leia o livro "The Korn Shell: User and Programming Manual".
+  - Leia todas as "man pages" do Unix (Linux).
+
+3 - Aprenda a como escreverscripts no shell.
+  - Leia o livro "The AWK Programming Language".
+  - Leia o livro "UNIX Shell Progamming".
+  
+4 - Leia todos os manuais (HOW TO) que veham com o seu sistema.
+
+5 - Leia o livro "DNS and BIND".
+
+6 - Leia o livro "Sendmail".
+
+7 - Prenda TCP/IP.
+  - Leia o livro "Internetworking with TCP/IP: Design Implemenation, and
+Internals".
+
+8 - Leia o livro "Managing NFS and NIS".
+
+9 - Leia o livro "UNIX Performance Tuning".
+
+10 - Prenda a progamar em linguagem C.
+Rodrigo
+            Rodrigo Lehnemann Agostinho
+              lehnemann@plugue.com.br
+            http://www.plugue.com.br
+
+			INSTALAÇÃO DO KDE 1.1 NO GUARANI
+
+Depois de algumas tentativas acabei conseguindo instalar o Kde 1.1 no meu
+Guarani. (A dica que faltava recebi do Linuxer).
+
+- Baixei os arquivos:
+kde-installer-1.1-5rh5x.i386.rpm
+kdesupport-1.1-5rh5x.i386.rpm
+kdelibs-1.1-5rh5x.i386.rpm
+kdebase-1.1-5rh5x.i386.rpm
+kde-applications-1.1-5rh5x.i386.rpm
+(Isso para Red Hat 5.x).
+Alem da lib qt-1.42
+
+No diretorio de download havia um arquivo Readme que dizia para instalar
+primeiro o Kde-Installer, que este criaria dois scripts de instalação dos
+outros pacotes.
+
+Comecei desinstalando todo o meu kde 1.0 existente: 
+rpm -qa | grep kde       (para saber o nome dos pacotes)
+rpm -e                   (em cada um)
+
+Nao lembro se removi a qt-1.40 ou se atualizei.
+
+- O primeiro a ser instalado foi o da qt: rpm -Uvh qt-1.42-3rh51.i386.rpm
+- Depois o Installer: rpm -ivh kde-installer-1.1-5rh5x.i386.rpm
+- Com a instalacao do installer, sao criados dois scripts de instalacao, dos
+quais so usei um. Eles sao criados em /usr/sbin, sao o install-kde-1.1 e o
+install-kde-1.1-apps. Usei apenas o install-kde-1.1. 
+Rodei com ./install-kde-1.1 e sai respondendo as perguntas. Diretorio onde estao
+os pacotes rpm, ...
+
+- Depois de tudo instalado, peguei o pacote kdestart do kde 1.0 e instalei
+usando rpm -ivh --force (Dica do colega Linuxer).
+
+Faltava apenas reiniciar o micro e tava la o novo kde: bem mais rapido, estavel
+e com varios recursos extra.
+
+			OTIMIZAÇÃO DO KERNEL
+
+Gostaria de passar aqui para a lista (novamente) os passos que o Arnaldo postou
+para a otimização do kernel.
+São apenas os passos para a otimização do kernel para trabalhar mais de acordo
+com seu micro.
+Ele colocou para o Guarani, mas creio que é similar para outros Red Hats.
+
+1) Instalar os fontes do Kernel (caso ainda não tenha instalado):
+rpm -ivh /mnt/cdrom/conectiva/RPMS/kernel-source*i386.rpm
+
+2) cd /usr/src/linux
+Aqui linux é apenas um link. Por que existe este link?
+
+3) make config           (Responder as perguntas. Cuidado que algumas são
+vitais).
+
+4) cp .config /usr/src/redhat/SOURCES/kernel-2.0.36-i386.config.conectiva
+
+5) cd /usr/src/redhat/SPECS e
+rpm -v -ba kernel-2.0.36.spec
+
+Se for o caso, alterar o release em /usr/src/redhat/SPECS/kernel-2.0.36.spec
+
+(aqui, o meu diretório SPECS está vazio).
+
+O meu rodou legal. Já consegui otimizar o kernel. O próximo passo é recompilar,
+atualizando para versões mais novas. Como também já aprendi a fazer backup do
+kernel e colocar varias opcoes no lilo, posso fazer isso menos apreensivo.
+
+
+		PARTIÇÕES NO LINUX E SIMILARES NO DOS/WIN
+
+Sem problemas... Pode instalar. So' uma dica: no linux nao existe C:,
+D:, etc... Aqui a nomenclatura e' a seguinte:
+
+hda1 - 1a. particao primaria do 1o. disco IDE
+hda2 - 2a. particao primaria do 1o. disco IDE
+hda5 - 1a. particao logica do 1o. disco IDE
+hda6 - 1a. particao logica do 1o. disco IDE
+
+hdb1 - 1a. particao primaria do 2o. disco IDE
+hdb2 - 2a. particao primaria do 2o. disco IDE
+hdb5 - 1a. particao logica do 2o. disco IDE
+hdb6 - 1a. particao logica do 2o. disco IDE
+
+sda1 - 1a. particao primaria do 1o. disco SCSI
+etc...
+-- Joao Carlos --[ joca@dcc.ufmg.br ]---+
+--------------
+
+
+IDE-0
+        HD Primario = hda
+                Particoes dentro do Primario = hda1, hda2, hda3, hdaN
+                em que N eh um numero inteiro maior que 0
+
+        HD Slave = hdb
+                Particoes dentro do Slave = hdb1, hdb2, hdb3, hdbN
+                em que N eh um numero inteiro maior que 0
+IDE-1
+        HD Primario = hdc
+                Particoes dentro do Primario = hdc1, hdc2, hdc3, hdcN
+                em que N eh um numero inteiro maior que 0
+
+        HD Slave = hdd
+                Particoes dentro do Slave = hdd1, hdd2, hdd3, hddN
+                em que N eh um numero inteiro maior que 0
+
+                                                        Falous,
+
+                                                                Piter PUNK
+
+
+
+		MAIL DO RENATO PRETI - MODERADOR DA LINUXABC
+
+From - Sat May  1 09:07:42 1999
+Return-Path: <rpreti@yahoo.com>
+Received: from web107.yahoomail.com (web107.yahoomail.com [205.180.60.74])
+	by jangada.fortalnet.com.br (8.9.1/8.8.5) with SMTP id TAA06128
+	for <ribafs@fortalnet.com.br>; Tue, 27 Apr 1999 19:37:24 -0300
+Message-ID: <19990427222904.3460.rocketmail@web107.yahoomail.com>
+Received: from [200.230.140.16] by web107.yahoomail.com; Tue, 27 Apr 1999 15:29:04 PDT
+Date: Tue, 27 Apr 1999 15:29:04 -0700 (PDT)
+From: Renato Preti <rpreti@yahoo.com>
+Subject: Re: Administração da Linuxabc
+To: Ribamar FS <ribafs@fortalnet.com.br>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+X-Mozilla-Status: 8013
+X-Mozilla-Status2: 00000000
+X-UIDL: 5480b2d17306e1cd031010759420538c
+
+Olá Ribamar, obrigado pela força!
+
+Já alterei seu cadastro no eGroups, a partir de agora você é um
+moderador e gerente da nossa lista de discussao. Você deve entrar no
+site www.egroups.com e se logar, agora voce tem o poder de alterar
+cadastros, incluir e excluir usuarios. Voce pode definir as regras da
+lista e muito mais. Estou enviando uma mensagem para a lista dizendo
+que a partir de agora eu e você estamos juntos nessa. A lista tem 2
+responsáveis eu e voce. 
+
+Espero que voce continue com seriedade e perseverança em mais essa
+empreitada no mundo Linux. Achei que voce como moderador da lista seria
+muito bom, pois sei que voce faz parte do grupo a muito tempo.
+
+Boa sorte e seja bem vindo,
+
+Renato Preti
+
+
+
+--- Ribamar FS <ribafs@fortalnet.com.br> wrote:
+> Olá Renato!
+> 
+> Sinto muito por você ter que se ausentar da nossa
+> lista.
+> Acabamos fazendo um grupo de amigos aqui.
+> Faço votos que consiga resolver a contento seus
+> problemas particulares.
+> Caso apareçam outros colegas mais indicados que eu,
+> passe a administração para
+> ele(s).
+> Mas se for para evitar o fechamento da lista e eu
+> puder ajudar, conte comigo e
+> diga o que devo fazer.
+> 
+> --
+> Abraços
+> Ribamar FS	ribafs@fortalnet.com.br
+> Manual de Linux, entre outras coisas em:
+> http://pagina.de/manual.linux/
+> 
+
+
+			CURSO DE C DA UFMG
+
+Voce assinou a lista esperacursoc@cpdee.ufmg.br.
+O sistema reconheceu seu endereco eletronico como 
+
+                ribafs@fortalnet.com.br
+
+Se voce tiver algum problema no uso da lista, contacte o seu gerente: renato@cpdee.ufmg.br
+
+Envie requisicoes administrativas (pedidos de inscricao ou desinscricao) para listproc@cpdee.ufmg.br e nao para a lista.
+==================================================================
+O curso de linguagem C esta' sendo organizado pelo Grupo de
+Otimizacao e Projetos Assistidos por Computador, do Depto de Eng.
+Eletrica da UFMG: http://www.cpdee.ufmg.br/~gopac
+
+Voce esta'  se matriculando no curso do segundo semestre de 1999. 
+As inscricoes do primeiro semestre se encerraram em 18 de abril.
+Se voce quiser, pode ir dando uma olhada no material
+do curso em 
+
+        http://www.cpdee.ufmg.br/cursos/C
+
+Verifique tambem a resposta a diversas perguntas frequentes no FAQ:
+
+        http://www.cpdee.ufmg.br/cursos/C/faq.html
+
+Caso deseje desistir do curso, depois dele ter sido iniciado,
+envie mensagem para listproc@cpdee.ufmg.br com o conteudo:
+
+        UNSUB CURSOC 
+
+
+			REMOVER ARQUIVOS DA FILA DE IMPRESSÃO
+
+
+        De uma olhada nos programa : lprm -P<impressora> remove todos os
+arquivos da fila de impressao...
+Nelio Souzas Santos Filho
+
+			BEEP DO TERMINAL
+
+Bem, bastante gente tem perguntado como desligar o beep do
+terminal. Supondo que estejam usando bash (eh o default no Linux e jah
+mandaram a solucao pra tcsh) :
+
+        $ man bash
+        /bell  <-- Se o man usar o less como pager (eh o default em
+todas as distribuicoes, hoje em dia, acho), isso faz uma busca por "bell".
+
+        As 2 primeiras linhas encontradas nao sao o que queremos. Mas nao
+percam a esperanca. Na terceira...
+
+   Readline Variables <-- Readline eh a biblioteca usada pelo bash pra
+                          interpretar a linha de comando
+       Readline has variables that can be used  to  further  cus­
+       tomize its behavior.  A variable may be set in the inputrc
+       file with a statement of the form
+
+              set variable-name value
+
+       bell-style (audible)
+              Controls  what  happens when readline wants to ring
+              the terminal bell.  If set to none, readline  never
+              rings the bell.  If set to visible, readline uses a
+              visible bell if one is available.  If set to  audi­
+              ble, readline attempts to ring the terminal's bell.
+
+        Bem, qual eh o "inputrc file"?
+
+        Procurando por "inputrc", achamos que o default eh ~/.inputrc
+
+        Em suma, coloquem a linha 
+        set bell-style none
+
+        No ~/.inputrc (criem-no, se nao existir).
+
+
+                rbp
+-----------
+Ola Alexandre,
+
+Fui eu quem postou aquela mensagem mas naum consegui resposta da lista !!
+        Consegui resolver o problema da seguinte forma :
+                Crie no seu raiz um arquivo chamado .inputrc com o
+seguinte conteudo :
+                        set bell-style visible
+que deve funcionar !!
+
+Falow 
+
+Leslie
+watter@usa.net
+
+			INSTALAÇÃO DO LOADLIN
+
+
+Isto é um dilema... quem usa bastante o Windows (como eu usava),
+frequentemente nota que após instalar e desinstalar programas várias vezes,
+com o tempo, todo o ambiente vai se deteriorando. Isto força o usuário a
+reinstalar o sistema operacional. No meu caso, eu o reinstalava uma vez a
+cada mês para obter uma diminuição na quantidade de GPF´s que eu tomava na
+cara.
+
+Buenas. O fato é que a cada vez em que se reinstala o Windows ele reescreve
+a MBR (Master Boot Record) e o LILO vai pro espaço. Para resolver o
+problema, eu passei a iniciar o Linux a partir do prompt do dos.
+
+As ferramentas para iniciar o Linux a partir do prompt do DOS, você
+encontra, no CD da Conectiva, dentro do diretório /dosutils.
+O programa LOADLIN.EXE, é quem faz a carga do Linux (expulsando o outro
+sistema operacional da máquina). Experimente o seguinte:
+
+1 entre no diretório \dosutils, no seu CD Linux
+2 digite: loadlin autoboot/vmlinuz
+
+Isto deve ser o suficiente (alguém me corrija se eu estiver enganado!).
+
+Elias Praciano
+
+
+			ZIP DRIVE NO KERNEL 2.2.X
+
+O Problema q estava ocorrendo aqui eh q no kernel eu estava abilitando soh 
+<*> Parallel port support
+
+ai andei lendo aqui a documentacao , e tem que abilitar os:
+General setup  --->
+<*> Parallel port support
+<*>    PC-style hardware
+eu estava esquecendo do PC-style hard...
+
+ahn eh p/ quem tem zip-drive e quer faze-lo funcionar, abilitem tb:
+SCSI support  ---> 
+<*> SCSI support 
+<*> SCSI disk support
+        SCSI low-level drivers  --->
+        <M> IOMEGA parallel port (ppa - older drives)
+
+e depois de dar boot, eh soh "modprobe ppa"
+mount /dev/sda4 /mnt
+
+[]'s espero que ajude..
+
+Carlos Alberto Mazzer <funtable@sercomtel.com.br>
+------------
+para zip na porta paralela use :
+
+insmod ppa
+mkdir /zip
+
+se vc tiver um disco com particao dos no zip
+
+mount -t vfat /dev/sda /zip (ou outro diretorio)
+
+se vc quiser cria particao nativa linux vc deve apagar a particao dos  e criar
+uma nativa do linux usado o
+
+fdisk /dev/sda
+
+e depois monta-lo
+
+mount /dev/sda /zip
+
+
+		INICIANDO QUALQUER WINDOW MANAGER, INCLUSIVE O TWM
+
+Bom, mas indo ao que interessa... aconteceu o mesmo comigo, mas consegui
+> resolver fazendo um arquivo .xinitrc, colocando lá somente uma linha
+> escrito: wmaker. Pronto! Os menus que eu tinha criado voltaram como por
+> milagre. Parece que, sem o .xinitrc, o windowmaker é inicializado com as
+> configurações do root, ou não aceita simplesmente as configurações.
+> Abraços.
+
+
+				KXICQ
+
+Gostei do KXicq e resolvi traduzi-lo para o portugues do brasil e
+disponibiliza-lo para todos em
+ftp://200.197.71.4/pub/linux/icq/kxicq-0.3.1.i386.rpm
+        Testei ele no Guarani e resolvi ficar com ele ao inves do Licq...
+promete mais... e ainda conversei com o autor via kxicq :) e ele me disse
+que tem muitos planos e vai recontruir boa parte do programa... e me
+avisar de possuveis mudancas :)
+
+        Abracos a todos...
+
+                Thiago Martins
+
+
+				RPM EM OUTRO DIRETÓRIO
+
+>         Como e que eu faco pra instalar um pacote rpm em outro
+> diretorio q nao seja o padrao do pacote??
+
+Se você tiver um sistema INTEIRO dentro de outro diretório, como por
+exemplo uma partição montada, utilize:
+rpm --root <diretório> -ivh pacote.rpm
+
+Se você quiser só instalar em um diretório diferente mas no mesmo
+sistema, eu conheço uma solução. Não testei com outras versões, mas
+funciona com o RPM 3.0 com pacotes do RPM 3.0:
+rpm --prefix <diretório> -ivh pacote.rpm
+
+Ou, se o pacote foi compilado com a opção de relocação,
+rpm --relocate <dir_no_pacote>=<dir_onde_você_quer_instalar> -ivh
+pacote.rpm
+
+
+--
+ Thiago Macieira - UFOT Registry number: 1001
+ *thiagom@iname.com
+
+				MENUS NO ICEWM
+
+Consegui configurar meu menu no icewm pelo arquivo menu do
+diretório icewm (ohhh). No entanto, existem algumas opções que não
+consegui tirar, pois o citado arquivo nem menciona. São elas: programas,
+windows, refresh, themes e o close ( que gostaria de alterar ).  Já
+fucei em tudo e não achei como retirá-los ou alterá-los.  Alguma
+sugestão?
+Marcos
+
+			PROTEÇÃO DE PROGRAMAS
+
+
+Ha varias saidas de protecao. Uma das melhores eh formatar trilhas independentemente, com setores nao-padrao. Outra eh usar as trilhas 80, 81 e 82 na formatacao, formatadas nao-padrao (somente algumas trilhas), com dados especificos (numero de serie e outras identificacoes digitais). Voce pode, por exemplo, formatar um disco normalmente, e ter um programa dentro dele que acessa uma trilha ALEM das normais (0-79), que poderiam estar formatadas com um numero de setores diferentes de 18. Seu programa seria responsavel pela identificacao do formato da trilha e atualizacao dos dados. Muito provavelmente voce tera que escrever o codigo de acesso aas portas do drive por voce mesmo (sem usar NADA do BIOS). Outro interessante seria alterar o interleave de trilhas especificas, gravar a identificacao codificada no interleave, ou brincadeiras do genero. 
+Mas olha, pra pirataria, nao existe bom. O pessoal crackeia ateh programa que usa Dongo de LP com checagem multiponto, fazendo bridge com um computador com 2 LPs. Formatacao eh software, conheco programas que fazem miseria com um FD. Soh pra vc ver, tem um crack do CHAVE MESTRA, do MSX, que roda em um EMULADOR (tem pra linux), que copia QUALQUER DISQUETE. Je ne sais pas o que eles fizeram, mas que roda redondo, roda. Haja assembly Z-80...
+
+
+Taupter
+
+			LILO PROBLEMAS
+
+>Oi,
+>Eu tinha 2 micros, um com linux e um com win98.
+>Porém a motherboard do micro com win98 queimou, e como eu precisei de
+>alguns arquivos do hd, coloquei ele como primary slave (mesma fita) do
+>micro com linux, e acrescentei ao lilo.conf:
+>
+>other=/dev/hdb1
+>       label=win
+>       table=/dev/hdb
+>
+>Rodei o lilo para acrescentar as configurações.
+>Porém quando no boot eu digito "win", ele trava com a seguinte msg:
+>"Loading win"
+>
+>O que eu acho estranho, é que no linux eu consigo montar normalmente o
+>2º
+>HD através do comando
+>
+>mount -t vfat /dev/hdb1 /mnt/win
+>
+>Alguem sabe me dizer o que há de errado ?
+>
+>Cleyton
+
+
+Meu problema era igual ao seu, aqui ta o esquema que me passaram e
+funciona:
+
+other =/dev/hdb1
+        label=Windows
+        loader=/boot/chain.b
+        map-drive=0x80
+        to=0x81
+        map-drive=0x81
+        to=0x80
+        table=/dev/hdb
+---------------
+Apenas para complementar...
+
+=========================================================
+Incompatibilities between LILO >= 20 and earlier versions
+=========================================================
+
+Special chain loaders
+---------------------
+
+The functionality of the chain loaders any_b.b and any_d.b
+has been generalized and integrated into chain.b. any_b.b
+and any_d.b are therefore no longer supported. Their
+behaviour can be emulated as follows:
+
+   other = foo
+     loader = /boot/any_b.b
+
+becomes
+
+   other = foo
+     map-drive = 0
+       to = 1
+     map-drive = 1
+       to = 0
+----
+and
+----
+   other = foo
+     loader = /boot/any_d.b
+
+becomes
+
+   other = foo
+     map-drive = 0x80
+       to = 0x81
+     map-drive = 0x81
+       to = 0x80
+
+The use of os2_d.b changes as follows:
+
+   other = foo
+     loader = /boot/os2_d.b
+
+becomes
+
+   other = foo
+     loader = /boot/os2_d.b
+     map-drive = 0x80
+       to = 0x81
+     map-drive = 0x81
+       to = 0x80
+
+
+				DRIVER SOUNDBLASTER PARA LINUX
+
+
+Today Creative Labs has released the first version of a driver for its
+SoundBlaster Live sound card. 
+
+Pick it up here at their Linux developers Web site.
+
+http://developer.soundblaster.com/linux/
+
+Até mais...
+[]'s Fred Silva
+
+				MODEM CONFIGURAÇÃO
+
+Axo q sei o seu probl kra
+vc disse q configurou o seu modem certinho...
+O meu modem eh um US.Robotics 28.800
+O maneh foi configurado assim:
+Dah um su e.....
+cd /dev
+rm -rf modem
+ln -s cuaX modem
+chmod 660 cuaX
+chown root.uucp cuaX
+Substitua x pelo numero de sua cua (no meu eh cua3)
+Depois p/ ve se tudo deu certo...
+ls -l modem
+lrwxrwxrwx 1 root uucp 4 fev 4 18:49 modem -> cua3
+tabela dos cua....
+COM1 /dev/cua0
+COM2 /dev/cua1
+COM3 /dev/cua2
+COM4 /dev/cua3
+Vc n eskeceu de configurar a host, dns, certo?
+Se n n vai adiantar nd culpar seu Zoltrix de 9.600 eeheheheheheheehehe
+
+
+		    HABILITANDO SOM NO SLACKWARE
+		    
+Sendo SB16 ou AWE32 basta editar o /etc/rc.modules e descomentar a linha probe
+sound:
+
+probe sound
+
+
+			ZIP DRIVE
+			
+				Ah sim, uma dica se você tem zipdisk:
+
+        em /etc/conf.modules tem uma linha sobre um alias
+scsi_hostadapter que tem que mudar para ppa, senão o zip disk não
+funciona. ( meu zip é externo e paralelo)
+
+Cassio Freitas - cgfreita@mail2.multnet.com.br
+
+		
+			EXECUCAO DO GNOME
+			editar o
+ arquivo .xinitrc, que esta na sua pasta, e adicionar:
+
+         exec gnome-session
+         
+         
+			
+			</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

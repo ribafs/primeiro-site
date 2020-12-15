@@ -1,0 +1,520 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>Assunto: 
+         (linux-br) Review Processadores de texto
+    Data: 
+         Sat, 30 Jan 1999 00:27:08 -0200
+     De: 
+         "Ricardo Y. Igarashi" <iga@originet.com.br>
+    Para: 
+         linux-br@bazar.conectiva.com.br
+
+
+Open Source
+
+1. AbiWord
+Achei muito fraco. Poucas funções, e alguns (muitos?) bugs.
+Não acentua.
+
+http://www.abisource.com
+
+Versão testada: 0.2
+WYSIWYG: Sim
+Undo: Múltiplo
+Correção de palavras: Não
+Fontes: Type1
+Editor gráfico: Não
+Imagem: Não
+Tabela: Não
+Equação: Não
+Sumário: Não
+Cross-reference: Não
+Justificação: Esquerda, centro, direita
+Importa: -
+Exporta: -
+Distribuição: Código fonte
+Widget: Gtk
+
+2. Cicero
+Não está sendo modificado desde 1995. Provavelmente está "morto". 
+Peguei o código fonte, mas não consegui nem compilar... Acho que é um 
+problema com o egcs.
+
+http://zeus.informatik.uni-frankfurt.de/~weis/cicero.html
+
+Versão testada: 7.3 (Dezembro 1995)
+WYSIWYG: Sim
+Undo:
+Correção de palavras:
+Fontes:
+Editor gráfico:
+Imagem:
+Tabela:
+Equação:
+Sumário:
+Cross-reference:
+Justificação:
+Importa: -
+Exporta: -
+Distribuição: Código fonte
+Widget: Tk
+
+3. Ez (do pacote AUIS ou Andrew)
+Bom e está numa versão estável, mas não tem um upgrade já a algum tempo. 
+Me parece que a versão 8.0 está em desenvolvimento.
+Ele é um processador do tipo estruturado, isto é, você indica o 
+"significado" das partes do seu texto e não a sua aparência. Para quem 
+está acostumado com os processadores de texto "normais" do Wondows pode 
+parecer estranho, mas você logo secobrirá que é muito mais fácil assim. 
+Mas se você quer um resultado mais "livre" (para fazer panfletos, por 
+exemplo), não é o mais adequado.
+A interface não é muito boa... por exemplo, naõ existe um browser para 
+procurar um arquivo: você tem que digitar o nome. Também não tem barra 
+de botões, que é uma vantagem para alguns...
+A documentação é fraca... uma pena, pois é um bom programa.
+Não consegui acentuar. 
+
+http://www.cs.cmu.edu/~AUIS
+
+Versão testada: 7.5
+WYSIWYG: Não
+Undo: Não
+Correção de palavras: Via Ispell, língua padrão. Tem problemas com 
+  palavras acentuadas.
+Fontes: Como default, somente Serif, Sans-serif e monoespaço.
+Editor gráfico: Sim.
+Imagem: Sunraster, GIF, XBM, TIFF, JPEG, PBM, ATK raster, XWD, PS.
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Cross-reference: Sim
+Justificação: Esquerda, centro, direita, ambos
+Importa: RTF
+Exporta: ASCII, RTF, PS, HTML
+Distribuição: Binário e código fonte
+Widget: Athena?
+
+4. GWP
+É o processador de texto do Gnome. Foi desenvolvido inicialmente como 
+XWord usando o Lesstif (clone do Motif 1.2), mas os desenvolvedores 
+resolveram se unir ao Gnome.
+O Gnome está atrasado em relação ao KDE na integração dos aplicativos. 
+Espero que um dia se torne uma parte de um GnomeOffice com o Gnumeric 
+e outros aplicativos.
+
+http://www.gnome.org
+
+Versão testada: 0.1
+WYSIWYG: Sim
+Widget: Gtk
+
+5. KWord
+É o processador de texto do KDE, e faz parte do KOffice. Acho que, 
+quando o KOffice for lançado, o KDE vai se fortalecer muito e pode se 
+tornar o ambiente gráfico "padrão de-fato" do Linux.
+
+http://www.koffice.kde.org
+
+Versão testada: 0.0.1
+WYSIWYG: Sim
+Widget: Qt
+
+6. LaTeX
+O LaTeX é um conjunto de macros para a "linguagem" TeX. Não é um 
+processador de texto, mas um programa de tipografia. Você escreve um 
+texto com Tags (como no HTML) com um editor qualquer e depois compila 
+para ter um arquivo de saída (DVI) que pode ser visto (mas não editado) 
+ou imprimido. 
+O LaTeX foi portado para virtualmente todos os sistemas operacionais, 
+sempre gera um arquivo DVI idêntico. Muito usado na comunidade científica. 
+Sabendo usar razoavelmente, faz tudo que você precisa normalmente. 
+Sabendo usar para valer, faz tudo menos preparar café. Se você resolver 
+usar o TeX diretamente, creio que até prepare o café...
+Se você vai escrever um livro de 200 páginas (científico, especialmente), 
+APRENDA E USE.
+
+http://ctan.tug.org/ctan/
+
+Versão testada: 2e
+WYSIWYG: Não durante a edição, sim durante o Preview.
+Undo: Depende do editor de texto
+Correção de palavras: Depende do editor de texto
+Fontes: Como default, somente Serif, Sans-serif e monoespaço. Pode usar 
+  fontes Type1.
+Editor gráfico: Pode incluir desenhos em LaTeX usando comandos Special.
+Imagem: PostScript
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Justificação: Esquerda, centro, direita, ambos
+Cross-reference: Sim
+Importa: -
+Exporta: -
+Distribuição: Binário e fonte
+Widget: -
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+
+7. LyX
+Editor estruturado, muito bom e com uma versão considerada estável.
+Ele é rigoroso em vários aspectos: por exemplo, não permite que se 
+coloquem dois espaços entre duas palavras ou uma linha em branco entre 
+os parágrafos, pois esses atos são "errados" (claro que isso pode ser 
+contornado). Isso porque o LyX se baseia no LaTeX, e precisa dele para 
+gerar a saída. 
+Não é WYSIWYG, mas WYSIWYMean, como os autores chamam: você vê os fontes 
+das letras, as figuras e tabelas, mas a paginação não é como vai ser 
+imprimido.
+Além de suportar tabelas, figuras, equações, índice, referências, etc 
+via menus, manualmente você consegue incluir tudo que o LaTeX suporta. 
+Acentua normalmente, e inclusive tem suporte próprio para algumas línguas. 
+Importantíssimo: tem documentação bem completa.
+Existe um porte para o Qt/KDE, chamado de KLyX.
+
+http://www.lyx.org
+
+Versão testada: LyX 0.12 (estável) e 1.0.0pre6 (em desenvolvimento); 
+  KLyX 0.9.8
+WYSIWYG: Não durante a edição, sim durante o Preview.
+Undo: Múltiplo
+Correção de palavras: Via Ispell, multilíngua
+Fontes: Como default, somente Serif, Sans-serif e monoespaço. Provavel-
+  mente pode usar fontes Type1 se usar comandos LaTeX manualmente.
+Editor gráfico: Não
+Imagem: PostScript
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Cross-reference: Sim
+Justificação: Esquerda, centro, direita, ambos
+Importa: ASCII; versão 1.0 importará LaTeX
+Exporta: ASCII, TeX, SGML, DVI, PS
+Distribuição: Binário e fonte
+Widget: XForms ou Qt
+
+8. Maxwell
+Tem tudo que você precisa para escrever textos do dia-a-dia. Muito próximo 
+dos processadores de texto "usuais" para Windows: permite uma digitação 
+tanto "estruturada" como "visual". Só faltam aquelas fontes bonitinhas 
+que todos gostam de usar...
+Não consegui acentuar. Também não consegui abrir alguns arquivos ASCII. 
+O cut&paste do X funciona.
+
+http://www.eeyore-mule.demon.co.uk
+
+Versão testada: 0.5.2
+WYSIWYG: Sim
+Undo: Não ?
+Correção de palavras: Via Ispell (eu acho), multilíngua.
+Fontes: Charter, Utopia, Courier (acho que dá para usar outros)
+Editor gráfico: Não
+Imagem: TIFF, PNG, JPEG,XBM, XPM, PS
+Tabela: Sim
+Equação: Não
+Sumário: Sim
+Cross-reference: 
+Justificação: Esquerda, centro, direita, ambos
+Importa: ASCII, RTF, Word6
+Exporta: ASCII, RTF
+Distribuição: Binário e fonte
+Widget: Athena?
+
+9. PAPyRUS
+Peguei o binário pré-compilado (pois não tenho o Motif), e tive problemas 
+de compatibilidade de bibliotecas (tive que setar o LD_LIBRARY_PATH 
+manualmente para carregar versões antigas do libc e libtk). Talvez por 
+causa disso, não consigo usar um monte de features como Undo, Copy/Cut/
+Paste, Find/Replace, etc.
+Detalhe curioso: s'o acentua se o X estiver _sem_ suporte a dead-keys, 
+pois tem um suporte próprio.
+
+http://or.mime.univ-paris8.fr/~loscar/Papyrus/papyrus_eng.html
+
+Versão testada: 1.1.1 (Março 1997)
+WYSIWYG: Sim
+Undo: Sim?
+Correção de palavras: Via Ispell, língua padrão.
+Fontes: Courier, Helvetica, Times, Symbol
+Editor gráfico: Não
+Imagem: XPM
+Tabela: Não
+Equação: Não
+Sumário: Não
+Cross-reference: Não
+Justificação: Esquerda, centro, direita, ambos
+Importa: -
+Exporta: ASCII, PostScript
+Distribuição: Binário e fonte
+Widget: Motif
+
+10. Pathehic Writer
+Processador de texto simples, me parece que ainda está meio "verde", 
+apesar da versão. Faz parte do Siag Office com o Siag (planilha) e 
+Egon (editor de animação). 
+Não achei a como formatar a página. O preview é feito com GhostView.
+O Copy/Cut/Paste não é como nos aplicativos Windows. Parece mais com 
+o Wordstar...
+Muito elogiado no LinuxBerg.
+Não acentua. 
+É escrito em Scheme, que é uma variação do Lisp. Os amantes do Emacs 
+devem gostar ;)
+
+http://www.edu.stockholm.se/siag/
+
+Versão testada: 3.1.3
+WYSIWYG: Sim
+Undo: Não
+Correção de palavras: Via Ispell, língua padrão.
+Fontes: Quase todos os Type1 do X (não sei porque não são todos)
+Editor gráfico: Não
+Imagem: GIF, TIFF, PNG, JPEG, BMP, XBM, XPM, PNM, XWD
+Tabela: Via Siag
+Equação: Não
+Sumário: Sim
+Cross-reference: Não
+Justificação: Esquerda, centro, direita
+Importa: ASCII, RTF, HTML
+Exporta: ASCII, RTF, HTML, PS
+Distribuição: Binário e fonte
+Widget: Scheme-Tk
+
+11. SciTeXt
+O "look&feel" era uma cópia do MS-Word; estava em alfa quando resolveram 
+portar para Java. Prometia, mas está parado a muito tempo e deve estar 
+"morto". Essa versão tem bacias de bugs.
+
+http://www.uni-paderborn.de/~SciTeXt
+
+Versão testada: 0.2alpha (pré-Java) (1996)
+WYSIWYG: Sim
+Undo: Não
+Correção de palavras: Não
+Fontes: Vários Type1 inclusos; acho que dá para usar outros.
+Editor gráfico: Não
+Imagem: Não
+Tabela: Não
+Equação: Não
+Sumário: Não
+Cross-reference: Não
+Justificação: Esquerda, centro, direita, ambos
+Importa: -
+Exporta: -
+Distribuição: Binário
+Widget: Motif
+
+12. Thot
+Outro editor do tipo estruturado, mas você precisa ter uma idéia clara 
+sobre a estrutura do seu documento. Me parece que você não pode mudar 
+o "atributo" de um texto, isto é, não pode mudar uma linha de texto para 
+título de um capítulo. O "bloco" que você está editando é indicado no 
+rodapé, o que ajuda um pouco. A inserção de objetos (figuras, tabelas) 
+é complicada.
+Parece que o desenvolvimento está parado.
+Tem um manual de 100 páginas.
+
+http://www.inrialpes.fr/opera/Thot/index.html
+
+Versão testada: 2.1e (Outubro 1997)
+WYSIWYG: Não, mas indica as quebras de páginas, fontes, figuras, etc.
+Undo: Não
+Correção de palavras: Interno, multilíngua (mas nao Português)
+Fontes: Times, Helvetica, Courier
+Editor gráfico: Sim
+Imagem: XBM, EPS, XPM, GIF, JPG, PNG.
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Cross-reference: Sim
+Justificação: 
+Importa: ASCII
+Exporta: LaTeX, HTML 
+Distribuição: Binário e fonte
+Widget: Motif
+
+Comerciais
+
+1. ApplixWord (ApplixWare) (versão Demo)
+
+Bom: mais leve do que o StarOffice (13MB de memória) e mais completo do 
+que o WordPerfect.
+O filtro dele te dá muitas opções (gostei). Mas não consegui abrir os 
+meus arquivos .doc (Word97) porque os Word estava com "FastSave" ligado.
+O editor de equalções é legalzinho: parece o do MS-Word. O problema é 
+que você tem que ir e voltar do mouse... ainda prefiro o estilo do LyX.
+Como no StarOffice, você roda um menu (applix) e chama os aplicativos 
+desse menu. Mas o menu é pequeno e não ocupa espaço no desktop.
+Não acentua.
+
+http://www.applixware.com/
+
+Versão testada: 4.4.1 (demo)
+WYSIWYG: Sim
+Undo: Múltiplo
+Correção de palavras: Multilíngua, inclusive português
+Fontes: Type1
+Editor gráfico: Não (via ApplixGraphics)
+Imagem: BMP, CGM, DXF, EMF, EPS, FAX, GIF, P?M, JPG, PNG, PCX, RAS, TIFF, 
+  TGA, WPG, WMF
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Cross-reference: Sim
+Justificação: Esquerda, centro, direita, ambos
+Importa: ASCII, HTML, RTF, Word2 a 97, WordPerfect 4.2 a 7.0, Excel 
+Exporta: ASCII, HTML, RTF, Word6, WordPerfect 5.0 a 6.0
+Licença: Comercial
+Widget: Motif?
+
+2. StarWord (StarOffice) (vesão Personal)
+
+Bom, mas pesado (consome 22MB de memória!). Mais completo do que o 
+WordPerfect Personal. Queria comparar as versôes comerciais...
+Consegui ler arquivos Word97 com tabelas, índice, rodapé e tabelas. 
+As figuras (inclusive bitmap) sumiram. Ele reclama que o arquivo foi 
+salvo com o Fast Save do Word, mas aparentemente não dá muito problema. 
+Achei o editor de equações fraco... Se bem que estou acostumado com o 
+LyX, que é MUUUUUUITO bom nisso.
+Você não consegue abrir diretamente o StarWord: você abre o Desktop 
+igualzinho ao Win9x (com botão "start"!), e de lá chama os aplicativos. 
+Eu, particularmente, não gostei.
+Acentua tudo menos o til e ce-cedilha.
+
+http://www.stardivision.com/
+
+Versão testada: 5.0
+WYSIWYG: Sim
+Undo: Múltiplo
+Correção de palavras: Multilíngua, inclusive português
+Fontes: Type1
+Editor gráfico: Sim
+Imagem: BMP, GIF, TIFF, XPM, XBM, JPG, PNG, PCD, PCX, P?M, RAS, TGA, 
+   PSD, WMF
+Tabela: Sim
+Equação: Sim
+Sumário: Sim
+Cross-reference: Não
+Justificação: Esquerda, centro, direita, ambos
+Importa: ASCII, HTML, RTF, Word6 a 97, Excel4 a 95, PowerPoint97, 123 
+Exporta: ASCII, HTML, RTF, Word6 a 97
+Licença: Particular (gratuito) e comercial
+Widget: Proprietário
+
+3. WordPerfect (versão Personal)
+
+Muito bom, mas com alguns problemas...
+Acentua perfeitamente (menos o ce-cedilha) só configurando o teclado 
+do X, sem "truques" como o Diacrd ou o patch do Quinot. Só que:
+ - Quando exporta para outros formatos (testei ASCII, RTF e Word6), 
+    alguns acentos somem! Se não for só comigo, é um bug imperdoável.
+ - Não consegui imprimir letras acentuadas com o driver do DeskJet 660. 
+    Tive que usar o Passthru PostScript.
+Consegui abrir alguns arquivos Word97, mas perdi os gráficos. Algumas 
+tabelas saíram OK, outras não.
+Má notícia: algumas das funções (equações, editor gráfico) não estão 
+presentes na versão Personal. Você terá que comprar a versão comercial 
+para usá-los.
+Bem menor do que o StarOffice: usa 7MB de memória.
+
+http://linux.corel.com/linux8/index.htm
+
+Versão testada: 8.0
+WYSIWYG: Sim
+Undo: Múltiplo
+Correção de palavras: Somente inglês (dá para usar os dicionários da 
+  versão Windows)
+Fontes: Type1 (tem alguns muito interessantes)
+Editor gráfico: Não (somente na versão comercial)
+Imagem: CGM, EPS, PCX, RAS, TIFF, BMP, XWD, GIF, JPG, Corel Draw, DXF, 
+  WMF, PICT, PNG, TGA, XBM.
+Tabela: Sim
+Equação: Não (somente na versão comercial)
+Sumário: Sim
+Cross-reference: Sim
+Justificação: Esquerda, centro, direita, ambos
+Importa: ASCII, HTML, Word 2.0 a 97, AmiPro 1.2 a 3.0, ApplixWord 4.0, 
+   Lotus 1-2-3.
+Exporta: ASCII, RTF, Word 2.0 a 95, AmiPro 1.2 a 3.0, ApplixWord 4.0, PS.
+Licença: Particular (gratuito)
+Widget: Proprietário
+
+----
+
+Editor's Choice: 
+
+Open Source: Maxwell e LyX (ou KLyX). Se voce quer um "Word", experimente 
+o Maxwell. Se voce vai escrever um texto científico com equações, 
+referências, índice, etc, mas sem grandes frescuras no visual, exprimente 
+o LyX.
+
+Comercial: Difícil... gotei dos três. Mas se eu quisesse apenas escrever 
+textos, escolheria o WordPerfect (mesmo com os problemas citados). É o 
+mais leve dos três, acentua perfeitamente (se você usar o teclado ABNT2) 
+sem nenhum truque.
+Agora, se você quer inserir equações e figuras vetoriais, use o StarOffice.
+O ApplixWare tem a grande desvantagem de ser pago ;).
+
+---
+
+Referências:
+
+http://www.xnet.com/~blatura/linapp3.html#word
+http://www.hex.net/~cbbrowne/wp.html (Com comentários de alguns dos 
+  programas. Muito bom!)
+http://www.linuxberg.com
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>	Guia Básico para a instalação do Red Hat 5.1 - CD da CheapBytes 
+
+
+      - texto por Adriano "RosS" Caetano (AnO 2001 webmaster)
+      - email: ano2001@sti.com.br 
+
+Este é um pequeno guia para os usuários iniciantes que irão instalar o Red Hat 5.1 pelo CD da CheapBytes. 
+
+Eu estou partindo do principio de que você só tem um HD (com Windows 98 por exemplo) e vai dividi-lo com
+o Linux. 
+
+
+1º Parte - Recriando as partições para poder instalar o Linux. 
+
+Primeiro você deverá reparticionar o HD, para isso, reinicie o computador em "Reiniciar o computador em MODO MS-DOS" e use o FDISK para apagar a partição primaria do DOS que esta sendo usado pelo Windows95 e que está ocupando 100% do HD. 
+
+ OBS:
+       1- Certifique-se de que você poderá apagar todo conteúdo do HD.
+       2- Essa operação irá apagar tudo e será necessário reinstalar o Windows. 
+
+
+Digite fdisk no prompt do DOS para entrar no FDISK. Se o programa perguntar se você deseja ativar suporte a unidade grande, diga sim ou não. Se você quiser dar suporte ao FAT 32 diga sim (S) e para FAT 16 diga não (N). 
+
+Escolha a opção 3 - Excluir partição do DOS ou unidade lógica do DOS. 
+
+ OBS: Se você possui + de um HD na sua máquina, irá aparecer a opção 5, verifique em qual HD você vai estar trabalhando. 
+
+
+Agora escolha a opção 1 - Excluir partição primaria do DOS. 
+
+Você está prestes a apagar tudo do HD, verifique se está tudo OK e pressione ENTER, em "Nome do volume" você deixa em branco. Agora e só confirmar! 
+
+Pressione ESC e vá para a tela principal para criar uma partição primaria do DOS só que sem usar todo o espaço do HD para deixar um espaço livre para o Linux. 
+
+Escolha a opção 1 - Criar partição do DOS ou unidade lógica do DOS. Novamente a opção 1 - Criar partição primária do DOS. 
+
+Agora ele irá te perguntar se você deseja utilizar o tamanho máximo disponível para uma partição primária do DOS, você fala que não. 
+
+Agora ele irá te dar o tamanho total do seu HD em MB (Megabytes), e só digitar quanto de espaço você vai deixar para a partição do Windows. Lembre-se de deixar no mínimo 300 MB para que o Linux possa ser
+instalado sem nenhum problema posteriormente. OK, a partição foi criada, agora você pode sair do FDISK e reiniciar seu computador. 
+
+Lembre-se que não vai ter nada no seu HD, mas agora você pode reinstalar o Windows e logo em seguida o Linux. 
+
+
+2º Parte - Criando o disco de boot. 
+
+Depois de instalado o Windows, nós vamos começar a instalar o Linux! (AÊÊÊ!) ops... Coloque o CD (do Linux claro J ) no drive de CD-ROM e pegue um disquete virgem ou formatado para criar o disco de boot. 
+
+No prompt do drive do CD, digite ezstart. 
+
+ OBS: Certifique-se de que não está rodando o ezstart no Windows, e sim em modo MS-DOS. 
+
+
+      Are you sure you are not running under a shell (Y,N)? 
+
+Diga sim ( y ) e prossiga a instalação. 
+
+      Enter the drive letter of your CD-ROM drive.
+      [CDEFGHIGLMNOPQRSTUVXZ] 
+
+Entre com a letra do seu drive de CD-ROM. 
+
+      Which installation method? (A,B,C,D)? 
+
+Eu aconselho a opção B para criar um disco de boot. 
+
+Agora ele pede que você verifique se o disquete está realmente no drive, pressione qualquer tecla para continuar. O programa irá criar o disco de boot. 
+
+Depois pressione qualquer tecla para voltar ao prompt do CD-ROM. Simplesmente reinicie o micro com o disco de boot no drive. 
+
+
+3º Parte - Começando a instalar o Linux. 
+
+Irá aparecer uma tela de apresentação Welcome to Red Hat Linux. Então pressione ENTER. Perguntas simples irão aparecer, depois para configurar o teclado, escolha US. 
+
+Em Installation Method, escolha Local CD-ROM. 
+
+Em SCSI Configuration, coloque NÃO, a não ser que você tenha algum adaptador SCSI. Se você tiver um ZIP Drive paralelo (na entrada da impressora), habilite suporte a adaptador SCSI e escolha na lista o Iomega PPA3 (parallel port Zip). 
+
+Em Installation Path, escolha Install. 
+
+Em Disk Setup, escolha FDISK para criar as partições do Linux (Para criar a partição do Linux, você irá usar o espaço "em branco" deixado anteriormente pelo FDISK no DOS.) 
+
+Em Partitions Disks, selecione o HD e depois escolha EDIT. 
+
+Em Components to install, escolha os pacotes que você deseja instalar. 
+
+O Linux será copiado para o seu computador. 
+
+Probing Resut - Ele irá achar o seu mouse automaticamente. 
+
+Configure mouse - Escolha o seu! ( Se o seu mouse só tem 2 botões, habilite o Emulate 3 buttons. 
+
+PCI Probe - Irá reconhecer o hardware automaticamente. 
+
+Network Configuration - Se você não escolheu os pacotes de Rede essa opção não irá aparecer. 
+
+Configure Time Zones - Escolha a sua localização para o ajuste do relógio (fuso horário). 
+
+Configure Printer - Irá configurar uma impressora (se você tiver) Local ou de Rede. 
+
+Root password - Escolha uma senha para o seu sistema ( a senha precisa ter + de 6 caracteres). 
+
+LILO Installation - LILO é o programa de inicialização do Linux com um prompt para a escolha do sistema operacional a ser usado. 
+
+Bootable Partitions - Você ira ver cada partição e os seus devidos nomes como dos e linux, você pode mudar para um nome mais adequado como win em EDIT. 
+
+OK, a instalação está completa e o Linux será reiniciado, não se esqueça de tirar o disco de boot do drive. </pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

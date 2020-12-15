@@ -1,0 +1,4921 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>   COLOCANDO CD/DISQUETE OU OUTRO DEVICE NO DESKTOP DO KDE
+
+- Clicar na tela com botao direito - Novo - Device - OK;
+- Clicar com o botao direito (veja que se estiver com o kfm aberto,
+o icone ficou abaixo deste) - Propriedades - Dispositivo;
+- Em Dispositivo digite /dev/cdrom (isso para CD) e marque a opcao
+somente leitura;
+- Em Ponto de montagem: /mnt/cdrom e deixe o filesystem como esta';
+- Clique no Icone Montado e escolha um, clique no Nao Montado e escolha
+outro e OK;
+- Coloque um CD no drive e de dois cliques;
+- O conteudo do Cd sera exposto numa janela do kfm;
+- Ao fechar observe que o icone continua o icone de montado;
+- Para desmontar clique nele com o botao direito e desmontar;
+Concluódo.
+
+
+	CRIANDO UM ATALHO PARA PROGRAMA NO DESKTOP DO KDE
+
+- Clique numa area livre do desktop do kde com o botao direito - Novo -
+Program. Arraste a janela do kfm para a direita para ver o icone criado;
+- Clique com o botao direito sobre o icone e Propriedades;
+- Em Geral - Nome - Pode-se apagar e digitar um nome mais adequado,
+por exemplo Word Perfect 8
+- Em Executar - Executar digite o nome do programa que deseja executar:
+./xwp;
+- Em Diretorio de Trab: /opt/wp8/wpbin;
+- Clique na engrenagem ao lado de Diretorio de TRab para escolher um
+icone.
+- Clique em ok e teste com dois cliques no icone criado.
+
+      VÁRIOS WINDOWS MANAGERS ABERTOS AO MESMO TEMPO
+
+> promtp$ startx &
+> ( Ctrl+Alt+F1 )
+> promtp$ startx -- :1. &
+> ( Ctrl+Alt+F1 )
+> promtp$ startx -- :2. &
+> ( Ctrl+Alt+F1 )
+> promtp$ startx -- :3. &
+> .........
+
+Tente também:
+
+# cd
+# kde &
+(ctrl+alt+f1)
+# echo icewm > .wm_style
+# startx -- :1 &
+(ctrl+alt+f1)
+# echo AfterStep > .wm_style
+# startx -- :2 &
+(ctrl+alt+f1)
+# echo WindowMaker > .wm_style
+# startx -- :3 &
+(ctrl+alt+f1)
+# echo fvwm > .wm_style
+# startx -- :4 &
+
+KDE em alt+f7,
+ice em alt+f8,
+afterstep em alt+f9,
+WindowMaker em alt+f10,
+fvwm em alt+f11...
+ 
+Se lembrar de mais algum, coloque em alt+f12 :)
+Obs: Só funciona pra quem não tem .xinitrc no home. Quem tiver, tem
+que mudar a cada chamada do startx.
+-- 
+Eliphas Levy <eliphas@conectiva.com.br> 
+
+Outra solução:
+
+Como iniciar mais de uma sessão X: 
+
+Para executar mais de um X11 você deverá adicionar alguns parâmetros,
+a partir da segunda sessão
+
+X, ao comando startx. Veja alguns exemplos: 
+
+# startx -- :1           (para executar o segundo X11)
+# startx -- :2 -quiet &  (executa o terceiro X11, silenciosamente e
+em segundo plano para não bloquear o console)
+# startx -- :3 -bpp 24   (executa o quarto X11, com uma profundidade
+de cor de 24 bits)
+
+(Da Hed Hat Linux Tips)
+ 
+
+	   AUTOMATIZANDO ENVIO DE ARQUIVOS PARA A INTERNET
+
+Poderias criar um diretório em sua máquina e colocar os arquivos recebidos
+lá. Ao conectar-se, um script automaticamente envia os arquivos deste
+diretório para a sua página (e os remove da máquina local, se quiseres) e
+pronto. :-) Podes até mesmo gerar o HTML automaticamente, com outro
+script, contendo o nome dos arquivos. Dê uma olhada nos arquivos ip-up e
+ip-down para saber como automatizar algumas tarefas quando o link sobe
+ou cai. :-) É MUITO útil. Ah! O ftp (programa, e não protocolo) é bom
+para esses scripts. E lembre-se: esses arquivos são executados pelo root
+(ip-up e ip-down), portanto use o su em seu interior e coloque a permissão
+do script como 700, para que apenas você possa lê-lo. 
+
+Jorge Godoy <jorge@bestway.com.br>
+
+ 
+
+                    ATUALIZACAO DO XFREE86
+ 
+
+pra quem não tentou ainda, eu recomendo: instalei o XWindow 3.3.3.1
+baixado diretamente de www.xfree86.org. A instalação é descrita PASSO-A-PASSO
+em no próprio site:
+
+www.xfree86.org/3.3.3.1/RELNOTES11.html (em inglês)
+
+  Pode-se fazê-lo também baixá-lo do site de ftp da conectiva (ou espelho).
+Lá também tem um arquivo LEIAME com as explicações (vantagem de ser
+em Português).
+
+
+		CONFIGURANDO A PLACA DE VÍDEO Voodoo Banshee
+
+Disso eu entendo! :) Foi a primeira coisa que fiz, apos muito tempo sem
+linux... (eu tava loco pra ver como era o KDE -- que decepcao!).
+Atualmente, tem um driver que pode ser usado para rodar X, mas nao para
+aplicativos 3d...
+primeiro pegue o aruivo BansheeX-199902230.tar.gz
+(http://glide.xxedgexx.com/BansheeX-199902230.tar.gz)
+depois:
+# tar xvzf BansheeX.tar.gz 
+# cp XF86_SVGA /usr/X11R6/bin 
+pra configurar no guarani eu usei generic tudo e coloquei 8 mb de
+memoria... rodo em 800x600x16. Mais de qquer maneira me descepcionei com
+o KDE...
+------------
+
+Dá uma olhada em http://www.linuxgames.com
+
+Lá na parte de 3Dfx vai falar de Voodoo 1 e 2, mas também deve ter um link
+para baixar um driver para a Banshee.
+
+
+                NAVEGANDO ENTRE ARQUIVOS E DIRETÓRIOS
+
+>     Apanhei, mas, aprendi: tem que usar espaço entre o cd e os .. (dois
+> pontos). Outra coisa que o pessoal daqui não deve ter dito por ser
+óbvio de  mais: se você dá um ls (dir no dos) e aparece um diretório com algumas
+letras em maiúsculas, digite cd e depois o nome do diretório com as letras
+maiúsculas do jeito que aparece com o ls senão você não consegue se mover para o
+ diretório que você quer.
+
+Voltando um pouco a essa discussão, me desculpem, você NÃO precisa
+digitar todo o nome. Basta digitar o _mínimo_ que torna esse nome único e teclar
+TAB que ele se completará automaticamente. Por exemplo:
+Arquivos:
+
+Arq1
+arq1
+Bola
+Casa
+Cachorro
+
+Digitando: A<TAB> você verá Arq1, a<TAB> você verá arq1, B<TAB> verá
+Bola,
+
+C<TAB> você verá Ca (que é onde termina a coincidência de nomes), Cas<TAB>
+verá Casa, Cac<TAB> verá Cachorro. 
+
+Isso é um recurso muito útil (e que faz MUITA falta no DOS depois que
+você se acostuma :-)). 
+
+
+                               READLINE
+
+ Depois de ver o manual do readline eu descobri que poderia associar
+certas características as teclas de HOME, END, DELETE e outras.
+
+ Pergunta: O que fazer?
+
+Que tal continuar lendo a página e tentar:
+              \a     alert (bell)
+              \b     backspace
+              \d     delete
+              \f     form feed
+              \n     newline
+              \r     carriage return
+              \t     horizontal tab
+              \v     vertical tab
+
+ 
+
+Mas, lembre-se que também:
+
+       The  following  symbolic  character  names  are recognized
+       while processing key  bindings:  RUBOUT,  DEL,  ESC,  LFD,
+       NEWLINE, RET, RETURN, SPC, SPACE, and TAB.  In addition to
+       command names, readline allows  keys  to  be  bound  to  a
+       string that is inserted when the key is pressed (a macro).
+ 
+A propósito, acho que esta página foi ou está sendo traduzida... Dê
+uma olhada em http://lie-br.conectiva.com.br/tradução/
+Jorge Godoy <jorge@bestway.com.br>
+
+
+                GERANDO UM ARQUIVO .PS DE ARQUIVOS ASCII
+
+Para quem costuma imprimir arquivos pequenos e não quer desperdiçar
+papel
+O comando "mpage" (do pacote de mesmo nome) é capaz de juntar diversas
+páginas em uma só. O programa gera uma saída em PostScript que pode
+ser facilmente impressa depois. 
+Se você tiver vários arquivos ASCII e quiser juntá-los, o comando mais
+simples é: mpage -c -o *.ascii > saída.ps. Esse comando gera o arquivo
+saída.ps que pode ser impresso ou visualizado depois. 
+
+Para quem gosta de ter informações à mão, mas que não quer gastar papel
+demais, é uma ótima opção (ainda mais quando você quer imprimir aquela
+lista de comandos ou opções de um programa qualquer até aprender a
+usá-lo ou configurá-lo melhor...)
+Jorge Godoy <jorge@bestway.com.br>
+
+                         DRIVERS PARA SOM
+
+awedrv, awesfx e awemidi, procurar em linux.box.sk
+
+
+                             TAMANHO DA PARTIÇÃO SWAP
+
+Se RAM<= 16MB então swap = 2*RAM, se não swap=RAM
+Leve-se em conta também os programas com os quais se irá trabalhar,
+se consomem ou não muita memória: Netscape 4.5, StarOffice e cia.
+
+	  TECLAS PARA TRAVAR/LIBERAR TECLADO NO CONSOLE
+
+Ctrl+s e Ctrl+q
+
+
+                        SCRIPT E CONEXÃO COM O KPPP
+
+ Estou com um problema,
+ Quando vou tentar conectar na INTERNET usando o Kppp, o modem disca o
+ número direito, mas depois de um certo tempinho desconecta
+ inexplicavelmente, depois de desconectado aparece: Time out expired
+on waiting for the ppp interface to come up.
+ 
+Tive o mesmo problema, deixe-me ver se consigo explicar o q aconteceu...
+Abrindo o KPPP...configuracao...guia "dispositivo"...lá embaixo tem
+um pequeno campo com "Timeout do modem"...suba a desgraça para uns 240
+segundos...
+
+Tá. Só que mesmo assim você vair ter problemas: após 2 minutos o modem
+derrubará a ligação se vc não tiver um SCRIPT.
+
+Abrindo novamente o Kppp...confiuguracao....guia "CONTAS"...selecione a
+conta de acesso q vc cadastrou, clique em EDITAR...
+...selecione a guia SCRIPT de LOGIN e insira um script semelhante à
+esse:
+
+Send  ^M
+Send ^M
+Expect Username:
+Send <seu_nick_name>
+Expect Password:
+Send <sua_senha>
+Expect >
+Send PPP
+ 
+
+As linhas EXPECT vão aguardar que o texto especificado apareça na tela.
+Pode ser que seu provedor trabalhe com equipamentos diferentes, neste
+caso, vc precisa conectar e verificar como são feitas as perguntas
+de LOGIN, de SENHA e qual o PROMPT final após a sua autenticação. Use o
+"registrar" da discagem dial-up. No meu caso é (ROUTERXXX>). Os "XXX"
+alteram várias vezes, portanto não posso especificá-los. Neste caso,
+botei "EXPECT >", o que elimina o problema pq após o ROUTERXXX, tem
+sempre um ">", hehe.
+Jeff.
+
+ 
+                  MONITOR SAN SUNG SYNC MASTER 3
+
+Dear Helio 
+Thank you for mailing to samsung.
+We provide you with the spec of your monitor as below. 
+Please refer to it.
+1.AC input voltage AC 90 ~ 264(Volts) 
+2.AC input frequency 60/50HZ ¡3/4 3HZ 
+3.DPMS SUPPORTED 
+4.Maximum pixel frequence 65MHZ 
+5.Resolution 640*480 /70HZ 
+800*600 /56HZ 
+1024*768 /70HZ(interlace mode)
+6.Frequency Horizontal : 30KHZ ~ 35.5KHZ(automatic synchronition) 
+Vertical : 50HZ ~ 90HZ(automatic synchronition) 
+7.CRT Phosphor red : x=0.618¡3/40.015, y=0.340¡3/40.015 
+green : x=0.304¡3/40.015, y=0.590¡3/40.015 
+blue : x=0.150¡3/40.015, y=0.063¡3/40.015 
+8.Dot Pitch 0.28mm 
+If you need more info or other help, please feel free to contact SamSung 
+http://www.samsungelectronics.com/support/contact/index.html 
+Have a nice day!
+Respectfully yours. 
+
+
+                     CONFIGURANDO O MODEM USR 57600
+
+Meu USR 56k voice tá em COM4 IRQ7 e deu trabalho, mas consegui
+configurar.
+Tem um arquivo em /etc/rc.d/rc.local, edite esse cara e coloque na
+ÚLTIMA LINHA:
+setserial /dev/cua2/ irq 7
+O meu tá na COM4, então usei /dev/cua3.
+
+Jeff
+
+				MODEM TRANSEND ONE/67
+
+> Só vale lembrar que o Courier NAO faz leased line de verdade. Voce
+coloca uma leased line nele, e faz ele achar que esta discando. Ja os
+Transends são  leased line de verdade, assim como os ZyXEL e outros por ai.
+> Leonardo Rodrigues Magalhaes
+
+O seu não faz? O(s) meu(s) faz(em).... Experimente setar o modo &L1 nele
+e veja o que acontece. Não... o manual não diz isso claramente, é
+verdade.
+Faz leased com um pé nas costas. Conecta e reconecta sozinho, você nem
+precisa ter nada ligado nas seriais dele se não quiser (dá pra fazer isso
+mexendo na configuração). Qualquer coisa que esteja ligado nas portas
+seriais deles, pode tratar o link como se fosse um cabo serial direto que
+SEMPRE estará no ar (a não ser por poucos segundos que ele vai levar pra
+se reconectar se cair, e sem a aplicação ficar sabendo disso).
+A *unica* coisa que fez ele me deixar na mão até agora, foi o fato de
+poder alcançar no máximo 3 kilômetros de cabo (que eu já fiz chegar a 5 e
+funcionou). Como agora preciso de quase 10, estarei comprando um par de
+TransendOne/33.6, e aposentarei meu velho amigo de guerra, o USR COURIER
+V. Everything 33.6.
+Ou você comprou um gato por lebre, ou não sabe mexer na lebre.
+
+Abraços,
+Andre Ruiz
+
+
+                                        ATERM
+
+On 14 Mar, Jefferson F. Moreira wrote:
+> Dae!
+ hdfsdge!!
+
+> Alguém sabe onde posso encontrar o hack para deixar o xconsole transparente
+> no KDE?
+ Nao e exatamente um hack. Eu uso o  aterm para isto (ver
+ www.afterstep.org ou em freshmeat.net). Antes de chamar o aterm,
+ lembre-se de matar o xconsole. 
+ Rode o aterm com  "aterm -tr -C".
+ man aterm ou aterm -help para maiores informacoes e opcoes.
+ Veja screenshots em come.to/screenshots
+
+> Esse hack é no KDE ou estou me confundindo?
+ Thadeu Penna
+
+ 
+
+                                USO DO MC FILE MANAGER
+
+Gostaria de comentar um pouco mais sobre um programa: o "mc"
+(Midnight Commander), que e' um File Manager para a linha de comando.
+
+Sempre gostei (acho que e' mau de micreiro) de tornar as coisas mais
+praticas, chegar mais rapido, fazer o maximo de cada vez. O "mc" ajuda
+muito nesse sentido.
+
+Se agiliza o trabalho de quem ja tem conhecimento, facilita e muito a
+vida de quem esta comecando e ainda nao memorizou os comandos, alem
+de ser traduzido (no Guarani) e' muito silples de usar.
+
+ Ao digitar "mc" no prompt (caso tenha instalado) aparecem dois painéis
+lado a lado. Acima aparece um menu e abaixo aparece algumas funcoes
+e as teclas de acesso. Observe que ele lista os arquivos/diretorios por nome, tamanho
+e data de criacao.
+
+Tab - alterna entre as duas janelas.
+F3 - visualizar arquivo
+F4 - Editar
+F5 - Copiar
+F6 - Renomear/Mover
+F7 - Criar diretorio
+F8 - Deletar
+F9 - Acessar o Menu superior
+F10 - Sair do mc
+Esc, Esc - Abandona uma janela aberta
+
+Alguns comandos do Menu Arquivo:
+- chmod - alterar prmissoes de arquivos/diretorios
+- chown - alterar dono de arquivos/diretorios
+ 
+
+Alguns comandos do Menu Comando:
+- Procurar arquivo
+- Compaar diertorios
+- Recuperar arquivos apagados. Essa parece que funciona mas eu nao
+entendi. Pressionando F1 aparece um help que explica alguma coisa,
+dizendo que se deve digitar "undel:/dev/hda4" (esta e' a minha
+particao Linux).
+- Aceita uso do mouse: clicar c/ botão esquerdo arquivo/diretorio para
+selecionar. Dois cliques executa arquivos. Clique com botão direito
+seleciona/desseleciona.
+
+Também gosto muito do MC, e utilizo-o inclusive para instalar pacotes...
+instalando o "UNRPM", algumas funções são adicionadas ao MC ao pressionar
+F2, e entre essas funções, estão instalação de pacotes .RPM e .DEB...
+meu KDE instalei em formato RPM, atra'ves do MC e meu Slack 3.5... []s Rafael
+
+
+                                PLACA DE SOM CMI 8330
+
+    Versões necessárias à CMI8330 :
+- isapnptools-1.17-1cl.i386.rpm
+- sndconfig -0.29-7cl.i386.rpm
+ 
+
+
+
+                        LINKS PARA CONTROLE DE PAGAMENTO/USUÁRIOS
+
+NO Brasil, dois muito bons:
+
+Da Conectiva, em C, todo via browser, com varias opcoes interessantes
+e um bom esquema de seguranca: ACCOUNTING
+(nao encontrei o link)
+
+Da magiclink, em C + SGDB, via interface terminal, mas tem algumas
+opcoes a mais, como a emissao de boletos e o bloqueio automatica das contas:
+ADMN 2.0
+http://www.magiclink.com.br/admn/
+ 
+Lah fora, tem um famoso, GRATIS:
+
+FREESIDE, escrito em PERL + DBI para acesso ao SGDB (MySQL) e suporte o
+Radiator, vale a pena das uma olhada e ainda por servir como base para o
+desenvlvimento de algo mais robusto.
+http://www.sisd.com/freeside/
+
+
+
+E a questao de desenvolver software para Linux, eh soh pensar a trabalhar
+como trabalham as grandes empresas de desenvolvimento: cliente/servidor,
+com uma interface sob um bowser, usando um SGDB no Linux + CORBA +
+Repositorio de objetos (para agilizar a manutencao) e desenvolver a
+aplicacao em Java. Isso leva tempo pra aprender? Mas, o que nao leva... e
+isso eh garantia de futuro, ao contrario de Delphi e dos VisualLIXOs
+que tem por aih... Um detalhe, se nao souber analise orientada a objetos e
+trabalhar com entidades/relacionamentos, nem adianta comecar, pois
+fazer o software nao eh o problema, isso eh facil... a questao toda eh ter
+um software com qualidade e metricas para poder medir essa qualidade (procure
+por engenharia de software, visite o site da Rational, em 
+http://www.rational.com) e ainda um software que suporte um ciclo de
+manutencao e personalizacao (afinal, cada usuario eh um usuario diferente)
+muito curto.
+
+Entao, antes de dizer que eh dificil desenvolver software pra Linux,
+eh bom pensar que o Linux implica (assim como outros Unix) em um novo paradigma
+de desenvolvimento, em novas tecnlogias e novas ferramentas.
+
+Software profissional eh dificil fazer em qualquer plataforma e as
+exigencias do mercado para softwares que possam ter sua qualidade medida
+eh cada vez maior.
+
+ George Amaro
+Grupo de Engenharia de Redes da Embrapa  george@cpafrr.embrapa.br
+
+Por favor, gostaria que vc me indicasse o programa que vc citou do
+linux que esta sobre GNU para minha empresa, me passe o link por favor.
+Me passe tb ate os do que sao pagos se possivel.
+
+Você pode começar por aqui:
+http://www.hurl.net/
+http://www.rtd.com/software/uta.html
+http://n2h2.com/URIBS/
+http://www.cyberacs.com/
+http://www.sisd.com/freeside/
+http://www.regulus.safe.ca/
+
+
+E outros recursos como:
+http://isp-resource.com/accounting.shtml
+http://www.amazing.com/internet/
+http://www.anime.net/linuxisp/
+ 
+Tinha um que parecia muito bom (GNU), mas não tenho mais a URL.
+
+Esses links eu tenho a uns dois anos.  Deve ter muita coisa nova por
+ai.
+
+Raul Dias
+
+
+          RECONHECIMENTO DE MAIS DE 64 MB DE RAM
+
+Inclua esta linha no início do arquivo /etc/lilo.conf
+append="mem=128M"
+e depois execute:
+lilo
+
+reinicialize a máquina e veja se o free reporta 128MB.
+        - Arnaldo
+
+
+                RODANDO LINUX EM 386 COM 2MB DE RAM
+
+ 
+Consegui rodar o Small Linux em Dois diskettes em um 386 com 2Mb
+de RAM... nao eh um notebook... eh soh seguir as instrucoes do README
+que tudo rodou beleza... agora estou com um plano maligno de dominacao
+mundial... de transformar este 386 em algo util que nao seja um
+terminal...
+
+Piter PUNK
+
+
+		  IDENTIFICANDO FABRICANTE DE SCANNERS E OUTROS
+
+Um "truque"que aprendi com meu Scanner Videocompo (que na realidade
+é um Mustek) é achar o verdadeiro fabricante desses scanners usando o número
+do FCC. Geralmente na etiqueta dos scanners vem um número "FCC Id" que
+identifica a empresa e o modelo. Basta anotar o número e consultar
+o site www.fcc.gov . Ele informa então qual a firma e a data de registro do
+produto. Vi então que o meu era um Mustek. Fui no site da Mustek e
+mandei um e-mail pro suporte técnico deles que me respondeu em 1 dia. A Videocompo
+infelizmente não respondeu. Aí você vê a diferença de tratamento ao
+consumidor...
+MANOEL PINTO
+
+                                INSTALAÇÃO DO GNOME             
+
+Como saiu a versão 1.0 (1.0.3) do GNOME, eu recomendaria a quem quiser
+instalá-lo ir em qualquer mirror deles e baixar TODA a instalação.
+
+wget -c ftp://ftp.geo.net/pub/gnome/gnome-1.0/redhat/i386/*
+
+Esse foi o site mais rápido na minha opnião.
+
+Vantagens, já vem com o enlightment e todas as bibliotecas necessárias
+para instalá-lo.
+
+Porém eu tive vários problemas com o GUARANI da conectiva.
+só consegui instalar mesmo com um:
+
+rpm -UVH --force --nodeps *rpm
+
+
+                              KDE E GNOME
+
+Para os fãs do KDE (como eu), vale a pena dar uma olhada nessa versão
+do GNOME.  Ela arrasou.
+Por isso adotei a solução do WILSON.
+DISPLAY 0 => KDE 1.1 normal
+DISPLAY 1 => GNOME 1.0 (com enlightment)
+
+Ah... você pode escolher dentro do GNOME qual o WM você quer usar
+(Enlightment, Ice e o Window Maker entre outros)
+
+A propósito, quem for atualizar o KDE para o 1.1 a partir do GUARANI,
+desistale o pacote
+kdestart-1.0-2cl.i386.rpm
+Caso contrário o Script de instalação não funcionará.
+Raul Dias
+
+                        TECLAS DE ATALHO PARA PROGRAMAS NO WMAKER
+
+Aproveito para perguntar qual a diferenca entre as opcoes "sair - 
+ sair" e "sair - Terminar sessao..."? 
+
+Do FAQ do windowmaker: 
+
+3.2 What is the difference between the 'Exit' and 'Exit Session' Options? 
+Another Answer from Dan Pascu: 
+
+"'Exit' exits wmaker, but leaves the other apps running, and if wmaker
+was not the last app launched in the .xinitrc the X server is not closed, 
+until the last app started by .xinitrc is closed. 
+'Exit session' will exit wmaker, but also will close all running apps, 
+thus the X server will be closed." 
+
+ Detalhe muito importante: ao sair ou terminar, quando volto 
+ desapareceu o item de menu criado como descrito acima e nem a tecla
+de  atalho Alt+x funciona mais. 
+ Ele nao salva. O que fazer para que salve? 
+
+Bug (Não nosso, do WPrefs que não segue links :]). 
+
+Edite o arquivo /usr/X11R6/bin/RunWM: 
+
+Procure por esse bloco: 
+if [ -f $GSDIR/Defaults/WMRootMenu.$LINGUA ] ; then 
+  ln -fs "$GSDIR/Defaults/WMRootMenu.$LINGUA" \ 
+  "$GSDIR/Defaults/WMRootMenu" 
+
+E mude para: 
+if [ -f $GSDIR/Defaults/WMRootMenu.$LINGUA ] ; then 
+ if [ -L $GSDIR/Defaults/WMRootMenu ] ; then 
+  ln -fs "$GSDIR/Defaults/WMRootMenu.$LINGUA" \ 
+  "$GSDIR/Defaults/WMRootMenu" 
+ fi 
+
+Note que a barra invertida indica continuação na próxima linha. 
+--  
+Eliphas Levy <eliphas@conectiva.com.br>     / /  (_)__  __ ____  __ 
+
+            
+	            PERSONALIZACAO DO WINDOW MAKER
+
+Inclua pelo WPrefs:
+
+Nome: Executar...
+Atalho: Ctrl+alt+x
+Comando: sh -c %a(Digite o Comando)
+
+Assim, ao teclar Ctrl+alt+x irá aparecer uma janela com um espaço para
+se digitar, e uma pergunta: Digite o comando ;)
+Sobre o dockit, (alguém falou algo em outro email) não há mais necessidade
+(em tese) do uso do mesmo, pois no menu de controle do WMaker já temos,
+em opções avançadas, "Emulate application icon". Com alguns aplicativos
+"quebrados" isso não funciona, mas nem o dockit funcionava...
+
+Exemplo: Star "Comedor de Memória e disco" Office
+Eliphas
+
+
+		  INSTALANDO O WINDOWS MAKER E ADICIONANDO TEMAS
+
+WindowMaker:
+Hello People... :)
+Primeiramente pegue o WindowMaker.tar.gz ou qualquer outra compactação...
+Agora vamos la....
+Obs.: (nossa intromissão) Para quem usa Red Hat o ideal (em termos
+de trabalho) é pegar o arquivo .rpm no Rufus ou noutro repositorio.
+
+( Este metódo funcionou com a versão do WindowMaker WindowMaker-0.20.1
+e WindowMaker-0.20.2
+
+provavelmente funcionará com as novas versões que serão lançadas no
+futuro )
+
+Ex:
+
+bash:/# tar -zxvf WindowMaker-0.20.2.tar.gz
+bash:/# cd WindowMaker-0.20.2/
+bash:/WindowMaker-0.20.2# ./configure
+bash:/WindowMaker-0.20.2# ./Install ( Após entrar nesta opção responda
+"y" ou "n" somente isto )
+bash:/WindowMaker-0.20.2# make
+bash:/WindowMaker-0.20.2# make all
+bash:/WindowMaker-0.20.2# make install
+Agora escolha o usuário que vai usar o WindowMaker e copie o wmaker.inst
+que se localiza /usr/local/bin para o
+/home dele ou pro /root se for o usuário root !! 
+
+**** ( conselho use o usuário root ) ****
+
+bash:/WindowMaker-0.20.2# cp /usr/local/bin/wmaker.inst /root
+bash:~#./wmaker.inst (Execute esse arquivo) 
+
+Pronto agora é só da um startx !! :)
+
+Colocando temas.....
+
+1 passo é pegar o tema desejado.... Após isso copie ele para o diretório
+criado pelo WindowMaker
+/root/GNUstep/Library/WindowMaker
+bash:~# cp Tekken3.tar.gz /root/GNUstep/Library/WindowMaker/
+Agora descompacte o arquivo... B>
+bash:~/GNUstep/Library/WindowMaker# tar -zxvf Tekken3.tar.gz
+Agora pronto de um startx e clique no centro da tela com o botão direito
+no centro da tela e va até opção Appearance,
+
+Themes, e sua opção de Tema no caso do exemplo Tekken3 ! :) prontinho.......
+:)
+Editando opções do menu de clique... (clique do botão direito na tela)
+Só editar o arquivo menu no diretório /root/GNUstep/Library/WindowMaker/
+bash:~/GNUstep/Library/WindowMaker# pico menu
+Depois se você quiser deletar o diretório com os arquivos de instalação!
+rm -rf WindowMaker-0.20.2/ :) 
+Autor: bash (Da página Tira-Duvidas).
+
+
+		        AUMENTANDO AS FONTES DO XTERM
+
+>  Existe alguma forma de aumentar o tamanho da fonte do xterm? 
+ xterm -fn nome_da_fonte 
+ xlsfonts -> lista as fontes disponiveis 
+ tente, por exemplo, 6x12,7x13, etc... 
+ Quando achar a que voce gostar, edite o arquivo .Xdefaults (voce ja 
+ deve ter um). Procure por uma linha xterm*font (ou parecida) e coloque 
+ o nome da fonte. Rode xrdb -load .Xdefaults. Agora voce pode rodar
+o  xterm sem especificar a fonte. 
+ Thadeu Penna                 Linux user #50500    -o)   
+
+
+                      INSTALAÇÃO DO KDE 1.1
+
+Bem.... Vamos lá :
+
+1- Lembra que vc teve que rodar após a instalação aquele script usekde
+ou kdesetup (não me lembro bem). É ele que fez com que o startx inicia
+o kde e naum o WM. Eu tive o mesmo problema e para resolver, por enquanto,
+só consegui apagando o arquivo o arquivo .Xclientes que fica no diretório
+do usuario que esta usando o kde.
+
+Exemplificando:
+
+Fiz um script (muito simples) para o root (se quiser mude para o usuario
+que desejar) :
+
+Para usar o WM
+
+# Nomeie o arquivo como  ->wmnow, para executar mude o atributo do
+# arquivo para executavel (sei que e banal, mas alguns novos usuarios
+não sabem). Para executar ./wmnow
+
+mv /root/.Xclients /root/.Xclients.tes
+startx
+
+Para usar o KDE
+
+# Nomeie o arquivo como  ->kdenow, para executar mude o atributo do
+# arquivo para executavel (sei que e banal, mas alguns novos usuarios
+não sabem). Para executar ./kdenow
+mv /root/.Xclients.tes /root/.Xclients
+
+startx
+
+Com isso consigo usar os dois sem problema ;)...Aviso importante: Sou
+novo no Linux entaum nao posso dizer se isso esta exatamente correto..mas
+ate aqui funcionou bem.
+Quanto ao kget..infelizmente naum posso ajudar . garanto a vc que naum
+eh burrice nem nada...eh so o processo de aprendizado que eh pedreira
+mesmo :)
+[]'s Wladimir
+
+
+                      INSTALANDO DISPOSITIVOS PnP
+
+     Quanto ao sndconfig, ele foi feito para trabalhar apenas com as
+placas SoundBlaster - ele normalmente *nao* funciona com os chamados
+"clones" - mesmo aqueles chipsets que se proclamam "SoundBlaster 100%
+compativel"...
+     Olha, eu tive uma ideia que pode ateh ajudar, embora nao tenha ideia
+se funcione...  Mas quem sabe desabilitando o Plug-and-Play no BIOS
+da maquina nao ajude. Agora ha pouco eu instalei uma placa de som PnP
+e ela soh funcionou depois que eu tomei esta providencia... Mesmo a placa
+sendo uma Creative Vibra 16.
+
+
+                                USO DO MTOOLS
+
+Instale (se jah o nao tiver instalado) o pacote mtools (vem em RPM
+no CD da Conectiva), que lhe disponibiliza tres comandos basicos: 
+      mdir
+      mcopy
+      mformat
+     que funcionam de modo identico a seus correspondentes em MS-DOS
+
+Ver man mtools para outros comandos do mtools para outros comandos
+do mtools.
+
+                               PLACA DE COM OPL3-SA2
+
+Instalei o Red Hat 5.2 em casa e depois de fazer os devidos upgrades,
+bastou instalar o kernel 2.2.3, compilar o suporte a som como modulo e
+carregar o modulo como descrito em:
+        /usr/src/linux/Documentation/sound/OPL3-SA2
+
+Uma vez carregado o modulo, pude ouvir CD de cara ... :)
+Nao sei nem o que sao estes tais aplicativos da Alsa (talvez os esteja
+usando sem saber), e nao tenho o OSS instalado no meu PC. Apenas declarei
+as entradas no /etc/conf.modules como descrito no documento supracitado e
+voila !! :)
+
+Espero que isso ajude os usuarios desta placa aterrorizante (nunca
+ouvi tantos relatos de problemas relacionados a um periferico como ouvi
+com relacao a esta placa de som ...).
+Baiano
+
+                                ATUALIZANDO A HORA DA BIOS
+
+Isso eh pq quando reinicializa o linux pega a hora da bios... e o  reco
+do controlo-panel nao mexe nisso... soh dah um "clock -w" que gravara
+a hora na bios...
+Cristofer
+
+                                CEDILHA NO LYX
+
+Copiar o arquivo /usr/share/lyx/lyxrc.default para ~/.lyx/lyxrc, editar
+este arquivo e descomentar as linhas abaixo:
+
+\kbmap true
+\kbmap_primary brazil   # mudando esta para brazil
+\kbmap_secondary american       #esta é livre
+
+Dica do Pedro Kroger.
+ 
+
+	     SCRIPT PARA TROCAR AUTOMATICAMENTE ASSINATURA
+
+Nao entendo muito de programacao, mas peguei um script pra trocar minha
+assinatura quando enviar as mensagens, ele eh assim:
+Para alterar a cada minuto seu arquivo .signature, adicione a seguinte
+linha ao arquivo /etc/crontab: 
+
+* * * * * nome_do_usuário mksig 
+
+onde nome_do_usuário é o nome do usuário que se deseja que ocorra a
+alteração automática da
+ assinatura (.signature). 
+
+Crie um arquivo chamado .signature.top no seu diretório casa (~ ou
+/home/nome_do_usuário) que  deverá conter apenas a parte superior, imutável, da sua assinatura por exemplo, seu nome e e-mail). 
+
+Agora crie um script executável chamado mksig no diretório /usr/bin
+(ou outro diretório que esteja no seu PATH) com o seguinte conteúdo: 
+
+#!/bin/bash 
+echo `fortune -s` > ~/.signature.bottom 
+fold -s -w 74 ~/.signature.bottom > ~/.signature.bottom2 
+cat ~/.signature.top ~/.signature.bottom2 > ~/.signature 
+cat ~/.plan.top ~/.signature.bottom2 > ~/.plan 
+rm ~/.signature.bottom 
+rm ~/.signature.bottom2 
+
+Mas quando o executo, obtenho o seguinte erro:
+bash:erro: command fortune not found:
+
+Perguntas:
+Que comando 'fortune' eh esse?
+Que arquivos eu tenho que criar, tipo, fala pra mim criar o signature.top
+mas e aonde ele vai pegar as outras sigs pra fazer a troca??
+Tem como eu expandir isso? Pois parece que ele so vai trocar uma vez.
+
+Agradeco toda e qualquer ajuda
+# E-mail:linkrj@rbrhs.com.br
+
+
+           CONFIGURANDO A INPRESSORA HP 820
+
+Instale o kernel 2.2.3 (por causa do PPA já presente no kernel) e
+configure como uma "HP 500C, 55XC, 6XX C" no Configurador de Impressoras
+(programa printtool). Isso deve ser suficiente para sua impressora
+funcionar (se ela aceitar PPA e não for uma winprinter...).
+ 
+Jorge Godoy <jorge@bestway.com.br>
+
+
+	  PROVIDÊNCIAS A TOMAR EM CASOS DE EMERGÊNCIA
+
+File systems full
+
+   * Use el programa df para localizar el fs lleno
+   * Use combinaciones de du y ls para encontrar archivos culpables
+   * Mire en especial /tmp, /var/spool, archivos en /home (haga du -s
+/home)
+
+   * Recupere espacio borrando archivos temporales, 'core', etc.
+File system dañado o incompleto
+
+ 
+   * Hizo backups? Que bueno!
+   * No hizo respaldos? Ay, ay!
+   * Desmonte y haga fsck del sistema de archivos dañado. Hagaa restauración
+     de los respaldos una vez reparado.
+   * Si es el file system root (/) no se puede desmontar. Hay que tratar,
+en   ese caso, de recuperar de CD o diskettes.
+   * Errores irreparables: Formateo y recuperación de respaldos.
+
+Se trancó la máquina!
+
+Es muy difícil que se tranque de verdad un Unix. Cuando un usuario
+Reporta "se me trancó la máquina", revise:
+
+   * Que no haya dado Control-S. Esto tranca el teclado. Se cura con
+     Control-Q
+   * Que no esté en el medio de una larga operación con pagineo y/o cálculo
+     pesado. Herramientas: vmstat, top, ps y xosview.
+   * Que algún programa inconforme no halla trancado a X-windows. Ojo
+con   juegos. Cura: tumbe (kill -9) a X. Vuelvalo a arrancar.
+
+   * Algún proceso usuario comiendo CPU. (top). Kill sin piedad. Antes
+de  matar, nice -20 a veces tiene buen efecto.
+   * El usuario dió un comando que requiere servicio de nombre y el
+     servidor(es) esta(n) lentos. Ver el ultimo comando del usuario. Esto
+es    solo tranca aparente. Paciencia.
+   * NFS! Esta tranca es la más insidiosa de todas. Cuando se hace un
+pedido    a un servidor NFS que entonces se cae, la maquina se paraliza. No
+puede    entrar nadie, se congela login, parece fin del mundo. No hay cura
+     inmediata (excepto reboot) pero algunas cosas se pueden hacer:
+        o Esperar hasta que reactive el servidor caido. Todo se resuelve
+          como por magia.
+        o En un rato de ocio, instalar automount para todos los archivos
+
+          NFS.
+
+No hay conexión de Red!
+
+   * Está enchufado el cable? Esto cura muchos problemas :-)
+   * Revise ping local y remoto. Si el local no funciona, es la máquina;
+si    remoto no funciona es el proveedor de servicios internet.
+   * Revise route -a e ifconfig
+   * Revise inetd y los archivos de seguridad (hosts.deny por ej.)
+
+No puede entrar nadie a la máquina!
+   * Ver NFS arriba.
+   * Revise que /etc/shells no se haya borrado
+
+   * Revise que los shells estan intactos
+   * Revise passwd
+
+Comportamiento errático de varios tipos
+
+   * La hora debe ser (aproximadamente) correcta. Cuidado con timed.
+   * File system(s) casi full
+   * Versiones incompatibles de librerías compartidas (programa compilado
+     con libc.so.2 y programa requiere de libc.so.1, por ejemplo). Cuando
+se    hace upgrade se puede "quebrar" muchos programas.
+
+Un Virus!
+
+No. En Unix no hay viruses. Caballos de troya por internet, puede ser;
+Pero viruses no. Quizás tenga que poner /etc/hosts.allow en configuración
+heremética, pero no va a tener viruses. Ver sección de seguridad.
+
+Autoría: Dr Juan Rivero, Centro de Química
+
+Instituto Venezolano de Investigaciones Científicas (IVIC)
+
+Se permite copiar y reproducir siempre y cuando se conserve esta autoría
+
+	
+				SEGURANÇA NO LINUX
+
+  Um pequeno checklist para lhe ajudar:
+
+  1- retire dos arquivos de inicializacao TODOS os servicos que voce nao
+usa
+  2- use o comando: find / -perm +4000 -print > /suidfiles (acho que era
+isso). Para achar os arquivos suid. Retire o suidbit de todos que nao
+precisam (CUIDADO AQUI!!! Faca aos poucos, testando se nao comprometeu
+nada). 
+  3- Use controle de acesso sempre que possivel (tcpwappers e etc)
+  4- Defina regras no seu roteador de entrada para deixar passar apenas os
+pacotes que interessam (CUIDADO!! Necessita bom conhecimento de servicos
+TCP)
+  5- Use o ipfwadm para definir regras de entrada (INPUT) e saida
+(OUTPUT).
+  6- Use ssh ao inves de telnet, e faca controle de acesso em
+/etc/sshd_config.
+  7- Retire o shell de quem nao precise (coloque /bin/false)
+  8- Examine sempre os logs (/var/adm/syslog, /var/adm/messages) em busca
+de coisas suspeitas.
+  9- remova pacotes desnecessarios do sistema (coisas que voce tem certeza
+que nunca vai usar).
+
+  E o mais importante: Atualize sempre as versoes dos servicos (popper,
+sendmail, imap, bind, samba, etc).
+
+   Com isso voce vai aumentar um pouco a seguranca :)
+Ivo de Carvalho Peixiho.
+
+
+                    CAPTURANDO TELAS
+
+[Red Hat Linux Tips] 
+
+     Capturando a tela no X window: 
+
+Existem vários utilitários para capturar a tela no X Window e gerar
+uma imagem. Alguns utilitários fazem a captura diretamente digitando o
+comando em um terminal, como o import e o Xwd, e os outros são utilitários
+gráficos que oferecem o recurso de captura, como o Gimp e o XV. 
+
+Capturando com o import: 
+
+O import gera arquivos de imagens nos formatos JPEG, EPS e MIFF e funciona 
+com a seguinte sintaxe: 
+
+import [opções] arquivo 
+
+As opções podem ser (consulte a página manual para conhecer mais): 
+
+-window root  -> Captura toda a tela. Se for omitida será apresentado 
+                 um cursor para seleção. 
+-quality n    -> O n deve ser um número de 0 (pior) a 100 (melhor), o 
+                 padrão é 75. 
+-delay s      -> Aguarda n segundos antes de capturar. 
+
+Veja um exemplo: 
+
+# import -window root -quality 100 -delay 10 arq.jpeg 
+
+Capturando com o Xwd: 
+
+O Xwd gera arquivos no formato XWD e funciona com a seguinte sintaxe: 
+
+xwd [opções] 
+
+As opções podem ser (consulte a página manual para conhecer mais): 
+
+ 
+
+-out arquivo  -> Especifica o arquivo de saída. Se omitida, a imagem 
+                 é enviada à saída padrão. 
+-root         -> Captura toda a tela. Se for omitida será apresentado 
+                 um cursor para seleção. 
+
+Veja alguns exemplos: 
+
+# xwd > arq.xwd 
+# xwd -out arq.xwd -root 
+
+Capturando com o Gimp: 
+
+Execute o Gimp e clique, no menu Xtns, em Screen Shot. Selecione a
+opção desejada e clique no botão Grab. Se você escolheu para capturar uma
+janela, clique em cima dela com o botão esquerdo. Para finalizar, clique com
+o botão direito do mouse em cima da imagem criada e salve-a em um arquivo. 
+
+ Capturando com o XV: 
+
+Execute o XV, clique com o botão direito para abrir a janela "xv controls" 
+e clique no botão Grab. Ajuste suas preferências e clique novamente
+em Grab. O botão esquerdo do mouse captura uma janela, o botão do meio
+uma área retangular e o direito cancela. Depois volte para a janela "xv 
+controls" e salve a imagem em um arquivo.
+
+ 
+
+                         PÁGINAS SOBRE LINUX EM PORTUGUÊS
+
+Minha intencao com essa lista e auxiliar aqueles que se identificam
+como novatos calouros e afins e se interessam em ingressar no mundo Linux.
+Uma das grandes reclamacoes foi a dificuldade de encontrar documentacao
+
+em nossa lingua. Bem algumas fontes aqui estao. Em ingles ha muito
+mais, mas creio que esse material de para largada inicial. 
+
+http://www.netdados.com.br     _  O já famoso Manual do Hugo - a Biblia
+do Iniciante no Linux 
+http://crhl.com.br  _ Página da Conectiva que possui o manual do
+
+Marumbi, o RedHat Tupiniquim. 
+http://listas.conectiva.com.br/listas/linux-br    _   Mecanismo de busca
+da Lista Linux-BR, muitas respostas já estão disponiveis. 
+http://clubelinux.ml.org  _ Página do Clube Linux , o nome já diz tudo. 
+http://linuxbrasil.org 
+http://www.loki.nw.com.br/ano2001/  ou http://www.ano2001.sti.com.br
+
+http://www.anderson.eti.br 
+http://members.xoom.com/braslinux 
+http://www.geocities.com/siliconvalley/campus/8598/ 
+http://www.microlink.com.br/~buick/dragons/ 
+http://www.trix.net/linux/rede_howto.htm 
+http://www.terravista.pt/ancora/1790/ 
+http://scgp.ib.usp.br 
+http://linux.planetarium.com.br 
+http://www.linux.im.usp/br _ página linus do IME e da USP 
+http://www.linux.unicamp.br 
+http://www.linuxabc.he.com.br 
+http://www.linuxfocus.org/portugues/ 
+http://www.linux.trix.net 
+http://www.geocities.com/siliconvalley/ridge/3505    _ Dicas e apostilas 
+http://members.tripod.com/ribafs    _ Dicas e apostilas 
+http://members.xoom.com/riba   _Dicas e apostilas 
+http://www.geocities.com/yosemite/trails/6367/linux   _ FAQ's 
+http://luminainfo.com.br   _ HOWTO's em português. 
+http://www.tba.com.br/pages/laurita  _ Dicas gerais 
+http://members.xoom.com/rpragana  _ Apostilas 
+http://ls.cjb.net  _ Linux Students Page 
+http://monkeylinux.cjb.nnnet  _ Página sobre Monkey Linux 
+http://www.techguide.com  _ Documentos PDF. 
+http://www.inf.ufrqs.br/~kojima/linux/faq-linux.html  _ linux FAQ 
+http://linux.lcmi.ufsc.br   _FAQ's e HOWTO's 
+http://redes.ucpel.tche.br/documentos    _manuais sobre rede e apache 
+http://www.interprov.com.br/linuxtoisp  _Tutorial para acesso dial up a
+internet. 
+http://www.geocities.com/siliconvalley/peaks/7212/dicas.htm  _ dicas
+gerais. 
+http://members.xoom.com/linux_page
+http://www.control-escape.com
+http://www.linuxsupportline.com/ fred
+http://www.robynet.com.br/ anderson
+chat linux http://chat.prodau.com.br/linuxabc/index.html ou
+http://linuxabc.he.com.br
+
+Claro que não existem apenas essas. Mas no pequeno universo que pude
+pesquisar foram as que me pareceram mais interessantes. 
+Aceito sugestões para futuras atualizações. Escreva para
+alberto_myra@starmedia.com com a sua dica.. 
+
+ 
+                              USO DO CHMOD
+
+Usando o chmod: 
+Pelo comando chmod (humm, isso não me é estranho) você define as permissões 
+de arquivos, ou diretórios. Isto é, diz quem pode ler, executar, modificar, 
+um certo arquivo ou diretorio. 
+dando o comando ls -l na shell( ou ls num ftp), você obtem algo tipo 
+
+-rw-r--r-- 1 ... criador do arquivo, data em que foi feito... oi.txt 
+drwxr-xr-x 3 ... criador do diretorio, data em q foi feito... ola 
+
+OBS: Tendo um (d) no inicio da listagem, é um diretorio, caso contrario
+é um arquivo, ou dispositivos. 
+Os próximos 3 caracteres definem a permissão para o proprietário. 
+Os próximos 3 definem a permissão para os outros membros do grupo do 
+proprietario. 
+Os últimos tres caracteres definem a permissão para qualquer outro
+usuário. 
+
+Os caracteres significam: 
+1 ou x : permissão para execução 
+4 ou r : permissão para leitura 
+2 ou w : permissão para modificar (gravar) 
+0 ou - : para negar permissão 
+ 
+
+Se digitarmos chmod u=xrw,o=r,=- teste 
+Significa que: 
+
+O proprietário do arquivo pode executar (x), ler (r), e modificar (w)
+o arquivo . 
+Outro grupo (other) pode ler (r) o arquivo. 
+Um outro grupo (não definido) não tem permissões sobre esse arquivo. 
+chmod u=xrw,o=r, teste seria o mesmo que 
+
+chmod 744 teste 
+
+Mais se você quer que um certo arquivo seja de poder somente do usuário 
+root digite: chmod 770 arquivo.txt 
+
+Autor:chmod 
+
+
+                                   COMANDOS BÁSICOS
+
+Comandos Basicos: 
+
+tar -zxvf      Tirar .tgz 
+tar -zxvf      Tirar .tar.gz 
+tar -xvf       Tirar .tar 
+gunzip -d      Tirar .gz 
+unzip          Deszipar 
+unarj          Tira arj 
+joe            Editor 
+pico           Editor 
+vi             Editor 
+ps             Ver ações do seu micro 
+lynx           Navegador Shell 
+kill -9        Mata processo que você escolheu no ps 
+killall        Mata um pocesso que você queria tipo despositivo "gpm" 
+ln -s          Link 
+man            Help Ex: man ls 
+ALT + F?       Chama outra Shell 
+cc -o          Compila arquivo .c Ex: cc -o arquivo arquivo.c 
+gcc -o         Compila arquivo.c Ex: gcc -o arquivo arquivo.c 
+chmod +x       Deixa arquivo executavel 
+ftp            ftp 
+updatedb       Atualizar o locate 
+telnet         telnet 
+patch -p0      Patiar 
+&              Background Ex: mpg123 "[Kiss]_Rock.mp3" & 
+fg             Voltar Background ! 
+minicom        Conexão internet 
+load           Lodiar arquivos .bx, .irc etc.. para BitchX "IRC" 
+df             Ver hd`s ou olhar a quantidade de memória do computador 
+xv             Ver figuras no Xwindows 
+workbone       Toca CD na shell 
+ed             Editor usar "ed arquivo" criar 
+finger         Mostra informações básicas de uma conta. Formato: finger 
+conta 
+cat            Isso mostra o conteúdo do arquivo na tela. 
+tr             Comando usado para traduzir caracteres de um arquivo 
+banner         Escreve em caracteres maiores 
+stty           Altera as caracteristicas do seu terminal 
+mail           Nome diz tudo 
+spell          Utilitário que verifica a ortográfia 
+mesg           Altera permissão de escrever ligado/desligado para seu 
+terminal 
+dmesg           Ver sua inicialização 
+
+ps - processo.  Esse comando permite ver o que você esta atualmente
+fazendo 
+grep            Procura por texto em um arquivo. sintaxe: "grep texto 
+arquivo" 
+ld              É o editor de ligacao, muito usado. 
+od              Exibe um arquivo em octal. 
+kill            O nome diz tudo serve para matar processos 
+adduser         Cria usuários 
+userdel -r      Deleta usuários 
+chmod           Altera o modo de um arquivo. Muda o acesso em outras 
+palavras 
+chown           Altera o dono de um arquivo. 
+chgrp           Altera o grupo 
+lynx            Navegador para Shell 
+ 
+
+                                   CONFIGURAÇÃO DO KPPP
+
+1) Autenticação - PAP
+2) IP -  Endereço Dinâmico
+3) DNS - Informei o domínio e informei  o DNS primário e secundário.
+4  Gateway - Padrão
+5) Também aumentei os valores de timeout.
+ 
+Desde então está funcionando perfeitamente.
+Espero que isso te ajude.
+Gilmar Alberto de Abreu Pinto
+
+
+                        Window Maker, GNOME e KDE
+
+Saudacoes pessoal do news
+Diante de tantas perguntas sobre o Window Maker, tais como : O que e
+Window Maker ? Window Maker + KDE . E possivel ? Onde encontro o Window
+Maker ? etc, etc, etc ... Resolvi falar um pouco sobre o mesmo :
+Como disseram em mensagem anterior, o KDE nao e realmente um window
+manager (gerenciador de janelas) . Ok, ele tem o kwm (esse sim e o
+window manager), mas o mesmo nao precisa ser usado . Alias, nao
+recomendo seu uso, pois e realmente muito lento .
+O KDE e na verdade uma colecao de aplicativos diversos desenvolvidos
+com base no framework da Troll Tech, o QT . E claro que o conjunto traz o
+kwm, o kfm e o servidor de som, o qual, se nao me engano, chama-se
+kaudioserver (corrijam-me se estiver errado) .
+Estas tres gracinhas e que deixam o KDE pesado, mas o kfm (KDE File
+Manager) e o maior culpado . O kfm, alem de ser um gerenciador de
+arquivos a la Explorer, tambem e um browser. Ou seja, apesar de muito
+dificilmente, e possivel acessar algumas paginas com ele .
+
+O problema e que ele e um browser mantido em constante atividade, mesmo
+que voce nao o utilize . Voce ja percebeu como todo o sistema fica
+lento depois de se executar o Netscape ? Se voce abre o Netscape no KDE
+(tortura), voce esta, na verdade, rodando dois browsers diferentes
+em seu sistema, sendo que esta realmente utilizando apenas um, o Netscape .
+
+O Window Maker e um gerenciador de janelas . So isso e mais nada .
+Não tem os penduricalhos do KDE e, por isso, nao e tao lento como tal .
+No entanto, nada impede que voce utilize os aplicativos do KDE (ou do
+GNOME, ou quaisquer outros) no Window Maker . Como ja disse, ele e
+somente um gerenciador de janelas e nao influi em nada nos aplicativos .
+
+Como ja citado, o KDE foi desenvolvido com base em um framework
+comercial, o QT . Tudo bem, existem duas versoes, e a que foi usado
+para seu desenvolvimento foi a livre (leia-se nao-comercial) . Isso ja rendeu
+algumas boas brigas e materias para a imprensa especializada .
+
+O que acontece e que, mesmo o QT tendo se tornado recentemente um
+produto de codigo aberto (vide site do projeto KDE para maiores
+informacoes), ele ainda continua sendo desenvolvido por uma empresa
+e, o pior, sendo comercializado pela mesma . Por essa razao, algumas pessoas
+acham que a Troll Tech pode vir um dia a parar de produzir sua versao
+gratuita .
+
+Mesmo a mudanca para o codigo aberto nao foi suficiente para que algumas
+pessoas retomassem a confianca no QT . Ao contrario, o GNOME
+(desenvolvido com base no toolkit GTK, usado originalmente para o
+desenvolvimento do GIMP) e e sempre foi, desde o comeco, um produto
+livre . Isso pode se perceber ate em sua primeira letra, o G, de GNU .
+
+A Red Hat ja anunciou que a proxima versao do Red Hat sera acompanhada
+somente do GNOME e nao mais do KDE . Com certeza, como ja vem
+acontecendo a partir da versao 5.2, o seu window manager oficial tambem
+sera o Window Maker .
+
+Em sua versao mais recente (0.51.0), o Window Maker traz suporte para
+ambos, o KDE e o GNOME . No momento, utilizo o Window Maker com os
+aplicativos do KDE . Nao com o suporte oficial do Window Maker . O
+que fiz foi apenas criar entradas no menu do Window Maker para que chamassem
+os aplicativos do KDE .
+
+Muitas pessoas utilizam o Window Maker com o GNOME . Confesso que estou
+querendo fazer o mesmo faz algum tempo, mas e meio confuso instalar
+tudo o que o GNOME necessita para rodar . Certo, tem no CD do Red Hat, mas e
+uma versao muito antiga . Testei a versao do GNOME do CD da Red Hat
+juntamente com o Window Maker, e me pareceu que o sistema ficou muito
+
+mais rapido do que utilizando a dupla Window Maker + KDE . Gostei muito
+
+O GNOME tem uma aparencia muito agradavel e diversos aplicativos, como o
+KDE, mas sem sua principal desvantagem , a lentidao . Particularmente,
+gostei muito do cliente de mail Balsa . Pode nao parecer muita coisa
+na versao do CD da Red Hat, mas de uma olhada em seu site oficial e veja
+alguns screenshots do novo e reformulado Balsa (http://www.balsa.net) .
+
+Concluindo : o Window Maker e certamente uma otima escolha como window
+manager (usei o KDE no comeco e nao gostei), ainda mais se for usado
+em conjunto com o GNOME .
+
+Alguns links relacionados :
+
+Site oficial do Window Maker : http://www.windowmaker.org
+Site oficial do projeto GNOME : http://www.gnome.org
+Site oficial do projeto KDE : http://www.kde.org
+
+P.S.: Para os nacionalistas de plantao, existe mais uma grande vantagem
+de se usar o Window Maker . O seu criador, Alfredo K. Kojima, e um
+brasileiro .
+André Luís Lopes
+ mailto:andrelopes@albnet.com.br
+ http://goodlinux.cjb.net
+ 
+
+                      BANCO DE DADOS SQL NO LINUX
+
+Como tenho usado bastante o MySQL vou dar a minha contribuição.
+Gostaria que qualquer besteira que eu escreva ou adicionais sejam feitos a
+vontade, afinal essas são as minhas impressões :-)
+NOME:  MySQL
+FAB.:    TcX
+URL:    http://www.mysql.com
+
+O MySQL é um banco  de dados relacional baseado no mSQL, mas foi escrito
+independente do mesmo.
+O objetivo era o de obter um banco de dados rápido e estável.
+
+Ele é considerado um dos banco de dados mais rápidos existentes hoje
+(se não for o mais rápido).
+Muito mais rápido do que Oracle, Sybase, PostgreSQL, Informix, DB2
+e outros.
+
+Existe um tabela de comparação no site do MySQL.
+
+ 
+O código fonte é aberto.  E pode ser compilado e quase qualquer plataforma.
+Também disponível para win32 com uma licença de shareware.
+
+Ele não possui instruções de rollback, commit e transactions.  Sendo
+que a ultima pode ser obtida 'manualmente' através de LOCK TABLE e UNLOCK
+TABLE.
+Isto se deve ao fato que o código/algoritmo necessário para a implementação
+dos mesmos geram uma demora muito grande no banco de dados.
+
+Vale a pena lembrar que a TcX não desenvolveu o MySQL para vender ou
+fazer concorrência com outros Bancos de Dados - eles até recomendam o uso
+do PostgreSQL caso você realmente precise de transactions - o objetivos
+deles era o de ter um banco de dados rápido o suficiente para tratar
+principalmente de querys complexas -  hoje eles trabalham com banco
+de dados com alguns milhares de tabelas e com mais de 10 milhões de registros.
+
+A escolha do código aberto foi feita justamente para aumentar a qualidade e
+desempenho do software que é proporcionado pelo Open Source.
+
+Limitações como tamanho de tabelas, banco de dados e mesmo o formato
+da tabela são OS DEPENDENT.  Ou seja um banco de dados num Linux não vai
+ter o mesmo formato num SOLARIS ou OS/2 por exemplo.  Mas existem diversas
+maneira de passar os dados de um para o outro.
+
+Existem algumas ferramentas para recuperação dos dados depois de um
+crash do sistema, mas o que vai ser recuperado depende da gravidade do crash.
+
+ Existe também uma ferramenta que otimiza uma tabela e a transforma
+em READ-ONLY, mas dessa forma a velocidade dos pesquisas ficam muito mais
+rápidas.  No entanto essa ferramenta é comercial (a de leitura das tabelas
+não).
+
+Quanto a autorização e segurança, o MySQL tem um banco de dados aparte
+para isso.  A autenticação é feita na base HOST/USER, ou seja dois usuário
+podem ter o mesmo nome, mas estarem e máquinas diferentes.  A senhas são
+criptografadas.  E o controle pode ser feito na base de Select, include,
+Delete, Drop, e assim vai.  pode se limitar o usuário na base por banco
+de dados, tabelas e colunas em que determinado usuário pode acessar ou
+não, e o que ele pode fazer.
+Isso permite que se dê acessos de apenas leitura, bem restrito, a máquinas
+inseguras na rede.
+Existe uma extensa documentação no site deles sobre vários aspectos
+do MySQL, desde compilação a SINTAXES, TIPOS de DADOS, API, ...  Isto da
+mais ou menos umas 500 páginas (caso algum louco que nem eu resolva imprimir).
+
+Para os programadores e desenvolvedores, existe uma API pronta em C.
+Pode-se programar via DBI::DBD em PERL (muito bom para criação de CGIs e
+páginas dinâmicas)
+Existe ainda bibliotecas para Pyrhon e DELPHI
+JDBC para programas em Java
+e...
+...o MyODBC, um driver ODBC para Windows.  Dessa forma você pode usa-lo
+em programas da família Visual XX, e programas que suportem ODBC, como o
+Access.
+
+Flames a parte, eu acho excelente o suporte dele pelo Access.  O Access
+por si só é horrível como banco de dados, mas via ODBC, pode-se conectá-lo
+ao Servidor MySQL e usá-lo dinamicamente sem o uso de replicações e outras
+ferramentas dele que acabam complicando o Banco de Dados.  Isso é
+extremamente numa empresa onde o OS usado é o Windows.
+Outra vantagem é que permite que você manipule o banco de dados via
+DATA SHEETS, ou seja, grosseiramente falando, como se fosse uma planilha,
+permitindo uma visualização e organização de dados mais dinâmicas e
+que você possa recortar e colar dados a partir de outras fontes.
+Eu só recomendo isso, quando realmente for necessário.
+
+De qualquer forma, existem diversos programas em desenvolvimento para a
+manipulação do MySQL.  Dêem uma olhado na seção de contrib no site dele
+para uma lista completa.
+Existem Ferramentas de administração inclusive em PHP3.
+
+O PHP3 permite a criação de páginas dinâmicas e acessos ao Banco de
+Dados direto.
+
+Existem ferramentas para exportar e importar dados de um Banco de dados
+Access para  o MySQL.
+Patchs para fazer autenticação e accounting de PAM, QMAIL, WU-FTP,
+RADIUSD, APACHE (.htaccess e MOD_MySQL) e assim vai.
+
+Isso tudo só foi possível é claro pela natureza open source do MySQL,
+que acabou simpatizado pelos Linuxers desde o seu principio.
+
+Eu particularmente comecei a usar o Sybase no Linux antes do MySQL. 
+Mas alguns motivos que levei em consideração foram:
+
+*  O Sybase -por exemplo- é de graça mas sem direito a suporte.
+Ok, mas o que garante que isso continuará depois que ele venha a se
+popularizar no Linux?  ter de refazer meus programas e transportar os
+dados
+
+para outro BD seria muito arriscado.
+E ainda assim sempre passa aquele frio na espinha que o programa pode
+estar limitado de alguma forma para que você venha a precisar do suporte.
+Ou de bugs específicos no Linux que não seja dada a importância pela
+Syabse e/ou que não são descobertos pelo fato de não ser opensource.
+
+O Oracle por exemplo é beta e é free apenas para desenvolvedores.
+De qualquer forma existe várias listas de discussão sobre o MySQL e
+seus Módulos, MyODBC, ... e bugs normalmente são corrigidos rapidamente. 
+Além de ter o suporte de usuários (e desenvolvedores) encontrados em listas
+de discussão como a Linux-br.
+
+Bem, é isso.  Fiquem a vontade em alterar, melhorar, corrigir, argumentar
+sobre o que falei.  Estas são as minhas impressões sobre o MySQL.
+Espero que ajude a quem estiver indeciso sobre SQL Servers no Linux.
+Raul Dias
+
+
+	        TRANSFERIR CONTEUDO DE HD PARA OUTRO HD
+
+Existe alguma forma de transferir, com seguranca, todo o sistema
+de um hd para outro? Em breve pretendo estar com um novo HD (esse velhinho
+aqui tah querendo pifar... :-( ) e nao gostaria de ter de instalar
+tudo de novo nem correr risco de perder alguns arquivos importantes pra
+mim.
+
+        Tem sim... eh soh voce criar os mesmos mountpoints do hd antigo e
+mandar ver... tipo, se vc usa uma particao /usr, monte ela no /mnt
+ entre no /usr (do hd velho) e de um cp -ax ^lost+found /mnt   ... faca isso
+pra cada particao que voce tenha...
+
+        Na particao root ( / ) voce pode copiar cada diretorio... como 
+
+        cp -ax bin boot .... /mnt ... depois no mnt vc cria os tmp , proc
+e etc que precise...
+
+        Isso ta meio confuso (quarta feira de cinzas eh duro).... qqer
+coisa da um grito!
+        Batata
+
+ 
+                COMPILAR KDE E QT PARA ECONOMIA DE MEMORIA
+
+Para quem compilou seu próprio KDE sob Slackware 3.5 ou superior,
+ou para quem usa o EGCS:
+O compilador EGCS insere automaticamente código de tratamento de
+exceções em programas C++; isso pode aumentar o consumo de memória
+em até 700KB *por executável e por biblioteca*. Recompilei a biblioteca
+Qt e o KDELIBS com a opção -fno-exceptions e obtive uma grande diminuição
+no uso de memória (15 a 25%). 
+
+Os próprios desenvolvedores do KDE disseram que um programa compilado
+no EGCS com a configuração original fica ruim de rodar em um computador
+com 32MB de RAM. Já com essa alteração, fica bom.
+
+Para incluir o parâmetro  -fno-exceptions, execute o seguinte comando
+no diretório-base dos  fontes do KDE (se você os tem):
+
+find . -name 'configure' -exec vi {} \;  # Aviso do LaMeR: 
+                                         # existem formas mais inteligentes
+                                         # de se fazer isso (sed, cut, etc..)
+
+Procure pelas ocorrências de -O2, e inclua ao lado o parâmetro 
+-fno-exceptions. Em dois ou três configures, existe uma variável 
+especial para programas que não se dão bem com a otimização O2,
+você verá um comentário, seguido por uma variável definida vazia
+e um comando "for". Inclua o -fno-exceptions nessa variável vazia.
+
+Rode o make clean em todos os diretórios.
+O único programa do KDE que *exige* manipulação de exceções é o
+ksirc, então entre no diretório dele e altere os Makefiles, retirando
+o -fno-exceptions.
+ 
+
+Manipulação de exceções consome memória e é lenta. Já no tempo da
+programação Windows era desaconselhado usar SEH (manipulação estruturada
+de exceções, que é a mesma coisa) para tratar situações quasi-normais
+que ocorressem muito freqüentemente (exemplo: falha de página, data inválida
+em arquivo-texto etc. etc.) O Windows usa muito SEH internamente, então... 
+Elvis
+
+
+                     SIMULANDO UNDELETE NO LINUX
+
+alias rm        "/bin/mv -b \!:* ~/.wastebasket"
+
+  Deve funcionar (copiei do meu arquivo, não digitei como no e-mail)
+-------
+Eu dei uma procurada no info e vi que existe uma nota que a bash não
+tem meios de controlar argumentos de alias e há uma sugestão no info
+para usar função e pode ser que funcione:
+
+function rm () {/bin/mv -b $* ~/.wastebasket;}
+
+  Verifique que não há alias para rm e esta função deve ser chamada.
+Eu estei como:
+
+function rm () { echo -b $* ~/.wastebasket;} 
+
+  Se funcionar, tente fazer um teste com o mv, acho que vai funcionar.
+  Novamente, minhas desculpas.
+Luis
+
+	                   RECONHECER PARTICAO SWAP
+
+Rode o DiskDruid e verifique se:
+
+1) A particao swap existe ;)
+2) Se o tipo esta' como "Linux Swap". Se estiver como "Linux Native",
+mude para "Linux Swap".
+
+Ou use o fdisk:
+1) fdisk /dev/hda
+2) "p" para verificar (tome nota do numero da particao swap)
+3) "t" para mudar o tipo para "82" (nao erre o numero da particao...)
+4) "w" para terminar
+Depois:
+
+1) mkswap /dev/[particao swap]
+2) swapon -a
+ 
+Dê "free" para verificar. Se der certo, adicione no /etc/fstab:
+/dev/[swap]               swap                    swap    defaults        0 0
+
+ 
+                    ADICIONAR FONTES NO STAR OFFICE
+
+At (linux-br) XFree 3.3.3.1, TTFonts e StarOffice5, 
+"Raul Dias" <chaos@swi.com.br> wrote: 
+> Agora não consegui fazer com que o SO 5 as usassem.
+> Existe algum tipo de gerênciador de fontes no Star Office que faz
+isso,  alguma configuração aparte?  O o gerênciamento de fontes é interno
+a ele mesmo?
+
+Eu adicionei algumas fontes Type1 no StarOffice. _Talvez_ funcione
+com o TrueType.
+
+O que fiz foi:
+1) Fiz simbolic-links dos .pfb no diretorio xp3/pssoftfonts.
+2) Fiz simbolic-links dos .afm no diretorio xp3/fontmetrics (acho que
+aqui voce vai ter problemas...).
+
+
+E foi so'. Dependendo da fonte, talvez tenha que editar o xp3/psstd.fonts.
+PS. Abusei e retirei as fontes que vem com o SO. Nao funcionou ;)
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+
+                             CONFIGURANDO O MODEM 
+
+Alguém me ajuda! como faço pra con figurar meu modem no linux...
+no windows ele tá na com3 e irq 10. quando tento instalá-lo diz que a porta
+está ocupada.
+
+Seu modem e' um PCI PnP, aparentemente. Tente, nesta ordem:
+1) pnpdump; se ele encontrar seu modem, utilize:
+pnpdump > /etc/isapnp.conf
+isapnp /etc/isapnp.conf
+(coloque a ultima linha em um dos scripts de inicializacao)
+
+se nao funcionar,
+2) abrir a maquina e mexer nos jumpers adequados para acertar um IRQ
+e I/O padroes para uma porta serial
+ou
+3) usar algum software do fabricante para alterar o estado PnP do modem,
+configurando IRQ e I/O padroes
+
+
+                 PATH CHEIO E COLORIDO NO PROMPT
+
+Eu tenho a seguinte linha no meu .bashrc
+ alias ls='ls -F --color=tty'
+
+ Assim, basta dar ls que o output é colorido
+
+meu bash prompt (.bash_profile)
+
+Verde="\[\\033[01;32m\]"
+Laranja="\[\\033[01;33m\]"
+Ciano="\[\\033[01;36m\]"
+CianoLight="\[\\033[36m\]"
+Azul="\[\\033[01;34m\]"
+Normal="\[\\033[0m\]"
+
+PS1="$Normal$Ciano\u $Normal$Verde\w$Ciano>$Normal "
+if [ $TERM = xterm-color ]; then 
+ PS1="$Normal$Laranja\u $Normal$Verde\w$Laranja>$Normal \[\033]0;\u@\w\007\]"
+fi
+
+if [ $TERM = xterm ]; then 
+ PS1="$Normal$Ciano\u $Normal$Verde\w$Ciano>$Normal \[\033]0;\u@\w\007\]"
+ export TERM=xterm-color 
+fi
+export PS1 
+
+O argumento para o path é o \w na variável PS1 . Tente \W 
+Toda esta parafernália está explicada em man bash. Além de mudar o
+prompt, atualiza a titlebar do xterm. Atenção: não uso o console. 
+Thadeu Penna
+
+                        INICIAR LINUX DIRETO NO KDE
+
+Troque a linha :
+id:3:initdefault
+do arquivo /etc/inittab
+por
+id:5:initdefault
+e reinicie.
+Se der problemas, entre com o palavra single no prompt do LILO boot:
+e mude de novo para 3.
+---------
+
+Edite seu /etc/inittab :
+
+------ Cut----------
+# Default runlevel. The runlevels used by RHS are:
+#   0 - halt (Do NOT set initdefault to this)
+#   1 - Single user mode
+#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)
+#   3 - Full multiuser mode
+#   4 - unused
+#   5 - X11
+#   6 - reboot (Do NOT set initdefault to this)
+#
+id:3:initdefault:
+------Cut---------
+De acordo com a propria legenda troque o init de 3 pra 5
+Assim ele iniciara com o xdm, no caso voce quer o KDE, entao mude a
+linha(no mesmo arquivo):
+
+------Cut-------
+
+# Run xdm in runlevel 5
+x:5:respawn:/usr/bin/X11/xdm -nodaemon
+-----Cut-------
+
+Para 
+
+x:5:respawn:/opt/kde/bin/kdm
+
+Espero que tenha ajudado e nao deixado passar nada...Quaisquer duvidas 
+email me =) Qualquer erro por favor me corrijam =)
+
+
+                 ADICIONANDO USUÁRIO PARA USAR O KDE
+
+Para adicionar um usuario pra usar o KDE como WM...copie seu .Xclients
+(ou .xinitrc) q vc esta usando para o $HOMEDIR desse usuario (~user),
+de um chown usuario:usuario
+
+.Xclients (.xinitrc) e depois um chmod u+x .Xclients (ou .xinitrc) e
+inicie o X usualmente =)
+Ou simplesmente crie um .Xclients nesse home_dir com a linha:
+
+/opt/kde/bin/startkde ouuuu entao use o script (startkde) da HP do
+grande
+roxo :) 
+
+P.s.: Nao se esqueca de depois de criar o .Xclients dar um chmod u+x
+nele
+
+pra que possa ser executado =)
+
+Caso seja a primeira alternativa eh soh ir no Painel de Controle que
+la tem a opcao para dar um "adduser" =) (Users Control se nao me engano)...
+
+Espero ter ajudado em algo (mesmo sendo confuso)...
+Renato Murilo Langona 
+renato@barroco.com.br
+ 
+
+	                PADRONIZAÇÃO NO LINUX
+
+Senti muita falta de teclas de atalho. Era viciado nelas no windows.
+Percebi que no linux os programas nao seguem nenhum padrao em relacao
+a isso.
+Cada programa ou nao tem teclas de atalho ou quando tem sao diferentes
+de outro programa.
+Exemplos:
+No Kkde seus aplicativos (kedit, kfm, kmail e outros) se comunicam,
+aceitam Ctrl+C, Ctrl+V, Ctrl+X para copiar, colar e recortar, etc e
+ate Alt+F4 para fechar janelas.
+No Netscape as teclas sao Alt+C, Alt+V e Alt+X. Alt+F4 consta mas nao
+funciona.
+Detalhe interessante. Se voce abrir o Netscape no Kde ou algum
+aplicativo Kde noutro WManager nao ha uma boa comunicacao entre eles:
+selecione no Netscape e copie com Alt+C e abra o Kedit e cole com
+Ctrl+V. Mas eu nao consegui Copiar no Kedit com Ctrl+C e colar num
+mail do Message com Alt+V.
+
+ 
+O Kde esta caminhando no sentido dessas padronizacao mas parece que
+nao sao de todos os aplicativos ou Window Managers.
+Mas acho que o rumo e pelo que o Kde esta seguindo.
+E' um absurdo ter que lembrar das teclas de atalho de cada aplicativo
+quando todos poderiam falar a mesma lingua.
+So mais um detalhe: os aplicativos nao se preocupam muito em ser
+amigaveis: 
+- Entrar numa janela com o foco na primeira opcao ou na mais obvia;
+- Teclar Esc para cancelar e Enter para confirmar;
+- Tab para navegar entre os campos (nem todos se preocupam com isso);
+- Uso das setas para se mover entre as opcoes;
+E por ai vai.
+Ribamar FS - ribafs@fortalnet.com.br
+
+
+                        SOM ON BOARD - TX PTO II
+
+HOWTO para SoundBlaster onboard em placas TXPROII
+(slack35)
+
+Por Carlos Alberto (calberto@gaivota.jfora.softex.br)
+Contribuicoes e criticas (construtivas) sao bem vindas.
+
+Compilar o kernel com as seguintes opcoes:
+< M > Sound Card Support (como modulo)
+<*> SoundBlaster support
+<*> Microsoft Sound System support
+<*> /dev/dsp e /dev/audio support
+<*> Midi Interface
+
+# definicoes da minha placa de video, substitua pela suas definicoes.
+# dica facil: va no Windows no painel de controle e veja as propriedades
+#da placa de som, IRQ, DMA e enderecos I/O. O Microsoft Sound System
+#(MSS/WSS) tem 2 enderecos I/O. Um vai ser usado agora no kernel e
+outro mais a frente
+
+(220) I/O Base for SB
+(5) Sound Blaster IRQ Check
+(0) Sound Blaster DMA
+(5) Sound Blaster 16bit DMA
+(0) MPU401 IRQ
+(-1) SB MPU401
+(530) MSS/WSS I/O
+(10) MSS/WSS IRQ
+(0) MSS/WSS DMA
+
+(65536) Audio DMA
+
+Compile o kernel
+
+va para o diretorio /etc e de o seguinte comando
+
+/sbin/pnpdump -c > isapnp.conf
+
+se vc nao tiver o pnpdump instalado, va em /usr/doc/isapnptools-1.15 e
+instale.
+
+edite o arquivo /etc/isapnp.conf, verificando se as INT, DMA e I/O
+estao de acordo com o que foi colocado na compilacao do kernel. Veja meu
+isapnp.conf que esta neste mesmo diretorio. Lembre de conferir se os 2
+enderecos do MSS/WSS estao no isapnp.conf
+edite o arquivo /etc/rc.d/rc.M e inclua a seguinte comando depois  da
+linha que seta o nome do host (algo do tipo /bin/hostame ...)
+
+/sbin/isapnp /etc/isapnp.conf
+
+edite o arquivo /etc/rc.d/rc.local e inclua a seguinte linha
+
+/sbin/insmod sound
+
+Depois, so para garantir (mau habito do Win95 :->)
+sync
+sync
+reboot
+Basicamente, eu segui um mini-HOWTO  em
+/usr/doc/Linux-mini-HOWTO/Soundblaster-16
+
+
+                     TAR -> RPM (OU CONSTRUÇÃO DE RPM)
+
+temos 5 diretorios essenciais para isso 
+
+BUILD         -- onde sera construido o pacote 
+RPMS         -- onde serão armazenados os pacotes construidos 
+SOURCES -- onde deverá ficar o arquivo inicial  ( .tar.gz ) 
+SPECS       -- onde ficara o arquivo .spec para a construção do pacote 
+SRPMS       -- onde sera gerada a fonte rpm 
+
+vá para o diretorio /usr/src/redhat/SPECS 
+crie um arquivo .spec nesse arquivo ficara toda informação deste pacote 
+para criar de um comando assim    rpm -ba nome-do-pacote.spec 
+mesmo isso é meio confuso para mim 
+vou te dar um exemplo ... mas nunca fiz isso ok ! 
+
+por exemplo um pacote que conta paginas html 
+arquivo das fonte -- count -2.3.tar.gz 
+criar o arquivo spec count.spec 
+nele vc colocara 
+nome : count 
+vendor : anderson daniel 
+version :2.3 
+release :1 
+summary : access count and clock 
+source : /usr/src/redhat/SOURCES/count-2.3.tar.gz 
+copyright : o nome do criador 
+
+agora que pesso minhas desculpas pq daqui daqui para baixo é impossivel
+de se entender  mas veja se isso da para te dar uma ideia ... eu vou testar 
+aqui em casa isso e caso tenha algun sucesso logo te falarei !!! 
+
+			CONTRUINDO RPMS 
+
+  De qualquer maneira, como voce esta usando o Marumbi, o melhor e 
+  contruir um rpm do glib. Siga os seguintes passos: copie o 
+  glib-1.2.0.tar.gz para /usr/src/redhat/SOURCES 
+  cd /usr/src/redhat 
+  tar -zxvf SOURCES/glib-1.2.0.tar-gz -C BUILD 
+  cp BUILD/glib-1.2.0/glib.spec SPECS 
+  rpm -ba SPECS/glib.spec (aqui ocorre o configure; make;make install) 
+  Se tudo correu bem, voce tera: 
+  /usr/src/redhat/RPMS/i386/glib-(devel)-1.2.0.i386.rpm  
+  Instale o glib e o glib-devel.  
+---------- 
+Eu queria fazer o seguinte:  
+>      - descobri um erro no pacote rsh. 
+>      - peguei o rsh-versao.i386.rpm que acompanha meu Red hat 
+>      - queria descompacta-lo, "consertar" o erro e recriar o 
+>        rpm 
+>      - reinstalar com a correcao. 
+>   
+>      Nao consegui "extrair" os fontes... 
+  para os fontes voce precisa do rsh-versao.src.rpm.  
+  Dica:  
+  rpm -ivh rsh-xxx.src.rpm 
+  cd /usr/src/redhat 
+  tar -zxvf SOURCES/rsh-xxx.tar.gz -C BUILD/ 
+  cd BUILD/rsh-xxxx. 
+  Faca as modificacoes necessarias  
+  cd .. 
+  mv rsh-xxxx rsh-xxxxx-joca 
+  tar -zxvf ../SOURCES/rsh-xxx.tar.gz -C  
+
+  Ai voce tem dois diretorios: rsh-xxxx rsh-xxxx-joca   
+  diff -uNr rsh-xxxx rsh-xxxx-joca > ../SOURCES/rsh-joca.patch 
+
+Estamos quase la :) 
+  cd /usr/src/redhat/SPECS/ 
+  edite o rsh-xxx.spec (ou rsh.spec)  
+  Abaixo da linha do Source: , acrescente: 
+  Patch: rsh-joca.patch 
+  Incremente de 1, o valor de Release: 
+ Na linha abaixo de %setup, acrescente  
+  patch -p1 
+  Salve o arquivo e  
+  rpm -ba rsh-xxx.spec  
+
+  Voila, temos o rsh-joca.src.rpm, espero :) 
+Thadeu Penna 
+
+                                  PORTAS, IRQS E I/O 
+
+The "standard MS-DOS" port associations are given below: 
+              /dev/ttys0 (COM1), port 0x3f8, irq 4 
+              /dev/ttys1 (COM2), port 0x2f8, irq 3 
+              /dev/ttys2 (COM3), port 0x3e8, irq 4 
+              /dev/ttys3 (COM4), port 0x2e8, irq 3 
+
+        Ou seja, se voce nao alterou nenhuma configuracao de uma 
+determinada porta serial, nao sera necessaria seta-la novamente. 
+
+------ 
+
+Normalmente voce nao configura as IRQs no Linux. Voce ajusta a 
+tua placa para utilizar uma interrupcao livre, que vc encontra com
+"cat 
+/proc/interrupts, e o linux utiliza a dita. Excessoes ocorrem quando
+vc usa uma placa PnP. Nesses casos eh interessante (como se eu conhecesse 
+outra maneira!  :)) usar o isapnp + setserial (para o modem). 
+
+        #pnpdump /etc/isapnp.conf 
+        {edite o isapnp.conf para usar as configuracoes que vc quiser) 
+        #isapnp /etc/isapnp.conf 
+        #setserial /dev/ttyS? [configuracoes escolhidas acima] 
+Marcus Moreira 
+
+
+                        PLACA DE VÍDEO MONSTER 
+
+Alguem poderia me ajudar (leia-se receita-de-bolo 8^) ) a fazer a Monster 
+3D rodar no Linux? Ja li o 3DFX-HOWTO e o README do Quake 2, mas so
+serviu pra me enrolar mais ainda. A unica coisa que eu entendi e que eu tenho
+que recompilar o Mesa com um parametro tipo --enable-3dfx. No Slackware
+seria so descompactar o arquivo  dar um make --enable-3dfx(ou configure, nao
+lembro em qual comando tem que usar esse parametro), mas como passar esse parametro
+pro rpm? Ta bom, eu sei que eu poderia dscompactar o rpm (eu acho) e fazer
+como no Slackware, mas eu nao quero zonear o db do rpm. 8^) 
+
+Alguem pode me dar essa luz? 
+
+Não sei como lida com o 3dfx, mas brinco com RPM's :) 
+1) Baixe o src.rpm do pacote que você quer.  
+2) instale o source com rpm -ivh Mesa-xxx.src.rpm  
+3) vá para /usr/src/redhat/SPECS 
+4) edite o arquivo Mesa-xxx.spec 
+5) procure pela linha %build. Deve ter um configure, logo abaixo. 
+Inclua as opções desejadas. 
+6) recontrua o src.rpm e o i386.rpm com rpm -ba Mesa-xxx.spec (é 
+possível que mais de um rpm seja criado - o Mesa e o Mesa-devel, 
+etc..). 
+7) instale os rpms criados em /usr/src/redhat/RPMS/i386. 
+
+P.S. esta é a receita que uso para instalr a grande maioria dos rpm's. 
+Com isto, aumenta a probabilidade de encontrar incompatibilidades,
+mudo  as opções de compilação tais como -O6 -mamdk6 p/ pgcc ;) , vejo se
+n~ao  tem nenhum outro problema e, de quebra, mantenho toda a integridade
+da database rpm. As vezes faço isto também para RPM's alienígenas tais  
+como a da SuSe.  
+
+P.S.2: Se o Kleber Rodrigues ler esta mensagem, examinar os specs files 
+é a melhor maneira de se aprender a lidar com RPMs (criar e modificar). 
+Thadeu Penna 
+
+ 
+                        ARQUIVOS DE INICIALIZAÇÃO 
+
+Estes arquivos sao usados pelo sistema para iniciar determinados 
+programas durante a inicializacao/desativacao do mesmo. Se voce pretende 
+iniciar algo durante a inicializacao do sistema, coloque no arquivo 
+rc.local, assim se der algum problema voce podera acessar o sistema
+pelo modo administrativo e fazer a correcao necessaria. 
+Estes arquivos sao lidos dependendo do nivel de acesso do sistema,
+o rc.0 e um link para o rc.6 que e o responsavel por desativar todos
+os processos quando se reinicia ou se desliga o micro atraves do comando 
+shutdown. o rc.M e o responsavel por iniciar o modo multi-usuario e 
+todos os programas de rede, o rc.4 e lido se voce ativar o login 
+grafico, o rc.modules e onde estao as chamadas para os drivers que
+foram compilados como modulos, ele funciona como um config.sys da vida, e
+por ai vai. 
+
+      ALTERAR LILO PARA RECONHECER PARTIÇÃO DO W95/98 
+
+me deu na louca de instalar o 
+RedHat 4.2 antigao que eu ganhei de um Webmaster do provedor onde eu 
+trabalhava, oque aconteceu é que o LILO foi instalado e o WIN98 sumiu 
+nao consegui mais dar boot com oWIn 
+dai eu vi como era Obvio meu problema... O kernel do Redhat 4.2 nao
+suporta FAT 32, por isso o lilo nao achava a partiçao onde estava o WIN98 ;o) 
+oque eu fiz foi... 
+editar o /etc/lilo.conf manualmente e adicionar a partiçao WIN98 e
+forçala a ser instalada assim: 
+
+lilo -f -C /etc/lilo.conf 
+
+quanto ao lilo.conf ficou mais ou menos assim 
+# LILO configuration file 
+# generated by 'liloconfig' 
+# 
+# Start LILO global section 
+boot = /dev/hda    # setor de boot 
+message = /boot/boot_message.txt 
+prompt 
+timeout = 100 
+vga = normal 
+# End LILO global section 
+# DOS bootable partition config begins 
+other = /dev/hda1   # local onde o Win98 esta 
+  label = Windows98 #nome que vc quer dar a esse sis no LILO 
+  table = /dev/hda  # Hd que ele se encontra 
+image = /vmlinuz  #Imagem do root, se nao estiver no Diretorio raiz,
+coloque em qual diretorio ele se encontra 
+  root = /dev/hda5 # hd ou partiçao onde esta o linuz Image (vmlinuz
+e o resto do linux) 
+  label = Linux # nome que vc quer dar, no LILO 
+# DOS bootable partition config ends 
+
+é isso manow, ve se é esse seu problema, se nao for, manda um outro
+mail pramim que eu vejo se posso ajuda-lo mais uma ves okz... 
+lembrece de forçar a instalaçao do lilo assim :     lilo -f -C 
+/etc/lilo.conf 
+
+                               COMANDO AT 
+
+Use o comando at, este comando executa uma tarefa pre-determinada 
+ no dia, hora , ano , segundo ... que vc desejar, ai vc pode usar para 
+fazer ftp, enviar e-mail e so especificar as opcoes, vc ate pode 
+especificar o script para ser executado todos os dias 
+
+man at 
+Qualquer coisa mail-me. 
+Jeferson Buchner 
+<buchner@detec.unijui.tche.br> 
+ 
+
+     INSTALANDO/DESINSTALANDO PROGRAMAS NO RED HAT 
+
+Tem o Purp (é do Contrib, portanto não é distribuído nos CD's).  
+A ncurses-based RPM-handler which provides a fast and powerful 
+way to navigate, install, upgrade and uninstall RPM-packages on 
+text-terminal-devices. 
+
+ Acho que isto deve ser semelhante ao setup do Slackware.  
+ Eu usei algumas vezes mas depois que me acostumei com a sintaxe do
+rpm,  não uso nehum gerenciador  X, nem console, etc.. 
+
+  Fui na FreshMeat ( http://freshmeat.com/ ) e achei a página deles 
+também : 
+  http://www.lysator.liu.se/purp/ 
+  Roxo 
+
+                            MANAGER RPM 
+
+Estou usando o linuxconf .1.13subrev12 que baixei do site deles. 
+> Não tem nenhuma opção com relação aos RPMs?  
+
+   Para poder utilizar esta "feature" você precisa de um pacote em 
+separado, o managerpm. Você pode encontrá-lo em: 
+ 
+  ftp://ftp.conectiva.com.br/pub/conectiva/3.0/conectiva/RPMS/ 
+
+> Por acaso vocês sabem onde le seta as permissões para o 
+> /var/spool/mail?  
+
+   Hmm... o jeito mais fácil que eu conheco para arrumar este problema 
+seria esta linha de comando: 
+
+   rpm --setperms `rpm -qf /var/spool/mail` 
+
+   Isto funciona para qualquer arquivo ou diretório no sistema 
+(Lógicamente, o arquivo ou diretório precisa fazer parte de algum 
+pacote) 
+Rodrigo Parra Novo 
+Conectiva Informatica 
+ 
+
+                                USO DA MEMÓRIA 
+
+resposta do comando cat /proc/meminfo: 
+> memtotal = 63136 KB 
+> memfree = 32956 KB 
+> memshared = 30196 KB 
+> buffers = 6724 KB 
+> cached = 12796 KB 
+> swap total = 120452 KB 
+> swap free = 120452 KB 
+> eh normal apresentar os valores acima ou preciso alterar algo para
+melhorar 
+> o uso da memoria. 
+
+Parece-me perfeitamente normal. Alias, voce tem memoria de sobra ai,
+o que acontece em nao muitos casos. 
+
+Note o memfree. Ele diz que cerca de 32MB nao foram usados dentro do
+Linux. 
+Voce nao deve entao ter problemas para rodar os seus programas. E o
+swap nem foi tocado. 
+
+Agora, antes que o Linux comece a consumir sua memoria e voce venha
+novamente preocupado porque ele ocupa quase tudo, deixe-me explicar o que sao
+aqueles buffers e cache. Quando voce inicia um programa, ele ocupa paginas
+da memoria com seu codigo, dados, etc., junto com bibliotecas. Quando ele termina,
+o kernel marca a memoria como disponivel para uso, mas nao necessariamente
+passa a fazer parte do memfree. Ele vai para o cache. Para que? Para que,
+da proxima vez que voce iniciar o programa, ja haja trechos dele na memoria. A 
+inicializacao e' bem mais rapida. 
+
+Ah, sim. Nao se preocupe em liberar o cache. O kernel faz isso sozinho.
+Se algum processo precisar de mais memoria e nao ha mais memfree, apenas
+cache, ele libera memoria do cache e passa para o programa. Afinal, se esta
+no fim do cache, ja deve fazer algum tempo que voce iniciou o programa.... 
+
+PS: quando precisar saber sobre sua memoria, nao use cat /proc/meminfo.
+Use o comando free. Ele vai apresentar uma linha extra, que soma e subtrai
+os valores apropriados dos buffers e cache, apresentando quanto realmente um processo 
+poderia usar da memoria. 
+
+PPS: o seu comando ps so mostra os processos executados pelo root que
+estao em um terminal. Se quiser saber os processos dos outros usuarios, adicione
+a opcao "a" ao ps. E se quiser saber dos processos que nao tem terminal associado, 
+adicione a opcao "x". Ainda, se quiser uma visualizacao um pouco mais
+facil, adicione o "f". Eu sempre uso: 
+ps axf 
+Ou, para ficar mais facil de lembrar 
+ps fax 
+ Thiago Macieira 
+ 
+
+               CONEXÃO DE MICROS VIA PORTA PARALELA 
+				CABO DE LAP LINK
+
+1) Para a porta paralela se tornar um device de rede existe um jeito 
+> especial (algum encapsulamento) ou eh soh dar um IP com o 'ifconfig'? 
+
+  Você terá que fazer uma conexão PLIP, é simples e funciona 
+perfeitamente.  Você deve usar um cabo "LapLink" que vende em *quase* 
+qualquer casa de produtos de informática.  Você pode ver a configuração
+no 
+"NET-3-HOWTO" ( deve ter no '/usr/doc' da sua máquina ) ou no "PLIP
+mini HOWTO". 
+
+  Prá resumir a novela, você não terá suporte a impressoras locais,
+já que a porta paralela estará ocupada.  Pare o 'lpd' ( servidor de 
+impressão ) e descarregue o módulo 'lp'.  Carregue o módulo 'plip' e 
+configure, usando o comando 'ifconfig', a interface "plip0". 
+
+>     2) Para eu fazer o esquema acima a "Maquina_1" teria que ser uma 
+> especie de GateWay, neh? 
+
+  Ela teria que ser a "default gateway" do "Novo_micro", além disto
+a "Maquina_1" teria que ter a opção de "gatewaying" ativada.  Se os 
+endereços IP usados forem endereços privados ( muito recomendado, veja 
+NET-3-HOWTO ) você terá que configurar o mascaramento, veja o 
+"IP-Masquerade mini HOWTO" ( ou o IPCHAINS-HOWTO se já for cerne 2.2
+). 
+   Estas informações já devem ser suficientes para o que você quer. 
+  Roxo 
+
+Ola 
+  esse dias experimentei a conexao plilp, usando cabo de 4 bits. Funcionou 
+perfeitamente, taxa de transferencia deu em media 49KB/s (500kbits/s). 
+Gostataria de saber se alguem ja conseguiu fazer plip a 8 Bits usando
+cabo Bidirecional. Tentei aqui mas nao tive sucesso, achei pouca coisa sobre
+o modo 1.  
+  Paulino.  paulino@dfi.uem.br 
+---------------
+At (linux-br) Link pararelo, 
+Breno Barreto Machado <bmachado@netdados.com.br> wrote: 
+
+>       Nao sei se alguem ja tentou isto, mas existe alguma maneira de
+> ligar duas estacoes de trabalho Linux usando a conexao Paralela do micro.
+
+PLIP mini-HOWTO.
+
+> Poderia tb fazer a
+> ligacao Linux - Windows usando um cabo paralelo?. 
+
+Pelo PLIP mini-HOWTO (puxa, faz tempo que nao dava uma olhada), nao.
+Ah, voce consegue se for o DOS/Win3.1 :)
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+ 
+
+                COMPACTAÇÃO MULTIVOMUME PARA DISQUETE 
+
+Riba, seguinte, vc pode fazer um ´split´ do arquivo antes no linux,
+gravar  usando o ´mwrite´ e junta novamente no micro destino 
+
+        $ split -b 500k javaamazonia.zip java 
+                cria inumeros arquivos java(aa ab ac ad) com 
+                tamanho fixo de 500k, no teu caso use 1400k (um disk) 
+
+        $ mwrite ¨java*¨ a: 
+
+NO micro destino 
+        Se linux :  $ mcopy ¨a:*¨ . 
+                    $ cat java* > javaamazonia.zip 
+
+        Se DOS   :  copy java*.* javaamazonia.zip 
+
+1000tinho 
+milton@dpi.inpe.br 
+
+--------- 
+Você não vai conseguir compactar, o tar não tem suporte para compactação 
+multivolume.  Já que o arquivo não é tão grande assim, você poderia
+gerar o arquivo "kde.tgz" compactado e colocar este arquivo nos disquetes
+via comando : 
+
+prompt$ tar cMf /dev/fd0 kde.tgz 
+
+Com isto o tar dividiria o arquivo pelos diversos disquetes.  Na 
+recuperação você faria : 
+prompt$ tar xMf /dev/fd0 
+para reconstruir o "archive".   Roxo 
+
+
+                      SENHA DO SCREEN LOCK DO KDE
+
+Editei o arquivo magic com o vi:
+
+vi ~/.kde/share/apps/kfm/magic
+Logo que é aberto no vi, tecle delete para apagar a senha existente e
+tecle Insert e depois digite uma nova senha;
+Tecle Esc e digite :wq e Enter para salvar a nova senha.
+
+
+			CONFIGURANDO O FETCHMAIL, PROCMAIL E PINE
+
+Caros colegas da lista,
+finalmente estou mandando um email pra lista com o Pine!
+Alem de agradecer ao Augusto e ao Jorge por me darem as dicas de como
+fazer esses 3 programas funcionarem juntos, descreverei os passos q fiz:
+
+1-instalei do meu cd o fetchmail,procmail e o pine, via rpm
+
+2-no xwin digitei fetchmailconf e apareceu uma janela,configurei meu
+servidor, username e senha(lah se pode colocar mais de um servidor e mais
+de um username por servidor)
+
+3-criei um ~/.procmailrc e coloquei isso dentro dele:
+MAILDIR=$HOME/mail
+DEFAULT=$MAILDIR/mbox
+
+:0:
+* ^Subject:.*(linux-br).*
+LINUX_BR                   ->criei uma pasta no pine com esse nome
+
+4-coloquei 'fetchmail -d 900' no ~/.bash_profile (lembrando q coloquei
+aqui pois meu computador esta ligado em rede, em outro email o Jorge Godoy
+menciona aonde coloca-lo caso a conecao seja via modem)
+
+5-no .pinerc tive q colocar:
+.
+[corte]
+.
+feature-list=include-text-in-reply,
+        enable-delivery-status-notification,
+        allow-changing-from           <-adicionei essa linha
+.
+[corte]
+.
+customized-hdrs=From: milton@linhalivre.net
+.
+[corte]
+
+Pronto, acho q o fetchmail usa o procmail automaticamente,pq nao chamo o
+procmail e minhas msg sempre estao organizadas. No pine consegui mudar o
+From, esse foi o mais dificil!
+
+Abracos,
+Milton
+
+			     Usando o pacote MTools
+
+[Red Hat Linux Tips]
+
+O pacote MTools é um conjunto de utilitários para serem usados em disquetes
+do MS-DOS. Você poderá manipular os arquivos do DOS a partir do Linux. Para
+usar o MTools, os disquetes não precisam estar montados no Linux.
+
+Conheça alguns dos utilitários do pacote MTools, a sintaxe dos comandos é
+semelhante aos seus correspondentes no DOS:
+
+mattrib    -> altera os atributos do arquivo.
+mbadblocks -> checa os blocos do disquete.
+mcd        -> altera o diretório de trabalho.
+mcheck     -> verifica um disquete.
+mcopy      -> copia arquivos.
+mdel       -> apaga os arquivos no disco.
+mdeltree   -> apaga um diretório e seus arquivos.
+mdir       -> lista o conteúdo do disquete.
+mformat    -> formata um disquete.
+minfo      -> exibe informações do disquete.
+mlabel     -> modifica o nome do disquete.
+mmd        -> cria um diretório.
+mmove      -> move arquivos.
+mrd        -> remove diretórios.
+mren       -> renomeia um arquivo.
+xcopy      -> copia um diretório.
+
+Veja alguns exemplos:
+
+# mformat a:
+# mcopy *.txt a:
+# mcopy a:arq.ext
+# mdir a:
+# mlabel a:
+# mdel a:*.gif
+
+Consulte a página manual do MTools para maiores informações.
+
+
+	Entendendo as propriedades e PERMISSÕES dos arquivos:
+
+[Red Hat Linux Tips]
+
+Para obter uma segurança no sistema, o Linux utiliza propriedades e
+permissões nos arquivos e diretórios. Este controle é usado para não
+permitir que um usuário leia ou modifique um arquivo de outro usuário. Um
+arquivo só poderá ser acessado por um usuário se ele for o proprietário ou
+se pertencer ao grupo em questão, e ainda terá que respeitar as permissões
+atribuídas no arquivo.
+As propriedades e as permissões são mostradas quando se listam os arquivos
+usando o formato longo do comando ls (ls -l). Veja um exemplo:
+
+# ls -l
+drwxr-xr-x   2 usuario    grupo       1024 Dec  7 16:39 nome_do_dir
+-rwxrwxr--   1 usuario    grupo      29845 Dec 12 21:55 nome_do_arq1
+lrwxrwxrwx   1 usuario  grupo  12 Dec  9 01:33 nome_da_lig -> nome_do_arq2
+-rw-r--r--   1 usuario    grupo       7563 Dec  2 22:30 nome_do_arq2
+A primeira coluna da esquerda mostra o tipo e as permissões do arquivo em
+uma seqüencia de 10 caracteres, a terceira e quarta coluna mostram a qual
+usuário e grupo pertence o arquivo.
+O tipo do arquivo é mostrado no primeiro caracter da seqüencia. Existem
+vários tipos de arquivos, mas os mais comuns são:
+b -> dispositivo de blocos
+c -> dispositivo de caracteres
+d -> diretório
+l -> ligação simbólica
+
+Quando há um hífem em vez de uma letra, significa que é um arquivo normal.
+As permissões são mostradas em uma seqüencia de 9 caracteres divididos em
+três níveis: usuário, grupo, outros. Existem três tipos de permissões, a
+permissão de leitura (read), a permissão de gravação (write) e a permissão
+de execução (execute). Em cada nível deverá ser especificada estas três
+permissões. Quando há um hífem em vez de uma letra, significa que não há
+permissão para acessar ao arquivo. Veja:
+
+     /-------> O grupo pode ler e executar.
+    / \
+-rwxr-xr-x
+ \ /   \ /
+  |     \-----> Os outros usuários podem ler e executar.
+  |
+  \-----------> O proprietário pode ler, gravar e executar.
+As permissões tem significados diferentes para arquivos e diretórios. Para
+um arquivo, a permissão de leitura significa que pode ser lido o conteúdo do
+arquivo, a permissão de gravação significa que o arquivo pode ser alterado
+ou apagado e a permissão de execução significa que o arquivo pode ser
+executado como um programa. Para os diretórios, a permissão de leitura
+significa que pode ser listado o seu conteúdo, a permissão de gravação
+significa que arquivos podem ser acrescentados ou removidos dentro do
+diretório e a permissão de execução significa que os arquivos podem ser
+lidos ou executados.
+Existem ainda os atributos especiais, que são:
+
+setuid -> Definido nos arquivos executáveis, faz com que seja executado com
+as permissões do proprietário daquele arquivo.
+setgid -> Faz com que o arquivo seja executado com as permissões do grupo do
+arquivo, mesmo que o usuário não participe dele. Todo arquivo criado em um
+diretório setgid é criado com o mesmo grupo do diretório.
+sticky -> Em diretórios compartilhados por vários usuários, faz com que um
+arquivo só possa ser apagado por seu proprietário.
+Você poderá alterar as permissões dos arquivos e diretórios, além de alterar
+o proprietário e o grupo que o arquivo pertence. Os utilitários usados são,
+respectivamente: chmod, chown e chgrp.
+O comando chmod pode ser usado de duas maneiras diferentes, o modo simbólico
+e o modo absoluto.
+No modo simbólico o comando chmod tem a seguinte sintaxe:
+
+chmod [ugoa][+-=][rwxXst] arquivo
+u  -> permissões para o proprietário.
+g  -> permissões para o grupo.
+o  -> permissões para outros usuários.
+a  -> permissões para todos: proprietário, grupo e outros.
+
++  -> adiciona a permissão às permissões existentes.
+-  -> remove a permissão das permissões existentes.
+=  -> define uma nova permissão, cancelando as existentes.
+
+r  -> permissão de leitura.
+w  -> permissão de gravação.
+x  -> permissão de execução.
+X  -> permissão de execução se for um diretório.
+s  -> setuid se for atribuído ao proprietário, setgid se atribuído ao grupo.
+t  -> sticky.
+
+Exemplos:
+
+# chmod u+x arquivo            -> adiciona a permissão de execução para o
+                                  proprietário do arquivo.
+# chmod ug+rw arq              -> adiciona a permissão de leitura e
+                                  gravação para o proprietário e grupo.
+# chmod u+wx,g-w,o=r arq       -> adiciona a permissão de gravação e
+                                  execução para o proprietário, retira a
+                                  permissão de gravação para o grupo e
+                                  atribui apenas a permissão de leitura
+                                  para os outros usuários.
+
+No modo absoluto o comando chmod usa a notação octal, com a seguinte
+sintaxe:
+
+chmod [[e]ugo] arquivo
+
+Onde se utiliza um número octal de três dígitos, com cada dígito
+correspondendo a um dos três níveis de permissão (usuário, grupo e outros),
+mais um quarto dígito opcional, que é o atributo especial. Cada dígito dos
+níveis de permissão é formado pela soma dos valores de cada tipo de
+permissão (leitura, gravação e execução), onde leitura tem o valor 4,
+gravação tem o valor 2 e execução 1. Veja abaixo:
+
+0  -> nenhuma permissão.
+1  -> permissão de execução.
+2  -> permissão de gravação.
+3  -> permissão de gravação e execução.
+4  -> permissão de leitura.
+5  -> permissão de leitura e execução.
+6  -> permissão de leitura e gravação.
+7  -> permissão de leitura, gravação e execução.
+
+Para o atributo especial usa-se a soma dos valores de setuid, setgid e
+sticky, que também são 4, 2 e 1 respectivamente. Veja então os seguintes
+valores:
+
+0  -> nenhum atributo especial ligado.
+1  -> sticky ligado.
+2  -> setgid ligado.
+3  -> setgid e sticky ligados.
+4  -> setuid ligado.
+5  -> setuid e sticky ligados.
+6  -> setuid e setgid ligados.
+7  -> setuid, setgid e sticky ligados.
+
+Exemplos:
+
+# chmod 400 arquivo      -> atribui apenas a permissão de leitura para o
+                            proprietário e nenhuma permissão para o grupo
+                            e outros usuários.
+ chmod 750 arquivo      -> atribui permissão de leitura, gravação e
+                            execução para o proprietário, permissão de
+                            leitura e execução para o grupo e nenhuma
+                            permissão para os outros usuários.
+# chmod 1777 arquivo     -> liga o atributo sticky e atribui permissão de
+                            leitura, gravação e execução para todos os
+                            usuários.
+
+O comando chown, usado para alterar o proprietário do arquivo, só pode ser
+usado pelo administrador do sistema. Este comando também pode alterar o
+grupo. Ele tem a seguinte sintaxe:
+
+chown usuário arquivo
+chown usuário:grupo arquivo
+
+Veja um exemplo:
+
+# chown joao arquivo.ext  -> define joao como proprietário do arquivo.ext.
+# chown joao:familia arquivo  -> define o arquivo como propriedade de joao e
+                                 do grupo familia.
+
+O comando chgrp, como já dito, altera o grupo que o arquivo pertence. E só
+pode ser usado pelo proprietário do arquivo ou pelo administrador do
+sistema. Veja a sintaxe:
+
+chgrp grupo arquivo
+
+Exemplo:
+
+# chgrp familia arquivo.ext -> define o arquivo.ext como pertencente ao 
+					  grupo familia.
+
+
+     REDIRECIONANDO ou canalizando a saída padrão:
+
+[Red Hat Linux Tips]
+
+Quando você executa um programa no shell, ele envia sua saída de volta para
+sua tela. Mas você poderá fazer com que a saída do programa seja
+redirecionada para qualquer lugar, como por exemplo, para um arquivo. A
+saída poderá também ser redirecionada para um outro programa, porque muitos
+programas, além de enviar o resultado para a saída padrão do shell, também
+aceitam a entrada padrão do shell.
+Para isso você usará os seguintes operadores:
+
+>   operador padrão de redireção da saída. Cria ou altera o arquivo.
+<   operador padrão de redireção da entrada.
+>>  operador padrão de redireção da saída. Cria ou adiciona no final do arquivo.
+<  operador padrão de redireção da entrada. A entrada será interrompida quando for
+    encontrada uma linha que contenha o(s) caractere(s) especificado(s).
+|   operador de canalização.
+
+Veja como funcionam:
+
+# ls > arq.txt    -> a saída do comando ls foi redirecionada para o arquivo
+                    texto arq.txt. O arquivo será criado, ou se já existir,
+                          será substituído.
+# ls >> arq.txt        -> a saída do comando ls será adicionada no final do
+                          arquivo arq.txt.
+# rpm -qa | grep libc -> a saída do comando rpm foi canalizada para o comando
+                          grep.
+# wc < arq.txt         -> o comando wc recebe o conteúdo do arquivo arq.txt.
+# cat > arq.txt <<.    -> a entrada de texto no arquivo será encerrada quando for
+                          digitado somente um ponto em uma linha.
+# cat arq.txt | grep palavra | more
+# cat arq.txt | grep palavra > arq2.txt
+
+Existe também, além da saída padrão, o erro padrão. Caso o seu programa
+retorne mensagens de erro, você poderá querer redirecionar estas mensagens
+para um arquivo. Então use o operador padrão de redireção da saída com o
+número 2 (o número 1 é atribuído à saída padrão e o número 2 ao erro
+padrão), como por exemplo:
+
+# gcc prog.c 2> erros.txt
+# gcc prog.c 2>> erros.txt
+
+Assim será redirecionada apenas as mensagens de erro. Se você quiser
+redirecionar a saída padrão e o erro padrão juntos, use um dos seguintes
+comandos:
+
+# gcc prog.c &> arq.txt
+
+# gcc prog.c > arq.txt 2>&1
+
+Se quiser criar arquivos separados para cada saída use então o comando
+abaixo:
+
+# gcc prog.c > saida.txt 2> erro.txt
+
+Esta sintaxe funciona somente no shell Bash, que é o shell padrão no Red Hat
+Linux.
+				
+			
+				USO DO DOSEMU
+
+Format um disquete com sistema "dos" e entre no linux e
+digite "dos" claro depois de ter instalado o dosemu, ele vai dar bot do dos
+e pronto vuala!!! seu emulador vai estar funcionando.
+Junior_TRIAD
+
+		Implementar suporte a rpm no slackware 3.6
+
+http://ldp.conectiva.com.br/HOWTO/INDEX.html
+Existe um HOWTO (ou mini-HOWTO) que trata disso. Se não me engano,
+chama-se Slackware+RPM-HOWTO.Sds,Jorge Godoy <jorge@bestway.com.br>
+
+
+		Configurar o sistema para suporte a acentos
+
+http://lie-br.conectiva.com.br/artigos/traducao.html.
+Reparem que as regras ali descritas não se restringem ao RH apenas (e nem
+apenas à tradução de páginas de manuais...). 
+Jorge Godoy <jorge@bestway.com.br>
+
+
+				PERMISSÕES
+
+Quando acesso o diretorio /mnt/win/linux/nsmailribafs e, como root,
+executo ls -la, vejo que para o grpo root e permitido rwx. Entao por que
+nao consigo colocar esse diretorio para ser o da caixa de correio?
+
+No seu /etc/fstab, coloque as opções para que a partição do Windows seja
+montada como pertencente ao usuário que você deseja que tenha acesso a
+essa caixa de e-mail. "man fstab" para maiores informações (opções: uid e
+gid). 
+Jorge Godoy <jorge@bestway.com.br>
+-----------
+Resolvi assim: em /etc/fstab, onde tinha default coloquei uid=100 (id do 
+ribafs)
+
+				
+				USO DO FSCK
+
+Como passar o fsck se estou na raiz e ainda não posso desmontá-lo???
+Ele tem a opcao de passar com oa particao montada?..
+
+NUNCA passe o fsck numa partição montada com acesso a gravação. Isso pode
+corromper o seu sistema de arquivos e comprometer dados importantes. Use a
+opção remount do comando mount para contornar esse problema.
+Jorge Godoy <jorge@bestway.com.br>
+
+
+			ç no CorelWordPerfect
+
+Quando eu tento colocar o ccedilha aparece um c com acento em cima ( á ao invés de
+a um c ), e não o ç como deveria ser.  O ç está na parte de Simbolos.
+Alguém sabe como posso dar um geito nisso ??
+
+Está no histórico, mas tá difícil de encontrar :-/ 
+Vá lá, está aqui uma cópia da solução do Thade Penna e do Cavassin da 
+Conectiva.
+<SOLUÇÃO>
+Fico meio desconcertado ao colocar solução no SUBJECT, isto é apenas um
+workaround :)
+Com a ajuda do Cavassin, consegui inserir o cedilha no WordPerfect.
+Minha solução (devem haver outras) foi:
+1) Preferi editar o teclado do XWP80 ao invés de criar outro. 
+2) Chame o WordPerfect como root (deve pedir a licença, mas não ligue).
+Se não chamar como root, você vai ter que criar outro teclado (isto
+vai ficar mais claro adiante). 
+3) Menu Preferences -> Keyboard  
+4) Aqui e que aparece a opção de ou editar o XWP8 ou criar outro
+teclado. Eu preferir Edit _XWP8_ 
+5) Aparece a janela do  Keyboard Editor. 
+6) Procure o c + Alt (selecione-o). Selecione "Play a Keyboard script"
+7) Clique no quadrado em branco. Digite Crtl-W 
+8) Aparece o menu Symbols. No Set, escolha Multinacional. 
+9) Na terceira linha está o cedilha minúsculo. Selecione-o. O Indicador
+Number deve ir para 1,39. Clique OK.
+10) Deve ter aparecido um cedilha minúsculo no quadrado, outrora
+totalmente branco. 
+11) Clique Assign Script. 
+2) Repita os passos de 6 a 11 para o Ç . 
+13) Clique OK. 
+14) O cedilha minúsculo vai estar no Alt-c e o maiúsculo no
+Alt-Shift-C. 
+
+P.S.: você pode alterar o teclado default sem chamar o xwp como root.
+Basta alterar as permissões dos arquivos _XWP8_.wgk no diretório onde
+você instalou o WP. Ou ainda alterar todas as permissões daquele
+diretório (só que você vai ter que ser root para fazer isto :) 
+Thadeu Penna                 
+
+
+		Como executar um programa no login do usuario ?
+
+        Coloque no .bash_profile (ou .cshrc ou arquivo semelhante, ha um
+pra cada shell) do usuario.
+        Por exemplo:
+
+        echo "Espaco livre em disco:"
+        df
+        echo "Usuarios logados no momento:"
+        who
+
+        Pessoalmente, isso me irritaria e eu tiraria do meu .bash_profile,
+se fosse usuario da maquina :)
+                Rodrigo
+
+
+FORMATAR E ADICIONAR SISTEMA DE ARQUIVOS EM DISQUETE
+
+Primeiro passa formatar o disquete comando: fdformat /dev/fd0H1440
+blz vc formatou o diquete agora vc vai criar o sistema de arquivos no caso
+do sistema dos o comando: mkfs.msdos /dev/fd0H1440
+prontinho disquete pronto para ser usado. Agora que vc sabe fazer
+manualmente pra que KDE :)
+Fazer manualmente e melhor pq da + trabalho hehehehehe
+Ass: Junior_TRIAD
+
+
+				REFERENCIAS DE PERL
+
+http://www.perl.org
+http://www.perl.com
+
+Para scripts
+http://www.cgi-resources.com
+http://www.freecode.com
+http://www.scriptsearch.com
+
+Sou moderador de uma lista sobre PERL, la vc tb sempre
+achara bons profissionais, se quiser entrar va em
+http://www.mrmultimidia.com/perl/
+
+Espero ter  ajudado,
+
+Renato Lira
+
+
+				ALIAS NO XTERM
+
+Como eu faco mesmo para alias no meu ~/.bash_profile [redhat 5.2]
+"funcionarem"
+> com os terminais do X (xterm, aterm, e cia)?
+
+  Duas opções :
+
+  1 - ative o terminal ( xterm, aterm, ... ) com a opção '-ls'.  Esta
+      opção transaforma aquela "shell" em um "login shell", ou seja,
+      executa o '/etc/profile' e os outros "scripts" envolvidos na
+      configuração do ambiente do usuário.
+
+  2 - crie, e exporte, uma variável "ENV" apontando para o seu "script" :
+
+      export ENV=$HOME/.bash_profile
+
+      desta forma o "script" será executado a cada vez que você abrir uma
+      nova "shell", o que inclui um novo terminal.
+
+  Roxo
+
+			
+				CAPTURANDO TELAS
+
+Utilize o import, do pacote ImageMagick.
+
+Abra um Xterm, e digite:
+
+# sleep 5; import ~/screenshot.jpg
+
+Após, minimize o xterm (ou esconda). Em 5 segundos, o mouse mudará para
+uma cruz. Utilize-a para marcar o tamanho do screenshot (normalmente
+a tela inteira).
+
+Você pode mudar a extensão para .gif, .bmp, e outros.
+Eliphas Levy
+
+
+				MONTAR COMO USUÁRIO COMUM
+
+ Thiago Macieira - UFOT Registry number: 1001
+  talha@geocities.com (thiagom@usa.net won't work after May!)
+Subject: Re: (linux-br) Usuário comum montar/desmontar
+
+Ensine seus usuários a montar escrevendo apenas mount e o dispositivo.
+Sem informar o diretório. Pode ser por isso.
+Ex montar disquete:
+mount /dev/fd0
+Ex montar cd:
+mount /dev/cdrom
+
+O diretório de montagem será o configurado no fstab.
+
+
+				CAPTURANDO TELAS
+
+         man xv
+ 
+         Ou, digite xv na linha de comando, tecle com o botao da
+direita,
+ => opcao grab => grab  . A partir dai, tecle sobre a imagem e salve
+como
+ gif, jpeg,etc...
+Edison I.Yoshino
+
+				
+			Epson Stylus Color 600
+
+Com o driver uniprint do GNU ghostscript 5.10 e' possivel usar
+todas as resolucoes dessa impressora. Nas versoes anteriores existia o
+driver stcolor, que era limitado.
+
+Pegue os arquivos em:
+ftp://ftp.conectiva.com.br/pub/conectiva/EXPERIMENTAL/RPMS/impressora/
+
+e divirta-se. Note o diretorio EXPERIMENTAL. Se funcionar a contento,
+por favor me avise.
+Wanderlei Antonio Cavassin
+Conectiva
+
+
+				CMI 8330 om board
+
+    Atravéz da garimpagem do Humberto ( hbmorais@homeshopping.com.br  ) foi
+encontrada a solução definitiva do problema de configuração do som nessas
+placas no linux ( era um "buggizinho" ) sendo necessária a aplicação de um
+fix para solucioná-lo, e como tive dificuldade de encontrá-lo no endereço
+original estou disponibilizando uma cópia do mesmo no endereço:
+            http://www.netwalk.com.br/usuarios/luiz/fixcmi.zip
+      Qualquer dúvida é só "falar"  ( luiz@netwalk.com.br )
+       Luiz Claudio
+
+
+				iald e Trident 9750
+
+    O SVGA server do XFree86-3.3.3 tem este problema
+com a placa 3Dimage975 AGP ou 9750, trava o linux,
+o reinicio se da somente pelo botao de reset ou desligar
+e religar o micro.
+
+    Solucoes :
+
+a) Downgrade para a versao 3.3.2
+b) Upgrade para a versao 3.3.3.1
+c) Upgrade apenas do SVGA Server para 3.3.3.1
+
+    Nota : Coloquei o downgrade para 3.3.2 pois na
+minha opiniao, este funciona melhor com esta placa
+que o 3.3.3.1.
+Oswaldo Norberto Reno Dias
+oswaldo@planetarium.com.br
+
+
+			Diald e Trident 9750
+
+Quanto ao diald não posso dizer muita coisa. Estou interessado, mas
+infelizmente ainda não tive oportunidade de fazer alguma coisa. Mas em
+relação a Trident 975 (agp ou pci), posso passar algumas coisas:
+
+Se voce utiliza o Guarani (conectiva), Ou redhat 5.2, o xfree que vem
+junto tem alguns problemas. Ele deveria funcionar com a opção "noaccel"
+so que tentei tambem e não funcionou. O jeito foi fazer uma atualização
+total do Xfree. Consegui isto nos seguintes endereços:
+
+ftp://ftp.nobel.com.br/pub/linux/conectiva/guarani/atualizacoes/
+ou 
+ftp://ftp.conectiva.com.br/pub/conectiva/guarani/atualizacoes/RPMS/XFree86/
+
+Uitilize estes RPMS e atualize sua versão para a 3.3.3.1 que umas das
+correções foi em relação as trident da vida.
+
+Apos isto ha um patch que deve ser aplicado sobre o sistema. Esta no
+diretorio:
+ftp://ftp.nobel.com.br/pub/linux/conectiva/guarani/atualizacoes/patch.Cards-3.3.3.1
+
+Isto vai resolver o problema e a maquina não vai mais travar ok.
+
+
+			Envio de Arquivo por FTP em Shell Script...
+ 
+Marcelo Fartura escreveu:
+> Tente criar um script do tipo :
+>
+>     #!/bin/bash
+>
+>     ftp -i << EOF
+>
+>     open servidor.dominio.com.br
+>     user fulano password
+>     cd /diretorio/destino
+>     bin
+>     put arquivo_a_ser_feito_o_upload
+>     get arquivo_a_ser_feito_o_download
+>     by
+>
+>     ou então vc pode fazer através do arquivo .netrc dentro do home do
+> usuário.  Para saber como o .netrc funciona de uma olhada nas páginas man do
+> ftp, lá explica direitinho.
+> [], Marcelo Fartura
+
+
+				GTK+ no Slackware
+ Tnt4 escreveu:
+
+> Pessoal, agradeço todo mundo pela ajuda e gostaria de dizer como solucionei o
+> problema, talvez mais pessoas passem por isso ou  estao tentando resolver.
+>
+> Tive esse problema pois queria instalar o gnome. Na instalação do GTK ele me dava
+> essa furada. O que eu fiz foi apagar todos os arquivos do GTK  *gtk* nos diretorios
+> do ld.conf.so e no path consequentemente, passar um ldconfig, e entao instalar a nova
+> versao. Dai rodou que foi uma beleza, apesar de eu ter enroscado em outro probleminha
+> heheheheh..
+> eu tento compilar o primeiro arkivo do gnome ( gnome-lib ) e ele diz q falta um tal
+> de libinit.h
+>
+> mas é isso ai!
+> valeu!
+>
+> >
+> > faca o seguinte: remova o pacote do GIMP, pois eh ele que instala o GTK. em
+> > seguida, instale o GTK que vc compilou (ou baixou, sei lah). Dai vc pergunta: Mas
+> > remover o GIMP? Por que?  - Oras, o GIMP nao vai funcionar, mesmo. A versao 1.0.x
+> > dele nao funciona com a GTK >= 1.1.0.
+
+
+			Proteção contra Linux  Single
+
+        Simples!
+
+        Vala no /etc/lilo.conf e troque a opcao de linux para
+quakqer outra coisa e pronto hehehe simples?? ha nao esqueca 
+de dar lilo depois ok.
+        
+        E nunca mais esqueca a senha do ROOT se nao tu ta per
+dido heheheh.
+
+
+    Que eu saiba as opções nesse caso são 8 ou 80, ou seja, ou todos, com
+acesso a console é claro, conseguem ou ninguém consegue.
+
+    De qualquer modo para impedir o acesso ao linux single que nada mais é
+do que o Runlevel #1, basta retirá-lo do arquivo /etc/inittab.  Agora
+lembre-se que o runlevel #1 é usado em inúmeras situações de manutenção, e
+muitas vezes sem o acesso ao monousuário , não tem saída.
+[], Marcelo Fartura
+
+
+			Imagem borrada com a SIS 6202
+
+buenas... deem uma olhada em
+http://www.sis.com.tw/driver/driver.htm
+
+	
+		MANUAL DO GUARANI E NO ADMINISTRADOR DE SISTEMAS
+
+ftp://ftp.conectiva.com.br/pub/conectiva/LDP/manual/manual.ps.bz2
+
+E de quebra podem pegar o GAS (Guia do Administrador de Sistemas) em:
+ftp://ftp.conectiva.com.br/pub/conectiva/LDP/gas/sag.ps.bz2
+
+Se bem que a formatação desse PS estava estranha. Não sei se é meu gv ou o
+arquivo; daí peguei as fontes em LaTeX e compilei (é só dar um make :-)
+
+ftp://ftp.conectiva.com.br/pub/conectiva/LDP/gas/sag-0.6-port.tgz
+
+	
+				Placas TXPRO II
+
+o guarani suporta as placas tx ( sis ), execute o Xconfigurator e escolha a
+placa SiS5598 e peca para ele nao detctar a memoria de video, evai funcionar
+satisfatoriamente, mas caso vc queira melhar o desempenho, mude alguns
+parametros no asquivo /etc/X11/Xconfiguration ( acho que o nome e esse, mas nao
+se preocupe, pq sotem este arquivo meste dir. agora, as mudancas sao as
+segintes:
+depois do video ram coloque
+Option "no_bitblt"
+Option "sw_cursor"
+Clocks 25.18
+e deve funcionar tudo.
+
+eu ja sofri muito com estas placas, qualquer coisa me mande uma msg em pvt pois
+este assunto ja foi muito discutido aqui ate mais
+
+
+				Placas TXPRO II
+
+Para todos que tem as pérolas da informatica (TXPRO II)
+Retirado do Site da SIS
+
+Linux
+
+        We don't provide drivers for Linux, but there are some third parties
+having developed Linux drivers for our chips. Thanks their efforts. SiS VGA
+chipset is based on the VESA 1.x and 2.x specification. So, you can use the
+VESA driver or the standard VGA driver provided by Linux/Unix to meet your
+needs. SiS doesn't support Linux/Unix driver. We have passed datasheets of
+our products SiS5597/5598, SiS5596, SiS6205, SiS6201, SiS6202 to XFree86.org
+for their references. You may refer to this site: http://www.xfree86.org.
+S.u.S.E. releases a small series of X servers that are freely available to
+support SiS video Chipsets. These servers are available for no charge and
+are only for Linux based operating systems (Slackware, Redhat, S.u.S.E,
+Debian, etc.) The URL for this X server is http://www.suse.de/XSuSE. You can
+see:
+      SiS86c201(6201)
+      SiS86c202(6202)
+      SiS86c205(6205)
+      SiS5597
+      SiS5598
+      SiS6326AGP
+The next option for UNIX/Linux users is to obtain a commercial X server. You
+can get a single-head accelerated X server from XiG
+(http://www.xigraphics.com). The XiG Accelerated X server supports the
+following SiS video chipsets.
+Daniel
+
+
+				Shell scripts
+
+On Thu, 1 Apr 1999, Eric Paschoalick Chaves wrote:
+> 1) Como faço para capturar argumentos passados na linha de comando do
+> script?
+
+exemplo: 
+
+#!/bin/bash
+echo Seu primeiro parametro foi $1 e o terceiro foi $3
+
+> 2) É possível criar funções dentro dos scripts ?
+Sim, consulte o manual da sua shell. Exemplo: man bash
+Augusto Campos
+
+
+				Placas de TV/FM
+
+Acesse http://roadrunner.swansea.linux.org.uk/v4l.shtml, página do
+Video4Linux e veja as placas suportadas. Estou com uma placa "Intel Smart
+Video Recorder III" para um projeto para uso de Linux em sistemas
+embarcados e tem funcionado. Ela só não tem "tuner", precisando de um
+sinal de vídeo S-Video ou Composto. Durante algum tempo transmiti para a
+Internet as imagens captadas por uma camera sony aqui na Conectiva atraves
+de uma CGI que usa a API v4l (Video4Linux). :) Outras placas existem e são
+suportadas no Video4Linux que tem "tuner" para TV e para FM.
+	- Arnaldo
+			
+
+			Empresas que utilizam Linux
+Oi,
+
+De uma espiada em http://www.ivixnet.com/adivinhe.htm . Lah tem uma
+relacao de empresas que usam o Linux na Internet.
+Rico Ferrari
+
+
+			Configurando Cable Modem no Linux
+
+Deem uma olhada no site quem tem cable modem
+http://users.linkexpress.com.br/arcadia/
+Anderson
+
+
+			Proteção contra Linux Single
+
+Para proteger do comando "linux single" no boot
+basta acrescentar as seguintes linhas em seu /etc/lilo.conf
+password=sua_senha
+restricted
+
+Sem a opcao restricted, todo usuario tera q digitar a senha "sua_senha"
+para acessar o linux. A opcao restricted faz o lilo pedir a senha apenas em
+resposta a comandos como linux single, ok?
+Ai, para que niguem esceto o root edite o lilo.conf e veja a sua senha
+use o comando chmod 000 /etc/lilo.conf, ok?
+
+	
+			Protreção contra Linux Single
+
+Esta conversa já apareceu por aqui, mas acho que é válida.
+ 
+Sem contar os recursos de programação para se evitar o
+"linux single" (provavelmente reescrevendo o fonte do lilo),
+veja que o simples acesso físico da pessoa ao micro permite a
+ela, por exemplo, colocar gasolina no micro e um fósforo 
+aceso...  
+
+Se um micro é "público", normalmente deve haver algum
+tipo de vigilância (vigias/históricos de login mantidos
+remotamente/vigilância eletrônica real ou "fake" etc. etc.)
+
+Se o acesso é limitado, sabe-se quem o usa, e devem ser
+"de confiança".
+
+Se o acesso deve ser restrito, ponha um cadeado na porta :-).
+
+Há também aquele esquema de micros "burros" com servidor
+remoto. De longe, a chance de fazer besteiras é menor...
+Veja o histórico. O thread é engraçado... ;-)
+Wilson
+
+
+				Firewall e/ou Proxy
+
+    Para  o firewall
+http://www.sunsite.unc.edu/pub/Linux/docs/HOWTO/Firewall-howto  ou no
+/usr/doc/HOWTO/Firewall-howto do seu linux se vc o estiver instalado com
+toda a documentação.
+
+    Para o proxy, depende, se vc está falando de proxy cache tem o squid que
+também já vem com seu linux e a configuração é feita no arquivo
+/etc/squid.conf de maneira auto-explicativa, mas se vc quiser uma
+documentação mais completa vale a pena dar uma olhada em
+http://squid.nlanr.net/ , já se vc está falando de proxy firewall, aí vc vai
+em http://www.tis.com, baixa o fwtk da TIS e segue as instruções contidas no
+Howto que indiquei no início desta mensagem.
+[], Marcelo Fartura
+
+			
+				PLACA DE SOM CMI 8330
+
+Voce deve fazer o seguinte:
+use o comando pnpdump > /etc/isapnp.conf
+edite o arquivo e desmarque as linhas referentes aos:
+i/o 0x220 ; 0x330 ; 0x380 ; 0x530*
+irq: 5 ; 11*
+dma: canal 0 --> DMA 1
+        canal 1 --> DMA 5
+
+* = Soh pra garantir...
+Acho que faltou algum irq(talvez o 9...)
+
+Execute o comando:
+isapnp /etc/isapnp.conf (para setar isto tudo)
+
+Execute o sndconfig(lembresse que o kernel  deve ser molularizado,
+coloque modulos para todos os drives de som, mas vc soh vai precisar
+do Sblaster , olp3, e talvez do WSS**)
+** Nao aconselho, pois o som fica muito ruim!
+
+No sndconfig, selecione o modo manual! Use de preferencia o sndconfig-0.28
+que vem no Guarani. Selecione a SoundBlaster 16(ou a Pro se nao me engano)
+e escolha:
+
+i/o = 0x220 ; irq = 5; dma = 1 ; dma16 = 5 ; mpu = 0x330
+
+e PRONTO!!!!!
+
+Sua placa estara com o som BALA! Quase 100% pois nao consegui escutar
+CD de audio... Acho q tem algum i/o perdido q eu nao vi... Se alguem conseguir
+me envie um Reply.
+
+Vai rolar midi e tudo! Claro q o midi  com a cara do Velho ATARY, mas melhor q
+nada. Parece que tem um jeito de usar software wavetable mas vou dar uma
+pesquisada...
+
+Espero ter ajudado.   NAO use WSS, o W de Rwindows ja diz tudo, fica uma droga.
+				
+
+				EPSON STYLUS COLOR II
+
+> Estou tendo problemas com minha Epson Stylus Color II no Linux...
+> Alguem sabe como devo configurar esta Epson para que a mesma funcione no
+> Linux ???
+
+Ola´  Vitor,
+
+Pegue o Aladdin Ghostscript 5.10 ou superior, instale e configure usando
+o driver uniprint. A documenta<ao que acompanha explica como configurar
+adequadamente.
+
+http://www.cs.wisc.edu/~ghost/aladdin/
+
+-- 
+Braulio Weimann Gergull               -o)
+bgergull@agenciaweb.com    (o- 
+-------------
+
+Neste endere<o tem um PAP:
+
+http://www.u.arizona.edu/~zdw/uniprint.html
+
+
+				COPIAR/COLAR EM XTERM
+
+Tambem penei bastante ateh que vi uma bendita msg ensinando:
+para copiar eh igual - "ilumina" (*) o texto a copiar pressionando o
+botao esquerdo (**) do mouse e passando o cursor sobre o texto a copiar.
+
+(*) termo bastante utilizado nos manuais do Win :-)
+(**) desde que o mouse tenha sido configurado para destros.
+
+Para colar eh que muda um pouco: levas-e o cursor até onde quer a copia
+e pressiona o botao central. Se o modem eh de 2 botoes, ele deve ter
+sido configurado para emular 3 botoes e pressionar simultanteamente os
+dois disponiveis.
+
+OBS.: em alguns utilitarios eu nao consigo colar, mas geralmente
+funciona.
+Ezequiel Gomes - Curitiba-PR
+
+
+				CONEXÃO À INTERNET
+
+"Luis Garcia (Listas)" wrote:
+
+> O kppp liga, conecta e minimiza MAS nao consegue resolver nomes :-(
+>
+> PS. temos certeza de utilizar o endereco do dns correto ...
+> PS2. Olhamos os arquivos hosts, host.conf, resolv.conf, optins e todos parecem
+> corretos ...
+>
+> O que fazer?
+
+Achar onde o problema esta. Aqui vai um roteirinho que faz tempo que nao aparece na
+lista:
+
+1) primeiro, descubra o IP do outro lado da conexao PPP. O comando ifconfig deve
+lhe dizer. Sabendo disso, tente pinga-lo, por IP.
+Se nao funcionar, a conexao PPP nao funcionou. Verifique as configuracoes do pppd.
+
+2) se funcionou, tente pingar qualquer _IP_ da Internet (de preferencia do seu
+provedor para facilitar). Ainda melhor e' tentar pingar o servidor de DNS.
+Se nao funcionar, voce deve ter um problema de rotas. Verifique se o pppd tem a
+opcao "defaultroute".
+
+3) se funcionou e voce nao pingou o servidor de DNS, tente agora. Se nao conseguir
+pinga-lo, tente o secundario (que tambem deve ser incluido no /etc/resolv.conf para
+casos exatamente como esse). Se tambem nao funcionar esse mas funcionar outros IPs,
+reclame com seu provedor.
+
+4) se os servidores respondem, tente consulta-los usando o comando nslookup.
+Digite, por exemplo:
+nslookup www.linuxhq.com dns.do.meu.provedor
+Se o nslookup reclamar que nao consegue descobrir o nome de um certo IP e esse IP
+e' o do servidor DNS, reclame com o seu provedor pois ele nao esta disponibilizando
+DNS reverso.
+Se o nslookup nao conseguir resposta do servidor, reclame com o provedor.
+Se ele conseguir, provavelmente o /etc/resolv.conf esta errado.
+ Thiago Macieira - UFOT Registry number: 1001
+  thiagom@usa.net  talha@geocities.com
+
+
+					WGET
+
+acabei de descobrir:
+"wget -O /tmp/teste.html http://atlas.ucpel.tche.br/~pantera/index.html"
+ew tipo um "cp" remoto. copia um arquivo especificao, no exemplo seria
+index.html e grava no diretorio /tmp com o nome de teste.html
+as opcoes ew so procurar no man.
+era so isso? ;)
+
+|    Mateus de Oliveira Caruccio     |
+| http://members.tripod.com/~artec98 |
+|    pantera@atlas.ucpel.tche.br     
+--------------
+wget --help
+
+um ex:
+
+wget -nH -nd -np -c ftp://xucruti.edu.gov.org.br/kernel/linux-5.5.ui624.rpm
+
+com isso ele vai pegar o arquivo linux-5.5.ui624.rpm de
+xucruti.edu.gov.org.br atraves do protocolo ftp no dir /kernel com as
+opcoes nH (nao criar diretorio com nome do host), -np (nao ir para o
+diretorio anterior de kernel (ou seja continuar dele pra frente)), -nd
+(nao criar diretorios (versus subdiretorios) se houverem), -c (continuar
+de onde parou se a conexao cair ou algo mais tenebroso acontecer) :)
+Renato Murilo Langona   renato@barroco.com.br
+
+
+				SOUND BLASTER AWE 32
+
+Talvez seja o seguinte: não sei se acontece com todas as placas de som, mas
+no meu caso (uma soundblaster AWE32), quando se usa o sndconfig, ele cria um
+novo /etc/isapnp.conf, apagando o que tinha lá anteriormente. Este arquivo
+tem as configurações de todos os dispositivos PnP encontrados, mas apenas os
+da placa de som habilitados (foi o sndconfig que o criou, afinal de contas).
+Experimente ver se este arquivo existe e, se existir, veja seu conteúdo,
+procurando por algo parecido com modem. Achando, é só tirar os comentários
+das linhas que falam de porta I/O e IRQ deste modem.
+Ou não é nada disso...
+
+
+				CHAT COM VOZ
+SpeakFreely
+                                               Windows, Linux
+                 http://www.speakfreely.org
+                 Fabricante John Walker
+                 Tamanho   430 KB
+                 Licença      Freeware
+                 Língua        Inglês
+                 Data de Entrada  23/03/1999
+
+                  Programa de chat com voz via rede ou Internet. Permite
+criptografar as conversas. O primeiro link leva à versão para Windows 95,
+enquanto o segundo leva a versão Unix (você faz o download do código e
+compila no seu micro). A versão
+para Windows ainda integra-se com o ICQ. As versões Windows e Unix se
+comunicam entre si.
+
+
+				INTRANETS NO LINUX
+
+        Tem um bem basico mesmo que da para  tomar como  referencia para
+montar uma intranet.
+
+        Caso queira seguir e so dar uma olhadinha numa esperiencia minha
+em colocar uma intranet em casa com 5 maquinas foi assim:
+
+http://www.datasoft.com.br/rh/rede.html
+
+>PS. Se eu conseguir  montar uma 100% , pretendo fazer um manuasinho completo
+>sobre o assunto (se e que ja nao fizeram).
+
+        Nao e necessario  eu ja li e resolvi disponibilizar o que ei segui
+para montar uma em casa o unico problema que tenho e no caso to dal e fami
+gerado dial-on-demand mas quem sabe no ano 2300 eu consiga???
+
+        Caso tenha alguma duvida e so mandar um mail.
+Robney C. P. Issa                      Linux user #88492
+robney@dvl.com.br
+---------------
+
+Existe HOWTO...
+http://ldp.conectiva.com.br/HOWTO/Intranet-Server-HOWTO.html
+
+
+				DOSEMU
+At (linux-br) DOSEMU, 
+Carlos Arroyo Junior <carlosar@dca.fee.unicamp.br> wrote: 
+
+Respondendo ao jucelio tambem:
+
+> Sera que alguem poderia me dar algumas explicacoes sobre o  Dosemu?
+> Em que diretorio do Linux estao os arquivos (AUTOEXEC.BAT,etc) 
+> do DOSEMU?
+
+Esses arquivos ficam dentro de um arquivo (/var/lib/dosemu/hdimage),
+que serve como um "disco virtual" para o DOSEMU. Isto e', o drive
+C: do DOSEMU fica dentro desse arquivo (por padrao).
+ 
+> Como eu faco para o dosemu enxergar a minha particao DOS?
+> Eu li a documentacao, mas neste aspecto ela esta dificil de 
+> entender.
+
+Para acessar as particoes DOS/Windows, voce monta essas particoes
+no Linux e usa o comando lredir _dentro do DOSEMU_. Para automatizar,
+coloque no AUTOEXEC.BAT _do drive C: do DOSEMU_.
+
+Ex. 
+lredir e: linux\fs/mnt/data
+-> a particao /mnt/data se torna o drive E: no DOSEMU.
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+
+				FRASES ALEATORIAS NA ASSINATURA
+
+Como várias pessoas já pediram, estou postando aqui a forma que utilizo
+para as assinaturas automáticas em minhas mensagens. Divirtam-se ;-) (E
+procurem manter-se dentro da netiquetta com assinaturas de, no  máximo,  
+10 linhas!!!!)
+
+
+O Script
+= ======
+
+#!/usr/bin/perl
+# fortune.pl.
+# Generates a signature randomly from a single file of witty quotes which
+# the user maintains; the quotes can be multi-line, and are separated by
+# lines containing only a percent sign (same format as fortune files).
+
+#Insert your constant tagline here.
+$sigline ="Sds,\nJorge Godoy <jorge\@bestway.com.br>\nUsuário Linux #60995\n";
+
+#Put your sigfile in ~/.randsig, or else change the following appropriately
+open(FI, $ARGV[0]) or die "Can't open sigfile $ARGV[0]";
+
+$sig[0] = 0;
+while (<FI>) { $sig[$#sig + 1] = tell if /^%$/; }
+
+srand;
+seek(FI, $sig[int rand ($#sig + .9999)], SEEK_SET) or die "Can't seek";
+while (<FI>) {
+        last if /^%$/;
+        $msg .= $_;
+}
+
+print "$sigline\n$msg";
+
+# fortune.pl ends here
+
+
+Não se esqueçam de editar a linha da variável $sigline. 
+
+A entrada no arquivo cron
+tab do usuário
+= ======= == ======= ======= == =======
+
+# Muda o arquivo de assinatura automaticamente a cada 2 minutos, colocando
+# uma nova frase do arquivo ~/misc.
+
+*/2 * * * *      /home/jorge/bin/fortune.pl misc > /home/jorge/.signature
+
+
+O banco de dados
+= ===== == =====
+
+E pronto. O pine está configurado para usar o arquivo ~/.signature como a
+assinatura de minhas mensagens. O banco de dados de mensagens fica no
+arquivo /home/jorge/misc e é editado no estilo dos arquivos do fortune, ou
+seja, com a separação entre as mensagens feita pelo delimitador "%" numa
+linha específica (isso pode ser alterado no script, mas não recomendo, já 
+que é praticamente um "padrão"). Por exemplo:
+
+
+Cogito, ergo sum.
+        -- Descartes
+%
+Courage is resistance of fear, mastery of fear, not absence of fear.
+%
+The saddest life is that of a political aspirant under democracy. His
+failure is ignominious and his success is disgraceful.
+        -- H.L. Mencken
+%
+Everything you know is wrong.  But some of it is a useful first approximation.
+%
+"O Unix dá a você toda a corda necessária para se enforcar --
+ e um ou dois metros a mais, só para ter certeza" 
+        -- Eric Allman
+%
+A mentira é uma verdade que se esqueceu de acontecer.
+        -- Mario Quintana
+
+Reparem que após a última mensagem _NÃO_ há o "%". Se houver, corre-se o
+risco de enviar assinaturas sem as frases automáticas ;)
+
+Se alguém tiver algumas frases interessantes (as colhidas nas minhas
+assinaturas não valem ;-)) pode enviar para mim em PVT. 
+
+Abraços,
+Jorge Godoy <jorge@bestway.com.br>
+
+
+				EPSON STYLUS COLOR 600
+
+tem que instalar como epson stylus color padrao, no control panel.
+pelo menos funcionou com a minha stylus color 800.
+|    Mateus de Oliveira Caruccio     |
+| http://members.tripod.com/~artec98 |
+|    pantera@atlas.ucpel.tche.br  
+
+
+				AGENDA CASIO
+
+>       Nao sei o assunto eh ou nao fora do tema desta lista, mas alguem
+> ja conseguiu fazer o sincronismo de uma agenda casio (SF-4600C) com o PC
+> usando linux?
+
+Sim. Sincronismo nao e' a palavra, na verdade da' pra fazer um backup dos
+dados da agenda (nunca tentei fazer o inverso, do computador para a
+agenda). O programa que eu usei chama-se casio, vem no CD do debian, acho
+que o lugar "oficial" e'
+ftp://ftp.cyberus.ca/pub/users/hadi/casio/casio22.tgz
+
+Ate' +
+Nelson
+lago@that.com.br
+
+
+					ISAPNP
+
+        Para tornar a vida um pouco mais facil, vc pode usar a opcao -c do
+pnpdump. Mas para isso, vc deve ter o pacote pciutils instalado. Este
+pacote vem com o RH 5.2. No Guarani, ele esta no diretorio
+/EXPERIMENTAL/RPMS do 2o. CD Entao eh so fazer o seguinte:
+pnpdump -c >/etc/isapnp.conf 
+isapnp /etc/isapnp.conf
+e pronto!
+
+
+Um abraco,
+Drudi
+
+					CMI 8330
+
+    Acho que vc quer dizer CMI8330, não? Uso essa placa sem problemas, mas
+não com o OSS, uso módulos (WSS e SB16, eu acho) que são bem fáceis de
+instalar e configurar no RedHat 5.2. Como ela é plug'n'play, tb é necessário
+determinar previamente quais recursos ela vai usar (usando o pnpdump). O
+único problema é um bug que não permite reproduzir som do CD, mas há um
+arquivinho para corrigir isso na página da cmedia
+(http://www.cmedia.com.tw/).
+    C-ya,
+----------------
+> Sua placa estara com o som BALA! Quase 100% pois nao consegui escutar
+> CD de audio... Acho q tem algum i/o perdido q eu nao vi... Se alguem conseguir
+> me envie um Reply.
+>
+> (...)
+
+    Não, é um bug mesmo. Dê um pulo na página da cmedia
+(http://www.cmedia.com.tw/), eles têm um "fix" para isso. Eu compilei e ficou
+direitinho. São só 5K, se quiser eu mando para vc. O meu é um RedHat 5.2, não sei
+se o binário vai funcionar em todas as distribuições do Linux...
+
+    C-Ya,
+
+Humberto Baltazar Morais
+E-Mail: hbmorais@homeshopping.com.br
+
+						
+			ENTRAR NO LINUX NO MODO SINGLE - SEGURANÇA
+
+Digite no boot :  LILO: linux 1   - para entrar em runlevel 1 ou
+monousuário e nao pede senha.
+[], Marcelo Fartura
+
+
+				WMWARE - WIN NO LINUX
+
+Seguinte...esquece DOSEmu, Rodar Windows95 no DOSEmu, esquece tudo
+isso, puxe o programa vmware ( mas leia todos os textos possiveis ) em
+www.vmware.com lah eh facil puxar, mas para executar o programa precisa de
+uma licensa que eles te mandam por e-mail, eu tenho ela, se quiser te
+passo, os progs tb estao no meu FTP
+ftp://200.197.71.4/pub/linux/vmware/vmware.tar.gz , tb tem no mesmo dir um
+servidor X_SVGA acelerado para melhor performance no X.
+        Eh muitissimo simples de instala-lo, basta executar o script que
+vem no pacote ir no seu dir home criar um sub dir lah com o nome .vmware e
+colocar o arquivo license lah, ir no X e digitar "vmware" num prompt e
+pronto, ele faz umas perguntinhas faceis e pronto, soh colocar o CD
+(original) do Windows 98 no drive que ele boota o CD e comeca a
+instalacao....Muuuito 10 D+, vc pode executar o Windows 98 em uma janela
+do X, pode ateh rodar Windows NT MS-DOS 6.22, eh muito lindo...
+        Tudo isso eu descobri lendo, portando leia tb antes de ir
+instalando qualquer coisa no seu sistema OK
+Thiago Martins
+
+
+				SERVIÇO DE DIRETÓRIOS NO LINUX
+
+Por que, em vez de depender de um único fabricante, não se investe num
+protocolo aberto ?!?! Use LDAP (Lightweight Directory Access Protocol) !
+
+Acesse http://freshmeat.net e procure por LDAP.
+Baiano
+--------
+Procure por OpenLDAP e aplicativos relacionados...
+               - Arnaldo
+	
+
+				CEDILHA NO STAR OFFICE
+
+At Re: Uso do cedilha!, 
+Milton Fabiano Wolff <milton@linhalivre.net> wrote: 
+
+> > Isso depende do aplicativo. Para aplicativos bem-comportados (com suporte a
+> > internacionalizacao), o primeiro .Xmodmap que voce descreveu e' o suficiente
+> > (verifique com o pine, ou aplicativos do KDE ou Gnome).
+> 
+> Mas comigo nem nos programas "bem-comportados" o cedilha funciona! :( 
+
+De uma verificada no arquivo:
+/usr/X11R6/lib/X11/locale/iso8859-1/
+
+e veja se existem as linhas:
+<dead_acute> <C>                        : "\307"        Ccedilla
+<dead_acute> <c>                        : "\347"        ccedilla
+
+Se nao tiver, experimente adicionar.
+
+> > Para o WP, o Wilson postou uma mensagem ontem. Para o StarOffice, acho que
+> > so' com o XFree86 com o patch do Quinot (como e' o caso do XFree86 da
+> > Conectiva) ou com o programinha que o Marcelo Yassunori Matuda postou 
+> > no dia 14 desse mes. Ou se usa a tecla Multi-key (ou Compose key).
+> 
+> Certo, quando tiver mais tempo pesquiso na lista pra ver como acentuo(ja
+> consigo fazer isso neles) e uso o cedilha nesses programas!
+
+OK.
+  
+> > Agora, se o seu teclado tiver a tecla Windows, voce pode colocar o 
+> > cecedilha la'! Descubra o keycode com o xev, e acrescente no .Xmodmap.
+> 
+> hum...infelizmente meu teclado eh velhinho(uns 4 anos) e naquela epoca nao
+> existia esses teclados(pelo menos eu nao conhecia), mas quero ver se eu
+> acho uma outra tecla pra substituir! :)
+
+Voce pode usar o PrintScreen ou o ScrollLock... se bem que fica meio
+longe das demais teclas.
+
+Compra um teclado ABNT2 :)
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+					STRING DE INICIALIZAÇÃO DO MODEM
+
+Eu tenho um USR Sportster 33600 e uso a string "AT&F1"
+Qto a como mudar...
+se voce estiver usando o chat pra conectar coloque na primeira linha do
+arquivo /etc/chatscript:
+
+""  AT&F1
+OK  ATD........
+
+Outra coisa no seu arquivo /etc/ppp/options mude a linha:
+
+/dev/modem ...
+
+para:
+
+/dev/modem 57600 
+ou
+/dev/modem 115200
+qto mais rapido voce conseguir fazer funcionar melhor
+
+Qualquer coisa de uma passsada na minha hp:
+http://members.xoom.com/MauricioBS/linux/conectar.htm
+que eu escrevi um texto esses dias sobre conexao :-)
+Mauricio
+
+				CONEXÃO À INTERNET
+
+>O negocio e o seguinte... Alguem poderia me dizer como e que eu posso me
+>conectar na internet... Eu gostaria de um tutorial ou uma explicacao que
+>realmente funcionasse... O que devo configurar, esse tipo de coisa... TUDO
+>MESMO!!!
+>
+Eu também tinha dificuldades para conectar a Internet quando utilizava o
+Marumbi, quando instalei o Guarani, ficou tudo simples. Se você o utiliza,
+basta ir ao Linuxconf e seleciona em Rede, PPP, daí configura-se a rede e
+pronto. A única coisa que me atrapalhava era o modem, aquela configuração
+default ATZ0. Fui até o bom e velho DOS, entrei no programa QuickLink que
+veio com o meu modem (USRobotics 28800), copiei a string de inicialização,
+coloquei-a na configuração de PPP e pronto, nenhum problema, simples como no
+Windows.
+
+A instalação é igual a do windows, só que no windows, não precisamos colocar
+Servidor Primário, secundário (de DNS), gateway, etc... No Linux (não sei se
+estou falando besteira) precisa, pelo menos no meu só funcionou assim.
+
+Depois disso, quando estou no Linux, digito a seguinte linha:
+
+ifup ppp0
+
+e pronto, estou na Internet.
+Nelson Lima Neto
+nelson@sg.com.br
+
+
+				KERNELD X KMOD
+
+
+> Alguém aí da lista está usando com sucesso o kmod?
+<snip>
+> Mas gostaria que as maravilhas anunciadas com o advento
+> do kmod pudessem ser usufruidas por este que vos fala...
+
+> Aviso: li o README que vem com o kernel e os avisos sobre
+> o kmod e o kmod.txt foram absolutamente cripticos para mim...
+> Alguma luz? Algum FAQ ou HOWTO de configuração do kmod?
+
+Tente isto:
+
+chkconfig --del kerneld
+
+Da próxima vez que a máquina for reinicializada o kerneld não deverá ser
+inicializado.
+
+Note que sem com o advento do kmod ninguem mais irá "descarregar" os
+módulos que forem sendo carregados, para tanto você terá que colocar uma
+entrada na crontab para que de vez em quando isto seja executado:
+
+rmmod -a
+
+você terá que atualizar o pacote modutils para o 2.1.121 (ou para o 2.2.?
+que o Ekwall, IIRC, está desenvolvendo).
+- Arnaldo
+-------------
+> Alguém aí da lista está usando com sucesso o kmod?
+
+Yes!
+
+> Mas gostaria que as maravilhas anunciadas com o advento
+> do kmod pudessem ser usufruidas por este que vos fala...
+
+Voce tem o /etc/conf.modules configurado? Para criar um, digite:
+/sbin/modprobe -c > /etc/conf.modules
+
+(nao tenho certeza do -c, de um "man modprobe")
+
+Depois, elimine as linhas com "path" no comeco. se ja' tem um conf.modprobe,
+nao se esqueca do backup...
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+
+			PLACA DE COM AVANCE SOUND 3D ALS100+
+
+Marco Aurelio Kuhnen Schulle escreveu:
+> 
+> Eu uso uma Avance Sound 3D (ALS100+). Também está configurada no Windows
+> como 220, IRQ 5, DMA1. Ótimo (embora uma época não tocasse mid..).
+> Agora funciona perfeitamente no rWin.
+> Mas não consigo fazê-la funcionar no meu Marumbi (versão da revista
+> Geek, com kernel 2.0.34).
+> Rodei o sndconfig, e dá uns pau, por causa do pnp.
+> Rodei o sndconfig --noprobe e deu pau no modprobe.
+> 
+> Você enfrentou este tipo de problema? Consegues me ajudar??
+
+Ola,
+Um tempo atras eu tentei, sem sucesso, ajudar um amigo da lista a
+configurar essa placa no Linux. Eu tenho uma igual. E jah instalei-a
+varias vezes, em maquinas diferentes (486, Pentium...) e sempre
+funcionou.
+Eu fiz o seguinte.
+Num 486:
+- Como ele nao tem Bios PnP eu ativava a placa pelo A3INIT.EXE (ou
+ALSINIT.EXE), bootando na particao DOS. Apertava CTRL+ALT+DEL e entrava
+no Linux, que jah tinha o Kernel compilado para suporte a Som (Veja a
+Receita Abaixo!). Ele detectava a placa e o som funcionava numa boa. Se
+ao inves de apertar CTR+ALT+DEL vc apertar o Reset da maquina, ai nao
+funciona. Ok?
+Evidentemente que, configurando atraves do isapnptools,
+deve funcionar tambem, nao precisando assim, ativar a placa pelo DOS (eu
+comecei a mexer nisso, mas por falta de tempo, nao finalizei).
+
+Num Pentium (ou acima):
+- O Bios PnP ativa a placa e assim eh soh entrar no Linux que o som
+funciona direitinho.
+Se o Bios da placa nao for Plug'nPlay (placa antiguinha), use a dica p/
+486.
+
+
+Para Compilar o Kernel com Suporte a Som ative as seguintes opcoes:
+
+* Sound Card Support
+* Sound Blaster (SB, SBPro, SB16, Clones) Support
+* /dev/dsp and /dev/audio support
+* MIDI Interface Support
+* FM Synthetizer (YM3812/OPL-3) Support
+* (220) I/O base for SB
+* (7) Sound Blaster IRQ
+* (1) Sound Blaster DMA
+* (5) Sound Blaster 16 bit DMA
+* (330) MPU401 I/O Base of SB16
+* (10) SB MPU401 IRQ
+* (65536) Audio DMA Buffer Size
+
+Compilando e instalando o novo kernel, na inicializacao vai aparecer
+algo como isso:
+Sound Initialization started
+<Sound Blaster 16 (4.2)> at 0x220 irq 7 dma 1,5
+<Sound Blaster 16> at 0x330 irq 7
+<Yamaha OPL3 FM> at 0x388
+Sound Initialization Complete
+
+Eh sinal que a placa tah funcionado...
+Espero ter ajudado,
+Marcos
+PS: Eu uso Slackware e no momento estou com essa placa num 486
+funcionando direitinho!
+	
+
+				VÍDEO/TV NO LINUX
+
+Nao me lembro bem se foi aqui que estavam perguntando sobre como colocar
+Video, TV, no linux...
+
+eu achei uma pagina que me pareceu interessante... talvez ajude...
+
+Mas, claro, se nao foi aqui que pediram, ja fica no ar, uma dica...
+
+http://www.exploits.org/v4l/
+hugZ 4 all.
+denao
+
+				SERVIÇO DE DIRETÓRIOS DO LINUX
+
+Retirado da apostila do curso 520 do Intranetware :
+
+    ".... é um serviço de rede que mantém um banco de dados com informações
+sobre todos os recursos disponíveis, processa as solicitações de recursos
+dos clientes, localiza os recursos na rede, verifica o cliente e conecta o
+cliente ao recurso."
+
+    Não, no Linux ainda não tem.
+
+    Só como ilustração, na Novell o seu serviço de diretórios é conhecido
+como NDS (Novell Directory Services)  e agora até a microsoft está entrando
+na onda com o ADS (Active Directory Services) no Windows NT 5.0 ou Windows
+2000.
+
+    Abraços,
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+[], Marcelo Fartura
+-------------------
+O que eu tinha visto era o Ganymede:
+http://www.arlut.utexas.edu/gash2/
+
+GANYMEDE is a portable and customizable network directory management
+system, released under the GNU General Public License. It is free software.
+It is similar in concept (if not in scale) to network directory systems like
+Microsoft's ActiveDirectory and Novell's Novell Directory Services.
+GANYMEDE differs in that it is written entirely in Java (making everything
+very portable), and in that it is designed to provide management for existing
+NIS, DNS, LDAP, and other network directory servers, not to replace them.
+
+--
+Ricardo Yassuo Igarashi
+----------
+
+Pode não ter o NDS da Novell, mas tem Directory Services SIM. Ele se chama
+LDAP (Lightweight Directory Access Protocol), pode ser um serviço de
+diretórios X.500 ou "stand alone" e é um padrão _aberto_ .
+
+Mais informações em:
+
+http://www.OpenLDAP.org
+Baiano	
+---------------
+Tive verificando o site www.openldap.org e achei interessante. Inclusive
+ja achei um rpm da versão 1.2.0. Voces podem pegar no seguinte endereco: 
+ftp://contrib.redhat.com:21/libc6/SRPMS/openldap-1.2.0-1.src.rpm
+Muito interessante. So compilei (Conectiva Guarani) e não tive problema
+algum. Agora vou tentar configurar o dito pra colocar ele para rodar.
+
+Uma pergunta minha, é que há uma opção no netscape (win98, não sei no
+linux), para utilizar um serviço de diretorios (ldap) para guardar
+algumas informações. Quais são estas informações (perfil do usuario?).
+Como isto funciona. Pra falar a verdade ainda não peguei a ideia geral
+do LDAP (servicos de diretorios) corretamente. Alguem pode me ajudar um
+pouco mais com a ideia?
+
+t+
+
+Claudio Jr.	
+----------------
+Nao sei se ja foi dito aqui ou se e o que procuram mais a Netscape tem um
+Servico de Diretorios para Linux. E o Netscape Directory Server e pode ser
+feito o download dele para testes. Existe um link para este software na HP
+da RedHat mais para quem quiser, aqui vai o endereco:
+
+http://home.netscape.com/directory/v4.0/index.html
+
+Espero ter ajudado de alguma forma.
+
+Alessandro M. S. Sant'Anna
+----------------
+Saiu recentemente este artigo: 
+
+Don't make me LDAP you
+Lightweight Directory Access Protocol: what it is, why you want it
+
+http://www.linuxworld.com/linuxworld/lw-1999-03/lw-03-uptime.html
+
+
+				INSTALAÇÃO DO DEBIAN
+
+  http://www.debian.org/releases/stable/i386/install.html
+  Rodrigo
+---------------
+
+http://www.infohouse.com.br/usuarios/jclaudio/instalandodebian.html
+http://www.linuxpress.com/001002.htm
+
+
+		SHELL SCRIPT PARA SABER SO PROGRAMA ESTÁ RODANDO
+
+Preciso deixar um programa rodando em background no sistema e esse
+>programa costuma "cair" de vez em quando. Para não ter que checar a toda
+>hora, pensei em deixá-lo no crontab para ser executado de tempo em
+>tempo. Acontece que preciso fazer um shell script pra primeiro entrar no
+>diretório onde o programa fica, pois se eu chamá-lo de outro diretório
+>ele não rodará. O segundo problema é que preciso testar se o programa
+>está realmente fora para só então executá-lo ou não.
+>    Pensei em usar como base o script "botchk" que vem junto com o
+>eggdrop. Até a parte de entrar no diretório tudo bem, mas para testar se
+>o programa está rodando ficou difícil pois o eggdrop cria um arquivo no
+>seu diretório (pid.nome_do_bot) que contém o id do processo... já o tal
+>programa não faz isso.
+-----------
+
+Para checar se mesmo está rodando existem várias maneiras, uma delas
+seria :
+
+    TESTE=$(ps ax 2>&1 | grep nome_do_programa)
+    if [ $TESTE = "" ] ; then
+        executa_o_programa
+    fi
+
+logo o script completo ficaria assim :
+
+    #!/bin/bash
+
+    # entra no diretório
+
+    cd /diretorio/do/programa
+
+    # testa se o programa está rodando ou não
+
+    TESTE=$(ps ax 2&>1 | grep nome_do_programa)
+    if [ $TESTE = "" ] ; then
+        executa_o_programa
+    fi
+
+     Vc ainda poderia verificar seu status colocando mais um filtro na linha
+que atribui o valor à variável TESTE.  Vc pode usar o awk por exemplo pra
+isso.
+[], Marcelo Fartura
+
+					CRONTAB
+
+Pessoal, descobri este texto que fala do crontab. Eh pequeno e
+explica tudo tim-tim por tim-tim. Bom proveito!
+
+
+
+>              o        
+>     /-----+   O               Joao
+>    +-----+| O         
+>    | YPE ||   o          Quimica Amparo Ltda.   
+>    |_____|/  o O        Produtos de Qualidade
+                         
+
+
+
+"
+> Atraves do comando crontab eh posível agendar a execucao 
+> de programas, que nao possuam interacao com o usuario, 
+> para horarios programados, em determinados dias da 
+> semana ou do mes. 
+> Obs: Verificar a permissao do arquivo prog1 a fim de verificar 
+> se o mesmo eh realmente um comando valido ou se estah como executavel 
+(no caso de programas em lote).
+
+
+> exemplo de arquivo_de_horario, que pode ser criado no  vi.
+> 
+> 00 23  * * 1-5    /usr/local/progr1
+> |     |       |       |       |                 |
+> |     |       |       |       |                  caminho e nome do
+> programa a executar
+> |     |       |       |       intervalo de dias de semana ou dia da
+> semana a ser executado 
+> |     |       |       |                                ( 1-5 equivale
+> de segunda a sexta )
+> |     |       |       mês(es) a ser executada a tarefa (* equivale a
+> todos os meses do ano)
+> |     |       dia do mês (* equivale a todos os dias do mes)
+> |     hora
+> minutos
+> 
+> 
+> # crontab arquivo_de_horário 
+faz o agendamento contido em "arquivo_de_horario"
+
+> # crontab -l
+>       Mostra os arquivos que estão agendados para execução.
+> 
+> # crontab -d
+>       Remove os arquivos da tabela de execução
+> 
+# crontab -?
+       mostra as opcoes do crontab
+
+Atente para o fato de que os comandos contidos 
+em arquivo_de_horario NAO devem esperar uma interacao 
+com o usuario. Voce pode agendar backups incluindo o 
+comando cpio no lugar de prog1 (ou criando um programa 
+em lote para isso), e quaisquer rotinas que sinta necessidade.
+--------------
+
+Pelo pouco que li (e tambem pouco aprendi :-o  ), existem dois arquivos
+(cron e crontab) que trabalham em conjunto:
+O crontab eh editado com o comando: contab -e para colocar instrucoes
+nele dizendo "quando fazer o que".
+A cada minuto o cron le o que existe no crontab e, se encontrar alguma
+instrucao para aquele instante ele executa o que foi programado.
+
+Vc. pode configurah-lo para, em determinado horario, acessar o seu
+discador, baixar suas msg. e sair sem que vc. precise comandar a cada
+vez.
+Outro uso eh para backup durante a madrugada, por exemplo.
+
+Depois de muito apanhar para entender o "man crontab", fiz o meu com a
+finalidade de trocar o teor da tagline do arquivo .signature a cada 20
+minutos (finalidade de aprender tambem)
+
+O que eu nao esperava eh que ele coloca um "mail" em minha caixa postal
+a cada alteracao que faz...
+
+Realmente o Linuz tem recursos que a gente nem imagina. O que falta eh
+tempo para aprender.
+
+-- 
+[]'s,
+
+Ezequiel Gomes - Curitiba-PR
+				--------------------
+				COR NO XTERM
+
+
+A maneira mais fácil seria editar seu arquivo ~/.Xdefaults e incluir
+(caso não tenha) as linhas:
+
+xterm.foreground: white
+xterm.background: black
+xterm.font: 10x20
+xterm.visualbell: false
+
+
+				WM WARE
+
+realmente posso usar o vmware para rodar meu Win98 que
+já está numa partição do meu HD!
+
+A quem possa interessar a url que explica sobre isso é:
+http://www.vmware.com/support/rawdevices.html
+
+Apesar de ter achado a explicação de como fazer, eu ainda não consegui
+rodar tudo certinho, sei que funciona pois testei usando um disquete de
+boot(do win98) e o vmware visualizou meu c: e os outros drives. Eu preciso
+primeiro arrumar minha configuração do XFree86 pro vmware rodar em
+full-screen, apesar de eu ter baixado o X do vmware(XFCom_3DLabs) quando
+eu chamo o vmware continua a aparecer isso:
+
+XFree86 DGA frame buffer is banked (bank size 960000 < memory size
+8388608).
+XFree86 direct graphics (DGA extension) initialization failed. 
+
+Se alguém, poder me dar uma mão com relação a isso eu agradeceria! :-)
+De qualquer maneira vou ficar fuçando o site do vmware pra procurar a
+resposta do meu problema...assim que eu conseguir fazer o VMware funcionar
+redondinho mandarei os passos pra lista!
+Milton
+----------------
+é uma especie de maquina virtual onde vc pode instalar windows, os/2,
+beos, ou qquer outro os, é como um computador q roda dentro do linux, ele inclui até uma Phoenix
+BIOS Chacal Z wrote:
+	
+
+				BASKSPACE NO X
+
+Coloque no seu .xinitrc a linha:
+
+xmodmap -e 'keycode 22 = BackSpace'
+                      Heber Maia
+                    heber@magic.fr
+
+
+				DISASSEMBLER NO LINUX
+
+Disassembler, no entanto, já é mais fácil
+faça:
+objdump -d <executável> | less
+ Thiago Macieira - UFOT Registry number: 1001
+  thiagom@usa.net  talha@geocities.com
+
+						
+				ALIAS PARA TODOS
+
+> Uma perguntinha inocente :-)
+> Como eu faco mesmo para alias no meu ~/.bash_profile [redhat 5.2] "funcionarem"
+> com os terminais do X (xterm, aterm, e cia)?
+
+O bash_profile só é lido pelas shells de login. As subshells (caso dos
+xterms da vida) leem o bashrc. A solucao é colocar os alias no bashrc
+tambem, ou fazer o bash_profile e o bashrc apontarem para o mesmo arquivo,
+ou fazer o bashrc dar um "source ~/.bash_profile" no final, ou o que mais
+voce conseguir imaginar. Logico que algumas solucoes causam mais overhead
+do que outras, mas voce vai saber optar pela mais adequada ao seu caso.
+
+ \|/ --- \|/   Augusto Cesar Campos - brain@matrix.com.br
+---------------
+Não necessariamente. Abra um xterm como uma shell login. :-))
+Como??? Mágica! "xterm -ls" e pronto! :-))) 
+Simples, clean e documentado na página de manual do xterm. Ah! Como o
+xterm ditou padrões, a opção "-ls" deve estar disponível em 100% dos
+clones... :-)
+Jorge Godoy <jorge@bestway.com.br>
+
+
+	 	 		COMPILADOR C FOR LINUX
+
+> Estou procurando um Compilador C  e um Assemblador para o microcontrolador 8051.
+> Para Linux, e'  claro.
+> Alguma sugestao?
+
+http://members.carinthia.com/wtrobin/index1.html
+
+E e' melhor correr:
+
+Stefan asked some people if there is a need for
+our app. We decided to stop developing this if
+noone contacts us. If *you* would need this
+program feel free to contact us...
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+
+				USO DE PROGRAMAS COM GLP
+
+Pelo que li a respeito você pode usar as ferramentas GNU em software
+comerciais desde que:
+A) Faça uma doação à fundação
+B) Comprometa parte de seu rendimento à fundação
+
+Leia as instruções de GNU e GLP para obter mais informações.
+
+Você deve se comunicar com a fundação antes de utilizar as ferramentas
+----------------
+"Márcio Antônio Rezende" wrote:
+> 
+> Pelo que li a respeito você pode usar as ferramentas GNU em software
+> comerciais desde que:
+> A) Faça uma doação à fundação
+
+Acho que não precisa
+> B) Comprometa parte de seu rendimento à fundação
+Também acho que não.
+Todo software GLP e LGLP quando incorporado a novo software
+transforma este novo software em GLP. Portanto você pode até
+vende-lo, mas esta venda seria para cobrir custos de distribuição
+etc. Você não poderia fechar o código fonte de seu programa 
+também. Estas licenças GLP são muito restritivas quando se trata
+de defender o direito de acesso aos fontes gerados a partir deles.
+A i'deia é que a M$, p.ex., nãopoderia pegar software GLP e 
+colocar copyright restritivo nelas. Veja que se você criar
+um software, você tem direito (e dever ;-) ) de escrever
+"Copyright Daniel Cristian Cruz, 1999", assegurando sua autoria,
+mas o fonte deve ser livre.
+
+> Leia as instruções de GNU e GLP para obter mais informações.
+
+Com certeza. Leia atentamente e depois comente com a gente.
+
+> Você deve se comunicar com a fundação antes de utilizar as ferramentas
+
+Acho que não.
+
+> Daniel Cristian Cruz wrote:
+> 
+> > Estou pensando em programar jogos para Linux em C e/ou Java.
+> > Posso utilizar as ferramentas GNU ou eu devo comprar um compilador
+> > comercial para produzir programas deste tipo? Se eu fizer com o JDK e o
+> > GCC terei problemas de com a licença GNU?
+Wilson
+Wilson Komatsu - Instructor (Dr.Eng.) - wilsonk@usp.br
+
+
+				AWE 64
+
+ara configurar a SoundBlaster AWE 64 no kernel 2.2.x:
+1) Recompile o kernel.
+Em Sound:
+- Configurar o sound card support como módulo.
+<M> Sound card support
+- Adicione o módulo:
+<M>  Ensoniq AudioPCI (ES1370) ou
+<M>  Creative Ensoniq AudioPCI 97 (ES1371)
+A Creative Labs comprou a Ensoniq e utiliza os chips ES1370 ou ES1371
+fabricados pela Ensoniq em suas Sound Blasters 64/PCI.
+- Adicione o módulo:
+<M> 100% Sound Blaster compatibles (SB16/32/64, ESS, Jazz16) support
+Eu utilizo também os seguintes módulos:
+<M> Generic OPL2/OPL3 FM synthesizer support 
+<M> FM synthesizer (YM3812/OPL-3) support
+
+Em Additiononal low level sound drivers:
+- Adicione:
+<Y> Additional low level sound drivers
+-Adicione como módulo:
+<M> AWE32synth
+2) Edite o seu arquivo /etc/conf.modules ou /etc/modules.conf
+Inclua a seguinte linha após # Options
+alias sound es1370
+ou
+alias sound es1371
+Reinicialize o seu novo kernel.
+Para quem utiliza distribuições baseadas na Redhat como a Guarani é só
+rodar o sndconfig que ele inclui a linha no /etc/conf.modules.
+Et Voilà, ça marche.
+Acho que deve funcionar em todas configurações.
+Detalhe, geralmente as Sound Blasters 64 não gostam dos deploráveis
+rwinmodens. Os conflitos com estas escórias da produção de hardwares só é
+resolvido com extirpação do cancer.
+                      Heber Maia
+                    heber@magic.fr
+              http://perso.magic.fr/heber
+
+
+				RODANDO MOUNT COMO USUÁRIO COMUM
+
+>    sempre q tento rodar mount como usuário comum o
+> sistema (marumbi) me fala q só o root pode fazer isso
+> ... como eu faço prum usuário comum fazer isso ? ...
+> não quero dar ao usuário comum os poderes de root
+
+Edite o arquivo /etc/fstab e na linha do dispositivo que voce quer
+permite ao usuario comum montar, coloque a opcao "user".
+Digite man mount para maiores detalhes.
+Fabio Henrique - Usuario Linux: #100457
+
+
+				TIRAR PROGRAMAS DO BOOT
+
+		Gostaria de saber como faco para tirar um determinado programa que esta'
+> > configurado para inicializar no boot no linux. Eu uso o Conectiva Marumbi
+> > kernel versao 2.0.34. O ni'vel de execucao default do meu sistema e' o
+> > ni'vel 3. Eu penso que e' so' excluir o apontador localizado no direto'rio
+> > /etc/rc.d/rc3.d/. Por exemplo se eu quisesse tirar o squid. Eu excluiria o
+> > link /etc/rc.d/rc3.d/S86squid ? E' isso ? Se for, entao como fazer no
+> 
+>   É isto.
+
+Hmmmm... Um "chmod -x arquivo" teria o mesmo efeito, com a vantagem de se
+preservar o arquivo de inicialização. Eu optaria pelo chmod, se fosse
+fazê-lo. 
+Jorge Godoy <jorge@bestway.com.br>
+
+
+				HOWTOS EM PORTUGUÊS
+
+>      Vamos lah, eu gostaria de saber se existem HOWTOS em portugues?
+Veja a página da LDP-BR.
+http://linux.unicamp.br
+Jorge Godoy <jorge@bestway.com.br>
+
+
+				CLIPPER NO LINUX
+
+                   Traga seus programas xBASE para o Linux! 
+ 
+                   O programa FlagShip (www.wgs.com) é um 
+                 compilador compatível com a linguagem CLIPPER, 
+                 para Linux (outros UNIXes também). Em geral você 
+                 pode migrar uma aplicação CLIPPER para Linux com 
+                 poucas modificações. As mudanças normalmente 
+                 necessárias são: 
+ 
+quer saber mais veja 
+http://www2.uol.com.br/info/linux/index.shl 
+
+
+			FOLDERS NO PINE
+
+> Instalei o procmail aqui hoje... E estou usando para separar as diversas
+> mensagens das varias listas que assino. O problema que encontrei e' que
+> antes eu recebia tudo numa inbox apenas e com o pressionar da tecla TAB ia
+> para um novo e-mail. Mas, como recebo em diversos folders agora, queria um
+> jeito de saber quais tem novas mensagens...
+
+1 - Selecione:
+
+            [X]  enable-incoming-folders
+
+2 - Saia do pine.
+
+3 - Crie um diretorio para os incoming folders, pode ser dentro do
+    ~/mail mesmo, ~/mail/Incoming por exemplo.
+
+4 - Entre no pine e crie um novo folder ('A') respondendo:
+
+        Name of server to contain added folder:  em branco
+
+        Name of folder to add: /home/login/mail/Incoming/linux-br
+
+        Nickname for folder "/home/.../new-folder": linux-br
+
+     Tem que colocar o fullpath, nao adianta usar "~/mail/..." (o pine
+     nao expande o "~" para homedir).
+
+5 - Acerte o procmail para usar esses arquivos para depositar novos
+    emails.
+
+O TAB agora funciona entre os folders, na sequencia.
+
+Depois de adicionar uns dois ou tres incoming folders, veja o
+~/.pinerc.  Atualmente eu prefiro editar o .pinerc diretamente para
+adicionar um novo folder.
+--- Wagner                      wks@niktu.psi.com.br
+
+
+		FORMATAR E ADICIONAR SISTEMA DE ARQUIVOS EM DISQUETE
+
+Primeiro passa formatar o disquete comando: fdformat /dev/fd0H1440
+blz vc formatou o diquete agora vc vai criar o sistema de arquivos no caso
+do sistema dos o comando: mkfs.msdos /dev/fd0H1440
+prontinho disquete pronto para ser usado. Agora que vc sabe fazer
+manualmente pra que KDE :)
+Fazer manualmente e melhor pq da + trabalho hehehehehe
+Ass: Junior_TRIAD
+
+
+				REFERENCIAS DE PERL
+
+http://www.perl.org
+http://www.perl.com
+
+Para scripts
+http://www.cgi-resources.com
+http://www.freecode.com
+http://www.scriptsearch.com
+
+Sou moderador de uma lista sobre PERL, la vc tb sempre
+achara bons profissionais, se quiser entrar va em
+http://www.mrmultimidia.com/perl/
+
+Espero ter  ajudado,
+
+Renato Lira
+
+
+				ALIAS NO XTERM
+
+Como eu faco mesmo para alias no meu ~/.bash_profile [redhat 5.2]
+"funcionarem"
+> com os terminais do X (xterm, aterm, e cia)?
+
+  Duas opções :
+
+  1 - ative o terminal ( xterm, aterm, ... ) com a opção '-ls'.  Esta
+      opção transaforma aquela "shell" em um "login shell", ou seja,
+      executa o '/etc/profile' e os outros "scripts" envolvidos na
+      configuração do ambiente do usuário.
+
+  2 - crie, e exporte, uma variável "ENV" apontando para o seu "script" :
+
+      export ENV=$HOME/.bash_profile
+
+      desta forma o "script" será executado a cada vez que você abrir uma
+      nova "shell", o que inclui um novo terminal.
+
+  Roxo
+
+			
+				CAPTURANDO TELAS
+
+Utilize o import, do pacote ImageMagick.
+
+Abra um Xterm, e digite:
+
+# sleep 5; import ~/screenshot.jpg
+
+Após, minimize o xterm (ou esconda). Em 5 segundos, o mouse mudará para
+uma cruz. Utilize-a para marcar o tamanho do screenshot (normalmente
+a tela inteira).
+
+Você pode mudar a extensão para .gif, .bmp, e outros.
+Eliphas Levy
+
+					ACENTUAÇÃO NO STAR OFFICE
+
+> MAS, no X eu resolvi usar a libX11 do Tomas Quinot, aquela alterada. Eu
+> instalei, tudo certinho, mas o Cedilha nao sai nem a purrete...
+> O q vc me aconselham? Tem alguma coisa q eu possa fazer pra o cedilha aparecer
+> ou vou ter de usar algum dos outros metodos?
+
+Verifique se no arquivo /usr/X11R6/lib/X11/locale/iso8859-1/Compose
+existem as linhas:
+
+<dead_acute> <C>                        : "\307"        Ccedilla
+<dead_acute> <c>                        : "\347"        ccedilla
+Se nao, experimente acrescentar.
+Ricardo Yassuo Igarashi
+E-mail: iga@that.com.br
+
+
+					CMI 8330
+
+Quem tem placa de som on-board com o chipset CMI8330 e estah
+com problemas, saiba que na Documentacao do kernel 2.2.x jah
+estah vindo um paper com a solucao:
+
+        /usr/src/linux/Documentation/sound/CMI8330
+
+Lah eh ensinado o que eh preciso fazer para configurar esta
+placa...
+
+E quem nao usa o kernel 2.2.x? Bem, neste caso, eh preciso
+pegar o novo kernel (o que nao seria bom...) ou conseguir
+o arquivo com algum amigo...
+[]'s, Mauro Cleffs Figueiredo
+cleffs@pobox.com
+
+				DESCOMPACTAR ARQUIVOS .DEB (DEBIAN)
+
+> Estou precisando descompactar um arquivo com Terminação .deb que vem no
+> LInux da Debian. Mas uso o RedHat, como devo proceder para tal?
+        Bem, voce quer descompactar o arquivo mesmo ou instalar? Bem,
+disse "descompactar", vou acatar "descompactar".
+        Primeiro, vamos ver o que o sistema tem a dizer a respeito de um
+arquivo .deb:
+
+[rbp@glitch ~]$ file arquivo.deb 
+arquivo.deb: current ar archive
+[rbp@glitch ~]$ 
+
+        "ar archive"? Meu Linux eh gago? ;)
+        Nao (ou nao por causa disso, pelo menos). Os arquivos .deb sao, na
+verdade, arquivos do tipo 'ar'. Lembra do tar? O "ar" eh um programa do
+genero. Segundo a manpage (cuja leitura recomendo: man ar):
+        ar - create, modify, and extract from archives.
+
+        Bem, tah bom. E aih?
+        Simples:
+
+[rbp@glitch ~]$ ls -l
+total 52
+-rw-r--r--   1 rbp      rbp         51420 Apr  4 12:52 arquivo.deb
+[rbp@glitch ~]$ ar x arquivo.deb 
+[rbp@glitch ~]$ ls -l
+total 105
+-rw-r--r--   1 rbp      rbp         51420 Apr  4 12:52 arquivo.deb
+-rw-r--r--   1 rbp      rbp           722 Apr  4 13:03 control.tar.gz
+-rw-r--r--   1 rbp      rbp         50505 Apr  4 13:03 data.tar.gz
+-rw-r--r--   1 rbp      rbp             4 Apr  4 13:03 debian-binary
+[rbp@glitch ~]$ 
+
+        Ou seja, se voce faz "ar x arquivo.deb", o arquivo arquivo.deb eh
+"desempacotado" em mais 3 arquivos (este eh o formato geral de .debs):
+        debian-binary: soh tem a versao do Debian pra que foi compilado e
+empacotado este arquivo
+        control.tar.gz: tem o hash dos arquivos (man md5sum) e um arquivo
+chamado 'control', que tem as informacoes que voce ve quando faz "dpkg -I
+arquivo.dev", como versao, dependencias, descricao etc.
+        data.tar.gz: finalmente, os arquivos a serem instalados.
+ Rodrigo Bernardo Pimentel          <rbp@pobox.com>|  PGP RSA KeyID:
+
+
+				LISTA DE MYSQL NO BRASIL
+        Fernando Ulisses dos Santos <ferulisses@linkway.com.br>
+
+a quem possa interessar, acabei de criar uma lista sobre mysql
+o endereço para inscrição é:
+mysql-br-request@listas.linkway.com.br
+no corpo da mensagem escreva:
+
+subscribe   mysql-br   seu@email.com.br
+
+tb acabei de enviar um e-mail para os mantedores da página do MySQL
+para cadastrar a lista na página deles, espero reforçar a presença da
+comunidade Linux brasileira perante o mundo
+Fernando Ulisses dos Santos
+Linkway ISP Network/Linux Admin
+
+
+				ALTERANDO AS MODELINE
+
+Resolvi o seu(nosso, eu tb tava assim) problema :)
+O problema é que o seu monitor (ou o proprio X, nao sei) nao está aceitando
+a configuração que o XFSetup (ou qualquer outro configurador) faz pra você
+Voce vai ter que editar NA UNHA o XF86Config no /etc/X11 e achar a linha
+seguinte:
+
+ModeLine "800x600"     36     800  824  896 1024   600  601  603  625
+
+Se não tiver, sinta-se a vontade para adicioná-la. Agora, é apenas um truque
+simples. Baixe 36 para 35 na linha acima, salve e rode o X. Deve funcionar
+sem problemas (como funcionou comigo)
+Obs: Claro, lembre-se de setar a resolucao minima novamente para 800x600 :)
+Espero que tenha ajudado.
+        Jokka
+
+				COREL DRAW FOR LINUX
+
+Pegue o Corel Draw 3.5 para Linux em
+ftp://ftp.hack.com.br/pub/linux/corel-3.5-rpm/corel-3.5.rpm
+se não conseguir tem um link na seção de download da ano2001 ->
+http://ano2001.sti.com.br
+
+Dúvidas nas instalação... email-me
+
+
+				SOUND PRO 3D ONBOARD
+
+Eu configurei a semana passada, e não ficou bom. O som ficou muito
+baixinho.
+Usei as dicas do Humberto Baltazar Moraes sobre o link:
+
+http://home.gelrevision.nl/~h.wolter/CMI8330_0.05.txt
+Inclusive compilando e rodando o "hack" criado pelo Luis T.S.Mendes.
+Sem esse "hack" a minha placa não falou. Com ele, falou baixinho...
+
+Toquei CDs, .wav, e .au. Tudo baixinho e ruidoso... :-(.
+Pensei em pegar caixinhas amplificadas para ver se o som 
+amplificado também tem ruídos...
+
+Por coincidência (ou não ;-)) os dados de IRQ, etc. da minha placa,
+que peguei via Windows, são idênticos aos do HOWTO do link acima.
+
+Veja também o mail do Mauro Cleffs Figueiredo, de domingo (4/abril),
+mandando ver o diretório /usr/src/linux/Documentation/sound/CMI8330
+para quem tem kernel 2.2.#. Não tentei com o que tem lá ;-),
+faço depois...
+
+Boa sorte, e conte para nós o que aconteceu com você...
+Wilson
+
+				COMO MATAR O NETSCAPE
+
+Utilize -9 como signal no top.
+
+Ou "killall -9 netscape-communicator" também resolve.
+ELIPHAS
+------------
+Milton Fabiano Wolff wrote:
+
+> megas da minha memória ram....digito "k" o top pergunta um PID pra matar,
+> coloco o pid do netscape e ele me pergunta um tal de signal em que aparece
+> um numero default entre [], aperto enter e não consigo matar o netscape.
+> Após essas tentativas fracassadas eu reboot meu computador para arrumar a
+> bagunça do netscape.
+
+Esse número padrão é o do sinal a ser enviado. Normalmente é o 15, o SIGTERM,
+que notifica os programas que sua finalização foi requisitada.
+
+No entanto, esse sinal é bloqueável pelo programa, normalmente para que ele
+possa fazer uma limpeza na sua bagunça. O Netscape deve ter algum bug que o
+coloca em um estado em que a função de bloqueio do SIGTERM não consegue
+finalizá-lo.
+
+Nesses casos e em outros de programas mal-comportados, existem outros sinais
+para terminar um programa. Em especial, o SIGKILL (9), que não pode ser
+bloqueado e SEMPRE termina um programa (A não ser em casos especiais como um
+programa travado em modo D -- disk sleep -- ou um zumbi ou outra rara
+anomalia).
+
+Só por curiosidade, existe um outro sinal que indica término, o SIGQUIT (2).
+Esse sinal normalmente não é enviado a programas através de kill, mas é enviado
+pelo terminal. Como o Ctrl+Z diz para paralizar (SIGTSTP -- Terminal SToP), o
+SIGQUIT é enviado depois de um Ctrl+\.
+
+Mais informações, man signal, man kill, man raise, apropos signal, etc.
+
+PS: outro sinal não bloqueável é o SIGILL (ILLegal instruction).
+ Thiago Macieira - UFOT Registry number: 1001
+ *thiagom@iname.com* talha@geocities.com
+
+
+				PROTECAO CONTRA LINUX SINGLE
+
+Se é pra proteger, lembra entao de colocar pra nunca dar boot por
+disquete (se puder, desconecta ele, vc nao usa mesmo depois de
+instalado) e coloca senha na bios pra o espertinho nao mudar isso tb....
+senao ele da doot com um linux em disquete, monta o hd e babau :)
+
+ha... aparafusa bem o cmp pra ele nao tirar o hd ou colocar um outro pra
+dar boot. 
+
+heheh... tranca a porta, esconde o cmp num cofre so com um buraquinho
+pra sair os fios (essa é boa :)
+Marcelo Fartura
+
+				SAMBA HOWTOS
+
+O programa é o SAMBA. Tem um HOWTO chamado SMB HOWTO em
+http://ldp.conectiva.com.br/ e dois artigos em
+http://www.linuxworld.com/
+
+
+				SCRIPT PARA VARIOS WMANAGER
+
+oce pode fazer um script para iniciar o ambiente gráfico que quiser 
+através do startx.
+
+Exemplo de script:
+
+-----------------------------------------
+echo
+echo
+echo "                        Xmanager"
+echo
+echo "                   WindowMaker   ---> 1"
+echo "                   Afterstep     ---> 2"
+echo "                   FVWM          ---> 3"
+echo "                   FVWM95        ---> 4"
+echo "                   KDE           ---> 5"
+echo "                   Enlightenment ---> 6"
+echo "                   XFCE          ---> 7"
+echo "                   RedHat        ---> 8"
+echo "                   ICEWM         ---> 9"
+echo "                   BlackBox      ---> 10"
+echo "                   qvwm          ---> 11"
+echo "                   mlvwm         ---> 12"
+echo "                   wm2           ---> 13"
+echo "                   scwm          ---> 14"
+echo "                   ctwm          ---> 15"
+echo "                   Nenhum        ---> 16"
+read Xmanager
+case $Xmanager in
+1) cp ~/.xinitrc-WM $HOME/.xinitrc ; startx -- -bpp 32 ;;
+2) cp ~/.xinitrc-af $HOME/.xinitrc ; startx -- -bpp 32 ;;
+3) cp ~/.xinitrc-fvwm2 $HOME/.xinitrc ; startx -- -bpp 32 ;;
+4) cp ~/.xinitrc-fvwm95 $HOME/.xinitrc ; startx -- -bpp 32 ;;
+5) cp ~/.xinitrc-kde $HOME/.xinitrc ; startx -- -bpp 32 ;;
+6) cp ~/.xinitrc-e $HOME/.xinitrc ; startx -- -bpp 32 ;;
+7) cp ~/.xinitrc-xfce $HOME/.xinitrc ; startx -- -bpp 32 ;;
+8) rm -rf $HOME/.xinitrc ; startx -- -bpp 32 ;;
+9) cp ~/.xinitrc-icewm $HOME/.xinitrc ; startx -- -bpp 32 ;;
+10) cp ~/.xinitrc-blackbox $HOME/.xinitrc ; startx -- -bpp 32 ;;
+11) cp ~/.xinitrc-qvwm $HOME/.xinitrc ; startx -- -bpp 32 ;;
+12) cp ~/.xinitrc-mlvwm $HOME/.xinitrc ; startx -- -bpp 32 ;;
+13) cp ~/.xinitrc-wm2 $HOME/.xinitrc ; startx -- -bpp 32 ;;
+14) cp ~/.xinitrc-scwm $HOME/.xinitrc ; startx -- -bpp 32 ;;
+15) cp ~/.xinitrc-ctwm $HOME/.xinitrc ; startx -- -bpp 32 ;;
+16) break
+esac
+--------------------------------------------
+
+Com um editor de texto crie os arquivos para cada window manager e coloque
+no diretório do usuário. Por exemplo, olhe o meu arquivo .xinitrc-WM que
+utilizo para chamar o Window Maker:
+
+--------------------------------------------
+xmodmap -e 'keycode 22 = BackSpace'
+exec wmaker
+--------------------------------------------
+
+O meu script se chama simplesmente "x". Digito x e depois o número
+relativo ao window manager que quero naquele momento. Não se esqueça
+de mudar as permissões do "x" para que ele seja executável: "chmod 755 x"
+Coloque o arquivo x, atenção não se trata do "X-Files", num diretório da
+sua path e manda bala. 
+
+Certifique-se de que o número de cores que estou utilizando é aceito pela
+sua placa de vídeo. Se não for mude o "-bpp 32" para 16, 24  ou o valor
+que for compatível com o seu equipamento.
+                      Heber Maia
+                    heber@magic.fr
+              http://perso.magic.fr/heber
+
+
+				PARTICOES /, /HOME E /SWAP
+
+Eu costumo separar as particoes (/usr. /var, /home e swap) por uma
+questao bem simples... um problema em uma dessas particoes nao afeta todo
+o resto do sistema...
+
+        No caso do /var, se algum programa gerar logs gigantes ou te
+mandarem um mailbomb, o sistema nao trava... (soh alguns servicos :)
+
+        O /home deixa voce mais livre pra fazer upgrades radicais (como
+troca de distribuicoes) sem perder tudo... afinal, sistema de arquivos
+ext2 eh igual em todos ;)
+
+        O / eu deixo bem pequeno pra evitar que um crash corrompa muita
+coisa nessa particao...
+
+        O /usr, eh basicamente pra nao entupir o / :)
+
+        Isso eh minha opniao... se alguem tem algum outro motivo (ou um
+bom argumento pra dizer que eu to errado ;) por favor... manda!
+
+        Batata
+Rogerio Neves Batata (batata@fisica.ufpr.br)
+		
+
+			CARREGANDO FAT 32 COMO MODULO
+
+Bom caso vc nao acesse o sistema de arquivos em FAT 32, pode ser pq o
+modulo nao esteje carregado, para carrega-lo, digite modprobe vfat
+a partir dai para montar o sistema em FAT32 digite
+mount -t vfat /dev/hdXY /mnt/vfat
+onde X, se sua HD, por exemplo for primaria master sera "a", se for
+primaria slave "b" secundaria master "c" e a ultima "d" e Y eh o numero da
+particao, que vc pode descobri-la usando o comando fdisk + p
+
+PS: Isso no Linux Marumbi ou Guarani, ou slack 3.4 ou +
+		
+
+				HOWTOS DE LINUX
+
+http://metalab.unc.edu/pub/Linux/docs/HOWTO/
+        No seu caso:
+       
+        http://metalab.unc.edu/pub/Linux/docs/HOWTO/mini/ZIP-Drive
+Tem um espelho bom na USP: http://linusp.usp.br
+Lá dentro você procura por Documentação, entra no espelho oficial da
+documentação Linux (Linux Documentation Project) e encontra, em
+formato HTML, texto, PostScript, DVI, dois HOWTOs (na verdade,
+mini-HOWTOs):
+
+ZIP Install Mini-HOWTO
+ZIP Dirve Mini-HOWTO
+
+e é muito melhor que eu ou alguém te passar informação errônea.
+
+Abraços
+
+Wilson
+
+				MANUAIS DE PERL
+
+ http://reference.perl.com/
+
+ou
+
+  http://www.perlbr.com.br/treinamentos.htm
+---------------
+De uma olhada tb em http://www.mrmultimidia.com/perl/
+
+Renato Lira
+===================================================
+http://www.mrmultimidia.com
+GRATIS - Cadastre seu Site em 40 sistemas de buscas
+===================================================
+http://www.mrmultimidia.com/perl/ - A melhor e mais
+movimentada lista sobre PERL no Brasil
+
+
+				REDIMENSIONAR JANELAS NO WMAKER
+
+Na parte de baixo da janela fica a barra de tamanho. Experimente também
+
+ALT+botão direito do mouse em qualquer parte da janela, mesmo no meio :)
+ELYPHAS
+----------
+Na parte inferior da janela existe a barra de redimensionamento. Esta
+barra tem tres divisoes, para dimensionar verticalmente, clique no meio
+da barra, para dimensionar horizontalmente clique em um dos cantos da
+barra.
+-- 
+Fabio Henrique
+-------------
+Maximizar/restaurar:
+
+Pressione CTRL+SHIFT e de um clique duplo no titulo da janela.
+				-----------------
+				CRIAR ICONES NO LINUX
+
+Voce pode criar usando o Gimp e dai mudando o seu tamanho quando acabar para
+32x32 ou 16x16 para "mini" icones. Dai quando for salvar escolha o formato XPM
+que ha disponivel no mesmo
+
+          []'s Renato
+
+
+				LIGANDO DOIS MICROS COM UMA FAX/MODEM
+Configuração da Rede
+Dae Pessoal....
+É o seguinte, tenho aqui em casa duas maquinas que compartilham a internet
+com o mesmo modem (USRobtics 56.6K) atraves do wingate. So que como eu tenho
+o linux na maquina que tem o modem e acho muito mais rapido o acesso a
+internet gostaria de fazer no linux alguma coisa parecida com o wingate,
+alem e claro de configurar o SAMBA, resumindo colocar o linux em rede com o
+windows,  gostaria de saber de vc onde eu acho algo sobre esse assunto.
+
+Tenho o Conectiva Guarani 3.0 que veio com a CDExpert e naum tenho os
+manuais....
+
+				ARQUIVO GZIP CORROMPIDO?
+> Gostaria de saber se tem algum meio de saber se um arquivo tar.gz esta
+> corrompido.
+
+Da página de manual do gzip, descobre-se que ele tem a opção -t para
+testar:
+
+gzip -t arquivo.tar.gz
+
+Se estiver ok, ele irá dizer na tela.
+
+O mesmo vale para o bzip2.
+ Thiago Macieira - UFOT Registry number: 1001
+ *thiagom@iname.com* talha@geocities.com
+
+
+				USO DAS PARTICOES NO LINUX
+
+Depende do padrão de utilização de disco de sua máquina, ou seja, varia de
+máquina para máquina. Você deve dimensionar o /usr de acordo com o número
+de pacotes que for instalar, o /tmp (se você dedicar uma partição para
+ele) de acordo com o número e tamanho de arquivos temporários "rápidos"
+(pense sobre alocação de memória para um ramdisk para o /tmp, a
+literatura geralmente não aconselha mas seria interessante se alguém
+fizesse alguns testes em determinadas situações), o /var/tmp de acordo com
+o número e tamanho de arquivos temporários mais "permanentes", que
+geralmente são maiores que os arquivos temporários armazenados no /tmp, o
+/var/spool/mail (se dedicar uma partição para o mesmo) de acordo com o
+número e perfil dos usuários que recebem correio eletrônico, etc. De uma
+maneira geral, para estações de trabalho não faz "muito" sentido criar
+várias partições, mas para servidores isto pode ser essencial, pois, por
+exemplo, o /usr deveria ser sempre montado como "read-only", devendo ser
+"remontado" com mount -o remount,rw /usr somente quando novos pacotes
+forem instalados ou pacotes existentes estiverem sendo atualizados, pois
+com isto você poderia compartilhar _todo_ o /usr entre várias máquinas,
+poupando espaço em disco e mantendo uma consistência de aplicações entre
+um grupo de servidores ou mesmo de estações de trabalho. 
+
+Como podem ver o particionamento pode ser algo como "black magic",
+dependendo _muito_ da experiência do administrador para avaliar as reais
+necessidades das máquinas sob sua responsabilidade. Se pensarmos em boot
+remoto veremos que todas estas considerações são muito importantes na
+consistência das aplicações disponibilizadas para os usuários de sua rede,
+o que facilitará muito a resolução de problemas dada a uniformidade das
+aplicações disponibilizadas.
+
+Outras considerações como performance melhorada com o uso de discos mais
+rápidos alocados para partições mais utilizadas podem ser obtidas com um
+particionamento adequado de seus discos.
+
+Bom, vou parar por aqui pois o Partition-HOWTO tem mais informações e é
+leitura recomendada para os interessados em extrair ainda mais performance
+de suas máquinas! :) 
+        - Arnaldo
+PS.: vejam as aspas! :)
+
+
+				ISPELL PORTUGUÊS
+
+>       Alguem por aqui sabe informar se existe um dicionario para Ispell
+> para a lingua portuguesa? Onde encontrar? Uma vez me falaram que tinha em
+> algum lugar na USP, mas nao encontrei referencia ao mesmo nos ftps e wwws
+> de la.
+        Se voce usa Debian, o dicionario estah incluso no ispell (3.1.20).
+        De qualquer forma, a URL: http://www.ime.usp.br/~ueda/br.ispell/
+ Rodrigo Bernardo Pimentel          <rbp@pobox.com>
+ Ops, disse num e-mail anterior que o dicionario estah disponivel
+na Debian no ispell. Erro. O pacote se chama "ibrazilian":
+http://www.debian.org/Packages/stable/text/ibrazilian.html
+
+
+				CRIANDO UM ARQUIVO NOVO (ZERADO)
+
+>  Como zero o wtmp?? (criar um arquivo novo)
+
+  #mv wtmp wtmp.old
+  #touch wtmp
+
+				SCREENSHOT COM O IMAGE MAGIC
+
+ara gravar screenshots eu costumo usar o Image Magick. Ele permite tirar um screenshot de todo o conteúdo da
+tela, de uma janela ou de uma parte selecionada na tela. No programa, clique em "Grab", indique o tempo, em
+segundos, que ele deverá esperar para tirar a foto (assim você terá tempo para arrumar a tela...). Quando o
+cursor mudar de aparência você clica na janela cuja screenshot deseja tirar, na área de trabalho para
+fotografar tudo ou seleciona a área desejada. Depois, você pode trabalhar e gravar a imagem em um dos muitos
+formatos disponíveis. É um excelente programa e está disponível em qualquer distribuição Debian.
+ 
+Elias Praciano
+
+				NUM LOCK ATIVADO DE INICIO
+
+ Queria saber como que faço para o Num Lock sempre iniciar ligado!
+
+Pesquisa na Linux Tips HOWTO (http://ldp.conectiva.com.br/) ou na Linux
+Gazette (http://www.linuxgazette.com/). Esta pergunta já é clássica e
+está respondida...
+César A. K. Grossmann
+
+
+				ATUALIZAÇÃO DE BIBLIOTECAS
+
+> Baixeis os fontes do WindowMaker e as bibliotecas que ele pediu (libPropList
+> ou alguma_coisa_parecida), compilei e instalei o WindowMaker da seguinte
+> forma:
+> 
+> $./configure        ------------> normal sem problema
+
+<corta>
+ 
+> Wmaker: error in loading shared libraries
+> libwraster.so.1: cannot open shared object file: No such file or directory.
+
+> Acho que deve estar faltando alguma outra biblioteca ou acertar algum PATH
+> ou variavel de ambiente.
+
+> Alguem ja teve este problema, sabe o que pode ser ?
+
+Não e sim ;)
+
+Inclua /usr/local/lib (verifique se foi aqui mesmo que o wmaker instalou
+as bibliotecas) no arquivo /etc/ld.so.conf. Após rode ldconfig novamente.
+
+
+				LOCALIZAÇÃO DE BIBLIOTECAS
+
+Vai ai uma correcao a esta minha mensagem.
+Eu disse para colocar o opcao '--prefix=/usr', mas isso depende de onde
+esta a versao antiga do Gtk e da Glib. Eu utilizo a distribuicao
+Slackware e nela o diretorio correto para instalacao e o /usr/local,
+portanto, antes de instalar uma nova versao do Gtk, verifique onde esta
+a versao antiga e informe este diretorio usando a opcao
+'--prefix=diretorio' quando for rodar o ./configure.
+Para verificar qual o diretorio correto, execute o comando: ldconfig -v
+Fabio Henrique
+
+
+				ISPELL PORTUGUES
+
+>     Alguem por aqui sabe informar se existe um dicionario para Ispell
+> para a lingua portuguesa? Onde encontrar? Uma vez me falaram que tinha em
+> algum lugar na USP, mas nao encontrei referencia ao mesmo nos ftps e wwws
+> de la.
+------
+O SuSE linux vem com o dicionario brazilian_portuguese para o 
+Ispell....
+Guiga
+
+				FAR DO WINDOW MAKER
+
+    Tenho visto muita gente colocando mensagem sobre dúvidas com o Window
+Maker, aí vai uma hp legal, é uma espécie de manual do WM poderá tirar
+muitas
+dúvidas. http://www.dpo.uab.edu/~grapeape/wmfaq.html
+				
+				MONTAR ZIP DRIVE
+
+
+Experimente montar o zip com a opção vfat de sistema de arquivos (mount -t
+vfat /dev/sda4 /mnt/zip por exemplo).
+
+				
+			AUMENTANDO ESPAÇO EM PARTIÇÃO
+
+    Como no AIX não, porém vc pode criar outra partição maior no seu HD que
+tem espaço livre e criar um link entre a sua antiga /usr e a nova /usr no hd
+com mais espaço.
+[], Marcelo Fartura
+
+				MUDANDO A SENHA DO ROOT
+
+Extendendo a dica proposta...
+E' possivel desabilitar esse comportamento no LILO. Nesse caso de boot
+pelo diskette, monte o root do hd em outro ponto:
+mount -t ext2 /dev/hda1 /mnt
+
+Agora voce pode editar o arquivo em: /mnt/etc/passwd
+			
+				USO DO SUDO
+ aqui na lista poderia me explicar como fica 
+> 
+> um /etc/sudoers bem configurado ??
+> 
+> Exe: Hoje em dia num servidor que cuido tem um
+> script para adicionar usuários, mas só o Root tem
+> pode de execução, tive que compartilhar a senha 
+> com mais duas pessoas (perigo a vista).
+> 
+> Como fazer para que por exemplo o user J pudesse
+> executar o script (adicionando o usuário) ?
+> 
+  Primeiro passo, apenas use o comando 'visudo' para editar o 'sudoers'.
+
+  Para este caso o arquivo poderia conter :
+
+j       ALL = /path/completo/para/o/script
+
+  Isto permitiria o usuário "j" executar o "script" como root.
+  Roxo
+
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

@@ -1,0 +1,2514 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+<TITLE>Volume 1 - Instalação do Linux </TITLE>
+</HEAD>
+<BODY LINK="#0000ff">
+
+<B><FONT SIZE=5><P ALIGN="CENTER">MANUAL DE LINUX – VOLUME 1</P>
+<P ALIGN="CENTER">INTRODU&Ccedil;&Atilde;O E INSTALA&Ccedil;&Atilde;O DO LINUX</P>
+</B></FONT><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&Iacute;NDICE&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;      P&Aacute;GINAS</P>
+<P>&nbsp;</P>
+<P>1 – INTRODU&Ccedil;&Atilde;O&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;02</P>
+<P>1.1 – Apresenta&ccedil;&atilde;o&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;02</P>
+<P>1.2 – O que &eacute; o Linux?&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;03</P>
+<P>1.3 – Um pouco da hist&oacute;ria do Linux&#9;.&#9;.&#9;.&#9;.&#9;.&#9;04</P>
+<P>1.4 – Caracter&iacute;sticas do Linux&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;05</P>
+<P>1.5 – Distribui&ccedil;&otilde;es&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;07</P>
+<P>2 – INSTALA&Ccedil;&Atilde;O&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;10</P>
+<P>2.1 – Requisitos&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;10</P>
+<P>2.2 - Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux      .       &#9;.&#9;.&#9;.&#9;11</P>
+<P>&#9;2.2.1 – Faxina no HD&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;12</P>
+<P>&#9;2.2.2 – Configura&ccedil;&atilde;o do Setup&#9;.&#9;.&#9;.&#9;.&#9;.&#9;12</P>
+<P>&#9;2.2.3 – Boot pelo MS-DOS&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;13</P>
+<P>&#9;2.2.4 – Boot pelo CD&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;13</P>
+<P>&#9;2.2.5 – Uso do FIPS&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;13</P>
+<P>&#9;2.2.6 – Uso do Fdisk do Linux&#9;.&#9;.&#9;.&#9;.&#9;.&#9;14</P>
+<P>3 - Instala&ccedil;&atilde;o Passo a Passo de Cinco Distribui&ccedil;&otilde;es&#9;.&#9;.&#9;.&#9;.&#9;15</P>
+<P>3.1 - Conectiva Marumbi     &#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;15</P>
+<P>3.2 - Red Hat 5.2 (Apolo)     &#9;.       .       .       .&#9;.&#9;.&#9;.&#9;25</P>
+<P>3.3 - Slackware 3.6   .       .       .&#9;.       .      .&#9;.&#9;.&#9;.&#9;30</P>
+<P>3.4 - SuSE 5.3        .       .       .       .       &#9;.&#9;.&#9;.&#9;.&#9;34</P>
+<P>3.5 - Debian 2.0      .       .       .&#9;.       .       .&#9;.&#9;.&#9;.&#9;38</P>
+<P>2.4 - Instala&ccedil;&atilde;o do KDE 1.1 no Slackware 3.6    .       .       &#9;.&#9;.&#9;.&#9;48</P>
+<P>2.5 - Instala&ccedil;&atilde;o do KDE 1.0 no Red Hat Marumbi  .       .       .&#9;.&#9;.&#9;48</P>
+<P>2.6 - Instala&ccedil;&atilde;o do Word Perfect 8         .       .       &#9;.&#9;.&#9;.&#9;.&#9;49</P>
+<P>2.7 - Desinstala&ccedil;&atilde;o do Word Perfect 8   .       .       .       .&#9;.&#9;.&#9;.&#9;50</P>
+<P>2.8 - Instala&ccedil;&atilde;o do AfterStep no Slackware 3.6  .       .       &#9;.&#9;.&#9;.&#9;50</P>
+<P>2.9 - Instala&ccedil;&atilde;o do Licq no Red Hat     .       .           &#9;.&#9;.&#9;.&#9;.&#9;50</P>
+<P>2.10- Instala&ccedil;&atilde;o do File Manager TKDesk no Red Hat      .       &#9;.&#9;.&#9;50</P>
+<P>3 – Editores de Texto do Linux&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;51</P>
+<P>4 – REFER&Ecirc;NCIAS&#9;&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;.&#9;55</P>
+<B><FONT SIZE=4><P>1 - INTRODU&Ccedil;&Atilde;O</P>
+</B></FONT><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>1.1 - APRESENTA&Ccedil;&Atilde;O</P>
+<P>&nbsp;</P>
+<P>Este manual &eacute; fruto do trabalho em conjunto com um grande n&uacute;mero de usu&aacute;rios do Linux. V&aacute;rios colegas das  listas Linux-br e Linuxabc e v&aacute;rias p&aacute;ginas sobre Linux colaboraram com este manual. </P>
+<P>&nbsp;</P>
+<P>Vou resistir &agrave; tenta&ccedil;&atilde;o de  citar alguns nomes para n&atilde;o correr o risco de ser injusto ao esquecer de citar algu&eacute;m.</P>
+<P>&nbsp;</P>
+<P>Ressalte-se que tivemos a devida autoriza&ccedil;&atilde;o de alguns colegas (donos de sites) para divulgar aqui suas dicas.</P>
+<P>&nbsp;</P>
+<P>O objetivo deste manual &eacute; tornar o Linux mais acess&iacute;vel para os iniciantes, simplificando, </P>
+<P>traduzindo (algumas vezes) e desmistificando o "SO dos experts". </P>
+<P>&nbsp;</P>
+<P>Caso algu&eacute;m ache aqui algo de sua autoria e n&atilde;o tenha sido citado como tal, entre em contato que fa&ccedil;o as devidas altera&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>Gostaria de receber cr&iacute;ticas e sugest&otilde;es, tanto t&eacute;cnicas quanto em rela&ccedil;&atilde;o &agrave; nossa l&iacute;ngua t&atilde;o rica quanto complexa.</P>
+<P>&nbsp;</P>
+<P>Quanto a direitos autorais, sinceramente n&atilde;o pensamos muito nisso. Quem quiser copiar, imprimir, usar e abusar esteja a vontade.</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;     Maicon Wendhausen (<A HREF="mailto:maicon@zaz.com.br">maicon@zaz.com.br</A>)</P>
+<P ALIGN="RIGHT">Ribamar F. Sousa (<A HREF="mailto:ribafs@fortalnet.com.br">ribafs@fortalnet.com.br</A>)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>     Thiago Correia(<A HREF="mailto:thiagoacorrea@sti.com.br">thiagoacorrea@sti.com.br)</A></P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>           &#9;&#9;&#9;&#9;&#9;&#9;      </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>     Maio de 1999</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>1.2 - O QUE &Eacute; LINUX?</P>
+</B></FONT><P>&nbsp;</P>
+<P>Rasteiramente Linux &eacute; um sistema operacional como o Unix, o Solaris, o OS/2, o MacOS e o Windows 98.</P>
+<P>&nbsp;</P>
+<P>&Eacute; uma reimplementa&ccedil;&atilde;o do padr&atilde;o POSIX, totalmente gratuita, com extens&otilde;es SYS V e BSD (o que significa que ele se parece com UNIX, mas n&atilde;o vem do mesmo c&oacute;digo-fonte), e est&aacute; dispon&iacute;vel tanto em forma de c&oacute;digo fonte quanto em formato <B><I>bin&aacute;rio</B> (compilado)</I>.</P>
+<P>&nbsp;</P>
+<P>Os direitos autorais pertencem a <B>Linus Torvalds</B> &lt;torvalds@transmeta.com&gt; e outros colaboradores e pode ser livremente distribu&iacute;do sob os termos da GNU General Public License (GPL). Uma c&oacute;pia da GPL &eacute; inclu&iacute;da junto ao c&oacute;digo-fonte, e tamb&eacute;m pode ser obtida atrav&eacute;s do endere&ccedil;o: &lt;ftp://prep.ai.mit.edu/pub/gnu/COPYING&gt;.</P>
+<P>&nbsp;</P>
+<P>O Linux, em si, &eacute; apenas o kernel (n&uacute;cleo) do sistema operacional, a parte que controla o hardware, gerencia arquivos, separa processos, etc. Existem diversas combina&ccedil;&otilde;es de Linux com v&aacute;rios utilit&aacute;rios e aplicativos de modo a formar um sistema operacional completo. Cada uma dessas combina&ccedil;&otilde;es &eacute; chamada de <B>distribui&ccedil;&atilde;o</B>.</P>
+<P>&nbsp;</P>
+<P>A palavra Linux, apesar de se referir especificamente ao kernel, tamb&eacute;m &eacute; larga e corretamente utilizada para referenciar todo o sistema operacional constru&iacute;do ao redor do kernel. Para obter uma lista e uma breve discuss&atilde;o sobre as distribui&ccedil;&otilde;es, consulte:  &lt;http://sunsite.unc.edu/LDP/HOWTO/Distribution-HOWTO.html&gt;. Nenhuma dessas distribui&ccedil;&otilde;es &eacute; "o Linux oficial".</P>
+<P>&nbsp;</P>
+<P>O Linux n&atilde;o &eacute; de dom&iacute;nio publico, n&atilde;o &eacute; "shareware". Ele &eacute; um "free" software, normalmente chamado de freeware ou Open Source Software[tm] (veja &lt;http://www.opensource.org&gt;), e voc&ecirc; pode distribuir ou vender copias, mas precisa incluir o c&oacute;digo-fonte ou torn&aacute;-lo dispon&iacute;vel, assim como os bin&aacute;rios que voc&ecirc; distribui ou vende.</P>
+<P>&nbsp;</P>
+<P>Linux &eacute; gratuito at&eacute; a vers&atilde;o 2.2, e continuar&aacute; sendo gratuito. Isso se deve a natureza da licen&ccedil;a GPL, seria ilegal n&atilde;o mant&ecirc;-lo gratuito. Nota: a parte "gratuito" (free), envolve acesso ao c&oacute;digo-fonte.</P>
+<P>&nbsp;</P>
+<P>Linux executa em computadores Intel compat&iacute;veis 386/486/Pentium, com barramento ISA, EISA, PCI, VLB e MCA (barramento propriet&aacute;rio da IBM), e em outros processadores como: Alpha da DEC, SPARCs da Sun e PowerPC (Incluindo o PowerMac, Motorola, IBM e Be), e suporte a outros est&atilde;o sendo desenvolvidos (MIPS e ARM).</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>1.3 - UM POUCO DA HIST&Oacute;RIA DO LINUX</P>
+</B></FONT><P>&nbsp;</P>
+<P>Desenvolvido pelo estudante universit&aacute;rio Linus Torvalds do Departamento de  Ci&ecirc;ncias da </P>
+<P>Computa&ccedil;&atilde;o da Universidade de Helsinki na Finl&acirc;ndia, com a ajuda de v&aacute;rios programadores via INTERNET. No dia 5 de outubro de 1991 ele anunciou a primeira vers&atilde;o oficial do Linux (Linus+Unix), a vers&atilde;o 0.02. Desde ent&atilde;o muitos outros programadores e empresas tem se unido para fazer do Linux o que ele &eacute; hoje. A &uacute;ltima vers&atilde;o do kernel (maio de 1999) &eacute; a 2.2.7. </P>
+<P>Originalmente desenvolvido para rodar em micros PC AT (386), mas hoje roda em v&aacute;rios outros ambientes.</P>
+<P>&nbsp;</P>
+<P>A primeira vers&atilde;o considerada est&aacute;vel do Linux foi lan&ccedil;ada no dia 14 de mar&ccedil;o de 1994. Ainda existem bugs no sistema, e novos bugs s&atilde;o encontrados e consertados com o tempo. Como o Linux segue o <B>modelo de desenvolvimento aberto </B>(<I>open development model</I>), todas as novas vers&otilde;es s&atilde;o liberadas ao p&uacute;blico, sendo ou n&atilde;o consideradas est&aacute;veis. No entanto, com o intuito de ajudar as pessoas a distinguir as vers&otilde;es est&aacute;veis das n&atilde;o est&aacute;veis, a seguinte conven&ccedil;&atilde;o foi adotada: Vers&otilde;es n.x.y, onde x for um n&uacute;mero par, a vers&atilde;o &eacute; est&aacute;vel, e apenas corre&ccedil;&otilde;es de erros ser&atilde;o aplicadas, conforme y &eacute; incrementado. Assim, da vers&atilde;o 1.2.2 para 1.2.3, apenas foram corrigidos bugs, e nenhuma caracter&iacute;stica nova foi implementada. Vers&otilde;es n.x.y, onde x &eacute; um n&uacute;mero &iacute;mpar, n&atilde;o s&atilde;o est&aacute;veis e s&atilde;o para beta testes, tendo caracter&iacute;sticas novas sendo acrescentadas todo o tempo.</P>
+<P>&nbsp;</P>
+<P>De tempos em tempos, conforme o atual desenvolvimento do kernel se estabiliza, ele &eacute; congelado como um kernel est&aacute;vel, e o desenvolvimento continua em uma nova vers&atilde;o do kernel. Note que muitas vers&otilde;es do kernel do Linux, beta ou n&atilde;o, s&atilde;o relativamente robustas; "est&aacute;vel" neste contexto significa "altera&ccedil;&atilde;o devagar" em adi&ccedil;&atilde;o a "robusta".</P>
+<P>&nbsp;</P>
+<P>O kernel atual &eacute; o 2.2.7 (e este ir&aacute; continuar a mudar conforme novos device drivers s&atilde;o adicionados e erros s&atilde;o corrigidos).</P>
+<P>&nbsp;</P>
+<P>Muitas vers&otilde;es do Linux, beta ou n&atilde;o, s&atilde;o bem robustas, e voc&ecirc; pode continuar a us&aacute;-las se elas atendem as suas necessidades e voc&ecirc; n&atilde;o quiser estar na ponta da tecnologia. Um site tinha um computador rodando Linux na vers&atilde;o 0.97p1 (datada do ver&atilde;o de 1992), rodando a 136 dias sem nenhum erro ou travar nenhuma vez. (Ele teria ido al&eacute;m se o operador n&atilde;o o tivesse desligado acidentalmente...). Outros t&ecirc;m reportado recordes que superam um ano. Um site ainda tinha um computador rodando Linux 0.99p15s por mais de 600 dias em seu &uacute;ltimo relat&oacute;rio.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>1.4 - CARACTER&Iacute;STICAS DO LINUX</P>
+</FONT><P>&nbsp;</P>
+</B><P>Ele &eacute; freeware (gratuito) e tem todo o seu c&oacute;digo fonte (incluindo o  kernel, drivers, bibliotecas, ferramentas de desenvolvimento entre outros) aberto para qualquer um. Ele inclui multitarefa verdadeira, multiusu&aacute;rio, multiprocessado, mem&oacute;ria virtual (swap), prote&ccedil;&atilde;o entre processos (crash protection), bibliotecas compartilhadas, carregamento por demanda, ger&ecirc;ncia  apropriada da mem&oacute;ria, redes TCP/IP, X Window System, nomes de arquivos com at&eacute; 256 caracteres entre outras. </P>
+<P>&nbsp;</P>
+<P>Hoje o Linux j&aacute; est&aacute; se internacionalizando, gra&ccedil;as aos esfor&ccedil;os de muitos programadores. A Conectiva no Brasil &eacute; um bom exemplo. Temos uma Distribui&ccedil;&atilde;o brasileira. Com suporte ao portugu&ecirc;s do Brasil em teclados e programas.</P>
+<P>&nbsp;</P>
+<P>Atualmente (in&iacute;cio de 1999) o Linux j&aacute; conta com o Word Perfect (processador de textos de </P>
+<P>primeira linha), com o Star Office (processador de textos, planilha eletr&ocirc;nica e outros) que s&atilde;o aplicativos de grande porte compat&iacute;veis com os da Microsoft (Word e Excel), entre outros.</P>
+<P>&nbsp;</P>
+<P>Dispon&iacute;vel para equipamentos Intel e compat&iacute;veis, Motorola 68K, Power PC, Digital Alpha, ARM, Sparc, Mips e sempre avan&ccedil;ando.</P>
+<P>&nbsp;</P>
+<P>Outras caracter&iacute;sticas interessantes do Linux: estabilidade, &oacute;tima performance, seguran&ccedil;a e uma multiplicidade de recursos.</P>
+<P>&nbsp;</P>
+<P>Multitasking: v&aacute;rias tarefas sendo executadas ao mesmo tempo.</P>
+<P>Multiusu&aacute;rio: diversos usu&aacute;rios utilizando a mesma m&aacute;quina ao mesmo tempo sem necessidade de adquirir licen&ccedil;as de uso!.</P>
+<P>Multiprocessamento: suporte a SMP dispon&iacute;vel para processadores Intel e SPARC. (utilizado no Fujitsu AP1000+, supercomputador baseado no SPARC).</P>
+<P>Multithreading: suporte nativo no kernel para m&uacute;ltiplas e independentes <B>thereads </B>de controle na mem&oacute;ria de um &uacute;nico processo.</P>
+<P>Executa em modo protegido em micros 386 ou superiores.</P>
+<P>Prote&ccedil;&atilde;o de mem&oacute;ria entre os processos: um programa mau comportado n&atilde;o pode derrubar todo o sistema.</P>
+<P>"demand loads executables": o Linux s&oacute; l&ecirc; do disco aquelas partes do programa que s&atilde;o realmente usadas.</P>
+<P>Shares copy-on-write pages: Isto significa que m&uacute;ltiplos processos podem usar a mesma mem&oacute;ria para executar, compartilhando p&aacute;ginas comuns. Quando um tenta gravar naquela p&aacute;gina (peda&ccedil;o de 4Kb de mem&oacute;ria) &eacute; copiada para outro lugar. O Copy-on-write tem dois benef&iacute;cios: aumenta a velocidade e diminuir o uso de mem&oacute;ria.</P>
+<P>Mem&oacute;ria virtual paginada: Como na mem&oacute;ria RAM, o kernel divide o espa&ccedil;o em disco reservado para mem&oacute;ria virtual em p&aacute;ginas e sabe exatamente o que deve mandar para esta e o que manter na mem&oacute;ria principal, evitando acessos desnecess&aacute;rio a mem&oacute;ria virtual, que torna a execu&ccedil;&atilde;o mais lenta.</P>
+<P>Mem&oacute;ria unificada para programas de usu&aacute;rios e cache de disco, fazendo com que toda a mem&oacute;ria livre seja usada para cache, sendo este reduzido conforme os programas necessitem de mem&oacute;ria.</P>
+<P>Bibliotecas Din&acirc;micas (DLL's) e Bibliotecas est&aacute;ticas tamb&eacute;m, &eacute; claro.</P>
+<P>Na maior parte compat&iacute;vel com POSIX, System V e BSD a n&iacute;vel de c&oacute;digo fonte.</P>
+<P>Atrav&eacute;s do iBCS2-compliant emulation module, em sua maioria compat&iacute;vel com outros UNIXes comerciais (Como SCO, SVR3, SVR4, etc.).</P>
+<P>Todo o c&oacute;digo fonte esta dispon&iacute;vel, inclusive o kernel completo e todos os drivers, as ferramentas de desenvolvimento e programas de usu&aacute;rios; tamb&eacute;m livremente distribu&iacute;dos. Programas comerciais est&atilde;o sendo providenciados para Linux sem o c&oacute;digo fonte, mas tudo o que &eacute; livre, incluindo o sistema operacional, continua livre.</P>
+<P>POSIX job control: Controle de processos segundo o padr&atilde;o POSIX.</P>
+<P>Pseudoterminais (pty's). </P>
+<P>387-emulation (emula&ccedil;&atilde;o de co-processador matem&aacute;tico) no kernel, assim, os programas n&atilde;o precisam fazer sua pr&oacute;pria emula&ccedil;&atilde;o. Cada computador com Linux comporta-se como se tivesse um coprocessador. Claro, se o seu computador j&aacute; tiver um coprocessador (FPU), ele ser&aacute; usado no lugar do emulador, e voc&ecirc; pode at&eacute; compilar seu pr&oacute;prio kernel com o emulador removido, para um pequeno ganho de mem&oacute;ria.</P>
+<P>Suporte a diversos teclados, e &eacute; bem f&aacute;cil acrescentar outros dinamicamente.</P>
+<P>M&uacute;ltiplos consoles virtuais: diversas e independentes sess&otilde;es de login atrav&eacute;s do console, que voc&ecirc; acessa pressionando uma combina&ccedil;&atilde;o de teclas (n&atilde;o dependente do hardware). Voc&ecirc; pode ter at&eacute; 64 consoles virtuais.</P>
+<P>Suporta diversos sistemas de arquivos, incluindo minix, Xenix, FAT-16, FAT-32, e &eacute; claro, t&ecirc;m seu pr&oacute;prio e avan&ccedil;ado sistema de arquivos que suporta at&eacute; 4 Terabytes de espa&ccedil;o, e nomes de at&eacute; 255 caracteres de comprimento.</P>
+<P>Acesso transparente a parti&ccedil;&otilde;es MS-DOS (ou parti&ccedil;&otilde;es OS/2 FAT) atrav&eacute;s de um sistema de arquivos especial.</P>
+<P>Sistema de arquivos especial chamado UMSDOS que permite que o Linux seja instalado em um sistema de arquivos DOS.</P>
+<P>TCP/IP nativo, incluindo FTP, telnet, NFS, etc.</P>
+<P>Acesso a Netware client e server</P>
+<P>Acesso a Lan Manager/Windows Native(SMB) client e server (rede Windows ponto a ponto).</P>
+<P>Diversos protocolos de rede, como IPv4, IPv6, AX.25, X.25, IPX, DDP, Netrom, e outros.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>1.5 - DISTRIBUI&Ccedil;&Otilde;ES</P>
+</B></FONT><P>&nbsp;</P>
+<P>Como o Linux tem seu c&oacute;digo fonte aberto a qualquer programador, ent&atilde;o apareceram in&uacute;meras colabora&ccedil;&otilde;es do sistema operacional. Indiv&iacute;duos e empresas passaram a adicionar suas contribui&ccedil;&otilde;es e ent&atilde;o surgiram as Distribui&ccedil;&otilde;es do Linux: cada uma com algumas caracter&iacute;sticas e utilidades extras. </P>
+<P>&nbsp;</P>
+<P>S&atilde;o empresas que pegaram o Linux e adicionaram algumas facilidades ou recursos (e com seu grupo de desenvolvedores), juntaram com aplicativos e utilit&aacute;rios desenvolvidos tamb&eacute;m por outras empresas e colocaram seus CDs &agrave; disposi&ccedil;&atilde;o dos interessados, juntamente com suporte, manuais, etc.</P>
+<P>&nbsp;</P>
+<P>As principais distribui&ccedil;&otilde;es s&atilde;o: Red Hat (a mais popular), Slackware, SuSE, Debian, Open Linux Caldera, LinuxWare e muitas outras. Temos a Conectiva Red Hat Linux, que j&aacute; ganhou autonomia como Distribui&ccedil;&atilde;o. Traduziu muita coisa do Red Hat, al&eacute;m de colocar tamb&eacute;m um manual de mais de 600 p&aacute;ginas todo em portugu&ecirc;s e suporte aos teclados brasileiros (com acentua&ccedil;&atilde;o e tudo mais).</P>
+<P>&nbsp;</P>
+<P>Muito se fala sobre qual a melhor e mais f&aacute;cil distribui&ccedil;&atilde;o. Mas aqui tamb&eacute;m gosto &eacute; relativo. Ent&atilde;o a minha sugest&atilde;o &eacute; de que comece com uma e experimente. </P>
+<P>&nbsp;</P>
+<P>Quando estiver com algum dom&iacute;nio e se quiser aprender mais, ent&atilde;o use outra distribui&ccedil;&atilde;o at&eacute; concluir qual a que mais gosta e se adapta &agrave;s suas necessidades.</P>
+<P>&nbsp;</P>
+<P>Est&aacute; sendo desenvolvida uma distribui&ccedil;&atilde;o baseada no Kde, voltada para o usu&aacute;rio leigo, ou seja com uso muito simples. &Eacute; a Easy Linux. Ela n&atilde;o &eacute; apenas para leigo, mas h&aacute; uma maior preocupa&ccedil;&atilde;o com esse usu&aacute;rio.</P>
+<P>&nbsp;</P>
+<P>A Corel tamb&eacute;m est&aacute; trabalhando numa distribui&ccedil;&atilde;o nesse sentido, baseada no Wine (win </P>
+<P>emulator), um emulador do Windows.</P>
+<P>&nbsp;</P>
+<P>Temos ainda pequenas distribui&ccedil;&otilde;es, como a Monkey Linux, que &eacute; uma distribui&ccedil;&atilde;o em 5 disquetes compactados que roda no DOS (ou reiniciando o Windows 95/98 em modo MS-DOS). N&atilde;o requer uma parti&ccedil;&atilde;o exclusiva para si. Para quem tem medo de particionar o HD e quer apenas experimentar, &eacute; uma sa&iacute;da. E outras distribui&ccedil;&otilde;es apenas em um disquete. Mas para quem quer mesmo aprender Linux eu recomendo que adquira um CD com todo o Linux, aplicativos, utilit&aacute;rios, jogos, etc. Nas listas de discuss&atilde;o n&atilde;o se encontra muita gente usando o Monkey (&eacute; raro um participante que use). Por outro lado temos distribui&ccedil;&otilde;es que vem com 5 CD (SuSE).</P>
+<P>&nbsp;</P>
+<P>Uma boa descri&ccedil;&atilde;o sobre as distribui&ccedil;&otilde;es ser&aacute; encontrada na p&aacute;gina do Linuxabc </P>
+<P>(http://www.linuxabc.he.com.br) e na p&aacute;gina do Felipe Russo (veja refer&ecirc;ncias).</P>
+<P>&nbsp;</P>
+<P>A distribui&ccedil;&atilde;o mais utilizada no Brasil e no mundo &eacute; a Red Hat. A Segunda mais usada no Brasil (e parece que no mundo) &eacute; a Slackware.</P>
+<P>Agora um texto muito esclarecedor de Fred Silva (ele tem uma p&aacute;gina muito boa exclusivamente sobre Slackware, veja nas refer&ecirc;ncias).</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>QUAL A MELHOR DISTRIBUI&Ccedil;&Atilde;O DO LINUX?</P>
+</B></FONT><P>&nbsp;</P>
+<P>Esta pergunta vive gerando debates nos canais de IRC, listas de discuss&atilde;o, newsgroups relativos ao linux, roda de amigos e em empresas. Mas a resposta mais coerente &eacute; um retumbante: DEPENDE :)</P>
+<P>&nbsp;</P>
+<P>Depende de que?</P>
+<P>&nbsp;</P>
+<P>De v&aacute;rios fatores. Nenhuma distribui&ccedil;&atilde;o &eacute; perfeita. De fato existem distribui&ccedil;&otilde;es para todos os gostos. Umas cabem num &uacute;nico disquete, outras mais sofisticadas, ocupam v&aacute;rios CDs. Mas o mais importante &eacute; que todas elas usam o kernel de Linus Torvalds, ou seja, o Linux em ess&ecirc;ncia.</P>
+<P>&nbsp;</P>
+<P>As grandes distribui&ccedil;&otilde;es mais conhecidas hoje em dia s&atilde;o: Red Hat, Slackware, Debian, SuSE, Turbo Linux e Caldera Open Linux.</P>
+<P>&nbsp;</P>
+<P>Sem d&uacute;vida nenhuma a distribui&ccedil;&atilde;o mais utilizada hoje em dia, em todo o mundo &eacute; a Red Hat. Seja a Red Hat propriamente dita, ou localiza&ccedil;&otilde;es tipo Conectiva Red Hat Guarani ou Linux Mandrake que &eacute; uma adapta&ccedil;&atilde;o do Red Hat mais o ambiente gr&aacute;fico KDE. Mas isso n&atilde;o significa que a Red Hat seja a melhor distribui&ccedil;&atilde;o. N&atilde;o existe uma melhor distribui&ccedil;&atilde;o, digamos que ela se adapta a maioria dos usu&aacute;rios.</P>
+<P>&nbsp;</P>
+<P>As distribui&ccedil;&otilde;es possuem os seus pr&oacute;s e contras. Somente os usu&aacute;rios analisando o maior n&uacute;mero de distribui&ccedil;&otilde;es ao seu alcance ter&atilde;o a defini&ccedil;&atilde;o da qual satisfaz de melhor forma as suas necessidades.</P>
+<P>&nbsp;</P>
+<P>O Slackware &eacute; a segunda distribui&ccedil;&atilde;o mais usada no Brasil e a terceira no mundo &eacute; uma das mais atualizadas e foi uma das primeiras distribui&ccedil;&otilde;es do Linux. </P>
+<P>&nbsp;</P>
+<P>Patrick Volkerding, o seu criador, segue como princ&iacute;pio de mante-la o mais simples e pr&aacute;tica poss&iacute;vel. </P>
+<P>&nbsp;</P>
+<P>O SuSE &eacute; uma das mais completas, seu instalador ocupa 5 CDs e possui os drivers para os </P>
+<P>hardwares mais avan&ccedil;ados.</P>
+<P>&nbsp;</P>
+<P>Debian &eacute; a das mais puristas de todas. Somente softwares Open Source fazem parte da distribui&ccedil;&atilde;o. </P>
+<P>&Eacute; a segunda mais usada no mundo. &Eacute; muito completa e voc&ecirc; pode escolher entre centenas de pacotes, o que deseja instalar. As op&ccedil;&otilde;es s&atilde;o as mais variadas.</P>
+<P>&nbsp;</P>
+<P>Turbo Linux &eacute; tamb&eacute;m mais uma excelente distribui&ccedil;&atilde;o. &Eacute; bastante usada no sudeste asi&aacute;tico por possuir suporte aos ideogramas do chin&ecirc;s e do japon&ecirc;s. Mas tamb&eacute;m &eacute; muito usada no ocidente.</P>
+<P>&nbsp;</P>
+<P>Caldera OpenLinux &eacute; uma distribui&ccedil;&atilde;o mais voltada ao mercado corporativo. Vem acompanhada com pacotes da Netscape e Novell.</P>
+<P>&nbsp;</P>
+<P>Red Hat, SuSE e Caldera OpenLinux s&atilde;o desenvolvidas por empresas, que buscam atualmente atender n&atilde;o somente aos usu&aacute;rios dom&eacute;sticos, mas tamb&eacute;m o mercado corporativo. J&aacute; que hoje em dia ningu&eacute;m tem mais d&uacute;vidas de que o Linux &eacute; uma op&ccedil;&atilde;o mais que vi&aacute;vel na esfera empresarial.</P>
+<P>Debian, Caldera, SuSE e Red Hat usam como gerenciador de pacotes o rpm. Mas isso n&atilde;o significa que voc&ecirc; possa instalar um rpm do SuSE no Red Hat, nem do Red Hat no Caldera. As distribui&ccedil;&otilde;es distribuem os pacotes no sistema de arquivos de forma despadronizada. Debian e Slackware aceitam qualquer rpm. O Slackware vem com um utilit&aacute;rio para convers&atilde;o de pacotes rpm para o padr&atilde;o tgz. O Debian tamb&eacute;m tem um padr&atilde;o pr&oacute;prio, o deb. Mas isso tende a mudar em breve, existe um esfor&ccedil;o em curso para a padroniza&ccedil;&atilde;o. Dizer que o Slackware n&atilde;o possui gerenciador de pacotes &eacute; opini&atilde;o muito discut&iacute;vel. Voc&ecirc; pode instalar e desinstalar rpms ou tgzs na maior praticidade, embora n&atilde;o tenha controle de integridade e depend&ecirc;ncia.</P>
+<P>&nbsp;</P>
+<P>Outra grande diferen&ccedil;a entre as distribui&ccedil;&otilde;es est&aacute; no que diz respeito a biblioteca C utilizada. A maioria das distribui&ccedil;&otilde;es est&aacute; migrando para a glibc2. </P>
+<P>&nbsp;</P>
+<P>Red Hat 5.x, Debian 2.x e SuSE 6.x usam a glibc2 (tamb&eacute;m conhecida como libc6). </P>
+<P>&nbsp;</P>
+<P>Enquanto Caldera e Slackware ainda s&atilde;o baseados na libc5. Embora o Slackware seja baseado na libc5, possui suporte completo a glibc2.</P>
+<P>&nbsp;</P>
+<P>Dizer que Red Hat &eacute; a mais apropriada para novatos e que Debian e Slackware s&atilde;o mais indicados para usu&aacute;rios mais experientes, n&atilde;o passa de mito! Cada uma tem suas peculiaridades, mas no geral, a curva de aprendizado &eacute; a mesma. O relacionamento do usu&aacute;rio com a sua distribui&ccedil;&atilde;o &eacute; um </P>
+<P>fator muito passional. </P>
+<P>&nbsp;</P>
+<P>Todo mundo tende a achar a distribui&ccedil;&atilde;o que usa a melhor do mundo. Por isso temos tantas </P>
+<P>discuss&otilde;es sobre o tema. </P>
+<P>&nbsp;</P>
+<P>Mas toda essa  "competi&ccedil;&atilde;o" entre as distribui&ccedil;&otilde;es no fundo &eacute; ben&eacute;fica, assim teremos as </P>
+<P>distribui&ccedil;&otilde;es procurando o m&aacute;ximo para atender a sua base de usu&aacute;rios.</P>
+<P>&nbsp;</P>
+<P>Assim, teste v&aacute;rias distribui&ccedil;&otilde;es e escolha a sua! Pedir a opini&atilde;o alheia, n&atilde;o vai ajudar muito :)</P>
+<P>&nbsp;</P>
+<P>Fred Silva - http://www.linuxstart/~fred/</P>
+<P>&nbsp;</P>
+<P> </P>
+<B><FONT SIZE=4><P>2 -     INSTALA&Ccedil;&Atilde;O</P>
+</B></FONT><P>&nbsp;</P>
+<P>Obs.: Os passos que se seguem para instala&ccedil;&atilde;o do Linux levaram em conta que os micros eram de uso apenas dom&eacute;stico, sem placa de rede, sem placa SCSI ou PCMCIA. Caso seu micro tenha alguma dessas voc&ecirc; deve ter em m&atilde;os detalhes sobre as mesmas para indicar durante a instala&ccedil;&atilde;o (n&atilde;o tem muita complica&ccedil;&atilde;o).</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.1 - REQUISITOS:</P>
+</B></FONT><P>&nbsp;</P>
+<P><A NAME="_Toc445960945">Configura&ccedil;&atilde;o M&iacute;nima</A></P>
+<P>&nbsp;</P>
+<P>A configura&ccedil;&atilde;o a seguir &eacute; provavelmente a menor poss&iacute;vel onde o Linux ir&aacute; rodar: 386SX/16, 1Mb RAM, drive de 1.44Mb ou 1.2Mb e qualquer placa de v&iacute;deo suportada. Isto deve permitir que voc&ecirc; d&ecirc; o boot no sistema e fazer testes de funcionamento. Qualquer computador superior deve rodar o Linux.</P>
+<P>&nbsp;</P>
+<P>Hoje o usual &eacute; no m&iacute;nimo uns 500MB de HD e 16MB de RAM. Ideal &eacute; 64 ou 128MB de RAM e 2 ou mais GB de HD. Caso ainda n&atilde;o possua um micro e queira compr&aacute;-lo para usar com o Linux &eacute; uma boa id&eacute;ia se informar que hardware se adapta melhor. Fuja dos winlike, winmodem, winprinter, etc.</P>
+<P>&nbsp;</P>
+<P>Uma boa &eacute; antes de entrar, participar por algum tempo de uma boa lista de discuss&atilde;o. Citaria aqui duas das quais participo: uma mais b&aacute;sica, linuxabc (basta ir em http://www.linuxabc.he.com.br e se cadastrar) e outra mais avan&ccedil;ada, linux-br (ir em http://bazar.conectiva.com.br/listas/linux-br/ e se cadastrar).</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.2 - CUIDADOS INICIAIS PARA A INSTALA&Ccedil;&Atilde;O DO LINUX</P>
+</B></FONT><P>Para instalar o Linux, caso voc&ecirc; tenha o CD da distribui&ccedil;&atilde;o boot&aacute;vel e tenha uma placa m&atilde;e com suporte a boot via CD, basta dar o boot com o CD no drive e ativar no Setup a op&ccedil;&atilde;o de boot por CD. Caso n&atilde;o tenha uma das op&ccedil;&otilde;es acima voc&ecirc; precisar&aacute; de um bootdisk e um rootdisk.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>Bootdisk</B></FONT>Para criar o Bootdisk voc&ecirc; ter&aacute; que ter em m&atilde;os um disquete no formato de 1.44 ou 1.2 Mb formatado e limpo ap&oacute;s isso ter&aacute; que verificar qual o padr&atilde;ode barramento onde est&aacute; localizado os discos de instala&ccedil;&atilde;o.</P>
+<P>Bare.i -&gt; &eacute; o arquivo utilizado para o Bootdisk se voc&ecirc; tiver utilizando o </P>
+<P>padr&atilde;o IDE com (569kb)</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>Sbpcd.i</B></FONT> - &gt; &eacute; o arquivo utilizado para o Cdrom Matsushita 2x da creative. </P>
+<P>(548kb)</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>Scsi.s</B></FONT> - &gt; &eacute; o arquivo utilizado para padr&atilde;o SCSI (772kb)</P>
+<P>Maiores informa&ccedil;&otilde;es ler o arquivo Readme no diret&oacute;rio Bootdisk de seu CD</P>
+<P>Para criar os disco voc&ecirc; ter&aacute; que utilizar tamb&eacute;m o arquivo RAWRITE.EXE</P>
+<P>(dos) que se encontra no mesmo diret&oacute;rio que os disco de instala&ccedil;&atilde;o. Para </P>
+<P>criar os disco digite a seguinte linha de comando:</P>
+<P>&#9;Rawrite &quot;nome do arquivo&quot; &quot;disco de destino&quot;</P>
+<P>&#9;Ex. Rawrite bare.i a:</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>Rootdisk</P>
+</B></FONT><P>&nbsp;</P>
+<P>Para criar o Rootdisk voc&ecirc; ter&aacute; que Ter em m&atilde;os um disquete no mesmo </P>
+<P>formato que utilizou para criar o Bootdisk, pois ele solicitar&aacute; o disquete </P>
+<P>no mesmo drive.</P>
+<P>Color.gz -&gt; padr&atilde;o utilizado para equipamentos normais. (placas) (588kb) </P>
+<P>mais utilizado.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>Pcmcia.gz</B></FONT> - &gt; arquivo para utilizar quando voc&ecirc; esta com uma placa de </P>
+<P>v&iacute;deo padr&atilde;o PCMCIA (735kb)</P>
+<P>Maiores informa&ccedil;&otilde;es ler o arquivo Readme no diret&oacute;rio Rootdisk de seu CD</P>
+<P>Para criar os disco segue o mesmo do Bootdisk s&oacute; com a linha diferente:</P>
+<P>&#9;Rawrite &quot;nome do arquivo&quot; &quot;disco destino: </P>
+<P>&#9;Ex. Rawrite color.gz a:</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Voc&ecirc; pode peg&aacute;-los em ftp.cdrom.com:/pub/linux/slackware , o de boot no </P>
+<P>dir &quot;bootdsks.144&quot; ou &quot;bootdsks.000&quot; e o  de root no dir &quot;rootdsks&quot;.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.2.1 - FAXINA NO HD</B></FONT>O primeiro procedimento para quem quer instalar o Linux em um micro que j&aacute; tem um sistema operacional (a maioria) &eacute; fazer uma faxina no HD (eliminando o conte&uacute;do das pastas \Windows\Temp e pastas de Cache dos Browsers. Ap&oacute;s ent&atilde;o, desfragmentar o disco r&iacute;gido para  transformar o espa&ccedil;o livre em outra parti&ccedil;&atilde;o, atrav&eacute;s do FIPS.EXE (veja se&ccedil;&atilde;o de Download). </P>
+<P>Deve-se preferir o Speed Disk, por que ele move tamb&eacute;m o arquivo de mem&oacute;ria virtual para o come&ccedil;o do disco (o desfragmentador do Windows n&atilde;o faz isso) ou outro desfragmentador que fa&ccedil;a isso. </P>
+<P>&nbsp;</P>
+<P>Estou considerando que voc&ecirc; tem apenas um disco r&iacute;gido. Pois, caso tenha dois e possa deixar um livre para a instala&ccedil;&atilde;o do Linux, ter&aacute; menos trabalho: n&atilde;o precisar&aacute; da tal faxina nem do FIPS. Basta ir direto para a instala&ccedil;&atilde;o e criar as parti&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>Ap&oacute;s o uso do Speed Disk remova o arquivo image.idx, que fica no raiz do c (C:\). Existem outros utilit&aacute;rios (fod) DOS que tamb&eacute;m fazem isso, mas n&atilde;o use o Desfragmentador do Windows 95, pois ele n&atilde;o faz isso direito.</P>
+<P>&nbsp;</P>
+<P>Voc&ecirc; deve ter em m&atilde;o os dados da sua placa de v&iacute;deo (modelo do Chip Set e tamanho da </P>
+<P>mem&oacute;ria), do monitor (freq&uuml;&ecirc;ncias vertical e horizontal e resolu&ccedil;&otilde;es suportadas), placas SCSI, PCMCIA e seus modelos.</P>
+<P>&nbsp;</P>
+<P>Existem outras alternativas. Os utilit&aacute;rios for dos:  org, dog e safpak. Que tamb&eacute;m podem ser utilizados para desfragmentar o hd. Procure nos sites de busca linux: <A HREF="http://www.linuxapps.com/">http://www.linuxapps.com</A> e outros.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.2.2 – CONFIGURA&Ccedil;&Atilde;O DO SETUP</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Acessar o Setup do micro para alguns ajustes:</P>
+<P>- Desabilitar todas as shadows (de ROM e de v&iacute;deo);</P>
+<P>- Desabilitar o item "15-16 Memory Hole";</P>
+<P>- Desabilitar o APM (gerenciamento avan&ccedil;ado de energia);</P>
+<P>- Habilitar (caso exista) o check de paridade de mem&oacute;ria;</P>
+<P>&nbsp;</P>
+<P>Obs.: tenho feito diversas instala&ccedil;&otilde;es sem mexer nesses itens e sem qualquer problema.</P>
+<P>&nbsp;</P>
+<P>Tente instalar sem alter&aacute;-los. Caso tenha problemas fa&ccedil;a as altera&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.2.3 - BOOT PELO MS-DOS</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Apenas para o caso seu micro n&atilde;o suportar boot via CD;</P>
+<P>- Providenciar disco de boot do DOS ou do 95/98 com acesso a CD (veja na se&ccedil;&atilde;o de Dicas </P>
+<P>Diversas da p&aacute;gina http://pagina.de/manual.linux/, como fazer um).</P>
+<P>- Outra alternativa &eacute; acessar o CD pelo Windows e copiar o arquivo FIPS.EXE que se encontra normalmente na pasta \dosutils do CD para uma pasta do Windows e dar o boot, pressionar F8 quando aparecer Iniciando Windows 95 e com as setas selecionar Somente Prompt do Modo de Seguran&ccedil;a e Enter. Ent&atilde;o rodar o FIPS (veja instru&ccedil;&otilde;es abaixo) ou; </P>
+<P>- Dar boot com o disquete e acessar o CD \dosutils e executar o FIPS ou  </P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>2.2.4 - BOOT PELO CD</P>
+</B></FONT><P>&nbsp;</P>
+<P>Basta alterar a seq&uuml;&ecirc;ncia de boot no Setup. Isso &eacute; caracter&iacute;stica dos micros atuais e de alguns nem tanto. Veja se sua BIOS suporta isso. Caso seja um Pentium II &eacute; quase certeza que sim. Se n&atilde;o souber faz&ecirc;-lo pe&ccedil;a orienta&ccedil;&atilde;o de algu&eacute;m para isso. Alguns micros j&aacute; detectam CD no drive e se o CD for de boot d&atilde;o o boot por ele. Experimente apenas colocar o CD no drive sem qualquer altera&ccedil;&atilde;o no setup e d&ecirc; o boot ou ligue o micro.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>2.2.5 - USO DO FIPS</P>
+</B></FONT><P>&nbsp;</P>
+<P>Caso seu HD esteja particionado com FAT32 ent&atilde;o descompacte o FIPS 2.0 que se encontra no diret&oacute;rio /dosutils e utilize-o, pois o FIPS n&atilde;o tem suporte para FAT 32. Rodar o FIPS e criar a nova parti&ccedil;&atilde;o (o ideal &eacute; no m&iacute;nimo duas parti&ccedil;&otilde;es: uma Swap e uma Linux native).</P>
+<P>&nbsp;</P>
+<P>- A primeira pergunta do FIPS (apenas se o HD tiver 2 ou mais parti&ccedil;&otilde;es) &eacute; em qual parti&ccedil;&atilde;o voc&ecirc; deseja criar uma nova com o espa&ccedil;o livre - digite o n&uacute;mero e tecle Enter;</P>
+<P>&nbsp;</P>
+<P>- Logo depois ele mostra o espa&ccedil;o livre e possibilita que voc&ecirc; ajuste escolhendo o tamanho da nova parti&ccedil;&atilde;o (use as setas para cima e para baixo para ajustar o tamanho da nova parti&ccedil;&atilde;o) e tecle Enter. </P>
+<P>A regra geral &eacute; escolher para o tamanho da Swap duas vezes o tamanho da RAM e no m&aacute;ximo 128 MB e para a Linux native o tamanho dispon&iacute;vel que voc&ecirc; tiver. Ent&atilde;o crie primeiro uma para a Swap e depois com o que tiver dispon&iacute;vel ou com o que desejar a Linux;</P>
+<P>&nbsp;</P>
+<P>- Tecle "c" para continuar quando perguntado e </P>
+<P>&nbsp;</P>
+<P>- Ao final tecle "w" para gravar as altera&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.2.6 - USO DO FDISK DO LINUX</P>
+</B></FONT><P>&nbsp;</P>
+<P>Mesmo que voc&ecirc; esteja instalando o Red Hat, que vem tamb&eacute;m com o Disk Druid, d&ecirc; prefer&ecirc;ncia ao fdisk. A experi&ecirc;ncia nas listas de discuss&atilde;o aponta para isso.</P>
+<P>&nbsp;</P>
+<P>Obs.: Espere para usar o fdisk apenas quando aparecer a oportunidade durante a instala&ccedil;&atilde;o do Linux. Quando chegar a hora:</P>
+<P>&nbsp;</P>
+<P>- Digite "fdisk" e Enter (no caso do Slackware) e selecione Fdisk (no caso do Red Hat e Edit ou Editar);</P>
+<P>&nbsp;</P>
+<P>- Tecle "p" para ver as parti&ccedil;&otilde;es existentes;</P>
+<P>&nbsp;</P>
+<P>- Tecle "d" para deletar cada parti&ccedil;&atilde;o criada pelo FIPS (tenha o cuidado de observar o n&uacute;mero de cada uma);</P>
+<P>- Digite o n&uacute;mero da parti&ccedil;&atilde;o a apagar;</P>
+<P>&nbsp;</P>
+<P>- Tecle "n" para criar uma nova parti&ccedil;&atilde;o (tecle "P" novamente - prim&aacute;ria);</P>
+<P>&nbsp;</P>
+<P>- Digite o n&uacute;mero do setor inicial (igual ao primeiro n&uacute;mero apresentado);</P>
+<P>&nbsp;</P>
+<P>- Digite o tamanho da nova parti&ccedil;&atilde;o em MB, assim (por exemplo): "+194M)" ou o n&uacute;mero do &uacute;ltimo setor;</P>
+<P>&nbsp;</P>
+<P>- Agora vamos criar a parti&ccedil;&atilde;o Swap. Digite "n" para criar uma nova parti&ccedil;&atilde;o e digite "p" para prim&aacute;ria;</P>
+<P>&nbsp;</P>
+<P>- Digite o n&uacute;mero para a parti&ccedil;&atilde;o;</P>
+<P>&nbsp;</P>
+<P>- Digite "t" para mudar o tipo da parti&ccedil;&atilde;o e digite "82" para criar uma swap;</P>
+<P>&nbsp;</P>
+<P>- Digite "p" para ver como est&atilde;o as parti&ccedil;&otilde;es;</P>
+<P>&nbsp;</P>
+<P>- Digite "w" para gravar as altera&ccedil;&otilde;es e encerrar.</P>
+<P>Caso queira criar mais parti&ccedil;&otilde;es proceda de maneira semelhante.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3 - INSTALA&Ccedil;&Atilde;O PASSO A PASSO DE CINCO DISTRIBUI&Ccedil;&Otilde;ES</P>
+</B></FONT><P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3.1 - INSTALA&Ccedil;&Atilde;O DO CONECTIVA MARUMBI</P>
+</B></FONT><P>&nbsp;</P>
+<P>Caso voc&ecirc; esteja querendo instalar o Guarani este guia &eacute; praticamente ao da instala&ccedil;&atilde;o do Guarani e poder&aacute; ser muito &uacute;til.</P>
+<P>&nbsp;</P>
+<P>Consulte o item Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux.</P>
+<P>&nbsp;</P>
+<P>Aqui ser&aacute; abordado a partir do ponto em que j&aacute; se deu o boot pelo CD e aparece a primeira tela de boas vindas.</P>
+<P>&nbsp;</P>
+<P>1 - Bem-vindo ao Conectiva Linux Marumbi</P>
+<P>        Enter para Instalar ou Atualizar;</P>
+<P>&nbsp;</P>
+<P>2 - Escolher idioma (Portugu&ecirc;s, Espanhol ou Ingl&ecirc;s)</P>
+<P>        Com as setas e Enter;</P>
+<P>&nbsp;</P>
+<P>3 - Escolha das cores</P>
+<P>        Sim e Enter (supondo que seu monitor seja colorido)</P>
+<P>&nbsp;</P>
+<P>4 - Conectiva Red Hat Linux</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>5 - Tipo de Teclado</P>
+<P>        O default &eacute; us-acentos (para o teclado US Internacional, aquele sem o &Ccedil;). </P>
+<P>Tem tamb&eacute;m na rela&ccedil;&atilde;o o "br-abnt" e o "br-abnt2";</P>
+<P>&nbsp;</P>
+<P>6 - M&eacute;todo de instala&ccedil;&atilde;o</P>
+<P>        CDROM Local e Enter</P>
+<P>&nbsp;</P>
+<P>7 - Nota</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>8 - Caminho da Instala&ccedil;&atilde;o</P>
+<P>        Instala&ccedil;&atilde;o e Enter</P>
+<P>&nbsp;</P>
+<P>9 - Configura&ccedil;&atilde;o SCSI</P>
+<P>        N&atilde;o e Enter (se voc&ecirc; tiver, informe tamb&eacute;m o modelo)</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>10 - Configura&ccedil;&atilde;o de Discos        Disk Druid      fdisk   CancelarAqui, se voc&ecirc; usou o FIPS para criar as parti&ccedil;&otilde;es o recomendado &eacute; que selecione "fdisk" e "Edit" para remover as parti&ccedil;&otilde;es criadas com o FIPS e criar as novas (veja Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux).</P>
+<P>&nbsp;</P>
+<P>Depois de criar as novas e digitar "w" e Enter volta-se ao menu e selecione </P>
+<P>"Pronto" e Enter;</P>
+<P>&nbsp;</P>
+<P>11 - Selecionar Parti&ccedil;&atilde;o Raiz</P>
+<P>        Caso tenha criado direitinho ele j&aacute; mostra a parti&ccedil;&atilde;o Linux Native.</P>
+<P>Ent&atilde;o basta dar Enter.</P>
+<P>&nbsp;</P>
+<P>12 - Particionamento de Discos</P>
+<P>    Voc&ecirc; deve agora lembrar dos n&uacute;meros das parti&ccedil;&otilde;es. Aqui aparecem a Linux Native, as </P>
+<P>Windows e outras que voc&ecirc; tenha (se). Selecione a sua parti&ccedil;&atilde;o Windows95/98 ou OS/2 ou outra que tenha e Enter.</P>
+<P>&nbsp;</P>
+<P>Digite "/windows" sem as aspas (windows foi uma sugest&atilde;o). Alguns preferem aqui informar "/mnt/windows". Selecione todas as n&atilde;o Linux e d&ecirc; um nome de diret&oacute;rio (ponto de montagem). </P>
+<P>Observe que a Linux Native j&aacute; tem uma barra como ponto de montagem (dizendo que o Linux ficar&aacute; no raiz).</P>
+<P>&nbsp;</P>
+<P>Selecione OK e Enter.</P>
+<P>&nbsp;</P>
+<P>13 - Ativar Swap</P>
+<P>        Caso tenha criado uma parti&ccedil;&atilde;o swap ela aparecer&aacute; aqui.</P>
+<P>Marque-a com a barra de espa&ccedil;os e usando Tab e espa&ccedil;o marque tamb&eacute;m "Checar blocos..." e OK e Enter.</P>
+<P>&nbsp;</P>
+<P>14 - Formatar Parti&ccedil;&otilde;es</P>
+<P>        Marque a native e outras (menos a home) e Checar blocos... OK e Enter</P>
+<P>&nbsp;</P>
+<P>15 - Componentes a Instalar</P>
+<P>        Aqui voc&ecirc; pode marcar apenas os grupos e instalar. Mas com isso ficar&atilde;o faltando alguns componentes importantes. Ent&atilde;o iremos usar a op&ccedil;&atilde;o Selecionar pacotes Individuais e OK. Com isso iremos selecionar um a um os pacotes a serem instalados. Claro que ainda assim poder&atilde;o ficar de fora alguns componentes, mas a chance &eacute; menor e futuramente poderemos usar o Glint </P>
+<P>(Gerenciador de Pacotes do Red Hat) para adicionar o que faltar. Ele tamb&eacute;m pode ser usado para remo&ccedil;&atilde;o.</P>
+<P>&nbsp;</P>
+<P>Marque Selecionar Pacotes Individuais e OK e Enter.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>16 - Sele&ccedil;&atilde;o de Grupo</P>
+<P>Obs.: - Os n&atilde;o citados &eacute; porque n&atilde;o instalei. Instala&ccedil;&atilde;o para uso dom&eacute;stico, sem placa de rede.</P>
+<P>      - Para maiores informa&ccedil;&otilde;es sobre cada pacote, selecione-o e F1.</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Comunica&ccedil;&otilde;es:</P>
+<P>        efax - passar/receber fax em modo texto </P>
+<P>        ircii - irc em modo texto       </P>
+<P>        lrzsz - necess&aacute;rio ao Minicom e outros</P>
+<P>        minicom - emulador de terminal</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Bancos de Dados:</P>
+<P>        Deixei vazios</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Editores:</P>
+<P>        emacs - editor de texto muito popular no Linux</P>
+<P>        emacsX11 - emacs para o ambiente gr&aacute;fico</P>
+<P>        joe - editor de texto compat&iacute;vel com o WordStar</P>
+<P>        vim-X11 - vim para o X</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Emuladores:</P>
+<P>        dosemu - emulador de DOS para Linux</P>
+<P>        xdosemu - dosemu para X</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Engenharia:</P>
+<P>        Deixei vazio</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Gr&aacute;ficos:</P>
+<P>        Deixei marcados apenas os que j&aacute; estavam. Gr&aacute;ficos para o modo texto.</P>
+<P>Aplica&ccedil;&otilde;es/Email:</P>
+<P>        fetchmail</P>
+<P>        metamail</P>
+<P>        mh</P>
+<P>        mutt</P>
+<P>        pine (mail e news)</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Matem&aacute;tica:</P>
+<P>        Tamb&eacute;m n&atilde;o marquei nenhum</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Rede:</P>
+<P>        lynx - browser para modo texto do Linux</P>
+<P>        ncftp - cliente de ftp para modo texto</P>
+<P>        wget - tipo GetHight, mas em modo texto</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Not&iacute;cias:</P>
+<P>        Tamb&eacute;m n&atilde;o marquei nenhum (mas fica a crit&eacute;rio)</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Produtividade e Aplica&ccedil;&otilde;es/Editora&ccedil;&atilde;o:</P>
+<P>        Tamb&eacute;m nada (na Editora&ccedil;&atilde;o tem o sgmltools e o texinfo).</P>
+<P>&nbsp;</P>
+<P>Aplica&ccedil;&otilde;es/Som: </P>
+<P>        Caso tenha placa de som marque todas</P>
+<P>&nbsp;</P>
+<P>Base/Kernel:   </P>
+<P>        Importantes para recompila&ccedil;&atilde;o do kernel e de outros programas</P>
+<P>        kernel headers</P>
+<P>        kernel ibcs</P>
+<P>        kernel source</P>
+<P>&nbsp;</P>
+<P>Servidores (Daemons):</P>
+<P>        Importante apenas quando se tem placa de rede. N&atilde;o marquei nada.</P>
+<P>&nbsp;</P>
+<P>Desenvolvimento/Constru&ccedil;&atilde;o:</P>
+<P>        Importantes para compilar programas e gerar bin&aacute;rios, como tamb&eacute;m o kernel.</P>
+<P>        Marque todas.</P>
+<P> </P>
+<P>Desenvolvimento/Depuradores:</P>
+<P>        Todas</P>
+<P>&nbsp;</P>
+<P>Desenvolvimento/Linguagens:</P>
+<P>   Algumas s&atilde;o importantes</P>
+<P>        bin86</P>
+<P>        egcs</P>
+<P>        gcc</P>
+<P>        tclx</P>
+<P>        tk</P>
+<P>&nbsp;</P>
+<P>Desenvolvimento/Bibliotecas:</P>
+<P>        Todas talvez seja o recomendado.</P>
+<P>&nbsp;</P>
+<P>Desenvolvimento/Ferramentas:</P>
+<P>        Apenas para desenvolvedores.</P>
+<P>&nbsp;</P>
+<P>Desenvolvimento/Controle de Vers&atilde;o</P>
+<P>        Idem</P>
+<P>&nbsp;</P>
+<P>Documenta&ccedil;&atilde;o:</P>
+<P>        crhl-manual - manual da Conectiva</P>
+<P>        faq</P>
+<P>        howto</P>
+<P>        howto-html</P>
+<P>        index-html</P>
+<P>        man-pages - manuais dos comandos</P>
+<P>&nbsp;</P>
+<P>Bibliotecas:</P>
+<P>        Todas deve ser o recomendado.</P>
+<P>&nbsp;</P>
+<P>Rede:</P>
+<P>        ftp</P>
+<P>        netkit-base</P>
+<P>        telnet</P>
+<P>&nbsp;</P>
+<P>Rede/Administra&ccedil;&atilde;o:</P>
+<P>        Caso n&atilde;o tenha placa de rede deixar em branco.</P>
+<P>&nbsp;</P>
+<P>Rede/Servidores (Daemons):</P>
+<P>        ppp</P>
+<P>        autofs - utilit&aacute;rio para montagem autom&aacute;tica de dispositivos: cdrom, floppy, etc.</P>
+<P>&nbsp;</P>
+<P>Rede/Not&iacute;cias:</P>
+<P>        Nada</P>
+<P>&nbsp;</P>
+<P>Rede/Utilit&aacute;rios:</P>
+<P>        dip</P>
+<P>        traceroute</P>
+<P>&nbsp;</P>
+<P>Interpretadores de Comandos (Shells):</P>
+<P>        mc</P>
+<P>&nbsp;</P>
+<P>Obs.: Esqueci o grupo, mas o rman &eacute; um utilit&aacute;rio que converte p&aacute;ginas do man para v&aacute;rios formatos.</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios:</P>
+<P>        rgrep - procurar strings recursivamente</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Armazenamento:</P>
+<P>        lha, unarj, unzip e zip.</P>
+<P>        Marcar todos (compactadores/descompactadores)</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Arquivos:</P>
+<P>        mtools - acessar discos DOS/95/98/OS2/ZIP/JAZ</P>
+<P>        symlinks</P>
+<P>        tree (tipo o comando de mesmo nome do DOS)</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Benchmarks:</P>
+<P>        bonnie</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Impress&atilde;o:</P>
+<P>        mpage</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Console:</P>
+<P>        Nada</P>
+<P>&nbsp;</P>
+<P>Jogos:</P>
+<P>        Marque &agrave; vontade</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Sistema:    </P>
+<P>        adjtimex - ajusta rel&oacute;gio do sistema</P>
+<P>        control-panel - &oacute;tima ferramenta para o ambiente gr&aacute;fico        </P>
+<P>        dump</P>
+<P>        fstool - manipula&ccedil;&atilde;o do /etc/fstab no X</P>
+<P>        glint - gerenciador de pacotes no X</P>
+<P>        helptool - interface gr&aacute;fica de ajuda no X</P>
+<P>        kernelcfg - interface gr&aacute;fica para conf. do kernel no X</P>
+<P>        lpr - gerenciamento de impress&atilde;o</P>
+<P>        mkdosfs - criar sistema de arquivos MS-DOS FAT</P>
+<P>        mkisoft - cria imagens de sistemas de arquivos ISO 9660 para criar</P>
+<P>&#9;    CDs. Suporte a CD de boot "El Torito"</P>
+<P>        modemtool - interface gr&aacute;fica para sele&ccedil;&atilde;o da porta do modem</P>
+<P>        netcfg - interface gr&aacute;fica para conf. de rede</P>
+<P>        printtool - interface gr&aacute;fica para conf. de impressoras</P>
+<P>        procinfo - informa&ccedil;&otilde;es sobre o kernel</P>
+<P>        rhbackup – utilit&aacute;rio para backup.</P>
+<P>        rhs-printfilters - usado com o printtool para filtros de impr.</P>
+<P>        rhsound - utilit&aacute;rio de som</P>
+<P>        sliplogin - conex&otilde;es SLIP</P>
+<P>        sndconfig - detecta e configura placas de som</P>
+<P>        statserial - &uacute;til para detectar problemas em portas seriais</P>
+<P>        timetool - interface gr&aacute;fica para data/hora</P>
+<P>        tksysv - interface gr&aacute;fica para servi&ccedil;os a iniciar p/ cada run level</P>
+<P>        tunelp - configurar drive porta paralela no kernel</P>
+<P>        usercfg - configura&ccedil;&atilde;o de usu&aacute;rios</P>
+<P>        usernet - gerencia rede para usu&aacute;rios. Bom para conectar/desconectar</P>
+<P>            &agrave; INTERNET</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Terminal:</P>
+<P>        dialog</P>
+<P>&nbsp;</P>
+<P>Utilit&aacute;rios/Texto:</P>
+<P>        conjugue - conjugar verbos</P>
+<P>        ispell - corretor ortogr&aacute;fico</P>
+<P>        m4 - usado por v&aacute;rios programas de linguagem de programa&ccedil;&atilde;o de macros</P>
+<P>        patch - reparar programas</P>
+<P>        perl - linguagem de programa&ccedil;&atilde;o</P>
+<P>X11:</P>
+<P>        xinitrc - script usado pelo "startx" (que inicia o X Window)</P>
+<P>&nbsp;</P>
+<P>Passatempos:</P>
+<P>        multim&iacute;dia (para quem tem, claro)</P>
+<P>        xbanner - papel de parede</P>
+<P>        xeart - papel de parede (a terra em 3D)</P>
+<P>&nbsp;</P>
+<P>X11/Aplica&ccedil;&otilde;es:    </P>
+<P>S&oacute; n&atilde;o marquei Netscape Navigator e x3270 (emulador de terminal IBM 3270)</P>
+<P>&nbsp;</P>
+<P>X11/Jogos:      Selecione &agrave; vontade</P>
+<P>&nbsp;</P>
+<P>X11/KDE:        Todos (pode-se deixar de fora: jogos, gr&aacute;ficos e multim&iacute;dia, </P>
+<P>caso n&atilde;o tenha espa&ccedil;o e interesse).</P>
+<P>&nbsp;</P>
+<P>X11/Bibliotecas:</P>
+<P>        Todas</P>
+<P>&nbsp;</P>
+<P>X11/Interpretadores de Comandos:</P>
+<P>        gmc - gerencia arquivos</P>
+<P>&nbsp;</P>
+<P>X11/Utilit&aacute;rios:</P>
+<P>        Todos</P>
+<P>&nbsp;</P>
+<P>X11/Gerenciador de Janelas:</P>
+<P>        Todos (depois pode-se remover pelo Glint)</P>
+<P>&nbsp;</P>
+<P>X11/XFree86:</P>
+<P>Marcar todos (talvez exceto os dois &uacute;ltimos se n&atilde;o forem para a sua</P>
+<P>placa)</P>
+<P>&nbsp;</P>
+<P>17 - Depend&ecirc;ncias n&atilde;o Resolvidas</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>18 - Log de Instala&ccedil;&atilde;o</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>19 - Executando...</P>
+<P>        Est&aacute; criando o sistema de arquivos do Linux</P>
+<P>&nbsp;</P>
+<P>20 - Status da Instala&ccedil;&atilde;o</P>
+<P>        Aproveite para ler os coment&aacute;rios sobre os pacotes (programas).</P>
+<P>&nbsp;</P>
+<P>21 - Ap&oacute;s instalar tudo, procura (as vezes demora) e normalmente encontra o mouse e diz</P><DIR>
+<DIR>
+
+<P>em que porta est&aacute; (cua0 aqui). Guarde esta refer&ecirc;ncia cua0=COM1 do DOS/Win. Tecle Enter</P></DIR>
+</DIR>
+
+<P>22 - Configura&ccedil;&atilde;o do Mouse</P>
+<P>        Normalmente j&aacute; est&aacute; selecionado o tipo correto.</P>
+<P>        Ent&atilde;o OK e Enter</P>
+<P>        Se desejar pode marcar Emular 3 bot&otilde;es.</P>
+<P>&nbsp;</P>
+<P>23 - Procura a placa de v&iacute;deo e se encontra mostra detalhes (modelo, PCI), se n&atilde;o encontrar</P>
+<P>ele abre uma rela&ccedil;&atilde;o para voc&ecirc; selecionar a sua ou uma compat&iacute;vel.</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>24 - Status da Instala&ccedil;&atilde;o</P>
+<P>        Instala o driver da placa de v&iacute;deo</P>
+<P>&nbsp;</P>
+<P>25 - Configura&ccedil;&atilde;o do Monitor</P>
+<P>        Selecione o seu e Enter, se n&atilde;o tiver na rela&ccedil;&atilde;o ent&atilde;o encolha </P>
+<P>        Customizar e coloque as caracter&iacute;sticas dele.</P>
+<P>&nbsp;</P>
+<P>26 - Enter</P>
+<P>&nbsp;</P>
+<P>27 - Configura&ccedil;&atilde;o do Monitor</P>
+<P>        Escolha um compat&iacute;vel (&eacute; bom ter o manual em m&atilde;os)</P>
+<P>&nbsp;</P>
+<P>28 - Configura&ccedil;&atilde;o do Monitor</P>
+<P>        Selecione e Enter</P>
+<P>&nbsp;</P>
+<P>29 - Tela de Configura&ccedil;&atilde;o</P>
+<P>        Pode tentar detectar, mas eu s&oacute; consegui com N&atilde;o Detectar.</P>
+<P>&nbsp;</P>
+<P>30 - Mem&oacute;ria de V&iacute;deo</P>
+<P>        Informe e Enter</P>
+<P>&nbsp;</P>
+<P>31 - Configura&ccedil;&atilde;o "clockchip"</P>
+<P>        Enter (recomendado)</P>
+<P>&nbsp;</P>
+<P>31a – Verifica Clocks</P>
+<P>&nbsp;</P>
+<P>        Ignorar (pode ser recomendado em muitos casos)</P>
+<P>&nbsp;</P>
+<P>32 - Selecionar modos de v&iacute;deo</P>
+<P>        8 bits          16 bits         24 bits</P>
+<P>&#9;&#9;800x600</P>
+<P>                      1024x768</P>
+<P>&nbsp;</P>
+<P>Selecione e OK e Enter (pode-se marcar v&aacute;rios)</P>
+<P>&nbsp;</P>
+<P>33 - Configura&ccedil;&atilde;o da Rede</P>
+<P>        Caso n&atilde;o tenha placa, N&atilde;o e Enter</P>
+<P>&nbsp;</P>
+<P>34 - Configura&ccedil;&atilde;o de Fuso Hor&aacute;rio</P>
+<P>        Selecione o seu e OK e Enter</P>
+<P>&nbsp;</P>
+<P>35 - Servi&ccedil;os   </P>
+<P>(que ser&atilde;o carregados no boot)  </P>
+<P>&nbsp;</P>
+<P>autofs gpm     kerneld keytable        lpd     syslog  </P>
+<P>Isso para quem n&atilde;o tem placa de rede.</P>
+<P>&nbsp;</P>
+<P>36 - Configura&ccedil;&atilde;o da Impressora Sim e Enter</P>
+<P>&nbsp;</P>
+<P>37 - Selecionar Conex&atilde;o</P>
+<P>        Local e Enter</P>
+<P>&nbsp;</P>
+<P>38 - Op&ccedil;&atilde;o Padr&atilde;o</P>
+<P>        Com Tab - Pr&oacute;ximo e Enter</P>
+<P>&nbsp;</P>
+<P>39 - Dispositivo de Impress&atilde;o</P>
+<P>        Tab e Enter</P>
+<P>&nbsp;</P>
+<P>40 - Configura&ccedil;&atilde;o da Impressora</P>
+<P>        Selecione e Enter</P>
+<P>&nbsp;</P>
+<P>41 - HPDeskjet... (aqui)</P>
+<P>        Com Tab e setas - Pr&oacute;ximo e Enter</P>
+<P>&nbsp;</P>
+<P>42 - Configurar Cores</P>
+<P>        Escolha e Enter</P>
+<P>&nbsp;</P>
+<P>43 - Verifica&ccedil;&atilde;o da ...</P>
+<P>        Enter ou Edite para alterar</P>
+<P>&nbsp;</P>
+<P>44 - Senha do Superusu&aacute;rio</P>
+<P>        Digite e redigite uma senha</P>
+<P>&nbsp;</P>
+<P>45 - Instala&ccedil;&atilde;o do Lilo</P>
+<P>        Escolha Registro Principal do Boot (MBR) e Enter</P>
+<P>&nbsp;</P>
+<P>46 - Instala&ccedil;&atilde;o do Lilo</P>
+<P>        Enter</P>
+<P>47 - Parti&ccedil;&otilde;es Inici&aacute;veis       </P>
+<P>Aqui voc&ecirc; pode mudas os r&oacute;tulos dos Sistemas Operacionais que tiver no seu micro. Estes r&oacute;tulos aparecer&atilde;o no boot, quando aparece a palavra "Lilo:". Nessa hora se pressionar Tab aparecer&atilde;o os r&oacute;tulos .Eu aqui para facilitar mudo o r&oacute;tulo que ele chama de "dos" para "w". Para fazer isso basta selecionar, dar Enter o mudar.</P>
+<P>OK e Enter</P>
+<P>&nbsp;</P>
+<P>48 - Pronto</P>
+<P>        Enter</P>
+<P>Obs.: Retire o CD quando estiver reiniciando.</P>
+<P>&nbsp;</P>
+<P>49 - Aparece no boot "Lilo:"</P>
+<P>        Se voc&ecirc; pressionar Tab aparecer&atilde;o os r&oacute;tulos.</P>
+<P>        Apertando Enter ou "linux" entrar&aacute; no default, no caso o Linux.</P>
+<P>        Apertando em "w" entrar&aacute; no windows (aqui).</P>
+<P>&nbsp;</P>
+<P>50 - localhost login:</P>
+<P>        digite "root" sem as aspas</P>
+<P>&nbsp;</P>
+<P>51 - Password:</P>
+<P>        Digite aquela senha que voc&ecirc; informou ao final da instala&ccedil;&atilde;o.</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3.2 - INSTALA&Ccedil;&Atilde;O DO RED HAT 5.2 (APOLO)</P>
+</B></FONT><P>&nbsp;</P>
+<P>EM UM NOTEBOOK (FUJITSU LIFE BOOK 420D)</P>
+<P>&nbsp;</P>
+<P>Esses passos s&atilde;o id&ecirc;nticos aos passos para instala&ccedil;&atilde;o em um micro desktop (muda apenas quando se refere a PCMCIA que o Notebook usa e o Desktop n&atilde;o).</P>
+<P>&nbsp;</P>
+<P>1 - A primeira provid&ecirc;ncia &eacute; verificar o item Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux, sobre o uso do FIPS, FDISK e etc). </P>
+<P>&nbsp;</P>
+<P>        Use apenas o FIPS para criar uma parti&ccedil;&atilde;o tempor&aacute;ria. Deixe para usar o FDISK mais a frente.</P>
+<P>&nbsp;</P>
+<P>2 - Caso a BIOS permita boot via CD configure para tal e d&ecirc; boot. Caso n&atilde;o permita gere um disquete de boot com acesso a CD (se n&atilde;o tiver o windows 98 veja na se&ccedil;&atilde;o Dicas Diversas como gerar um).</P>
+<P>&nbsp;</P>
+<P>3 - Caso esteja usando disquete para dar o boot, ap&oacute;s o boot acesse o CD e v&aacute; ao diret&oacute;rio \dosutils e digite "autoboot" e Enter ent&atilde;o aparece a tela "Welcome Red Hat Linux" (caso tenha dado o boot direto do CD tamb&eacute;m &eacute; assim):</P>
+<P>        Enter para continuar.</P>
+<P>&nbsp;</P>
+<P>4 - Choose a Language:</P>
+<P>        Deixe English (depois pode configurar para portugu&ecirc;s)</P>
+<P>&nbsp;</P>
+<P>5 - Keyboard Type</P>
+<P>        Caso seu teclado seja o teclado US internacional deixe em "us"</P>
+<P>        (tamb&eacute;m depois pode ser reconfigurado)</P>
+<P>&nbsp;</P>
+<P>6 - PCMCIA Support</P>
+<P>        N&atilde;o (no meu caso). Tamb&eacute;m pode ser instalado depois, caso se tenha CD.</P>
+<P>&nbsp;</P>
+<P>7 - Installation Method</P>
+<P>        Local CDROM</P>
+<P>&nbsp;</P>
+<P>8 - Note</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>9 - Installation Path</P>
+<P>        Install - para instalar (escolheremos esta) e </P>
+<P>        Upgrade - para atualizar uma vers&atilde;o existente</P>
+<P>&nbsp;</P>
+<P>10 - Installation Class</P>
+<P>        Custom</P>
+<P>&nbsp;</P>
+<P>11 - SCSI Configuration No (para o caso de n&atilde;o ter acess&oacute;rios SCSI)</P>
+<P>12 - Disk Setup</P>
+<P>        fdisk (pode ser tamb&eacute;m, claro, o Disk Druid)</P>
+<P>&nbsp;</P>
+<P>13 - Partition Disks</P>
+<P>        Edit (escolhemos esta op&ccedil;&atilde;o para apagar a parti&ccedil;&atilde;o criada pelo FIPS e criar no seu lugar no m&iacute;nimo duas outras: uma swap e uma native. </P>
+<P>A swap &eacute; obrigat&oacute;ria nessa vers&atilde;o do RH.)</P>
+<P>&nbsp;</P>
+<P>14 -    Vamos aos passos:</P>
+<P>        Nesta tela texto com o comando fdisk em execu&ccedil;&atilde;o voc&ecirc; v&ecirc;:</P>
+<P>&nbsp;</P>
+<P>Command (m for help):</P>
+<P>        Digite p para ver as parti&ccedil;&otilde;es existentes.</P>
+<P>&nbsp;</P>
+<P>        Digite d para deletar a parti&ccedil;&atilde;o criada pelo FIPS.</P>
+<P>&nbsp;</P>
+<P>        &Eacute; solicitado que voc&ecirc; informe o n&uacute;mero da parti&ccedil;&atilde;o: digite 2 (se for o caso).</P>
+<P>&nbsp;</P>
+<P>        Agora vamos criar uma nova parti&ccedil;&atilde;o (a swap): digite n.</P>
+<P>&nbsp;</P>
+<P>        Digite p para informar que &eacute; uma parti&ccedil;&atilde;o prim&aacute;ria.</P>
+<P>&nbsp;</P>
+<P>        Agora digite 2 para o n&uacute;mero da parti&ccedil;&atilde;o.</P>
+<P>&nbsp;</P>
+<P>        Aparecem as perguntas:</P>
+<P>&nbsp;</P>
+<P>First Cylinder (348-525): Digite 348 e Enter</P>
+<P>&nbsp;</P>
+<P>Last Cylinder ... ([348]-525): Digite "+20M" para criar uma swap com 20 MB.</P>
+<P>&nbsp;</P>
+<P>        Vamos criar outra parti&ccedil;&atilde;o, agora a Linux Native. Digite n.</P>
+<P>&nbsp;</P>
+<P>        Depois digite p. Depois digite 3.</P>
+<P>&nbsp;</P>
+<P>        Para o primeiro cilindro digite 359 (no nosso exemplo). Para saber  que cilindro ser&aacute; o </P>
+<P>primeiro &eacute; s&oacute; observar as op&ccedil;&otilde;es oferecidas e escolher o primeiro valor. J&aacute; para o &uacute;ltimo cilindro &eacute; que tanto podemos digitar o n&uacute;mero do cilindro como o tamanho da parti&ccedil;&atilde;o no seguinte formato +20M (por exemplo).</P>
+<P>&nbsp;</P>
+<P>        Para o &uacute;ltimo cilindro digite o &uacute;ltimo valor mostrado (caso esta seja a &uacute;ltima parti&ccedil;&atilde;o). No nosso caso digitei 525.</P>
+<P>&nbsp;</P>
+<P>        Sugest&atilde;o: Swap = 32 MB e Linux &gt;= 500 MB</P>
+<P>&nbsp;</P>
+<P>Agora vamos transformar a parti&ccedil;&atilde;o 2 em swap:</P>
+<P>&nbsp;</P>
+<P>        Digite t e enter. Depois digite 2 (nossa parti&ccedil;&atilde;o swap).</P>
+<P>        Ent&atilde;o ser&aacute; solicitado o Hex Code: digite 82 e enter. T&aacute; criada.</P>
+<P>&nbsp;</P>
+<P>Agora basta digitar w para gravar as altera&ccedil;&otilde;es e voltar para o menu de instala&ccedil;&atilde;o.</P>
+<P>&nbsp;</P>
+<P>15 - Partition Disks</P>
+<P>        Done</P>
+<P>&nbsp;</P>
+<P>16 - Current Disk Partitions</P><DIR>
+
+<P>Usar a tecla TAB para colocar o cursor em Mount Point e com as setas colocar no Type Linux </P></DIR>
+
+<P>Native e Enter</P>
+<P>        Digitar uma barra "/" e Enter</P>
+<P>        Com TAB colocar em OK e Enter</P>
+<P>&nbsp;</P>
+<P>17 - Active Swap Space</P>
+<P>Com TAB selecionar e marcar [x] Check for ... e teclar na barra de espa&ccedil;os para  marcar um X e TAB para OK e Enter</P>
+<P>&nbsp;</P>
+<P>18 - Partitions to Format</P>
+<P>        Marcar [x] /dev/hda3 (nesse exemplo) e tamb&eacute;m marcar [x] Check for...</P>
+<P>        Com TAB para OK e Enter</P>
+<P>&nbsp;</P>
+<P>19 - Componentes to Install</P>
+<P>        Cuidado, se deixou menos de 300MB n&atilde;o poder&aacute; deixar marcados nem os defaults. Caso queira (e tenha espa&ccedil;o) pode selecionar outros.</P>
+<P>        OK e Enter</P>
+<P>&nbsp;</P>
+<P>20 - Install log</P>
+<P>        OK. Ir&aacute; instalar todos os pacotes selecionados e o SO.</P>
+<P>        Primeiro cria o sistema de arquivos ext2.</P>
+<P>&nbsp;</P>
+<P>21 - Probing Result</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>22 - Configure Mouse</P>
+<P>        No notebook foi sugerido Generic Mouse (PS/2) e aceitei (deu certo)</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>23 - PCI Probe</P>
+<P>        Encontrou a placa de v&iacute;deo. OK</P>
+<P>&nbsp;</P>
+<P>24 - Monitor Setup      </P>
+<P>Aqui voc&ecirc; deve ter em m&atilde;os as caracter&iacute;sticas do seu monitor (veja o manual: no m&iacute;nimo a </P>
+<P>freq&uuml;&ecirc;ncia vertical e a resolu&ccedil;&atilde;o m&aacute;xima).</P>
+<P>&nbsp;</P>
+<P>        Caso saiba o modelo selecione-o na lista e OK.</P>
+<P>        Caso n&atilde;o tenha o seu modelo na lista escolha Custom e OK.</P>
+<P>&nbsp;</P>
+<P>25 - Custom Monitor Setup (apenas no caso de ter escolhido Custom)</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>26 - Custom Monitor Setup (Continued)</P>
+<P>        Escolher (ex. Super VGA, 800x600 @ 56Hz) e OK</P>
+<P>&nbsp;</P>
+<P>27 - Custom Monitor Setup (Continued)</P>
+<P>        No nosso caso 50-70 e OK</P>
+<P>&nbsp;</P>
+<P>28 - Screen Configuration</P>
+<P>        Probe</P>
+<P>&nbsp;</P>
+<P>29 - Probing to Begin</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>30 - Probing Finished</P>
+<P>        Use Default (caso esteja satisfeito) ou</P>
+<P>&nbsp;</P>
+<P>        Let Me Choose (caso deseje alterar os defaults). Escolhi esta.</P>
+<P>&nbsp;</P>
+<P>Aqui perdi umas duas etapas...</P>
+<P>&nbsp;</P>
+<P>31 - Probe for Clocks</P>
+<P>        Probe</P>
+<P>&nbsp;</P>
+<P>32 - Clock Probe Failed</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>33 - Clockchip Configuration</P>
+<P>        NoClockchip ...</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>34 - Probe for Clocks</P>
+<P>        Skip</P>
+<P>&nbsp;</P>
+<P>35 - Select Video Modes</P>
+<P>        Selecionar e OK</P>
+<P>&nbsp;</P>
+<P>36 - Network Configuration</P>
+<P>        No (no nosso caso)</P>
+<P>&nbsp;</P>
+<P>37 - Configure Timezones        </P>
+<P>TAB e Brazil/East (no nosso caso, NE do Brasil)</P>
+<P> </P>
+<P>38 - Services   </P>
+<P>Pressionando F1 sobre cada um aparece uma breve explica&ccedil;&atilde;o. OK</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>39 - Configure Printer</P>
+<P>        Yes, Local, OK, OK,</P>
+<P>        Selecionar uma da lista (nossa HP Deskjet 550C/...)</P>
+<P>        a4 e OK</P>
+<P>        3 - Normal color ...</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>40 - Root Password</P>
+<P>        Digite uma senha e repita abaixo (esta senha ser&aacute; exigida ap&oacute;s a instala&ccedil;&atilde;o). Quando se exigir&aacute; tamb&eacute;m o nome do usu&aacute;rio, ent&atilde;o voc&ecirc; deve digitar "root").</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>41 - Bootdisk</P>
+<P>        &Eacute; uma boa hora para pegar um disquete confi&aacute;vel e fazer um disco de boot do Linux (poder&aacute; ser muito &uacute;til).</P>
+<P>&nbsp;</P>
+<P>42 - Lilo Installation</P>
+<P>        Onde instalar o boot loader?</P>
+<P>        Master Boot Record para deixar o gerenciamento com o LILO.</P>
+<P>&nbsp;</P>
+<P>43 - Lilo Installation</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>44 - Bootable Partitions</P>
+<P>        Pode-se mudar os nomes para facilitar a digita&ccedil;&atilde;o. Mudei a que ele chamou de dos para w e a que ele chamou de linux apenas para l. OK</P>
+<P>&nbsp;</P>
+<P>45 - Done</P>
+<P>        OK</P>
+<P>&nbsp;</P>
+<P>Lembre, quando for solicitado o nome do usu&aacute;rio, digite "root" e a senha &eacute; aquela que informou na instala&ccedil;&atilde;o. Bom proveito.</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3.3 - INSTALA&Ccedil;&Atilde;O DO SLACKWARE 3.6</P>
+</B></FONT><P>&nbsp;</P>
+<P>1 - Consulte o item Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux para criar as parti&ccedil;&otilde;es com o FIPS e depois com o FDISK do Linux. Crie uma parti&ccedil;&atilde;o Linux Native e uma Swap (pelo menos). E veja tamb&eacute;m sobre o boot;</P>
+<P>&nbsp;</P>
+<P>2 - Dar boot com o CD no drive;</P>
+<P>&nbsp;</P>
+<P>3 - Quando aparecer a tela Boot from ATAPI CDROM</P>
+<P>Aperte Enter e aguarde</P>
+<P>&nbsp;</P>
+<P>4 - Slackware login</P>
+<P>Digite root e Enter</P>
+<P>&nbsp;</P>
+<P>5 - To start the main ...</P>
+<P>Aqui voc&ecirc; pode criar as parti&ccedil;&otilde;es tamb&eacute;m com fdisk ou cfdisk.</P>
+<P>Como j&aacute; criamos digite setup e Enter</P>
+<P>&nbsp;</P>
+<P>6 - Slackware Linux Setup</P>
+<P>Uma boa hora para dar uma olhada no Help.</P>
+<P>&nbsp;</P>
+<P>Selecione Keymap e Enter</P>
+<P>&nbsp;</P>
+<P>7 - Keyboard Map Selection</P>
+<P>Escolha us.map (para a maioria) e Enter</P>
+<P>&nbsp;</P>
+<P>8 - Keyboard Test</P>
+<P>Digite o que quiser testando a configura&ccedil;&atilde;o do teclado.</P>
+<P>&nbsp;</P>
+<P>Quando terminar apague tudo e digite apenas 1 e Enter se tudo estiver OK ou digite 2 para escolher outro mapa.</P>
+<P>&nbsp;</P>
+<P>9 - Now that you've ...</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>10 - Swap Space Detected</P>
+<P>Enter e aguarde</P>
+<P>&nbsp;</P>
+<P>11 - Swap space configured</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>12 - Continue With Installation?</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>13 - Select Linux Installation Partition</P>
+<P>Selecione e Enter</P>
+<P>14 - Format Partition /dev/hda1 (aqui)Format e Enter15 - Select Inode</P>
+<P>...Enter </P>
+<P>ou escolha outro e aguarde</P>
+<P>&nbsp;</P>
+<P>16 - Done Adding ...</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>17 - FAT/FAT32/HPFS ...</P>
+<P>Enter (caso tenha DOS/W95)</P>
+<P>&nbsp;</P>
+<P>18 - Select Partition do ADD</P>
+<P>Selecione a parti&ccedil;&atilde;o DOS/W95 e Enter</P>
+<P> </P>
+<P>19 - Picl Mount Point ...</P>
+<P>/mnt/windows (digitar) e Enter</P>
+<P>&nbsp;</P>
+<P>20 - Select Part ...</P>
+<P>Apenas se tiver mais de uma parti&ccedil;&atilde;o DOS/W95</P>
+<P>&nbsp;</P>
+<P>Selecione e Enter</P>
+<P>&nbsp;</P>
+<P>21 - Pick Mount ...</P>
+<P>/mnt/windows2 (digitar) e Enter</P>
+<P>&nbsp;</P>
+<P>22 - Done Adding ...</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>23 - Continue?</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>24 - Source Media Selection</P>
+<P>1 - Se de CD ... e Enter</P>
+<P>&nbsp;</P>
+<P>25 - Choose Installation Type</P>
+<P>Slackware e OK</P>
+<P>&nbsp;</P>
+<P>26 - Continue?</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>27 - Package Series Selection</P>
+<P>Selecione todos os que quiser e Enter</P>
+<P>&nbsp;</P>
+<P>(Completo fica em torno de 460MB)</P>
+<P>&nbsp;</P>
+<P>28 - Continue</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>29 - Select Prompt Mode</P>
+<P>full e Enter</P>
+<P>&nbsp;</P>
+<P>30 - Make boot disk</P>
+<P>- Colocar disco no drive e Format e Enter</P>
+<P>- Escolher (provavelmente) 1,44 e Enter (aguarde)</P>
+<P>- Simple e Enter e Enter</P>
+<P>- Caso queira criar o Lilo boot, formate outro disco e Lilo.</P>
+<P>- Continue e Enter</P>
+<P>&nbsp;</P>
+<P>31 - Modem configuration</P>
+<P>Escolher a Com (COM2 aqui) e Enter</P>
+<P>&nbsp;</P>
+<P>32 - Screen font Configuration</P>
+<P>No (foi a que escolhi)</P>
+<P>&nbsp;</P>
+<P>33 - Install lilo</P>
+<P>Simple e Enter</P>
+<P>(Ap&oacute;s instalado pode-se usar liloconfig para altera&ccedil;&otilde;es)</P>
+<P>&nbsp;</P>
+<P>34 - Select Lilo Destination</P>
+<P>MBR (op&ccedil;&atilde;o para quem quer deixar o boot default para o W95)</P>
+<P>&nbsp;</P>
+<P>35 - Configure Network?</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>36 - Network Configuration</P>
+<P>(Ap&oacute;s a instala&ccedil;&atilde;o pode-se utilizar netconfig para ajustes).</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>37 - Enter Hostname</P>
+<P>riba e Enter</P>
+<P>&nbsp;</P>
+<P>38 - Enter Domainname</P>
+<P>ribamar.com</P>
+<P>&nbsp;</P>
+<P>39 - Loopback only?</P>
+<P>Yes e Enter</P>
+<P>(Caso use apenas TCP/IP o IP ser&aacute; 127.0.0.1)</P>
+<P>&nbsp;</P>
+<P>40 - Enter local IP Address</P>
+<P>127.0.0.1 e Enter</P>
+<P>&nbsp;</P>
+<P>41 - Enter Netmask</P>
+<P>0.0.0.0 (d&uacute;vida)</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>42 - Gatway</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>43 - Use a name server?</P>
+<P>Yes e pode ser No (n&atilde;o tendo rede interna n&atilde;o far&aacute; muita diferen&ccedil;a).</P>
+<P>&nbsp;</P>
+<P>44 - Select Name Server</P>
+<P>200.253.251.32 (coloquei o do meu provedor mas acho que &eacute; da minha m&aacute;quina, como n&atilde;o sei...)</P>
+<P>(Depois de instalado ver /etc/resolv.conf para ajustes)</P>
+<P>&nbsp;</P>
+<P>45 - Network Setup complete</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>46 - Mouse</P>
+<P>Escolher e Enter (o meu -bare)</P>
+<P>&nbsp;</P>
+<P>47 - Serial</P>
+<P>COM1 (aqui)</P>
+<P>&nbsp;</P>
+<P>48 - GPM</P>
+<P>Yes e Enter</P>
+<P>&nbsp;</P>
+<P>49 - Sendmail</P>
+<P>SMTP... e Enter</P>
+<P>&nbsp;</P>
+<P>50 - Timezone</P>
+<P>Brazil/East (aqui)</P>
+<P>&nbsp;</P>
+<P>51 - Setup Complete</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>52 - Slackware Linux Setup</P>
+<P>(Ainda d&aacute; tempo de dar mais uma olhada no Help)</P>
+<P>Exit e OK</P>
+<P>&nbsp;</P>
+<P>53 - Reiniciar o micro</P>
+<P>Quando solicitado o login informe "root".</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3.4 - INSTALA&Ccedil;&Atilde;O DO SuSE 5.3</P>
+</B></FONT><P>&nbsp;</P>
+<P>1 - Consulte o item Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux para criar as parti&ccedil;&otilde;es com o FIPS e depois com o FDISK do Linux. Crie uma parti&ccedil;&atilde;o Linux Native e uma Swap. E veja tamb&eacute;m sobre o boot;</P>
+<P>&nbsp;</P>
+<P>2 - Vou mostrar com boot pelo CD;</P>
+<P>&nbsp;</P>
+<P>3 - Ent&atilde;o aparecer&aacute; a tela: Please Choose the Language. Escolhe entre as l&iacute;nguas Alem&atilde;o, Ingl&ecirc;s, Italiano ou Franc&ecirc;s;</P>
+<P>&nbsp;</P>
+<P>4 - What kind of display do you use?</P>
+<P>Escolher entre monitor color ou preto e branco;</P>
+<P>&nbsp;</P>
+<P>5 - Please choose a keyboard</P>
+<P>Escolher o teclado: Alem&atilde;o, Americano, Suomi (?), Brit&acirc;nico, Franc&ecirc;s, Espanhol ou Italiano (nosso em geral &eacute; Americano);</P>
+<P>&nbsp;</P>
+<P>6 - Main Menu</P>
+<P>Escolha: Start installation/System;</P>
+<P>&nbsp;</P>
+<P>7 - Start Installation</P>
+<P>Escolha novamente: Start installation;</P>
+<P>&nbsp;</P>
+<P>8 - Please choose the source media</P>
+<P>Escolha: CD-ROM (na maioria dos casos);</P>
+<P>&nbsp;</P>
+<P>9 - Type of installation</P>
+<P>Escolher: Install Linux from Scratch (para iniciantes);</P>
+<P>&nbsp;</P>
+<P>10 - Select Swap partition</P>
+<P>Lembrar o n&uacute;mero da parti&ccedil;&atilde;o swap l&aacute; do Fdisk (aqui: /dev/hd4) e Continue;</P>
+<P>&nbsp;</P>
+<P>11 - Confirmation</P>
+<P>Responder: Yes;</P>
+<P>&nbsp;</P>
+<P>12 - Partition Harddrives</P>
+<P>Do not partition (no nosso caso, quando j&aacute; criamos as parti&ccedil;&otilde;es);</P>
+<P>Obs.: Observe que em quase todas as telas existe a op&ccedil;&atilde;o de Help (F1);</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>13 - Creating Filesystem Aqui ele mostrou:</P>
+<P>/dev/hda1 - Linux</P>
+<P>/dev/hda3 - DOS</P>
+<P>/dev/hda5 - DOS</P>
+<P>&nbsp;</P>
+<P>- Com as setas selecionar as parti&ccedil;&otilde;es do W95 e teclar F4 para mont&aacute;-las no Linux (para que se possa usar os arquivos delas no Linux).</P>
+<P>- Digitar um nome para o diret&oacute;rio onde ser&aacute; montada a parti&ccedil;&atilde;o (ex.: aqui /windows). Lembrar de digitar a barra tamb&eacute;m e Enter.</P>
+<P>- Escolher &lt;FAT-Win95&gt; e Enter</P>
+<P>- Para a parti&ccedil;&atilde;o Linux, escolher o ponto de montagem igual a uma barra</P>
+<P>(/)</P>
+<P>- Formatar a Linux com F6, Format and Check e Continue;</P>
+<P>&nbsp;</P>
+<P>14 - Installation - YaST Version 0.97.4</P>
+<P>Change/create configuration</P>
+<P>&nbsp;</P>
+<P>15 - Series Selection</P>
+<P>- Aqui se far&aacute; a sele&ccedil;&atilde;o dos pacotes a serem instalados.</P>
+<P>- Pressione F2 sobre um pacote para ver uma descri&ccedil;&atilde;o sobre o mesmo.</P>
+<P>- Quando um pacote n&atilde;o estiver selecionado (0) ou se quiser ver o que est&aacute; instalado de cada pacote, selecione-o e Enter. &Eacute; s&oacute; marcar e desmarcar o que quiser com as setas e a barra de espa&ccedil;os.</P>
+<P>- Observe acima e a direita o espa&ccedil;o ocupado pelos pacotes selecionados.</P>
+<P>- Quando estiver satisfeito pressione F10 ou ESC para concluir;</P>
+<P>&nbsp;</P>
+<P>16 - Escolher Start Installation e aguarde...;</P>
+<P>&nbsp;</P>
+<P>17 - Escolher Main Menu;</P>
+<P>&nbsp;</P>
+<P>18 - Select Kernel</P>
+<P>Standard (E)IDE-Kernel (no meu caso)</P>
+<P>Obs.: ao final da lista h&aacute; uma op&ccedil;&atilde;o para micros sem PCI;</P>
+<P>&nbsp;</P>
+<P>19 - Create a boot disk</P>
+<P>Yes (altamente recomendado);</P>
+<P>&nbsp;</P>
+<P>20 - Please insert Disk</P>
+<P>Yes;</P>
+<P>&nbsp;</P>
+<P>21 - Confirmation Yes (lilo);</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>22 - Lilo installation Aqui o programa informa que ser&aacute; gravado em </P>
+<P>/etc/lilo.conf</P>
+<P>&nbsp;</P>
+<P>&#9;Pressionar F4</P>
+<P>    &#9;Configuration name: </P>
+<P>      WindowsWich operating system: </P>
+<P>      Boot DOS (Root-) partition boot: </P>
+<P>      Press F3, selecione e Enter</P>
+<P>      /dev/hda3 (aqui)</P>
+<P>&#9;Continue;</P>
+<P>&nbsp;</P>
+<P>23 - Volta ent&atilde;o para a tela anterior</P>
+<P>Continue;</P>
+<P>24 - Confirmation</P>
+<P>Continue (se satisfeito);</P>
+<P>&nbsp;</P>
+<P>25 - Time Zone Configuration</P>
+<P>Brazil/East (aqui);</P>
+<P>&nbsp;</P>
+<P>26 - Adjustmente of Hardware Clock</P>
+<P>Local Time (uma op&ccedil;&atilde;o);</P>
+<P>&nbsp;</P>
+<P>27 - Enter your Host Name</P>
+<P>hostname: ribafs</P>
+<P>&nbsp;</P>
+<P>domain name: ribamar.com (?);</P>
+<P>&nbsp;</P>
+<P>28 - Confirmation</P>
+<P>Loopback mode only (?);</P>
+<P>Yes (Usar Loopback only caso use apenas TCP/IP)</P>
+<P>&nbsp;</P>
+<P>29 - Information</P>
+<P>Continue;</P>
+<P>&nbsp;</P>
+<P>30 - Sendmail Configuration</P>
+<P>Continue;</P>
+<P>&nbsp;</P>
+<P>31 - Output of SuSEconfig</P>
+<P>Continue;</P>
+<P>&nbsp;</P>
+<P>32 - OK e reiniciar&aacute;;</P>
+<P> </P>
+<P>33 - Quando aparecer o prompt com New password</P>
+<P>Digite uma senha;</P>
+<P>&nbsp;</P>
+<P>34 - Confirmation</P>
+<P>Not;</P>
+<P>35 - Confirmation </P>
+<P>Yes;</P>
+<P>&nbsp;</P>
+<P>Entre o login e a senha</P>
+<P>Continue;</P>
+<P>&nbsp;</P>
+<P>36 - Confirmation (modem)</P>
+<P>Yes;</P>
+<P>&nbsp;</P>
+<P>37 - Modem Configuration</P>
+<P>Selecione a porta e continue (COM2 aqui);</P>
+<P>&nbsp;</P>
+<P>38 - Confirmation (mouse)</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>Selecione e Continue</P>
+<P>&nbsp;</P>
+<P>Selecione a COM (COM1 aqui) e Continue;</P>
+<P>&nbsp;</P>
+<P>39 - Confirmation</P>
+<P>Yes;</P>
+<P>&nbsp;</P>
+<P>40 - Test GPM</P>
+<P>Teste a sele&ccedil;&atilde;o do texto com o mouse.</P>
+<P>&nbsp;</P>
+<P>Se funcionar escolha Keep;</P>
+<P>&nbsp;</P>
+<P>41 - Information</P>
+<P>Continue;</P>
+<P>&nbsp;</P>
+<P>42 - Now scripts</P>
+<P>Enter;</P>
+<P>&nbsp;</P>
+<P>43 - Quando aparecer o prompt com login:</P>
+<P>Digite root e a sua senha e pode usar a vontade.</P>
+<P>&nbsp;</P>
+<P>Para configurar o ambiente gr&aacute;fico existem dois utilit&aacute;rios (do meu conhecimento) o SaX e o XF86Setup (o mesmo do Slack). Eu consegui apenas com o XF86Setup.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.3.5 - INSTALA&Ccedil;&Atilde;O DO DEBIAN 2.0</P>
+</B></FONT><P>Veja outros links de instalacao do Debian:
+http://www.debian.org/releases/stable/i386/install.html,
+http://www.infohouse.com.br/usuarios/jclaudio/instalandodebian.html e
+http://www.linuxpress.com/001002.htm;</P>
+<P>1 - Consulte o item Cuidados Iniciais para a Instala&ccedil;&atilde;o do Linux para criar as parti&ccedil;&otilde;es com o FIPS e depois com o FDISK do Linux. Crie uma parti&ccedil;&atilde;o Linux Native e uma Swap. E veja tamb&eacute;m sobre o boot;</P>
+<P>&nbsp;</P>
+<P>2 - Dar o boot com o CD no drive;</P>
+<P>&nbsp;</P>
+<P>3 - Quando aparecer a tela Welcome to ...</P>
+<P>Digite Enter</P>
+<P>&nbsp;</P>
+<P>4 - Debian GNU/Linux ...</P>
+<P>Com as setas selecione e Enter</P>
+<P>&nbsp;</P>
+<P>5 - Select Color or Monochrome Display</P>
+<P>Color e Next e Enter</P>
+<P>&nbsp;</P>
+<P>6 - Release Notes</P>
+<P>Continue</P>
+<P>&nbsp;</P>
+<P>7 - Debian GNU/Linux Inst ...</P>
+<P>Next e OK (para teclado US Internacional)</P>
+<P>&nbsp;</P>
+<P>8 - Next: Initialize Swap Partition</P>
+<P>Apenas Enter</P>
+<P>&nbsp;</P>
+<P>9 - Select Swap partition</P>
+<P>/dev/hda4 (aqui) e Enter</P>
+<P>&nbsp;</P>
+<P>10 - Are you sure?</P>
+<P>Yes e Enter</P>
+<P>&nbsp;</P>
+<P>11 - Next: Initialize a Linux Partition</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>12 - Select Partition</P>
+<P>/dev/hda1 (aqui) e Enter</P>
+<P>&nbsp;</P>
+<P>13 - Scan for bad blocks</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>14 - Are you sure?</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>15 - Mount as the Root Filesystem</P>
+<P>Yes</P>
+<P>16 - Next: Install Operating system</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>17 - Select Installation Medium</P>
+<P>CD-ROM (aqui) e Enter</P>
+<P>&nbsp;</P>
+<P>18 - Select CD Interface Type</P>
+<P>O tipo, em que porta est&aacute; e se &eacute; prim&aacute;rio ou secund&aacute;rio.</P>
+<P>Caso voc&ecirc; n&atilde;o saiba pode sair tentando at&eacute; dar certo.</P>
+<P>&nbsp;</P>
+<P>/dev/hdd: ATAPI (IDE) (aqui)</P>
+<P>&nbsp;</P>
+<P>19 - Please insert the CD-ROM</P>
+<P>Continue</P>
+<P>&nbsp;</P>
+<P>20 - Choose Debian archive path</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>21 - Select archive path</P>
+<P>List e Enter</P>
+<P>&nbsp;</P>
+<P>22 - Select arquive path</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>23 - Next: Configuration Device ...</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>24 - Select Category</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>25 - Next: Configure the network</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>26 - Choose the host name</P>
+<P>fortalnet e Enter</P>
+<P>&nbsp;</P>
+<P>27 - Network Connection</P>
+<P>Caso apenas INTERNET e n&atilde;o tenha placa de rede: No e Enter</P>
+<P>&nbsp;</P>
+<P>28 - Next: Install the base system</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>29 - Selection Installation Medium</P>
+<P>CD-ROM e Enter</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>30 - /dev/hdd (no meu caso)</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>31 - Please Insert the CDROM</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>32 - Path</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>33 - List </P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>34 - Select archive path</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>35 - Next: Configure the base system</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>36 - Select the Timezone</P>
+<P>Timezones       Directories</P>
+<P>&nbsp;</P>
+<P>Greenwich       Brasil</P>
+<P>&nbsp;</P>
+<P>37 - Timezone Configuration</P>
+<P>East (aqui)</P>
+<P>&nbsp;</P>
+<P>38 - Timezone Configuration</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>39 - Next: Make Linux Bootable Directly from Hard Disk</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>40 - Create Master Boot Record</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>41 - Make Linux the ...</P>
+<P>No (no caso do default ser windows)</P>
+<P>&nbsp;</P>
+<P>42 - Next: Make a boot floppy</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>43 - Change disk</P>
+<P>Colocar o disquete no drive e Enter. Aguarde</P>
+<P>&nbsp;</P>
+<P>44 - Next: Reboot the system</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>45 - Reboot the system</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>46 - Boot: Enter</P>
+<P>Deixar disquete no drive e no Setup mudar para boot pelo A.</P>
+<P>&nbsp;</P>
+<P>Obs.: numa das minhas tentativas precisei mudar o Setup para dar boot</P>
+<P>pelo A.</P>
+<P>&nbsp;</P>
+<P>47 - New password</P>
+<P>Digitar uma senha e confirmar.</P>
+<P>&nbsp;</P>
+<P>Obs.: caso a senha seja muito simples voc&ecirc; ter&aacute; que redigit&aacute;-la duas</P>
+<P>vezes.</P>
+<P>&nbsp;</P>
+<P>48 – Shall all I create a normal user ... [Y/n]</P>
+<P>Criar nova conta?</P>
+<P>Y e Enter</P>
+<P>username: ribafs</P>
+<P>&nbsp;</P>
+<P>password: digite uma</P>
+<P>&nbsp;</P>
+<P>49 - Shall I install ...</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>50 - Remove PCMCIA</P>
+<P>Yes (digitar n&atilde;o apenas se instalando em Notebook)</P>
+<P>&nbsp;</P>
+<P>51 - Use PPP</P>
+<P>Yes</P>
+<P>&nbsp;</P>
+<P>52 - Next: Create a connection</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>53 - Debian ... PPP configuration</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>54 - IP number</P>
+<P>200.253.251.32 (digite o IP do seu provedor)</P>
+<P>&nbsp;</P>
+<P>55 - IP number</P>
+<P>Caso tenha um secund&aacute;rio digite tamb&eacute;m aqui.</P>
+<P>&nbsp;</P>
+<P>56 - Provider Name</P>
+<P>fortalnet e Enter</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>57 - Create connection CHAP (aqui) e Enter58 - Enter password</P>
+<P>Apague e digite uma senha e Enter</P>
+<P>&nbsp;</P>
+<P>59 - Configuration</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>60 - Manager User Configuration</P>
+<P>Apague e digite seu username e Enter</P>
+<P>&nbsp;</P>
+<P>61 - Manage Port Configuration</P>
+<P>/dev/ttyS1 se em COM2 </P>
+<P>&nbsp;</P>
+<P>(veja a tabela e observe que se for digitar o S &eacute; mai&uacute;sculo)</P>
+<P>&nbsp;</P>
+<P>62 - Default route</P>
+<P>OK e Enter</P>
+<P>&nbsp;</P>
+<P>63 - IP numbers</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>64 - Set Speed</P>
+<P>Novamente Enter (se correto)</P>
+<P>&nbsp;</P>
+<P>65 - Modem inicialization ATZ</P>
+<P>Enter (em geral)</P>
+<P>&nbsp;</P>
+<P>66 - Number to dial</P>
+<P>2770303 e Enter (digite o nr. de acesso ao seu provedor)</P>
+<P>&nbsp;</P>
+<P>67 - Tone or Pulse</P>
+<P>Escolha e Enter (Tone aqui)</P>
+<P>&nbsp;</P>
+<P>68 - Properties</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>69 - Select a Propertie to Manage</P>
+<P>Caso esteja tudo ok selecione</P>
+<P>&nbsp;</P>
+<P>Quit e Enter</P>
+<P>&nbsp;</P>
+<P>70 - Finished</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>71 - Main Menu(Ap&oacute;s instalado usar o comando "pon" para conex&atilde;o)</P>
+<P>Quit Exit this utility</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>72 - Do you to start a PPP connection now?</P>
+<P>No (por hora)</P>
+<P>&nbsp;</P>
+<P>73 - Now you may choose ...</P>
+<P>Enter (para iniciantes, vamos usar essa)</P>
+<P>(Y e Enter para escolher um a um. Use apenas quando conhecer bem o dselect.)</P>
+<P>&nbsp;</P>
+<P>74 - Please select profile</P>
+<P>Dialup e Enter (foi uma op&ccedil;&atilde;o)</P>
+<P>&nbsp;</P>
+<P>75 - I'm now going to ...</P>
+<P>Est&aacute; sendo sugerido nesta tela que a seq&uuml;&ecirc;ncia para o iniciante deveria</P>
+<P>ser (A)ccess, (U)pdate e depois (I)nstallation. Isso na pr&oacute;xima tela.</P>
+<P>Enter</P>
+<P>&nbsp;</P>
+<P>76 - Debian Linux "dselect"</P>
+<P>Aqui eu escolhi (A)ccess e Enter e foi para outra tela</P>
+<P>&nbsp;</P>
+<P>77 - dselect ...</P>
+<P>mounted</P>
+<P>(boa observa&ccedil;&atilde;o &eacute; que caso d&ecirc; erro volta-se com CTRL+D).</P>
+<P>Aqui aparece uma tela preta com a seguinte mensagem:</P>
+<P>&nbsp;</P>
+<P>If you make a mistake  use the interrupt key (^C) to abort</P>
+<P>Insert the CD-ROM and enter the block name [ ] :</P>
+<P>&nbsp;</P>
+<P>Ent&atilde;o digita-se /dev/hxy, onde x=d (discos IDE) e x=s (discos SCSI)</P>
+<P>e y=a,b,c,d,... No meu caso &eacute; /dev/hdd e Enter</P>
+<P>&nbsp;</P>
+<P>Depois digitei /debian/dists/stable</P>
+<P>Ent&atilde;o aparece uma mensagem de que n&atilde;o encontrou o diret&oacute;rio .../binary-i386  quando eu (aqui) digitei /debian/hamm/hamm/binary-i386. Ent&atilde;o aparecem outras mensagens com perguntas sobre v&aacute;rios diret&oacute;rios: non-free, non-US e outros. Respondi none para o restante e ao final teclei Enter e voltou para a tela anterior j&aacute; com a op&ccedil;&atilde;o (U)pdate selecionada. </P>
+<P>Teclar Enter novamente e aguard. Ao final outro Enter.</P>
+<P>&nbsp;</P>
+<P>Selecionar (I)nstall e Enter (come&ccedil;a a instala&ccedil;&atilde;o, que demora um bocado).</P>
+<P>&nbsp;</P>
+<P>Parece que ocupa uns 500MB.</P>
+<P>&nbsp;</P>
+<P>78 - Do you want to configure wvdial now? [Y/n] - Enter para sim.</P>
+<P>&nbsp;</P>
+<P>79 - Phone number: (digite o n&uacute;mero do provedor)</P>
+<P>&nbsp;</P>
+<P>80 - Login name: (seu login)</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>81 - Password: (digite e redigite sua senha)</P>
+<P>Tentara detectar o modem e avisa que pode-se fazer futuras altera&ccedil;&otilde;es</P>
+<P>em /etc/wvdial.conf ou com wvdialconf.</P>
+<P>&nbsp;</P>
+<P>82 - Number of itens in the learning.</P>
+<P>        Enter para a aceitar o default.</P>
+<P>&nbsp;</P>
+<P>83 - Default paper name? (letter) </P>
+<P>        Pode digitar a4 ou outro. Ou enter para aceitar o default.</P>
+<P>&nbsp;</P>
+<P>84 - You must choose one of the options below:</P>
+<P>        Escolher 1 das 5 situa&ccedil;&otilde;es, digitar o n&uacute;mero e Enter.</P>
+<P>        Como n&atilde;o tenho FAX/MODEM no notebook digitei 5.</P>
+<P>        1 – Para acesso &agrave; Internet. Mail name: ribafs. (none e Enter).</P>
+<P>        Conta – ribafs  Y e Enter. &#9;Smail – 1 Enter</P>
+<P>&nbsp;</P>
+<P>85 - Current configuration: -m /dev/ttyS0 -t ms -l "... " [Y/n]</P>
+<P>        Enter</P>
+<P>&nbsp;</P>
+<P>86 - Do you want me to do this? (y/n) Y e enter.</P>
+<P>&nbsp;</P>
+<P>87 - Please enter address of na NTPserver ou &lt;enter&gt; to end. Enter.</P>
+<P>&nbsp;</P>
+<P>88 - Should we run ntpdate every time xntp start? Y e Enter.</P>
+<P>&nbsp;</P>
+<P>89 - Configure inews now? [Y/n] Escolhi n mas voc&ecirc; pode preferir Y.</P>
+<P>&nbsp;</P>
+<P>90 - What news server ... reading</P>
+<P>Enter its full name: Enter</P>
+<P>&nbsp;</P>
+<P>91 - Whats news... reading and posting news</P>
+<P>        Enter its full name: Enter</P>
+<P>&nbsp;</P>
+<P>92 - Do you want a cron job... [Y/n]. N e Enter.</P>
+<P>&nbsp;</P>
+<P>93 - Do you want /etc/ppp/ip-up.d/slrn... [Y/n] </P>
+<P>        Obs.: The command to run (as root) is: /usr/sbin/slrngetdescs</P>
+<P>&nbsp;</P>
+<P>Press return: tecle N e Enter</P>
+<P>&nbsp;</P>
+<P>94 - Do you play to use slrupull... [Y/n]. N e Enter</P>
+<P>&nbsp;</P>
+<P>95 - Do you happy with this configuration [Y/n] Enter para confirmar.</P>
+<P>&nbsp;</P>
+<P>96 - Config. Saved to: /etc/slrnget.conf</P>
+<P>        Are you online now? ... [Y/n] N se n&atilde;o estiver online e Enter.</P>
+<P>&nbsp;</P>
+<P>97 - Please reboot after installation... Press return. Enter</P>
+<P>&nbsp;</P>
+<P>98 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>99 - What device is your CD-ROM that you want to play audio CDs from?</P>
+<P>Na d&uacute;vida coloquei /dev/hdb.</P>
+<P>&nbsp;</P>
+<P>100 - Quit or select number</P>
+<P>        1 para adicionar user</P>
+<P>&nbsp;</P>
+<P>101 - Your choise: 0 - Adiciona usu&aacute;rio para grupo de &aacute;udio</P>
+<P>        1 - Deleta       "         "  </P>
+<P>&nbsp;</P>
+<P>        0 e Enter</P>
+<P>&nbsp;</P>
+<P>102 - Add user: ribafs (user name) e Enter</P>
+<P>&nbsp;</P>
+<P>103 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>104 - Place at what priority (1-3, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>105 - Would you like english to be the default dictionary? [y/N] Enter</P>
+<P>&nbsp;</P>
+<P>106 - Should I create the devices necessary... [Y/n] n e enter</P>
+<P>&nbsp;</P>
+<P>107 - Please enter the default URL for Lynx</P>
+<P>        Digite a url e Enter</P>
+<P>&nbsp;</P>
+<P>108 - Do you want create the Xfree86 configuration file? (y/n) </P>
+<P>        Y e enter</P>
+<P>&nbsp;</P>
+<P>109 - Se n&atilde;o conseguir diga n da pr&oacute;xima vez /etc/X11/XF86Config</P>
+<P>&nbsp;</P>
+<P>110 - Saiu sugerindo servers (Demora)</P>
+<P>&nbsp;</P>
+<P>111 - Press enter to continue. Enter</P>
+<P>&nbsp;</P>
+<P>112 - With one do you want by default? (i/m) m para o Brasil.</P>
+<P>&nbsp;</P>
+<P>113 - There are two application ... (c/m) c para color.</P>
+<P>&nbsp;</P>
+<P>114 - Mail name [ribafs]: digite seu e-mail e enter</P>
+<P>&nbsp;</P>
+<P>115 - Currently, gnuplot is not set ... (y/n) [n] Enter</P>
+<P>&nbsp;</P>
+<P>116 - There are two application ... (c/m) c para color.</P>
+<P>&nbsp;</P>
+<P>117 - What configuration flags... Enter</P>
+<P>&nbsp;</P>
+<P>118 - Do you want to change this? (y/N) Enter</P>
+<P>&nbsp;</P>
+<P>119 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>        Configure depois em /etc/playmidi/playmidi.conf</P>
+<P>&nbsp;</P>
+<P>120 - Place at what priority (1-3, help)? [1] Enter</P>
+<P>        test=test -n "$DISPLAY"</P>
+<P>&nbsp;</P>
+<P>121 - Place at what priority (1-4, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>122 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>123 - Would you like to configure xmcd now? (y/n) [y] Enter</P>
+<P>&nbsp;</P>
+<P>124 - Would like to you use remote CD ... ? [y] N e enter</P>
+<P>&nbsp;</P>
+<P>125 - Aqui perdi uns dois passos...</P>
+<P>&nbsp;</P>
+<P>126 - Select the number of the default dictionary [1] Americano e 2</P>
+<P>para Brit&acirc;nico.</P>
+<P>&nbsp;</P>
+<P>127 - X Sysinfo mono or color (c/m)? C e enter</P>
+<P>&nbsp;</P>
+<P>128 - Make olvwm the default window manager? [y] Enter </P>
+<P>&nbsp;</P>
+<P>129 - Make olwm the default window manager? [y] Enter</P>
+<P>&nbsp;</P>
+<P>130 - Should I make Scwm ... [Y/n] n e enter</P>
+<P>&nbsp;</P>
+<P>131 - Should I make Scwm ... [Y/n] enter</P>
+<P>&nbsp;</P>
+<P>132 - wich one do you want to make the default? [123] Enter</P>
+<P>&nbsp;</P>
+<P>133 - X server (Y/I/N/O/Z) [default=N]? Y e Enter</P>
+<P>&nbsp;</P>
+<P>134 - Would you like xdm to be started at boot time? (y/n) [n] enter</P>
+<P>&nbsp;</P>
+<P>135 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>136 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>137 - Place at what pirolito (1-3, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>138 - Place at what priority (1-3, help)? [1] Enter</P>
+<P>139 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>140 - Shal I make fvwm95 the default w manager? (y/n) Y e Enter</P>
+<P>&nbsp;</P>
+<P>141 - Press enter - Enter</P>
+<P>&nbsp;</P>
+<P>142 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>143 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>144 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>145 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>146 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>147 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>148 - Do you want to bytecompile this module now? (Y/n) Enter</P>
+<P>&nbsp;</P>
+<P>149 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>150 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>151 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>152 - Place at what priority (1-2, help)? [1] Enter</P>
+<P>&nbsp;</P>
+<P>153 - Press Return to continue. Enter</P>
+<P>&nbsp;</P>
+<P>154 - Selecione (Q)uit e Enter</P>
+<P>&nbsp;</P>
+<P>155 - Entrar com "root" como login e com a sua senha.</P>
+<P>&nbsp;</P>
+<P>156 - Reiniciar o micro com "reboot" e Enter ou Ctrl+Alt+Del.</P>
+<P>&nbsp;</P>
+<P>Aqui num P120, 16MB de RAM demorou umas 3 horas e meia para instalar.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>Na p&aacute;gina do grupo Linux-SE (Linux Sergipe) encontrei tamb&eacute;m um pequeno guia de instala&ccedil;&atilde;o do Debian 2, feito pelo Hugo Ciseiros.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.4 - INSTALA&Ccedil;&Atilde;O DO KDE 1.1 NO SLACKWARE 3.6</P>
+</B></FONT><P>&nbsp;</P>
+<P>1) Criar ou acessar um diret&oacute;rio tempor&aacute;rio;</P>
+<P>&nbsp;</P>
+<P>2) Pegar os dois arquivos abaixo e salvar no diret&oacute;rio:</P>
+<P>&nbsp;</P>
+<P>- qt_1_42.tgz e</P>
+<P>- kde.tgz</P>
+<P>&nbsp;</P>
+<P>Pegar aqui: </P>
+<P>ftp://ftp.cdrom.com/pub/linux/slackware-current/slakware/xap1/</P>
+<P>&nbsp;</P>
+<P>3) Depois &eacute; s&oacute; instalar com o comando (lembre que a ordem &eacute; importante, primeiro instale a biblioteca qt, depois o kde):</P>
+<P>&nbsp;</P>
+<P>- installpkg qt_1_42.tgz</P>
+<P>- installpkg kde.tgz</P>
+<P>&nbsp;</P>
+<P>4) Agora basta dar um reboot (talvez tenha outra alternativa) e acessar o kde com startx e usar e abusar.</P>
+<P>&nbsp;</P>
+<P>Colabora&ccedil;&atilde;o do Fred Silva, o da Linux Sergipe.</P>
+<P>&nbsp;</P>
+<P>Obs.: A primeira coisa (para mim) &eacute; trocar o idioma para portugu&ecirc;s do Brasil:</P>
+<P>&nbsp;</P>
+<P>Setting - Desktop - Language.</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.5 - INSTALA&Ccedil;&Atilde;O DO KDE 1.0 NO RED HAT 5.2</P>
+</B></FONT><P>- Aqui eu instalei o Kde 1.0 que vem com o CD do Marumbi.</P>
+<P>&nbsp;</P>
+<P>- Montei o cd e acessei.</P>
+<P>&nbsp;</P>
+<P>- Usei rpm -ivh para instalar todos os pacotes do kde que se encontram no diret&oacute;rio /Red </P>
+<P>Hat/RPMS.</P>
+<P>Detalhes sobre os arquivos do kde:</P>
+<P>kdesupport - recomendado</P>
+<P>kdelibs - obrigat&oacute;rio</P>
+<P>kdebase - obrigat&oacute;rio</P>
+<P>kdeadmin - opcional</P>
+<P>kdegames - opcional</P>
+<P>kdegraphics - opcional</P>
+<P>kdemultimedia - opcional</P>
+<P>kdenetwork - opcional</P>
+<P>- Depois apenas tive que adicionar o path do kde no /etc/profile:</P>
+<P>QTDIR=/usr/lib/qt</P>
+<P>PATH=$QTDIR/bin:$PATH</P>
+<P>MANPATH=$QTDIR/man:$MANPATH</P>
+<P>LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</P>
+<P>LIBRARY_PATH=$LD_LIBRARY_PATH</P>
+<P>CPLUS_INCLUDE_PATH=$QTDIR/include:$CPLUS_INCLUDE_PATH</P>
+<P>export QTDIR PATH MANPATH LD_LIBRARY_PATH LIBRARY_PATH</P>
+<P>export CPLUS_INCLUDE_PATH</P>
+<P>KDEDIR=/opt/kde</P>
+<P>PATH=$KDEDIR/bin:$PATH</P>
+<P>export KDEDIR PATH</P>
+<P> </P>
+<P>- Depois adicionar "startkde" no "xinitrc", que fica em /etc/X11/xinit/.</P>
+<P>- Observar se os diret&oacute;rios s&atilde;o os mesmos.</P>
+<P>Obs.: Agrade&ccedil;o aqui ao colega que deu essa dica numa lista. S&oacute; sei o nome dele: Milton. Valeu Milton!</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.6 - INSTALA&Ccedil;&Atilde;O DO WORD PERFECT 8</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Baixar o arquivo WordPerfect.tar.gz do Linuxberg ou de outro reposit&oacute;rio.  </P>
+<P>&nbsp;</P>
+<P>Via wget &eacute; uma boa pedida.</P>
+<P>&nbsp;</P>
+<P>- Descompactador em um diret&oacute;rio tempor&aacute;rio (vazio) com:</P>
+<P>&nbsp;</P>
+<P>        tar zxpvf WordPerfect.tar.gz</P>
+<P>&nbsp;</P>
+<P>- Executar o Runme com: ./Runme</P>
+<P>&nbsp;</P>
+<P>- Responder as perguntas</P>
+<P>&nbsp;</P>
+<P>- Ap&oacute;s a conclus&atilde;o entrar no X Window, abrir o xterm e digitar:</P>
+<P>&nbsp;</P>
+<P>/opt/wp8/wpbin/xwp e Enter ou cd/ opt/wp8/wpbin e Enter e ./xwp e Enter.</P>
+<P>&nbsp;</P>
+<P>- Ent&atilde;o ele pedir&aacute; a license key. Voc&ecirc; deve ir at&eacute; &agrave; Corel para se registrar (http://linux.corel.com). </P>
+<P>Para uso pessoal &eacute; free.</P>
+<P>&nbsp;</P>
+<P>Na Ano 2001 tem um tutorial mais detalhado sobre a instala&ccedil;&atilde;o do WP8.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.7 DESINSTALA&Ccedil;&Atilde;O DO WORD PERFECT 8:</P>
+</B></FONT><P>&nbsp;</P>
+<P>1) rm -Rf /opt/wp8      (supondo que esteja em /opt/wp8)</P>
+<P>2) rm -Rf ~/.wprc</P>
+<P>3) rm /etc/magic</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>2.8 - INSTALA&Ccedil;&Atilde;O DO AFTERSTEP NO SLACKWARE 3.6</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Baixar o arquivo AfterStep... num determinado diret&oacute;rio</P>
+<P>- Acessar o diret&oacute;rio e installpkg AfterStep...</P>
+<P>- cd /AfterStep...</P>
+<P>./install.script</P>
+<P>Agora &eacute; s&oacute; executar startx.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.9 - INSTALA&Ccedil;&Atilde;O DO LICQ NO RED HAT</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Baixar o arquivo Licq... sugest&atilde;o: p&aacute;gina do Felipe Russo em: </P>
+<P>http://members.xoom.com/linux_page/</P>
+<P>&nbsp;</P>
+<P>- Descompactador com tar zxpvf Licq... num diret&oacute;rio j&aacute; definitivo, pois s&atilde;o os bin&aacute;rios.</P>
+<P>&nbsp;</P>
+<P>- Acessar o sub-dret&oacute;rio /misc e copiar a lib licq-base.tar.gz para o diret&oacute;rio /usr/local/share.</P>
+<P>&nbsp;</P>
+<P>- Agora acessar o X, abrir um xterm, executar /diretorio/licq/licq.</P>
+<P>&nbsp;</P>
+<P>- Configurar &agrave; vontade.</P>
+<P>&nbsp;</P>
+<P>Obs.: o Licq exige que j&aacute; tenha antes se cadastrado no ICQ, ele n&atilde;o cadastra usu&aacute;rios do ICQ, apenas permite uso de usu&aacute;rios j&aacute; cadastrados.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>2.10- INSTALA&Ccedil;&Atilde;O DO FILE MANAGER TKDESK NO RED HAT</P>
+</B></FONT><P>&nbsp;</P>
+<P>- Baixar o arquivo TkDesk...rpm do Rufus</P>
+<P>&nbsp;</P>
+<P>- Instalar com rpm -ivh TkDesk...rpm</P>
+<P>&nbsp;</P>
+<P>- Adicionar uma vari&aacute;vel de ambiente ao /etc/profile:</P>
+<P>&nbsp;</P>
+<P>  export TKDESK_LIBRARY="/usr/lib/TkDesk"</P>
+<P>&nbsp;</P>
+<P>- Abrir o X, num xterm digitar tkdesk e pronto.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>3 – MCEDIT, VI, PICO e JOE</P>
+</B></FONT><P>&nbsp;</P>
+<P>O mcedit &eacute; meu editor ascii preferido (pela praticidade e versatilidade).</P>
+<P>N&atilde;o h&aacute; muita necessidade de falar sobre ele, pois &eacute; muito f&aacute;cil de usar e no Conectiva Linux j&aacute; vem traduzido.</P>
+<P>&nbsp;</P>
+<P>O vi &eacute; um editor de texto tipo o Edit do DOS. Muito &uacute;til para editar os arquivos texto e scripts do Linux. Conta com dois modos de uso: edi&ccedil;&atilde;o e comando. Quando se tecla em Esc entra-se no modo de comando (com v&aacute;rios dispon&iacute;veis) e quando se entra no vi e tecla-se em Insert ou "i" entra-se no modo de edi&ccedil;&atilde;o, podendo-se alterar &agrave; vontade um texto ou come&ccedil;ar a criar um texto ou script novo.</P>
+<P>&nbsp;</P>
+<P>EXECUTAR: "vi" e Enter ou "vi nome.do.arquivo" e Enter.</P>
+<P>&nbsp;</P>
+<P>Ao entrar no "vi", para alterar um arquivo ou come&ccedil;ar a digitar algo devemos teclar em Insert.</P>
+<P>&nbsp;</P>
+<P>SAIR: Teclar Esc, digitar ":q" (dois pontos e q) e Enter.</P>
+<P>&nbsp;</P>
+<P>Obs.: quando abrimos um arquivo com o "vi" e digitamos ou apagamos alguma coisa, para for&ccedil;ar a sa&iacute;da devemos teclar Esc e digitar ":q!".</P>
+<P>&nbsp;</P>
+<P>GRAVAR ALTERA&Ccedil;&Otilde;ES ou um arquivo novo: ap&oacute;s terminar, teclar Esc e digitar ":w" e Enter.</P>
+<P>&nbsp;</P>
+<P>PROCURAR UM STRING NO VI: ao abrir um arquivo, para procurar por um string tecle Esc, tecle a barra "/" e digite o string e Enter.</P>
+<P>&nbsp;</P>
+<P>Ex.: Esc, /string e Enter.</P>
+<P>&nbsp;</P>
+<P>REPETIR A &Uacute;LTIMA PROCURA: "n"</P>
+<P>&nbsp;</P>
+<P>REPETIR A &Uacute;LTIMA PROCURA NA ORDEM INVERSA: "N"</P>
+<P>&nbsp;</P>
+<P>Obs.: esta mesma t&eacute;cnica tamb&eacute;m pode ser usada nas man pages dos comandos.</P>
+<P>&nbsp;</P>
+<P>COMANDOS DE MODIFICA&Ccedil;&Atilde;O DO TEXTO:</P>
+<P>&nbsp;</P>
+<P>x         apaga o caractere sob o cursor.</P>
+<P>dd        apaga a linha sob o cursor.</P>
+<P>ndd       apaga n linhas, da linha sob o cursor para baixo.</P>
+<P>D         apaga os caracteres na linha a partir da posi&ccedil;&atilde;o do cursor.</P>
+<P>yy        copia a linha sob o cursor.</P>
+<P>nyy       copia n linhas, da linha sob o cursor para baixo.</P>
+<P>p         cola o texto apagado ou copiado ap&oacute;s a posi&ccedil;&atilde;o do cursor.</P>
+<P>u         desfaz a &uacute;ltima modifica&ccedil;&atilde;o.</P>
+<P>:r arq    insere o conte&uacute;do do arquivo especificado ap&oacute;s a linha do cursor.</P>
+<P>COMANDOS DE EDI&Ccedil;&Atilde;O DO TEXTO:</P>
+<P>&nbsp;</P>
+<P>a         insere o texto depois da posi&ccedil;&atilde;o do cursor.</P>
+<P>A         insere o texto no fim da linha de onde se encontra o cursor.</P>
+<P>i         insere o texto na posi&ccedil;&atilde;o do cursor.</P>
+<P>I         insere o texto no in&iacute;cio da linha de onde se encontra o cursor.</P>
+<P>o         insere uma linha abaixo da linha com o cursor.</P>
+<P>O         insere uma linha acima da linha com o cursor.</P>
+<P>&nbsp;</P>
+<P>GRAVAR, ABRIR E SAIR DO TEXTO:</P>
+<P>&nbsp;</P>
+<P>:w        grava o texto no arquivo aberto.</P>
+<P>:w arq    grava o texto no arquivo especificado.</P>
+<P>:w&amp;gt;&amp;gt; arq  acrescenta o texto no arquivo especificado.</P>
+<P>:w!       for&ccedil;a a grava&ccedil;&atilde;o do texto no arquivo aberto.</P>
+<P>:wq       grava o texto no arquivo aberto e sai do editor.</P>
+<P>:wq arq   grava o texto no arquivo especificado e sai do editor.</P>
+<P>:e arq    abre o arquivo especificado, fechando o atual.</P>
+<P>:q        sai do editor desde que o texto n&atilde;o tenha nenhuma altera&ccedil;&atilde;o.</P>
+<P>:q!       for&ccedil;a a sa&iacute;da do editor sem salvar as altera&ccedil;&otilde;es no texto. </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;Outros Comandos do Vi</P>
+<P ALIGN="LEFT"><TABLE BORDER CELLSPACING=1 CELLPADDING=5 WIDTH=484>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>k - seta cima;</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>j - seta baixo</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>h - seta esquerda </FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>f - seta direita</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>^ - inicio de linha</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>$ - fim de linha</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>w - avan&ccedil;a palavra</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>3w - avan&ccedil;a 3 palavras</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>b - retorna palavra</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>3b - retorna palavra</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>e - fim da palavra</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>fx - avan&ccedil;a at&eacute; caracter x</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>Fx - retorna at&eacute; caracter x</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>^d - desce ½ tela</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>^u - sobe ½ tela</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>^f - desce 1 tela</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>^d - sobe 1 tela</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>H - topo da tela</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>M - meio de linha</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>L - fim da tela</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>xG - vai para linha x</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>x - deleta caracter</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>r - substitui caracter</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>X - deleta caracter anterior</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:! - comando shell</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:sh - shell</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>u - restaura arquivo</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>U - restaura a linha</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<U><FONT SIZE=2><P>&nbsp;</P>
+<P>Pesquisa:</U></FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>/cadeia - &agrave; frente</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>?cadeia - para tr&aacute;s</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>n - repete mesmo sentido</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>N - repete sentido contr&aacute;rio</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>xyy - coloca linha corrente + (x-1) linhas no buffer</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>P - coloca buffer apos linha do cursor (at&eacute; 26 buffer’s endere&ccedil;&aacute;veis)</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P><HR ALIGN="LEFT" WIDTH="50%" SIZE=1><HR ALIGN="RIGHT" WIDTH="50%" SIZE=1>:set list - lista vari&aacute;veis do vi</P>
+<P><HR ALIGN="RIGHT" WIDTH="50%" SIZE=1>% - desloca o cursor para o par&ecirc;nteses ou chave que casa com a que est&aacute; sob o cursor.</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:set (no) number - com ou sem numera&ccedil;&atilde;o se linhas</P>
+<P>:set (no) sm - casamento de parenteses e chaves</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:set all - mostra a setagem das vari&aacute;veis</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:set (no) ai - com ou sem auto-identita&ccedil;&atilde;o</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>S - substitui caracter e abre inser&ccedil;&atilde;o</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>R - substitui caracter (cont&iacute;nuo)</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>J - junta linhas</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>dd - deleta linha (buffer)</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>cw - substitui word</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>c$ - substitui at&eacute; o final da linha</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:q - quit</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:q! - saida for&ccedil;ada</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:next - pr&oacute;ximo arquivo</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:rewind - arquivo anterior</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:x,y s/velho/novo/g - substitui string</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>x,y - linha e coluna</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>g - todas as ocorr&ecirc;ncias</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>:w - grava arquivo</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:x - grava e sai</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>dx - deleta x linhas</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P><HR ALIGN="LEFT" WIDTH="50%" SIZE=1>put - p&otilde;e conte&uacute;do no buffer</P>
+<P>:e! edi&ccedil;&atilde;o for&ccedil;ada, aandona mudan&ccedil;as</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>y,x - guarda no buffer x linhas apartir da linha do cursor.</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>:wq - grava e sai</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>\ - help</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<U><FONT SIZE=2><P>Inser&ccedil;&atilde;o:</U></FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>i - antes do cursor</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>I - in&iacute;cio da linha</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>o - linha abaixo</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">
+<FONT SIZE=2><P>O - linha acima</FONT></TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>A - fim da linha</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">&nbsp;</TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<U><FONT SIZE=2><P>Copiar um bloco de texto:</U></FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>* posiciona no in&iacute;cio do bloco;</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>* d&aacute; o comando: 10yy (10 linhas);</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+<TR><TD WIDTH="54%" VALIGN="TOP">
+<FONT SIZE=2><P>* posiciona o cursor e pressiona &quot;p&quot;</FONT></TD>
+<TD WIDTH="46%" VALIGN="TOP">&nbsp;</TD>
+</TR>
+</TABLE>
+</P>
+
+<P>Temos tamb&eacute;m o Pico e o Joe (e ainda outros) que normalmente j&aacute; vem com nas distribui&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>3.1 - EMACS</P>
+</B></FONT><P>&nbsp;</P>
+<P>Executar: "emacs" e Enter ou "emacs nome.do.arquivo" e Enter.</P>
+<P>Sair: Ctrl+x e Ctrl+c</P>
+<P>Ajuda: Ctrl+h</P>
+<P>Tutorial: Ctrl+h e t</P>
+<P>Ativar Barra de Menus: F10</P>
+<P>Sair da Barra: Esc, Esc, Esc</P>
+<P>Desfazer: Ctrl+x e u</P>
+<P>Salvar: Ctrl+x e Ctrl+s</P>
+<P>Salvar Como: Ctrl+x, Ctrl+w</P>
+<P>Abrir: Ctrl+x, Ctrl+f</P>
+<P>Kill Current Buffer: k</P>
+<P>&nbsp;</P>
+<P>Obs.: o Linux j&aacute; traz tamb&eacute;m outros editores de texto muito &uacute;teis.</P>
+<P>O Joe, o Pico e o Jed por exemplo. Procure por eles. Para usar basta digitar seu nome ou nome e </P>
+<P>arquivo.</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>3.2 - KEDIT</P>
+</B></FONT><P>&nbsp;</P>
+<P>O kedit &eacute; um editor de texto simples, que vem com o KDE. Seu uso dispensa coment&aacute;rios, j&aacute; que pode estar em portugu&ecirc;s e tem uma interface realmente muito intuitiva.</P>
+<P>&nbsp;</P>
+<P> </P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>3.3 – RESENHA DE EDITORES/PROCESSADORES DE TEXTO</P>
+</B></FONT><P>&nbsp;</P>
+<P>Um Review abordando muitos editores/processadores de texto pode ser encontrado na Linux in Brazil: http://www.linux.trix.net </P>
+<P>De autoria do Ricardo Y. Igarashi</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P>4 – REFER&Ecirc;NCIAS</P>
+</B></FONT><P>&nbsp;</P>
+<P>1 - P&aacute;gina oficial do Linux: </P>
+<P>        http://www.linux.org</P>
+<P>2 - P&aacute;gina da Conectiva</P>
+<P>        http://www.conectiva.com.br</P>
+<P>3 - The Linux Manual (o manual do Linux mais badalado na INTERNET)</P>
+<P>        http://www.netdados.com.br/tlm/ (autoria de Hugo Cisneiros)</P>
+<P>4 - P&aacute;gina de Linux do provedor Matrix:</P>
+<P>        Linux in Brazil: http://www.linux.trix.net/</P>
+<P>5 - P&aacute;gina muito boa sobre Linux:</P>
+<P>        Ano 2001: http://ano2001.sti.com.br</P>
+<P>6 - Um verdadeiro manancial de Respostas:</P>
+<P>        Tira-D&uacute;vidas: <A HREF="http://members.xoom.com/Tiraduvida/txt.html">http://members.xoom.com/Tiraduvida/txt.html</A></P>
+<P>7 – P&aacute;gina sobre acentua&ccedil;&atilde;o no Linux (do Ricardo Y. Igarashi):</P>
+<P>        http://lie-br/conectiva.com.br/~iga/</P>
+<P>8 - Minha contribui&ccedil;&atilde;o para os iniciantes ao Linux:</P>
+<P>        http://www.oocities.org/SiliconValley/Ridge/3505/</P>
+<P>9- Onde existem muitos programas &uacute;teis, links e FAQs:</P>
+<P>        Felipe Russo: http://members.xoom.com/linux_page </P>
+<P>10- Outro usu&aacute;rio Linux que d&aacute; sua contribui&ccedil;&atilde;o:</P>
+<P>        Red Hat Linux Tips: http://www.bestway.com.br/~madeira/</P>
+<P>11 Slackware Sergipe (p&aacute;gina do Fred com muita coisa sobre Slackware)</P>
+<P>        http://www.linuxstart/~fred/</P>
+<P>12- Grande reposit&oacute;rio de pacotes RPMs:</P>
+<P>        Rufus: http://rufus.w3.org/linux/RPM/index.html</P>
+<P>13- Espelho brasileiro do Rufus: </P>
+<P>        http://linusp.usp.br/rpm2html/</P>
+<P>14- Grande reposit&oacute;rio de programas para Linux (espelho brasileiro)</P>
+<P>        Linuxberg: http://amazon.Linuxberg.com/ (da Tucows)</P>
+<P>15- Outro excelente reposit&oacute;rio de programas for Linux:</P>
+<P>        Linux Applications: http://www.linuxapps.com</P>
+<P>16- Outro excelente:</P>
+<P>        Freshmeat: http://md.us.mirrors.freshmeat.net/</P>
+<P>17- P&aacute;gina oficial da Red Hat:</P>
+<P>        http://www.hedhat.com</P>
+<P>18- P&aacute;gina oficial da Slackware:</P>
+<P>        http://www.slackware.org</P>
+<P>19- P&aacute;gina oficial da Debian:</P>
+<P>        http://www.debian.org</P>
+<P>20- P&aacute;gina oficial da SuSE:</P>
+<P>        http://www.suse.com</P>
+<P>21 P&aacute;gina oficial da Caldera (Open Linux):</P>
+<P>        http://www.caldera.com</P>
+<P>22- P&aacute;gina oficial da Easy Linux</P>
+<P>        http://www.eit.de/de/easylinux.html</P>
+<P>&nbsp;</P>
+<P>23- P&aacute;gina oficial do KDE:</P>
+<P>        http://www.kde.org</P>
+<P>24- P&aacute;gina da Corel/Linux:      </P>
+<P>        http://linux.corel.com</P>
+<P>25- Hist&oacute;rico da Lista Linux-br (muita informa&ccedil;&atilde;o sobre Linux)</P>
+<P>        http://linux-br.conectiva.com.br</P>
+<P>26- ftp://sunsite.unc.edu/pub/Linux</P>
+<P>26- ftp://tsx-11.mit.edu/pub/linux </P>
+<P>27- ftp://ftp.funet.fi/pub/Linux</P>
+<P>28 -Linux Applications and Utilities Page</P>
+<P>       http://www.xnet.com/~blatura/linapps.shtml</P>
+<P>&nbsp;</P><script language="JavaScript" type="text/javascript">
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+if (width>=639 && height>=468 || top.location.href == window.location.href) {
+}
+rp_account   = '9645';rp_site      = '17527';rp_zonesize  = '1527362-51';rp_slot   = 'ad_group_786919';rp_adtype    = 'js';rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write(' src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt>');}</script>
+</BODY>
+</HTML>
+</div><style> 
+.zoomout { -webkit-transition: -webkit-transform 0.5s ease;
+-moz-transition: -moz-transform 0.5s ease;
+-o-transition: -o-transform 0.5s ease;
+transition: transform 0.5s;
+-ms-transition: transform 0.5s ease;}
+.zoomin { 
+filter: blur(0)
+-webkit-transform: scaleY(1.15);
+-moz-transform: scaleY(1.15);
+-o-transform: scaleY(1.15);
+transform: scaleYY(1.15);
+-ms-transform: scaleY(1.15);
+} 
+#archive:hover { zoom:101%;)
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+
+if (width>=806 && height>=468 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(https://www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:30px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+var x =  d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1018px;top:31px;z-index:10;padding-bottom:3px"><div id="ft72">');
+rp_account   = '9645';
+rp_site      = '17527';
+rp_zonesize  = '55620-15';
+rp_slot   = 's';
+rp_adtype    = 'iframe';
+rp_width     = '300';
+rp_height    = '250';
+rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write('src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt></div>');
+if ( height>=543) {
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'"></script>')
+}
+
+d.write('<div id="ft73"><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+
+if ( width-x>=440 || width>=1425) { 
+d.write('<div id="footer" style="position:fixed;left:1310px;top:31px;z-index:11;padding-bottom:3px"><div id="ft74">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">')
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp4" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">');
+d.write('<\/scr'+'ipt></div></div>');
+}}
+-->
+</script>
+<script type="text/javascript">
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+
+<script type="text/javascript">
+<!--
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26808115-1']);
+  _gaq.push(['_setDomainName', 'oocities.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script><script type="text/javascript"> window.google_analytics_uacct = "UA-26808115-1"; </script>
+
+
+
+

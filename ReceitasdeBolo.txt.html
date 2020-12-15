@@ -1,0 +1,909 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			MINHAS RECEITAS DE BOLO PREFERIDAS
+			
+			
+		CONFIGURAÇÃO DO XISP PARA ACESSAR INTERNET
+			
+			
+
+Baixe o Xisp da pagina do Felipe: http://members.xoom.com. 
+Descompacte e execute o make install.
+
+Abra um xterm (depois voce pode uncluir um item de menu) e execute "xisp"
+sem as aspas.
+
+Vamos aa configuracao, clique em "options":
+
+1) Account Information
+   Add - Fortalnet (nome para o provedor)
+   Authentication - Aqui depende do provedor. Comece experimentando PAP ou
+CHAP.
+                 Caso nao funcione, Use none e Ative a exibicao do Terminal.
+   Phone - 2770303 (do seu provedor)
+   Accoun name - ribafs (seu login)
+   Password - suasenha
+   OK
+
+2) Dialing and Login
+   Nao precisei alterar.
+   Mas caso seu provedor nao suporte nenhum dos outros protolos de
+autenticacao, no item anterior, marque None e nesta tela, em 
+Manual Login - Terminal after connection, marque Yes.
+
+3) Communication Options
+   Device /dev/modem    (deixe assim, caso nao funcione mude para a porta do
+seu modem, exemplo ttyS1 para COM2).
+   Dialing Method e Flow Control precisam ser alterados, dependendo da
+linha telefonica e do tipo de modem.
+
+4) TCP/IP Options
+   DNS Support
+   Yes          Primary - 200.253.251.32        (DNS do seu provedor)
+   OK
+
+5) Paths Setup
+   Nao precisei alterar
+
+Ele roda normalmente apenas como root ou com o sudo.
+
+Mas para rodar como user comum eu mudei o dono dos arquivos:
+
+chmod go+x /usr/lib/ppp/xisp*
+chmod go+x /usr/X11R6/bin/xisp
+
+Experimente e se nao funcionar de uma volta por esta pagina:
+http://www.kc.net/~gromitkc/winmodem.html
+
+Caso encontre seu modem na relacao de winmodens, de um jeito de arranjar um Modem de verdade, mesmo que seja velhinho.
+
+
+			CONFIGURAÇÃO DO WVDIAL PARA ACESSO À INTERNET
+			
+Pode baixar os fontes e compilar: http://www.worldvisions.ca/wvdial/
+
+Sempre como root, voce compila e roda o:
+/usr/local/bin/wvdialconf /etc/wvdial.conf
+
+Ele ira reconhecer seu hardware.
+Caso diga que nao encontrou o /dev/modem, faca o link:
+ln -s /dev/ttyS1 /dev/modem     (caso seu modem esteja na COM2).
+
+Rode novamente:
+/usr/local/bin/wvdialconf /etc/wvdial.conf
+
+Ele cria o arquivo de configuracao wvdial.conf.
+Edite com mcedit (ou outro) /etc/wvdial.conf e deixe mais ou menos
+assim:
+
+[Dialer Defaults]
+Modem = /dev/ttyS1
+Baud = 57600
+Init1 = ATZ
+Init2 = ATQ0 V1 E1 S0=0 &C1 &D2 S11=55 +FCLASS=0
+Phone = 2770303         #substitua pelo fone do seu provedor
+Username = seulogin
+Password = suasenha
+
+Entre no X e abra um xterm e rode: wvdial
+Para cancelar a conexao, basta Ctrl+C.
+Tera que entrar como root, para rodar como usuario comum usei o sudo.
+
+
+			DANDO PODERES DE ROOT AO USUÁRIO COMUM
+				
+Com man sudo e sudoers acabei descobrindo. Dei uma olhada no man sudo, man sudoers e man visudo.
+Editei o sudoers e la constava que era um arquivo gerado pelo visudo.
+
+Vamos atras do visudo. Executei como su e recebo uma mensagem /usr/bin/vi nao encontrado.
+Procuro pelo vi e o vejo em /bin. Entao fiz um link: ln -s /bin/vi
+/usr/bin/vi.
+Funcionou beleza. Ele abre o sudoers no vi.
+
+Antes disso au havia dado uma olhada do FAQ da Conectiva (PeR), que
+baixei do site do Eliphas e descompactei.
+La havia uma citacao do sudo e o exemplo de uma linha do sudoers. Era a gota que faltava.
+
+Rodei (como root) o visudo e acrescentei a linha abaixo:
+
+ribafs        ALL=PASSWD:        /bin/mount,        /bin/umount,
+/bin/date,        /bin/rpm -[iUvh] *.rpm
+
+Salvei (lembrar que esta no vi) e para salvar usa-se: Esc, depois ":wq" e enter.
+Como usuario comum (ribafs) agora monto/desmonto, etc assim:
+
+sudo mount /dev/fd0 /mnt/floppy e os outros comandos devem ser precedidos com sudo.
+
+
+Tambem podemos dar todos os poderes do su para o user comum, assim:
+
+ribafs	ALL=(ALL) NOPASSWD: ALL
+
+
+				Ç (CEDILHA) NO WORD PERFECT
+				
+
+Quando eu tento colocar o ccedilha aparece um c com acento em cima ( á
+ao invés de
+a um c ), e não o ç como deveria ser.  O ç está na parte de Simbolos.
+Alguém sabe como posso dar um geito nisso ??
+
+Está no histórico, mas tá difícil de encontrar :-/
+Vá lá, está aqui uma cópia da solução do Thade Penna e do Cavassin da
+Conectiva.
+<SOLUÇÃO>
+Fico meio desconcertado ao colocar solução no SUBJECT, isto é apenas um
+workaround :)
+Com a ajuda do Cavassin, consegui inserir o cedilha no WordPerfect.
+Minha solução (devem haver outras) foi:
+1) Preferi editar o teclado do XWP80 ao invés de criar outro.
+2) Chame o WordPerfect como root (deve pedir a licença, mas não ligue).
+Se não chamar como root, você vai ter que criar outro teclado (isto
+vai ficar mais claro adiante).
+3) Menu Preferences -> Keyboard
+4) Aqui e que aparece a opção de ou editar o XWP8 ou criar outro
+teclado. Eu preferir Edit _XWP8_
+5) Aparece a janela do  Keyboard Editor.
+6) Procure o c + Alt (selecione-o). Selecione "Play a Keyboard script"
+7) Clique no quadrado em branco. Digite Crtl-W
+8) Aparece o menu Symbols. No Set, escolha Multinacional.
+9) Na terceira linha está o cedilha minúsculo. Selecione-o. O Indicador
+Number deve ir para 1,39. Clique OK.
+10) Deve ter aparecido um cedilha minúsculo no quadrado, outrora
+totalmente branco.
+11) Clique Assign Script.
+2) Repita os passos de 6 a 11 para o Ç .
+13) Clique OK.
+14) O cedilha minúsculo vai estar no Alt-c e o maiúsculo no
+Alt-Shift-C.
+
+P.S.: você pode alterar o teclado default sem chamar o xwp como root.
+Basta alterar as permissões dos arquivos _XWP8_.wgk no diretório onde
+você instalou o WP. Ou ainda alterar todas as permissões daquele
+diretório (só que você vai ter que ser root para fazer isto :)
+(Thadeu Penna)				
+
+			TECLAS DE ATALHO NO LINUX
+				
+Sou adepto das teclas de atalho. Elas agilizam muito o trabalho.
+ 
+Uma dica inicial seria usar como Window Manager o Window Maker.
+Nele configuramos teclas de atalho para qualquer aplicativo adicionado
+aos menus, para o comportamento dos aplicativos: fechar, minimizar,
+ etc. Mudar de area de trabalho e ate fechar o próprio window maker.
+ 
+Agora quantos aos programas do Linux, voce ja deve ter notado que nao
+existe um padrao: no Kde, Gnome e derivados usa-se Ctrl+C e Ctrl+V para copiar e
+colar (no Lyx tambem). Ja no Netscape usa-se Alt+C e Alt+V.
+ 
+Detalhe interessante: copiando num mail do Messager com Alt+C eu colo
+no Kedit com Ctrl+V. Mas nao consigo trazer do Kedit com Ctrl+C e
+colar no mail do Messager com Alt+V.
+ 
+Resolvi isso abrindo o arquivo no Navegador: digito /home/ribafs no Location e abro e listo todos os arquivos do diretorio, clico no arquivo Dicas2, que e aberto no Navegador. Entao consigo copiar com Alt+C e colar no mail com Alt+V beleza. 	
+
+Obs.: Não é tecla de atalho, mas é um recurso do Linux muito útil, o uso do terceiro botao para colar. Seleciona-se e o texto e cola-se com o clique no terceiro botao. Quem nao tem mouse com 3 botões pode emular o terceiro com o clique nos dois botoes simultaneamente. Para ter este recurso disponivel, voce deve configurar para tal quando da configuracao do ambiente gráfico.
+		
+
+		SCRIPT PARA RODAR VÁRIOS WINDOW MANAGER AO MESMO TEMPO
+		
+Crie o script como o modelo abaixo e salve como x ou outro nome.
+Depois de salvo de permissao de execucao: chmod +x x.
+
+Digite-o no seu editor ASCII preferido e salvo como x (por exemplo).
+
+#-- ------------Comeco do script -----------------------------
+clear
+echo
+echo
+echo
+echo
+echo "                        X Manager"
+echo
+echo
+echo
+echo "                        1 - IceWM       "
+echo "                        2 - FVWM95      "
+echo "                        3 - WindowMaker "
+echo "                        4 - Twm         "
+echo
+echo
+echo
+echo
+echo
+echo
+echo
+echo "                 Qual o Window Manager? Digite o numero (1-4)"
+read Xmanager
+case $Xmanager in
+1) cp ~/.xinitrc-ice $HOME/.xinitrc ; startx -- :0 ;;
+2) cp ~/.xinitrc-fv $HOME/.xinitrc ; startx -- :1 ;;
+3) cp ~/.xinitrc-wm $HOME/.xinitrc ; startx -- :2 ;;
+4) cp ~/.xinitrc-twm $HOME/.xinitrc ; startx -- :3;;
+6) break
+esac
+
+#----------Final do script-----------
+
+Crie varios scripts .xinitrc para os wmanager: .xinitrc-iec, .xinitrc-wm,
+etc.
+
+Cada .xinitrc desses deve conter pelo menos o nome do arquivo que chama o
+respectivo window manager (wmaker, por exemplo).
+
+Exemplo (.xinitrc-wm):
+xmodmap -e 'keycode 22 = BackSpace'
+exec wmaker
+
+Assim deve-se criar todos os .xinitrc-.. para os varios wmanagers.
+
+Talvez tenha alguma utilidade pratica, mas que ee interessante e mostra a
+versatilidade do Linux, isso mostra.
+
+
+		FAZENDO COM O WINDOW MAKER 0.2 SALVE ITENS DE MENUS
+		
+Dica recebida do Eliphas (da linux-br):
+
+Edite o arquivo /usr/X11R6/bin/RunWM e
+
+Procure por esse bloco:
+
+if [ -f $GSDIR/Defaults/WMRootMenu.$LINGUA ] ; then
+  ln -fs "$GSDIR/Defaults/WMRootMenu.$LINGUA" \
+  "$GSDIR/Defaults/WMRootMenu"
+
+E mude para:
+
+if [ -f $GSDIR/Defaults/WMRootMenu.$LINGUA ] ; then
+ if [ -L $GSDIR/Defaults/WMRootMenu ] ; then
+  ln -fs "$GSDIR/Defaults/WMRootMenu.$LINGUA" \
+  "$GSDIR/Defaults/WMRootMenu"
+ fi
+
+Note que a barra invertida indica continuação na próxima linha	
+
+
+			MONTANDO DISPOSITIVOS VIA ITEM DE MENU
+			
+Essa ee mais uma em prol de um Linux amigavel.
+
+Pensando principalmente nos iniciantes vou agora compatilhar como
+montar/desmontar CD/Floppy/Zip, etc com um item de menu de qualquer Window
+Manager que se possa adicionar item de menu: Window Maker, IceWm, FvwmXX,
+Kde, etc.
+
+1) Como root criar um pequeno script: no diretorio /usr/bin (para ficar no path) como o seguinte:
+
+mcedit montarcd, com o conteúdo:
+
+mount /dev/cdrom /mnt/cdrom
+
+
+2) Dar parmissao de execucao ao script:
+
+chmod go+x montarcd
+
+Da mesma maneira crie outros para desmontar CD, montar e desmontar
+disquete, etc.
+
+3) Adicionar item de menu ao Window Manager. Como estou usando o IceWm
+atualmente, la vai ja para CDs e disquetes ele:
+
+mcedit /var/X11R6/lib/icewm/menu
+
+......---.......
+prog MontarCD montarcd montarcd
+prog DesmontarCD desmontarcd desmontarcd
+prog MontarFloppy montarf montarf
+prog DesmontarFloppy desmontarf desmontarf
+......---.......
+
+4) Execute no Window Manager o Item para montar CD (por exemplo) e abra
+qualquer File Manager (meu preferido ee o Tkdesk) e acesse o diretorio
+/mnt/cdrom. Ta tudo la. Nao esqueca de colocar o CD antes.
+
+
+A intencao ao divulgar uma receitinha destas ee a de facilitar a migracao
+do usuario que vem de sistemas operacionais baseados em cliques, nao a de
+apenas dar papa na boquinha. Lembrando que o Linux ee um Sistema
+Operacional onde se tem que ralar, ler as man pages, os Howtos, livros,
+manuais, assinar boas listas, fucar, experimentar e usar bastante de criterio/reciocinio logico.
+
+
+		COLOCANDO CD NO DESKTOP DO KDE
+
+- Clicar na tela com botao direito - Novo - Device - OK;
+- Clicar com o botao direito (veja que se estiver com o kfm aberto,
+o icone ficou abaixo deste) - Propriedades - Dispositivo;
+- Em Dispositivo digite /dev/cdrom (isso para CD) e marque a opcao
+somente leitura;
+- Em Ponto de montagem: /mnt/cdrom e deixe o filesystem como esta';
+- Clique no Icone Montado e escolha um, clique no Nao Montado e escolha
+outro e OK;
+- Coloque um CD no drive e de dois cliques no icone;
+- O conteudo do Cd sera exposto numa janela do kfm;
+- Ao fechar observe que o icone continua o icone montado;
+- Para desmontar clique nele com o botao direito e desmontar.
+
+
+		CRIANDO UM ATALHO PARA PROGRAMA NO DESKTOP DO KDE
+
+- Clique numa area livre do desktop do kde com o botao direito - Novo -
+Program. Arraste a janela do kfm para a direita para ver o icone criado;
+- Clique com o botao direito sobre o icone e Propriedades;
+- Em Geral - Nome - Pode-se apagar e digitar um nome mais adequado,
+por exemplo Word Perfect 8
+- Em Executar - Executar digite o nome do programa que deseja executar:
+./xwp;
+- Em Diretorio de Trab: /opt/wp8/wpbin (caso tenha instalado neste);
+- Clique na engrenagem ao lado de Diretorio de TRab para escolher um
+icone.
+- Clique em ok e teste com dois cliques no icone criado.
+
+			
+			ADICIONANDO/REMVENDO ITENS DE MENU NO ICEWM
+			
+Meu Window Manager preferido do momento. Para configurar seus menus edite o arquivo:
+/var/X11R6/lib/icewm/menu.
+
+Observe a sintaxe: Item item item. O primeiro é o título que aparecerá no menu do mouse, o segundo é o nome do ícone e o terceiro é o nome do executável do programa.
+Lembre que mesmo que nao disponha de icone é necessário digitar o nome do icone.
+
+
+			ADICIONAR/REMOVER ITENS DE MENU NO FVWMXX
+			
+Copie o arquivo /var/X11R6/lib/system.fvwm95rc para o diretório home do user como .fvwm95rc. Edite este arquivo e adapte aa vontade. A sintaxe também é simples. Deve alterar o Menu Applications.
+
+
+			
+
+			SCRIPT E CONEXÃO COM O KPPP
+
+Estou com um problema quando vou tentar conectar na INTERNET usando o Kppp, o modem disca o número direito, mas depois de um certo tempinho desconecta inexplicavelmente, depois de desconectado aparece: Time out expired on waiting for the ppp interface to come up.
+ 
+Tive o mesmo problema, deixe-me ver se consigo explicar o q aconteceu...
+Abrindo o KPPP...configuracao...guia "dispositivo"...lá embaixo tem
+um pequeno campo com "Timeout do modem"...suba para uns 240 segundos...
+
+Tá. Só que mesmo assim você vair ter problemas: após 2 minutos o modem
+derrubará a ligação se vc não tiver um SCRIPT.
+
+Abrindo novamente o Kppp...confiuguracao....guia "CONTAS"...selecione a
+conta de acesso q vc cadastrou, clique em EDITAR...
+...selecione a guia SCRIPT de LOGIN e insira um script semelhante à
+esse:
+
+Send  ^M
+Send ^M
+Expect Username:
+Send <seu_nick_name>
+Expect Password:
+Send <sua_senha>
+Expect >
+Send PPP
+ 
+
+As linhas EXPECT vão aguardar que o texto especificado apareça na tela.
+Pode ser que seu provedor trabalhe com equipamentos diferentes, neste
+caso, vc precisa conectar e verificar como são feitas as perguntas
+de LOGIN, de SENHA e qual o PROMPT final após a sua autenticação. Use o
+"registrar" da discagem dial-up. No meu caso é (ROUTERXXX>). Os "XXX"
+alteram várias vezes, portanto não posso especificá-los. Neste caso,
+botei "EXPECT >", o que elimina o problema pq após o ROUTERXXX, tem
+sempre um ">", hehe.
+Jeff.				
+
+
+		USO DO MC (SHELL FILE MANAGER)
+
+Gostaria de comentar um pouco mais sobre um programa: o "mc"
+(Midnight Commander), que e' um File Manager para a linha de comando.
+
+Sempre gostei (acho que e' mau de micreiro) de tornar as coisas mais
+praticas, chegar mais rapido, fazer o maximo de cada vez. O "mc" ajuda
+muito nesse sentido.
+
+Se agiliza o trabalho de quem ja tem conhecimento, facilita e muito a
+vida de quem esta comecando e ainda nao memorizou os comandos, alem
+de ser traduzido (no Guarani) e' muito silples de usar.
+
+ Ao digitar "mc" no prompt (caso tenha instalado) aparecem dois painéis
+lado a lado. Acima aparece um menu e abaixo aparece algumas funcoes
+e as teclas de acesso. Observe que ele lista os arquivos/diretorios por nome, tamanho
+e data de criacao.
+
+Tab - alterna entre as duas janelas.
+F3 - visualizar arquivo
+F4 - Editar
+F5 - Copiar
+F6 - Renomear/Mover
+F7 - Criar diretorio
+F8 - Deletar
+F9 - Acessar o Menu superior
+F10 - Sair do mc
+Esc, Esc - Abandona uma janela aberta
+
+Alguns comandos do Menu Arquivo:
+- chmod - alterar prmissoes de arquivos/diretorios
+- chown - alterar dono de arquivos/diretorios
+ 
+
+Alguns comandos do Menu Comando:
+- Procurar arquivo
+- Compaar diertorios
+- Recuperar arquivos apagados. Essa parece que funciona mas eu nao
+entendi. Pressionando F1 aparece um help que explica alguma coisa,
+dizendo que se deve digitar "undel:/dev/hda4" (esta e' a minha
+particao Linux).
+- Aceita uso do mouse: clicar c/ botão esquerdo arquivo/diretorio para
+selecionar. Dois cliques executa arquivos. Clique com botão direito
+seleciona/desseleciona.
+
+
+		PATH CHEIO E COLORIDO NO PROMPT
+
+Verde="\[\\033[01;32m\]"
+Laranja="\[\\033[01;33m\]"
+Ciano="\[\\033[01;36m\]"
+CianoLight="\[\\033[36m\]"
+Azul="\[\\033[01;34m\]"
+Normal="\[\\033[0m\]"
+
+PS1="$Normal$Ciano\u $Normal$Verde\w$Ciano>$Normal "
+if [ $TERM = xterm-color ]; then 
+ PS1="$Normal$Laranja\u $Normal$Verde\w$Laranja>$Normal \[\033]0;\u@\w\007\]"
+fi
+
+if [ $TERM = xterm ]; then 
+ PS1="$Normal$Ciano\u $Normal$Verde\w$Ciano>$Normal \[\033]0;\u@\w\007\]"
+ export TERM=xterm-color 
+fi
+export PS1 
+
+#O argumento para o path é o \w na variável PS1 . Tente \W 
+#Toda esta parafernália está explicada em man bash. Além de mudar o
+#prompt, atualiza a titlebar do xterm. Atenção: não uso o console. 
+#Thadeu Penna
+
+
+				COMPACTANDO DISQUETES MULTI VOLUMES
+				
+Já que o arquivo não é tão grande assim, você poderia gerar o arquivo "kde.tgz" compactado e colocar este arquivo nos disquetes via comando : 
+
+tar cMf /dev/fd0 kde.tgz 
+
+Com isto o tar dividiria o arquivo pelos diversos disquetes.  Na recuperação você faria : 
+
+tar xMf /dev/fd0 
+
+para reconstruir o "archive".   Roxo 
+
+
+
+                      SENHA DO SCREEN LOCK DO KDE
+
+Editei o arquivo magic:
+
+mcedit ~/.kde/share/apps/kfm/magic
+Logo que é aberto no vi, tecle delete para apagar a senha existente e
+tecle Insert e depois digite uma nova senha;
+Tecle Esc e digite :wq e Enter para salvar a nova senha.
+
+
+				MTOOLS
+
+[Red Hat Linux Tips]
+
+O pacote MTools é um conjunto de utilitários para serem usados em disquetes
+do MS-DOS. Você poderá manipular os arquivos do DOS a partir do Linux. Para
+usar o MTools, os disquetes não precisam estar montados no Linux.
+
+Conheça alguns dos utilitários do pacote MTools, a sintaxe dos comandos é
+semelhante aos seus correspondentes no DOS:
+
+mattrib    -> altera os atributos do arquivo.
+mbadblocks -> checa os blocos do disquete.
+mcd        -> altera o diretório de trabalho.
+mcheck     -> verifica um disquete.
+mcopy      -> copia arquivos.
+mdel       -> apaga os arquivos no disco.
+mdeltree   -> apaga um diretório e seus arquivos.
+mdir       -> lista o conteúdo do disquete.
+mformat    -> formata um disquete.
+minfo      -> exibe informações do disquete.
+mlabel     -> modifica o nome do disquete.
+mmd        -> cria um diretório.
+mmove      -> move arquivos.
+mrd        -> remove diretórios.
+mren       -> renomeia um arquivo.
+xcopy      -> copia um diretório.
+
+Veja alguns exemplos:
+
+# mformat a:
+# mcopy *.txt a:
+# mcopy a:arq.ext
+# mdir a:
+# mlabel a:
+# mdel a:*.gif
+
+Consulte a man page do MTools para maiores informações.
+
+
+			REDIRECIONANDO A SAÍDA PADRÃO
+			
+gcc prog.c > saida.txt 2> erro.txt
+
+Esta sintaxe funciona somente no shell Bash, que é o shell padrão no Red Hat
+Linux.
+
+
+			CRIAR ICONES NO LINUX
+
+Voce pode criar usando o Gimp e dai mudando o seu tamanho quando acabar para
+32x32 ou 16x16 para "mini" icones. Dai quando for salvar escolha o formato XPM
+que ha disponivel no mesmo
+(Renato)
+
+			PERMITINDO AO USUÁRIO COMUM MONTAR DISPOSITIVOS
+			
+Editar o /etc/fstab e alterar as linhas dos dispositivos como se segue:
+
+/dev/cdrom      /mnt/cdrom      iso9660 ro,user,noauto,nohide   1    0
+/dev/fd0        /mnt/floppy     vfat    rw,user,noauto,nohide   1    0		
+
+Caso seja no Red Hat, ao final deve ser 0 0 e nao 1  0.
+
+Agora para montar, basta usar mount /mnt/cdrom, por exemplo.
+
+
+
+                        ACENTUAÇÃO NO DEBIAN
+
+
+Ai galera pra quem usa esta distribuicao, eu acabei de colocar na rede um pequeno
+tutorial e os arquivos necessarios para configurar o teclado para acentuar no Linux,
+como eu já disse eu agora toh conseguindo acentuar perfeitamente varios programas.
+A pagina esta no meu site. O endereco e o seguinte
+http://www.geocities.com/SiliconValley/Network/3336
+
+
+		INDICANDO LOCAL DE BIBLIOTECAS - LIBS
+
+O PATH so' procura os executavies.
+
+Para indicar o local onde estao as bibliotecas, use:
+1) A variavel LD_LIBRARY_PATH, ou
+2) Adicione no arquivo /etc/ld.so.conf
+
+
+
+        GRAVANDO AS MENSAGENS DE INICIALIZAÇÃO DO LINUX
+
+> De fato, o que necessito e que, quando da entrada do LINUX, enquanto vai
+> passando aquelas mensagens iniciais onde sao carregados os servicos,
+> montados os discos, etc (antes de voce informar o usuario e a password), eu
+> quero que todas aquelas mensagens sejam gravadas em algum arquivo.
+> Isto e possivel ?  como ?
+
+dmesg|less
+
+> Se o sistema ja grava, e a culpa e do amigo aqui nao ter lido direito os
+> manuais, por favor desculpem-me antecipadamente, mas neste caso, qual e o
+> arquivo ? e onde ele esta ?... 8^)
+
+cd /var/log
+ls messages error_log
+error_log  messages
+
+(Alexandre Hautequest
+hquest@linuxbr.com.br)
+
+
+
+                                COPIAR DISCO NO LINUX
+                                
+Como copio de um disquete para outro no linux? O velho comando
+> "diskcopy" do MS-DOS...
+
+cp /dev/fd0 /tmp/temp_image
+
+<troca o disco>
+
+cp /tmp/temp_image /dev/fd0
+rm -f /tmp/temp_image
+
+
+-- 
+Eliphas
+
+Caso voce use o Slackware, ele traz um script para isso, é o diskcopy.
+
+
+				FAZENDO BACKUP DA IMAGEM DO KERNEL
+				
+	A primeira providência a ser tomada por quem deseja recompilar o kernel, 
+deve ser a de fazer um backup do kernel atual e colocá-lo disponóvel no lilo. 
+Aliás, acho que esta deve ser uma providência a ser tomada logo após a instala-
+ção do Linux (para prevenir futuros/eventuais problemas).
+
+    Para fazer um backup do kernel deve-se acessar o diretório /boot (no Red Hat) ou o / (no Slack) e fazer uma cópia da imagem do mesmo. No caso do Guarani: cp vmlinuz-2.0.36-2cl (no Red Hat) ou do vmlinuz (no Slack).
+    Depois disso devemos colocar estas cópias no arquivo /etc/lilo.conf, que
+no Guarani ficaria assim:
+
+boot=/dev/hda
+map=/boot/map
+install=/boot/boot.b
+prompt
+timeout=50
+image=/boot/vmlinuz-2.0.36-2cl
+        label=linux
+        root=/dev/hda3
+        read-only
+image=/boot/vmlinuz-2.0.36-2cl.copia1
+        label=linux1
+        root=/dev/hda3
+        read-only
+image=/boot/vmlinuz-2.0.36-2cl.copia2
+        label=linux2
+        root=/dev/hda3
+        read-only
+other=/dev/hda1
+        label=w
+        table=/dev/hda
+        
+Ao salvar atualize com /sbin/lilo e Enter.
+
+Agora veja como é no Slack:
+
+     # LILO configuration file
+# generated by 'liloconfig'
+#
+# Start LILO global section
+boot = /dev/hda
+message = /boot/boot_message.txt
+prompt
+timeout = 1200
+vga = normal
+# End LILO global section
+# DOS bootable partition config begins
+other = /dev/hda1
+  label = Windows
+  table = /dev/hda
+# DOS bootable partition config ends
+# Linux bootable partition config begins
+image = /vmlinuz
+  root = /dev/hda4
+  label = l
+  read-only
+image = /vmlinuz2
+  root = /dev/hda4
+  label = b
+  read-only
+image = /vmlinuz3
+  root = /dev/hda4
+  label = c
+  read-only
+# Linux bootable partition config ends
+
+Observe que mudei os labels para "l", "b" e "c". Ao inves de digitar linux para entrar no Linux, teclo apenas "l" e enter. :)
+
+Não esqueca de atualizar com /sbin/lilo e enter.  
+
+    Depois disso podemos nos aventurar a otimizar ou recompilar o kernel com
+mais tranquilidade. Caso dê algum problema, podemos dar o boot e no prompt do
+lilo, Lilo boot: digitar linux1 ou linux2 para usar uma das cópias do kernel.
+
+			
+		PRÉ-REQUISITOS PARA OTIMIZAR/RECOMPILAR O KERNEL
+
+O ideal é fazer uma instalação do Linux personalizada, selecionando um a um os 
+pacotes, para instalar todos os necessários. A instalação padrão não adiciona
+odos os pacotes neceessários à recompilação do kernel e de programas.
+
+Caso não tenha feito uma instalação personalizada com todos os pacotes neces-
+sários, então adicione estes (ou apenas os que ainda não tiver).
+
+Os fontes do kernel: grupo Base/Kernel:
+- kernel-headers*.rpm
+- kernel-ibcs*.rpm
+- kernel-source*.rpm
+            
+As Bibliotecas dos grupos Biblioteca e Desenvolvimento/Bibliotecas:
+- aout-libs*.rpm
+- ncurses*.rpm (todas)
+- glibc*.rpm (todas)
+- libstdc++-devel*.rpm
+- libstdc++-devel*.rpm
+
+Grupo Desenvolvimento/Contrução:
+- autoconf*.rpm
+- automake*.rpm
+- libtool*.rpm
+- make*.rpm
+- pmake*.rpm
+
+Grupo Desenvolvimento/Linguagens:
+- egcs*.rpm (todas)
+- expect*.rpm
+- gcc*.rpm
+
+Mais este (caso sinta falta):
+- bin86*.rpm
+
+Obs.: Não é necessário para recompilar o kernel nem para muitos outros fontes, 
+mas importante para vários programas gráficos e jogos: o XFree86-devel.
+Instale-o também, caso pretenda instalar programas gráficos, Window Managers,
+doc apps para o WMaker ou jogos (especialmente os jogos que requerem a Xlib.h).
+
+Detalhe: os requisitos para recompilar o kernel também atende às necessidades
+de compilação de outros programas (normalmente). O que alguns programas reque-
+reem de extras, são libs.
+
+Observe que aqui me refiro apenas ao Red Hat (que usava entao), mas facilmente voce pode usar essas dicas para instalar os pacotes do Slack ou de outra distribuição.
+
+
+		RECOMPILANDO PARA ATUALIZAR O KERNEL
+		   
+Caso deseje atualizar o kernel, deve-se, após descompactar, ler a documenta-
+ção, principalmente o arquivo em /Documentation/Changes, para saber que progra-
+mas terá que atualizar.
+
+Para os kerneis 2.2.0 ou superior, terá que atualizar or links do mouse e 
+do modem:
+    
+ln -lf /dev/ttyS0 /dev/mouse
+ln -lf /dev/ttyS1 /dev/modem
+
+Lembrar que: COM1=cua0=ttyS0
+	     COM2=cua1=ttyS1 e assim por diante.
+
+    Alterar a porta da impressora (provavelmente) de lp1 para lp0.
+    
+Os fontes atuais do kernel em rpm podem ser encontrados em:
+
+http://rufus.w3.org/linux/RPM
+
+1) Depois de baixar o novo kernel vamos descompactá-lo:
+Acesse o diretório /usr/src e remova o link: rm linux.
+
+2) Descompacte o novo kernel:
+
+Caso esteja em .tar.gz -> tar zxpvf linux-2.2.9.tar.gz
+
+Caso não seja criado um diretorio com a versão, renomei-o:
+
+mv linux linux-2.2.9
+
+3) Recrie o link -> ln -s linux-2.2.9 linux
+
+Obs.: depois de recompilar e tudo correr bem, você pode remover o diretório do
+kernel atual se assim desejar.
+
+4) Acesse o diretório linux: cd linux (entrando no /usr/src/linux).
+
+5) Como é uma atualização, devemos eliminar arquivos de configurações anterio-
+res com:
+
+make mrproper
+
+6) Agora configurar o kernel:
+
+Caso tenha já uma configuração que gostaria de aproveitar (caso tenha salvo um
+arquivo com sua configuração), pode rodar:
+
+make oldconfig	(que apenas será interrogado apenas com as novas característi-
+cas).
+
+Caso deseje gerar um novo arquivo com as configurações atuais:
+
+make menuconfig
+
+7) Nossa próxima etapa é com as dependências, digite:
+
+make dep clean
+
+8) Agora vamos de fato recompilar o kernel, construindo sua imagem. Para isso:
+
+make bzImage (caso seja kernel da versao 2.0.xx, use zImage).
+
+9) Agora gerar os módulos:
+
+Caso seja apenas para otimizar (mesma versão), renomeie os módulos existentes:
+mv /lib/modules/2.0.35 /lib/modules/2.0.35.orig (por exemplo).
+
+make modules
+
+10) Agora instalá-los:
+
+make modules_install
+
+11) Agora copiar a imagem do kernel para o diretório /boot (no Red Hat) ou para / (no Slack):
+
+Ainda no /usr/src/linux - digitar:
+
+cp arch/i386/boot/bzImage /boot/vmlinuz-2.2.9  (caso estejamos apenas re-
+compilando o 2.0.36). Se for o 2.2.9, devemos colocar vmlinuz-2.2.9
+
+No Slack, copiar para /vmlinuz.
+
+Caso de boot por disquete ou queira um disco de boot do novo kernel:
+
+cp arch/i386/boot/bzImage /dev/fd0
+
+Altamente recomendado que o LILO seja instalado em disquetes de alta densidade,
+de 1.44 MB.
+
+Edite o /etc/lilo.conf e altere a imagem para aogo como vmlinuz-2.2.9 e rode o 
+lilo, com:
+
+lilo ou /sbin/lilo
+
+Veja man lilo para maiores detalhes.
+
+Agora reinicia-se a máquina e observa-se que normalmente ela fica mais rápida,
+principalmente na primeira vez. Já que retiramos muita coisa desnecessária,
+se foi o caso.
+
+Fique atento às mensagens do boot e caso note algum problema que justifique, 
+recompile o kernel. Se for ocaso, reinicie com outras opções no boot: linux1 ou
+linux2, b ou c.
+
+Caso queira, depois de recompilar o kernel, alterar o default root device, 
+video mode, ramdisk size, etc, não é necessário recompilar o kernel por isso,
+basta usar o programa rdev para isto (or alternatively the LILO boot options
+when appropriate.
+
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

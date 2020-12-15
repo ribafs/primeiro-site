@@ -1,0 +1,742 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			USANDO FONTES TRUE TYPE NO LINUX
+
+
+1- Copie as suas fontes .TTF para o dir /usr/X11R6/lib/X11/fonts/TrueType. Para
+usar as fontes tanto no Linux quanto no rWin, apague o dir TrueType e crie um
+link simbolico para o dir de fontes no windows (ln -s /dos/windows/fonts
+TrueType).
+2- Entre no dir onde estao as TTF e rode o ttfkfdir (se vc n tiver, pega em    
+http://www.darmstadt.gmd.de/~pommnitz/xfsft.html)
+3- Pegue o arquivo que ele criar (fonts.scale) e copie como fonts.dir (nao
+mova, copie). Se voce estiver na particao do win, nao ha como criar symlink,
+entao o negocio e copiar mesmo.
+4-coloque a linha "xset +fp /usr/X11R6/lib/X11/fonts/TrueType" (sem aspas) em
+algum arquivo de inicializacao do X (aqui eu coloquei no ~/.Xsession).
+Da proxima vez que voce entrar no X, ja vai poder usar TTF. Mas se voce esta se
+mordendo de ansiedade pra ver ttf no X, digite a linha xset...(mesma q acima).
+
+Em caso de duvidas: 
+/usr/X11R6/lib/X11/doc/TrueType/
+http://www.freetype.org
+http://www.darmstadt.gmd.de/~pommnitz/xfsft.html
+man 1 xset
+				-------------
+				  FIGURINHAS
+
+Seguindo a idéia de trocarmos figurinhas com dicas, mando uma dica que
+parece muita gente não conhece:
+
+        Para sair da lista (LINUXABC), ler os e-mails na Web, escolher a 
+forma de recebimento dos e-mails da lista (taí uma dica inclusive para quem 
+reclama que são muitas as mensagens: escolha "digest"), acesse o enderço:
+http://www.egroups.com/list/linuxabc/
+        Após preencher um pequeno formulário, quando acessado pela primeira 
+vez, vocês encontrarão informações sobre o andamento da lista: número de
+mensagens postadas mensalmente, quem postou mais mensagens, URL's mais
+citadas nas mensagens, além de uma agenda e uma pesquisa sobre qual a
+distribuição do Linux preferida (vamos todos participar e descobrir quem
+vence: Slack ou Red?)
+        Detalhe: essa URL vem informada no rodapé de quase todas -senão todas-
+as mensagens... :O)
+Walter Brick                    ICQ 2662901
+
+---------
+Bem, para nao ficar so na conversa la vam duas figurinhas de que
+gosto muito:
+
+1) O comando locate e o meu predileto para localizar arquivos.
+Se usado pela primeira vez ele nao funciona. Pois antes voce deve
+usar o comando updatedb para que seja criado um banco de dado com
+os arquivos (talvez por isso ele e rapido).
+Entao uso assim: locate nome.do.arquivo|less. O less e otimo
+quando o resultado e maior que uma tela, pois faz parar por
+pagina e permite o uso do pgdn e pgup.
+
+2) - Descompactando arquivos .tar.gz, .tgz e tar.z:
+tar zxpvf nome.do.arquivo
+
+- Arquivos gz:
+gzip -d nome.do.arquivo
+
+- Arquivos bz2:
+bunzip2 -d nome.do.arquivo
+
+	Ribamar
+------
+Bom tenho algo a acrescentar nas sua figurinhas :))))
+
+ sobre a primeira: o comando updatedb tem q ser dado periodicamente pois 
+se vc apaga ou acrescenta algo o banco de dados precisa ser 
+modificado......
+
+ sobre a segunda: p/ compactar em tar.gz:
+ tar cvf - arquivo(s) | gzip -9 > nome_a_sua_escolha.tar.gz
+	Capitulino
+-------
+ALIAS
+
+No arquivo bashrc ( /etc/bashrc ) existem alguns alias'es, que, são muito
+úteis e vc tb pode criar outros ( eu criei um pra montar o CD ).  Ficou
+assim:
+alias mcd="mount /dev/hdc mnt/cdrom"
+Sintaxe: alias <apelido>="<comando e opções>"
+	Proteus
+---------
+agora as minhas figurinhas:
+
+ 1) manja quando vc da tipo um ^C??? e o sistema suspende o programa.... 
+entaom q tal configurar tudo??: digite:
+
+ stty -a
+---> ira aparecer uma lista na seguinte forma:
+     funcao: tecla (acho q eh assim, lembre-se ^ siguinifica Ctrl)
+
+---> p/ alterar:
+ stty funcao tecla
+
+ 2) vc quer criar um disquete de boot???? com o disquete no drive 
+forneca:
+
+ dd if=/boot/vmlinuz of=/dev/fd0 bs=8192
+	 []'s Capitulino
+				--------------
+
+Olha ai' uma boa ideia, gostei!!!  Eu acho que os usuarios Linux tem mais e'
+que se unirem, aqui nao tem essa de individualidade - e' o conceito do nosso
+mestre Linus sobre Linux (alias, e' por esse motivo de uniao que ele
+existe)!  Assim poderiamos cada dia mais e mais evoluirmos - tornando o
+Linux cada vez mais util e poderoso.
+	Jonas Santos - ciclone@bigfoot.com
+--------
+Bom... se o negocio eh figurinha, ai vai uma carimbada pra quem da
+manutencao em laboratorios ou empresas em que o hardware eh bem homogeneo:
+
+        Ao inves de fazer uma nova instalacao da distribuicao cada vez que
+precisar instalar uma nova maquina, ou fazer upgrades interminaveis...
+voce clona as maquinas!
+
+        As maquinas aqui tem area home montada por nfs, entao as particoes
+que eu tenho local sao / /usr /var e swap... eh soh fazer o seguinte:
+
+        1o Particionar o disco no mesmo numero de particoes que vc vai
+usar (aqui sao 3 linux + swap)...
+
+        2o Boote o linux com os 2 Hds (de preferencia com o "clonado" na
+segunda ide como master, pra ficar + rapidinho! :)
+
+        3o Para as areas /usr e /var, basta montar a particao de destino
+em mnt (ou seu dir de montagem predileto), entrar no dir a ser copiado e
+usar o comando:
+                cp -ax ^lost+found /mnt
+
+        4o Para o / voce monta e usa o comando 
+                cp -ax <lista de dirs do / > /mnt
+
+        Nessa lista, voce coloca todos menos /tmp, lost+found, /var, /usr
+(/home se vc usa uma particao home), /proc (e os do nfs se for o seu
+caso!) Depois , no /mnt voce cria esses dirs, lembrando de acertar a
+permissao do tmp (recem criado) com
+                chmod 1777 tmp
+
+        Depois... no etc (recem criado) voce acerta o hostname, e em
+network o numero ip da maquina!
+
+        5o Boota a maquina nova com disquete e da um lilo pra gravar a MBR
+
+
+        Prontinho!!! Voce ja tem uma maquininha linux prontinha com apenas
+15 ou 20 minutos, independente do hardware (o tempo melhora conforme voce
+pega a manha da coisa!!! :)
+
+        Nao lembrei de mais nada significativo... se eu lembrar... mando
+tb!!!
+        Batata
+Rogerio Neves Batata (batata@fisica.ufpr.br)
+				--------------
+
+		SABER QUAIS PACOTES ESTÃO RELACIONADOS COM O XFREE
+
+Em particular, para saber quais os pacotes relacionados com o XFree,
+ faça
+ rpm -qa | grep XFree86
+Thadeu Penna
+				---------------
+
+			SUBSTITUIÇÃO DE STRINGS
+
+Como se faz no vi para substituir uma string por outra em _todas as
+> ocorrencias_ no arquivo ?? Estou tentando eliminar os "^M"s de um arquivo
+> texto, mas nao quero fazer:
+
+Eu uso o seguinte script em sed que vi numa revista:
+
+#!/bin/sh
+sed -e s/^M// $1
+
+So' nao me lembro como se digita o ^M ;)
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+--------
+Alem dos programas e scripts que ja foram citados, voce pode fazer de
+dentro do vi:
+
+:%s/^M//g
+
+   Onde ^M e' o caracter CTRL-M, que voce escreve com CTRL-V+CTRL-M.
+   -- Joao Carlos --[ joca@dcc.ufmg.br ]
+-----------
+Atenção, nada na manga direita, nada na manga esquerda... ;)))
+
+:%s/^M//g
+
+  A última linha pode ser representada pelo caráter "$", portanto :
+
+:1,$s/...
+
+Faria a mágica.  Mas, como esta seqüência "1,$" é muito usada decidiu-se
+usar "%" como abreviatura :
+
+:1,$s/...
+
+  Aproveitando o embalo para mais uma dica.  E se você quiser aplicar um
+comando deste apenas nas linhas começadas pela cadeia "aqui" ?  Neste caso
+usaríamos um comando como :
+
+:g/^aqui/s/....
+--Roxo
+				----------------
+
+			SINAL DE DISCAGEM NO MODEM
+
+Cara nao sei te dizer onde colocar, pq nunca usei o kppp, mas, se tiver uma
+string de inicializacao, tipo AT&F, etc... acrescente X3 a ela, e no numero do
+telefone, coloque 0W, o X3 faz ele nao esperar sinal de linha, e o w depois do
+zero faz ele esperar novamente o sinal de linha, jah q aih ele jah deve ter pego
+o sinal do pabx, valeu??
+---------
+Tudo bem? Sou helpdesk e conheço um pouco de modems. Seu modem é de uma
+marca muito boa. Voce pode tentar colocar uma string de inicialização no
+seu modem,(não sei se você usa o minicom), coloque AT&F1X3, onde AT&F1 é
+para U.S robotics, e X3 é padrão para modens que não dão tom de discagem.
+Ok? Abraços
+				----------------
+
+			SITES PARA PROCURAR ARQUIVOS LINUX
+
+zaz.linuxberg.com, www.freshmeat.net, filewatcher.org, www.linuxapps.com
+				---------------
+
+				USO DO VI
+
+Para digitar um caráter de controle no 'vi' use o <ctrl><V> como
+prefixo.   O <ctrl><V> diz ao 'vi': entre o p'roximo caráter sem
+interpretar.   Portanto para entrar um <ctrl><M> use : <ctrl><V><ctrl><M>
+				-------------
+
+			INSTALAÇÃO DO WINDOWMAKER
+
+Ola Chico, se o que voce tem sao os fontes siga a velha sequencia,
+./configure;make;make install e depois de instalado, acesse como usuario
+e digite: wmaker.inst, isto so e necessario na primeira vez que se vai
+usar o wmaker. Depois e so colocar no seu .xinitrc exec wmaker.
+Ah, um detalhe, o WindowMaker e demais programas do tipo, sao
+Gerenciadores de Janelas, X-Window e o ambiente como um todo (Servidor e
+Clientes).
+-- 
+Fabio Henrique
+				-------------
+
+				SEGURANÇA NO LINUX
+
+
+>> Encontrei as seguintes mensagens nos logs da minha máquina Linux:
+------SNIP------ 
+>> Estes endereços IP acima não são da minha rede. Dei uma olhada no man do
+>> imapd mas não consegui nenhuma pista. Estou com a ligeira impressão que
+>> estão tentando invadir a minha máquina. Será que conseguiram?
+>> 
+>> []'s Sérgio Motta.
+--------
+solucao rapida:
+>em /etc/inetd.conf
+>comente os servicos nao usados colocando # no comeco da linha.
+>se vc nao usa imap, por exemplo, comente-a.
+>
+>em /etc/hosts.deny (nega tudo a todos)
+>insira a linha:
+>ALL:ALL
+>
+>em hosts.allow (comeca a liberar - exemplos)
+>ALL:192.168.1.         (libera todos os servicos para rede 192.168.1.x)
+>in.ftpd:200.241.199.199        (libera ftp p/ 200.241.199.199)
+>in.telnetd:192.168.2.  (libera telnet p/ rede 192.168.2.xx)
+--------------
+Aproveita, alem do que o companheiro indicou, para passar os seguintes
+programas:
+
+chkrootkit, chkexploit e chkdemonkit. Vc encontra eles em:
+ftp://ftp.pangeia.com.br/pub/seg/pac/
+
+Sao apenas scripts que rastreiam sua maquina para ver se alguem jah nao
+deixou uma "lembrancinha" no seu host.
+
+O check exploit te dah uma ideia legal do que estah desatualizado e deve
+sofrer upgrades no teu sistema, alem de avisar se tem servicos inseguros
+rodando. Um filtro de pacotes com o Ipfwadm ou IpChains tbm eh uma boa
+ideia, mas dao mais trabalho que estas medidas que estou te passando.
+--------------
+Sao muito bons por sinal!
+
+
+>Sao apenas scripts que rastreiam sua maquina para ver se alguem jah nao
+>deixou uma "lembrancinha" no seu host.
+>
+>O check exploit te dah uma ideia legal do que estah desatualizado e deve
+>sofrer upgrades no teu sistema, alem de avisar se tem servicos inseguros
+>rodando. Um filtro de pacotes com o Ipfwadm ou IpChains tbm eh uma boa
+>ideia, mas dao mais trabalho que estas medidas que estou te passando.
+>
+>
+
+        Alem destes e sempre bom ter um firewall com mais um antistrobe
+e ainda um secure kernel que inibe o uso de explit's na maquina e nao deixa
+ninguem alem do root rodar exploit's.
+        Caso queira o secure kernel posso disponibilizar num ftp mas lembre
+tem que ter um firewall tambem se nao nada sera bom.
+        Sem mais.
+Robney C. P. Issa
+----------
+Lembre-se: hosts.allow e hosts.deny é um método mínimo de segurança. Mais
+coisas são necessárias para se ter um sistema seguro... Há um
+Security-HOWTO em http://ldp.conectiva.com.br/HOWTO/Security-HOWTO.html
+-----------
+On Tue, 9 Feb 1999, Jose Vieira Netto Jr. wrote:
+
+> Ola Pessoal,
+> 
+> Sem querer teclei CTRL+ALT+DEL no teclado errado e o Guarani
+> rebootou?!?!?!
+> 
+> Gente eu nem estava logado em usuário nenhum.
+> 
+> Tem como habilitar isto so qdo. logado root???
+> 
+> (sim, tem jeito de desabilitar total, eu sei)
+
+Hmmmmm...
+E se você editar o /etc/inittab e alterar a entrada :ca: para que chame um
+script que checa se o root está logado e, caso afirmativo, execute o
+shutdown?
+
+Sds,
+Jorge Godoy <jorge@bestway.com.br>
+------------
+Fechei a minha rede utilizando o hosts.allow, hosts.deny, só que agora
+> vem uma pergunta.
+> O named é afetado por isto?
+
+Nao. O named nao depende do /usr/sbin/tcpd para rodar.
+
+> Como faço para discubrir?
+
+Olhe o /etc/inetd.conf. Todos os servicos que forem chamados atraves do
+/usr/sbin/tcpd sao afetados. Note que outros servicos (como Web e DNS) nem
+mesmo estao no /etc/inetd.conf
+ Thiago Macieira
+				---------------
+			PROGRAMAS ALTERNATIVOS AO STAR OFFICE
+
+Agora voce pode tentar usar programas alternativos, como o wordperfect
+para edicao de textos (ele e tri-rapido), o abs ou o gnumeric para
+planilha, e por ai vai.
+				---------------
+
+
+				CRIANDO UM DISCO DE BOOT
+
+Bem .. vamos por parte ;)
+
+para criar um disco de boot faca o seguinte
+
+dd if=/boot/vmlinuz-2.0.36-0.7 of=/dev/fd0
+
+com o disquete no drive.
+
+obs.: o vmlinuz-2.0.36-0.7 pode variar dependendo da
+
+versao do kernel. De uma olhada em /boot antes , e veja qual
+
+o mvlinuz usado.
+
+logo apos esse comando ele ira criar o seu disco.
+
+agora a parte 2.. vamos colocar o lilo no seu disquete
+
+copie o /etc/lilo.conf para um diretorio home (ou /root)
+
+renomeio para lilo.conf.disk e edite sua primeira linha
+
+passe-a de "boot=/dev/hda" para "boot=/dev/fd0"
+
+grave e no terminal (com o disquete no drive) digite
+
+lilo -C lilo.conf.disk
+
+pronto .. disquete de boot criado ;)
+         - - -- - -  Denis Page  - - -- - -
+         _-_-_- page@montreal.com.br
+				---------------
+
+				ATALHOS NO AFTERSTEP
+
+edite o arquivo ~/GNUstep/Library/AfterStep/wharf
+ man Wharf.
+ 
+
+ Nao se esqueca de ler a documentacao que acompanha o Afterstep  
+ principalmente o faq e as man pages.
+ Visite www.afterstep.org para maiores informacoes, inclusive sobreo
+ ascp (AfterStep control-panel) que permite que voce adicione icons no
+ Wharf sem precisar editar o arquivo. 
+-- 
+Thadeu Penna 
+				----------------
+
+				CLIPPER FOR LINUX
+
+visite www.fship.com
+ 
+tem versao trial e tudo mais, ja compilei sistemas com 
+eh realmente otima  !!
+				---------------
+
+			HABILITANDO MULTIPROCESSAMENTO NO LINUX
+
+vá em /usr/src/linux e habilite no Makefile a linha que está comentada
+com #SMP=1 e depois é s'p recompilar o kernel.
+[], Marcelo Fartura
+				----------------
+
+				CONFIGURAÇÃO DO MODEM
+
+Voce ja configurou o link /dev/modem?
+>Caso nao, entre no /dev e digite:
+>cp -s ttyS1 /dev/modem
+				-------------
+
+			ARQUIVOS DE INICIALIZAÇÃO DO LINUX
+
+
+/etc/rc.d/rc.local
+e
+/etc/profile
+ 
+Os dois funcionam como autoexec só que o primeiro executa antes do login do usuário e o profile imediatamente
+depois.
+
+            João Eriberto Mota Filho
+            eriberto@nutecnet.com.br
+				--------------
+
+			CRIANDO ÍCONES NO AFTERSTEP
+
+Se vc quer um icone, pode usar o "wharf" ou o "zharf", vah em start -> modules -> wharf (ou zharf)
+para entender o q eu quero dizer enquanto vc vai lendo este mail... 
+Esse wharf (ou o zharf) podem ser inicialziados tb automaticamente pelo
+/usr/local/share/afterstep/autoexec. Para configura-los, eh /usr/local/share/afterstep/wharf (ou
+zharf)... 
+Se ao inves de icone, vc quer um atalho no menu start, o diretorio de confguracao do menu start eh
+/usr/local/share/afterstep/start/. 
+Basta editar 1 arquivo lah para sacar como fazer outro atahlo... T+ 
+
+Felipe Russo 
+				--------------
+
+			INSTALANDO O KDE NO RED HAT
+
+Ai galera instalei o KDE mas a única coisa que consegui foi uma tela azul sem ícones ou barras de trabalho, tenho o red hat 5.1, quando vou no diretório /opt/kde/bin
+>E digito o comando ./startkde o linux devolve uma mensagem assim
+>./startkde: kdeaudioserver command not found
+---------
+Bem, eu tive q colocar isso em /etc/profile
+
+QTDIR=/usr/lib/qt
+PATH=$QTDIR/bin:$PATH
+MANPATH=$QTDIR/man:$MANPATH
+LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+LIBRARY_PATH=$LD_LIBRARY_PATH
+CPLUS_INCLUDE_PATH=$QTDIR/include:$CPLUS_INCLUDE_PATH
+export QTDIR PATH MANPATH LD_LIBRARY_PATH LIBRARY_PATH
+export CPLUS_INCLUDE_PATH
+
+KDEDIR=/opt/kde
+PATH=$KDEDIR/bin:$PATH
+export KDEDIR PATH
+
+e "startkde" em ~/.xinitrc
+
+Apenas olhe se os diretorios sao os mesmos!
+
+Abracos,
+Milton
+				-------------
+
+				DISCO DE BOOT
+
+dd if=[nome do kernel] of=/dev/fd0 bs=8192
+
+Voce tem uma particao DOS/Win na maquina? Se tiver use o Loadlin.
+_Eu_ acho mais pratico.
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+				--------------
+
+				ATIVANDO O SWAP
+
+Para tornar permanente, coloque no seu /etc/fstab:
+/dev/hda1       swap    swap    defaults 
+				--------------
+
+				UNDELETE NO LINUX
+
+Eu tenho usado um artifício, criando um diretorio $HOME/.wastebasket e
+fazendo um alias para o rm:
+  alias rm '/bin/mv -b !:* $HOME/.wastebasket'
+  toda vez que o rm for acionado, ele irá mover o arquivo para o
+.wastebasket e
+se desejar realmente limpá-lo, crie um alias do tipo:
+  alias purge '/bin/rm -f $HOME/.wastebasket/*'
+  Tem evitado uma população de cabelos brancos.  O único conselho: faça
+o purge
+apenas uma vez por dia/semana/mês, evitando usar seguidamente e
+mecanicamente, senão o .wastebasket não lhe servirá para nada!
+  Detalhe, diretórios serão movidos mas o purge não os apagará. Por
+segurança,
+sugiro que não fique tentado a usar /bin/rm -Rf.
+  Existem alguns substitutos para o rm e família e possívelmente
+alterações no
+filesystem para facilitar o undelete e outros problemas mas pelo que
+tenho visto são experimentais e nunca ouvi falar de alguma distribuição
+que tivesse usando.
+
+  bye
+Luis
+				--------------
+
+			FAZENDO O LINUX RECONHECER A MEMÓRIA TOTAL
+
+digite  "linux mem=128M"  no LILO Prompt (sem as aspas é claro :) )
+       depois que o linux for carregado digite o comando "free"e verifique se
+o linux reconheceu os seus 128M de ram , se ele        reconheceu é porque a
+sua Bios é compativel com o linux . Caso isso funcione é necessario adicionar
+esta linha no  etc/lilo.conf
+				-------------
+
+				ACENTUAÇÃO NO LINUX
+
+1.Coloque o novo mapa no diretório /usr/lib/kbd/keytables/
+2.Criei ou editei(não me lembro)o arquivo /etc/rc.d/rc.keyboard, fazendo
+  carregar o novo mapa. 
+
+  #!/bin/sh
+  loadkeys abnt2
+
+3.Editei ou criei(não me lembro) o arquivo /etc/rc.d/rc.font, e mudei
+para 
+
+  #!/bin/sh
+  setfont lat1u-16.psf
+
+4.Acrescentei as seguintes linhas ao /etc/rc.d/rc.S: 
+
+  # Carrega uma fonte de caracteres se existe um script rc.font.
+  if [ -x /etc/rc.d/rc.font ]; then
+    /etc/rc.d/rc.font
+  fi
+
+  # Carrega um mapa de teclado se sexiste um script rc.keyboard.
+  if [ -x /etc/rc.d/rc.keyboard ]; then
+    /etc/rc.d/rc.keyboard
+  fi
+
+Executei um chmod 500 no rc.font e no rc.keyboard
+
+No X-Windows não fiz nada, mas o mapeamento e o ccedilha funciona
+normalmente.
+Jefferson
+				--------------
+
+			ATUALIZAÇÃO DO RED HAT PARA 2.2 (KERNEL)
+
+Se voce esta tendo ou teve problemas para atualizar seu RedHat 5.2 para
+Linux 2.2.0, da uma olhada em
+http://slashdot.org/askslashdot/99/02/09/2359229.shtml (obs: em ingles!)
+
+Abracos!
+Walter Brick
+				---------------
+
+			ATUALIZAÇÃO DOS HOWTOS
+
+A Linux Documentation Projects (LDP) acrescentou/atualizou alguns HOWTOs
+no periodo de dezembro/98 a fevereiro/99.
+        A relacao dos HOWTOs acrescentados/atualizados voces encontram em
+http://linuxtoday.com/stories/2967.html?lttxt e a relacao completa de
+HOWTOs esta em http://metalab.unc.edu/LDP/HOWTO/
+
+Abracos!
+Walter Brick 
+				---------------
+
+			PPPD NO KERNEL 2.2.X
+
+Para usar o kernel 2.2 voce precisa ao menos da versao 2.3.5 do pppd
+  (veja /usr/src/linux/Documentation/Changes) 
+				--------------
+
+			DRIVER DE IMPRESSORA NO WORD PERFECT
+
+Instalei o WordPerfect e ele nao possui nenhum driver para Epson
+> Stylus. Alguem ja enfrentou esse problema? Eu ja imprimi coisas do
+> Netscape normalmente, mas nao sei como imprimir no WP.
+
+Escolha o driver "Passthru PostScript" e imprima com o GhostScript.
+ 
+Funcionou com o meu HP DeskJet.
+Ricardo Yassuo Igarashi
+				--------------
+
+			MOUSE PARA CANHOTOS NO LINUX
+
+A algum tempo atras, alguem perguntou como trocar os botoes do mouse
+no X. Descobri hoje:
+
+"Destro" (default)
+xmodmap -e "pointer = 1 2 3"
+
+"Canhoto"
+xmodmap -e "pointer = 3 2 1"
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+------------
+Eu usava o xinput desenvolvido pelo OTaylor (gnome/gimp):
+
+NAME
+       xinput - utility to configure and test XInput devices
+
+       xinput set-button-map device_name map  button  1  [map
+               button  2 [...]]
+               Change the button  mapping  of  device_name.  Uses
+               XSetDeviceButtonMapping(3).
+
+
+A vantagem do Xinput é que ele serve para os outros devices do X, como
+a Wacom Pen Partner. Tem outra features tabem, por exemplo para setar
+o segundo mouse ou trackball. 
+
+-- 
+Thadeu Penna
+				---------------
+
+			FUNÇÃO DOS SCRIPS DO LINUX
+
+Principalmente dos arquivos do diretório /etc/rc.d   (Slackware 3.4
+> Kernel 2.0.36), rc.S, rc.4, rc.6, rc.modules, rc.serial, etc...
+> Queria saber as funções deles eo que se pode carregar neles e o que não
+> pode.
+
+As funcoes dos scripts sao dadas pelos proprios nomes: rc.modules para
+carregar os modulos, rc.serial para configurar as portas seriais, etc. Os
+unicos scripts diferentes sao os rc.N, com N sendo um numero, o rc.S e o
+rc.M.
+
+O rc.0 e' executado quando voce entra no runlevel 0, isto e', quando voce
+faz um halt. O rc.6 e' executado quando voce entra no runlevel 6, reboot. E
+o rc.4, quando voce entra no runlevel 4. Esse e' o script responsavel por
+carregar o xdm.
+
+O rc.S e' executado quando o sistema inicia e o rc.M e' executado quando o
+sistema entra em modo multi usuario (runlevels 2, 3, 4 e 5)
+
+O que voce pode por em cada um nao importa. Use o seu bom-senso para saber
+onde eles tem que ir. E e' bom saber que script chama cada um, para saber
+em que ordem os scripts sao carregados e executados. A maioria dos scripts
+e' carregada do rc.M. O proprio rc.M, o rc.S e os rc.<runlevel> sao
+carregados pelo proprio init (veja /etc/inittab).
+
+> Também queria saber se, por exemplo, carregasse alguma coisa errada no
+> arquivo rc.S como eu faria para não executá-lo durante o processo de
+> inicialização do meu Linux(caso isso paralizasse o meu sistema)
+
+Procure nao mudar o rc.S sem necessidade. Esse e' o script principal.
+
+Se o problema for fora do rc.S, voce pode iniciar o Linux em modo mono
+usuario, digitando no prompt do LILO:
+linux single
+(sendo 'linux' o nome do target= do /etc/lilo.conf)
+
+Se for dentro do rc.S, pule o init totalmente, digitando no LILO:
+linux init=/bin/bash rw
+
+
+--
+ Thiago Macieira - UFOT Registry number: 1001
+  thiagom@usa.net
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

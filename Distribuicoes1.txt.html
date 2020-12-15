@@ -1,0 +1,511 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>				DISTRIBUIÇÕES - 1
+
+
+Jorge Godoy wrote:
+> 
+> On Mon, 8 Feb 1999, Bruno de Oliveira Ferrarese wrote:
+>
+> >       O Slackware eh mais leve (nao falo em performance, mas
+> > IMSHO tb) tem menos arquivos pra se configurar (vc vai
+> > direto onde quer, nao precisa dar voltas e olhar (esse aqui
+> > faz isso e chama aquele, que por sua vez faz aquilo e chama
+> > outro..)
+> 
+> Acho isso interessante. Ao invés de cirar diversas entradas no cron, uma
+> para cada programas rodado a cada hora, por exemplo, eu os copio todos
+> dentro de /etc/cron.hourly que o RH automaticamente os executa a cada
+> hora. Isso não é frescura, é conforto e facilidade para gerenciar. Não
+> quer mais rodar? chmod -x arquivo_dentro_do_etc_cron_hourly
+
+        Eh exatamente a isse tipo de coisa que me refero. Se vc
+usa, e gosta, se sente bem com isso, acho otimo, pois o
+trabalho do pessoal da RH esta valendo a pena, mas pra min
+atrapalha. Imagine vc pegar a maquina sem conhecer e vc tem
+q alterar uma entrada no cron, vc vai direto crontab -e e
+pronto, no seu caso tem que ficar dando greps pra achar em
+qual alrquivo esta a linha que chama o prog.
+        Alem do mais, em minha humilde opiniao, tu tirar um
+programa do crom dando um chmod -x chega ser ate
+anti-etico!!
+
+
+> >       Agora escrevendo esse email me dei conta de uma coisa, na
+> > verdade o principal: SIMPLICIDADE.  isso resume tudo.
+> 
+> Exactly. simplicidade, conforto e facilidade de realizar tarefas simples e
+> tarefas complicadas. Podes ir direto nos arquivos no RH, sem medo nenhum.
+> As ferramentas existem para facilitar (e até aumentar a segurança, algumas
+> vezes...) e não são de uso obrigatório.
+
+AUMENTAR???????
+
+
+> > obs.: usei RH por 3 anos antes de ser apresentado ao
+> > maravilhoso mundo do Slackware rodando com um AfterStep em
+> > cima!
+> 
+> After ruliz :-)) hehehehe...
+> Usei-o no Slack, uso-o no RH, vou usá-lo até....... :-)))
+> MAS, isso é outra flamewar... :-)))
+
+Hehhheheheheheh   que bom, mais um!!
+  Bruno de Oliveira Ferrarese       TCPWrapper@zaz.com.br
+				---------------
+
+Oi, Jorge
+
+Lah vamos nos de novo  :)
+Estou lembrando da SIG do Getulio Holtz e te convidando prum chimarrao, pra
+que o papo continue amigavel como estah  ;)
+
+>Isso é feito facilmente no RH e no Slackware
+>editando-se o /etc/hosts.deny e acrescentando-se a linha "ALL:ALL".
+>Libere, depois, em qualquer distribuição, no /etc/hosts.allow os serviços
+>carregados pelo inetd que você desejar.
+>Esse é o _mínimo_ de segurança. É óbvio que muitas outras coisas são
+>necessárias, mas em qualquer distribuição.
+Vc conhece o programa chkexploit e a rootshell. Teste num sistema Debian e
+num RH. O que disse no mail anterior, eh que Debian eh mais indicado pra
+SERVER. Concordo com vc, a melhor distribuicao eh aquela que a gente
+conhece a fundo, mas eu nao vi ainda um ISP grande pequeno ou medio rodando
+em MonkeyLinux, por exemplo. Quanto ao hosts.deny, posso garantir a vc que
+este eh metodo bem ineficaz se vc se preocupa com seguranca.
+
+>Isso começa antes da instalação. Começa no planejamento de como será feita
+>a instalação. 
+
+Vc entendeu. Ele jah sabe o que quer e terah de se assessorar ou jah tem
+algum know how em Unix para instalar seu server.
+
+>Ainda é função do administrador de um sistema se manter atualizado... A
+>distribuição vem desatualizada até pelo fato de ser um CD. 
+----SNIP----
+Certo. Eu apenas disse que a interface do Debian, na minha opiniao e na de
+dezenas de outros Sysadmins como eu, para upgrades atraves da Net eh muito
+melhor. Um Sysadmin soh fica com sistema desatualizado, com Debian, se for
+relaxado ou relapso.
+
+
+>Exatamente. E ele pode fazer isto em qualquer distribuição. O RH é o mais
+Vou usar mais uma vez o exemplo do Monkey...
+
+>Eu preferiria parar no "tecer uma opinião sobre ele". Falar sobre o que
+>não se conhece é cair em erro. O Guarani é bem diferente do RH nos
+>pacotes. São mais atualizados e com várias correções feitas pelo pessoal
+>da Conectiva e pelos autores dos pacotes. 
+Fico feliz em saber entao que no Brasil os responsaveis pelo RH sao mais
+caprichosos e conscienciosos com seu produto. :)
+Voce tem razao: jah agendei uma instalacao dele no meu K6 de testes pra nao
+emitir opiniao sobre o que nao sei. Sobre o Marumbi eu sei bastante, mas
+vamos deixar por aqui.
+
+
+>Não vi nada de mais lá. Apenas uma comparação Debian/RH. 
+>No link que você indicou (http://www.ext2.org/99/02/imoore2.html) está um
+>comentário interessante:
+Interessante como eh facil omitir passagens que nao nos interessam e
+ressaltar as que nos ajudam. Me parece que o assunto da materia eh o mesmo
+do qual falamos, diferenca entre as distribuicoes. Uma sentenca que me
+pareceu interessante e que vc (por motivos de espaco, obvio) esqueceu de
+citar foi:
+In comparison, RedHat is a company. They have to make money because they
+have people they have to pay. So if a product is pushed back because it's
+not ready, they loose money. This leads to hasty judgment calls and buggy
+releases. RedHat is notorious for releasing buggy software. RedHat 4.2 was
+one of the most stable and secure distributions I have ever used. But
+version 4.0 and 4.1 were terrible. They were buggy and constantly had
+security issues. The same thing happened with the release of 5.0 and 5.1. I
+have heard good things about 5.2 though. With all of this said, it always
+seems that it takes a few releases to get all the bugs worked out. 
+
+>Essa também é minha filosofia. Para mim, o Guarani foi excelente. 
+Pelos mesmos motivos defendo o Debian. Note que "In the Server Arena,
+things run slightly different..."
+
+
+>Vamos partir para o lado administrativo: 
+-----SNIPAO---------
+Concordo plenamente, apenas nao estou entendendo o porque de comparar o
+gerenciamento de versoes do Slack (inexistente) com o RPM. Por acaso nao
+foi exatamente isso que eu disse no primeiro mail ao digitar: Com o Slack
+vc precisarah reinstalar todo o sistema do zero a cada upgrade de Hardware
+ou do Site?
+
+>- (Só para ser chato, já que posso estar me metendo numa Flamewar, porque
+>  o pessoal da Debian cogitou em trocar o dpkg por rpm?? :-))) Veja na
+>  DebianWeek. 
+Vc eh um homem dos fatos, jah me disse em mails anteriores. O fato eh: isto
+foi feito? A sugestao rolou nas listas Debian e Debian Devlopment - que eu
+assino - porque o maior problema de aceitacao do Debian eh a interface
+horrorosa do Dselect/Dpkg. Sabe qual foi a conclusao? Para resumir: Dane-se
+a interface, queremos software bom. Tire suas conclusoes por sua conta,
+apenas estou apresentando fatos.  :)
+
+>Vamos partir para o lado operacional:
+>- Plug'n'Play.
+>- Inovações tanto em Hardware quanto em Software
+>- Apoio a projetos externos
+Concordo plenamente com vc, mas nao estamos neste caso, falando de Servers
+(vc escuta musica ou roda MP3 no seu server? Tem modem PNP nele? ) Quanto a
+versoes e inovacoes de Soft, o KDE, p.ex. jah era parte integrante do DEB
+muito antes de qualquer outra distribuicao. O AfterStep, tbm (coisa mais
+antiquada, AfterStep, nao? - eh o que eu uso...). O Hylafax, tbm. O... Bom,
+a lista toda vc pode ver numa lista do Dselect... :)
+Para vc ter uma ideia, dezenas dos colaboradores do Debian sao os mesmos
+que criaram os softwares que vc muito bem recompilou segundo suas
+necessidades...
+
+>Apoio comercial:
+>- Em quem as grandes empresas estão investindo? (O seu
+>  gerente/diretor/chefe vai querer saber...)
+Meu cliente (que em suma eh o meu patrao...) quer saber de um sistema
+estavel, alheio a falhas, rapido e seguro. Na minha ignorancia, posso
+garantir a este patrao que posso fazer isso com Debian, algo que jah nao
+poderia fazer com RH - provavelmente por minha obtusidade. Mas se este
+patrao  (do qual dependem os sapatos e a escola de meu filho) quiser seguir
+a moda, um bom argumento, o seu coracao ou fazer uma aposta, que posso
+fazer? Apenas salvaguardar-me caso algum problema ocorra. Acho que a grande
+questao a ser discutida nao eh qual deles eh o melhor e sim qual eh o mais
+apropriado para determinada tarefa. E a minha opiniao, na Arena Server -
+que eh onde tenho enfrentado meus leoes - o Debian eh a melhor Carabina a
+minha disposicao - e nao me venha de estilingue, seu Jorge, q vc nao eh
+David nem eu Golias!  :^P
+>
+>Remember, you are a completely unique and distinct individual.
+>Just like everyone else.
+
+Rico Ferrari
+Departamento de Tecnologia
+suporte@ivixnet.com
+-----------
+Igor Sutton Lopes wrote:
+>         Concordo plenamente com isso mas, o que falta para o Slack seria o que o
+> Stampede vai oferecer e o que o Debian, o SuSe e o RedHat possuem: um
+> gerenciador de arquivos.
+
+
+Estava resistindo a entrar nesta discussao, mas agora que li a palavra
+magica (¨SuSE¨) nao resisti. Como varios outros companheiros da lista,
+ja instalei e usei por algum tempo a maior parte das distribuicoes
+¨mainstream¨. Conforme a gente avanca por este caminho, vai percebendo
+que as diferencas entre as distribuicoes referem-se principalmente a
+dois fatores basicos:
+
+1) o ¨ponto de partida¨: o sistema basico que o administrador vai ter em
+maos ao fim do processo de instalacao, e a partir do qual vai partir em
+customizacoes, upgrades, updates, truques e tudo o mais que for
+necessario para transformar a instalacao na sua ¨visao pessoal¨ do que
+um sistema Linux deve ser. Naturalmente essa visao pessoal varia para
+cada administrador, cada maquina e cada ocasiao, de acordo com varios
+fatores, incluindo o servico desejado, o nivel de seguranca desejado, e
+o conhecimento e talento pessoal do administrador.
+
+2) os adicionais e diferenciais que cada distribuicao inclui e que as
+outras deixam de incluir.
+
+Neste sentido, o que pode levar a tantas respostas diferentes e´
+principalmente este delta entre o que as distribuicoes oferecem e o que
+o usuario deseja. Por exemplo, apos muito me bater com as ferramentas de
+administracao de sistema oferecidas pelo slackware, red hat 4.2, redhat
+5.x (linuxconf), turbo linux e suse (nesta ordem), acabei preferindo
+estudar um pouco mais sobre o processo de boot e o padrao de organizacao
+do filesystem do Linux para poder encontrar sozinho os arquivos de
+configuracao e edita-los manualmente. 
+
+A maior parte dos adicionais oferecidos pelas diversas distribuicoes eh
+de dominio publico, e portanto o administrador experiente pode
+facilmente adicionar ao seu sistema (baseado na *sua* distribuicao
+favorita) os pacotes adicionais oferecidos pelas  distribuicoes
+¨rivais¨.
+
+Este palavrorio todo foi apenas para dar uma boa enrolada em voces antes
+de eu tambem anunciar minha distribuicao favorita. Apos muitas voltas e
+apos ter me fixado por um bom tempo no Turbo Linux 2.0, cheguei `a
+conclusao que o SuSE e´ a distribuicao que mais se adapta `a minha visao
+de sistema ideal. Isto porque:
+
+1) Ele e´ baseado em rpm, facilitando o controle de pacotes instalados
+2) A distribuicao basica sao 5 CDs, portanto ele apresenta *MUITA*
+flexibilidade e amplitude de escolha de pacotes - claro que isto leva a
+um processo de instalacao mais lento e sujeito a erros
+3) As ferramentas de administracao fornecidas com ele sao solidas. O
+Yast faz coisas que eu nunca tinha visto antes em programas de
+administracao em dominio publico, o configurador de X praticamente
+adivinha tudo sozinho, mas permite que voce altere o que quiser e teste
+suas alteracoes dinamicamente, o configurador de impressoras faz
+maravilhas, etc.
+4) Os scripts de inicializacao sao originais, bem escritos e
+documentados, e facilmente editaveis
+5) O manual impresso pode ser comparado a muitos livros introdutorios
+sobre *Linux*, ao contrario, por exemplo, do manual do Red Hat, que eh
+apenas um guia de instalacao e configuracao da propria distribuicao.
+
+Pronto, agora expus minha opiniao e tambem estou na discussao. Mas como
+o nome deste sistema eh mesmo ¨grupo de discussao¨, acredito nao estar
+cometendo nenhum pecado.
+ Augusto
+ brain@matrix.com.br
+------------
+Certo. Eu apenas disse que a interface do Debian, na minha opiniao e na de
+>dezenas de outros Sysadmins como eu, para upgrades atraves da Net eh muito
+>melhor. Um Sysadmin soh fica com sistema desatualizado, com Debian, se for
+>relaxado ou relapso.
+
+
+Sem querer aumentar a flame war, mas já aumentando :-)
+
+Existem programas como:
+AutoRPM,
+rpmwatch,
+rhlupdate
+entre outros que fazem exatamente isso, atualizam via FTP.
+
+Eu como Sysadmin (ou pelo menos tentando ser :-> ), acho essas ferramentas
+viáveis apenas no intuito de ter os pacotes comigo.
+
+mas para isso, prefiro fazer um mirror dos Updates (Red Hat, Conectiva) com
+o programa de mirror do sunsite.
+
+Mas não gosto de te-los atualizando sozinho.  Eu prefiro atualizar na mão e
+saber o que foi atualizado, o que mudou.  Principalmente no que se refere a
+configurações.
+
+Esses dias fiz um upgrade do apache 1.2.x para 1.3.x
+Só que ele vinha com o mod_SSL junto.  O que aconteceu?  Ele parou de
+funcionar porque não tinha as bibliotecas instaladas (e por má construção
+dele), ele não reclamou da falta das mesmas.
+
+Antes que digam "viu só o problema do RPM/RedHat", esse pacote não era da
+RedHat e o problema foi de construção do mesmo.
+
+Mas de qualquer forma o ponto era que os arquivos de configurações não eram
+mais compatíveis e por isso ele voltou para um default até que eu
+atualizasse-o.
+
+Imagine o que teria acontecido se ocorresse isso no meio da noite e só dia
+seguinte (imagine um fim de semana) você descobrisse que o seu Servidor de
+WEB esta parado por causa de uma atualização.
+
+Por favor, senhores, essas são apenas as minhas impressões.
+Quanto a flame war, ela não precisa ser uma flame war.  Mas por favor, não
+se acanhem de dizer algo por medo de transforma-la em uma.
+Acho que essas discussões são as mais proveitosas da lista.
+Raul Dias
+------------
+On Tue, 9 Feb 1999, Raul Dias wrote:
+
+> >> AUMENTAR???????
+> 
+> >Sim. Via lock, por exemplo. Impede duas pessoas de editarem o arquivo.
+> 
+> E de que forma que o lock é implementado NO RED HAT?
+> Serviço?
+> Qual?
+
+Depende. Pode-se implementar um sistema de travamento de arquivos
+(file locking) de maneiras simples e maneiras mais complicadas (mas que
+não deixam de ser simples :-)). As complicadas seriam as codificadas no
+software. As simples podem ser implementadas nos scripts através da
+checagem da existência de um arquivo. Por exemplo, toda vez que você
+digitar um comando para editar algum arquivo --- esse comando é um
+script, para te dar o exemplo --- ele pode verificar a existência do
+arquivo /tmp/.nome_do_script.lock e, caso este exista, ele lhe informa que
+"o arquivo está travado e/ou sendo alterado por outra pessoa, conforme o 
+pid contido no arquivo /tmp/.nome_do_script.lock". Se o arquivo de
+travamento não existir, o mesmo é criado com o pid do script como seu
+conteúdo e a alteração é permitida.
+Essa é apenas uma das possibilidades. A criatividade mostra outras :-)
+Não entendi as duas últimas perguntas... estão relacionadas ao lock ou ao
+exemplo?
+
+Sds,
+Jorge Godoy <jorge@bestway.com.br>
+-----------
+On Mon, 8 Feb 1999, Rico Ferrari wrote:
+
+> Oi, Jorge
+> 
+> Lah vamos nos de novo  :)
+> Estou lembrando da SIG do Getulio Holtz e te convidando prum chimarrao, pra
+> que o papo continue amigavel como estah  ;)
+
+:-) Não sou fã de chimarrão, mas aceito o churrasco :-)))) (já me
+convidei hehehehehehe)
+
+> Vc conhece o programa chkexploit e a rootshell. 
+
+Conheço e uso.
+
+> Teste num sistema Debian e
+> num RH. O que disse no mail anterior, eh que Debian eh mais indicado pra
+> SERVER. 
+
+Rico... Aqui está o "X". No meu sistema esses aplicativos não indicam
+brechas. Uso RH. O Debian pode ser mais seguro sem nenhuma alteração, mas
+duvido que você não mexa no seu Debian para melhorar a segurança após
+instalado. Eu mexo nos RH que instalo. 
+
+> Concordo com vc, a melhor distribuicao eh aquela que a gente
+> conhece a fundo, mas eu nao vi ainda um ISP grande pequeno ou medio rodando
+> em MonkeyLinux, por exemplo. Quanto ao hosts.deny, posso garantir a vc que
+> este eh metodo bem ineficaz se vc se preocupa com seguranca.
+
+Repare no grifo feito em "_mínimo_". :-) 
+Esses arquivos são básicos para segurança. Há *sempre* uma necessidade de
+se definir uma política de segurança e não apenas medidas de segurança. Só
+a título de comentário (está fora do escopo desta discussão), o Monkey é
+uma distribuição que roda em partições DOS (UMSDOS?) e portanto perde
+algumas das vantagens do ext2. Ele não é recomendável para se rodar em
+algo mais sério do que aprender Linux... 
+
+> >Isso começa antes da instalação. Começa no planejamento de como será feita
+> >a instalação. 
+> 
+> Vc entendeu. Ele jah sabe o que quer e terah de se assessorar ou jah tem
+> algum know how em Unix para instalar seu server.
+
+Ou lê documentação que é válida para todas as distribuições, como os
+famosos e ignorados HOWTOs. 
+
+> melhor. Um Sysadmin soh fica com sistema desatualizado, com Debian, se for
+> relaxado ou relapso.
+
+Não vou comentar pois já o fizeram... autorpm.... :-)
+
+> >Não vi nada de mais lá. Apenas uma comparação Debian/RH. 
+> >No link que você indicou (http://www.ext2.org/99/02/imoore2.html) está um
+> >comentário interessante:
+> Interessante como eh facil omitir passagens que nao nos interessam e
+> ressaltar as que nos ajudam. Me parece que o assunto da materia eh o mesmo
+> do qual falamos, diferenca entre as distribuicoes. Uma sentenca que me
+> pareceu interessante e que vc (por motivos de espaco, obvio) esqueceu de
+> citar foi:
+
+(Foi motivo de espaço mesmo. Estava preocupado com o limite da lista... e 
+por isso editei _muito_ este e-mail também...)
+
+> security issues. The same thing happened with the release of 5.0 and 5.1. I
+> have heard good things about 5.2 though. With all of this said, it always
+> seems that it takes a few releases to get all the bugs worked out. 
+
+Já que é para fazer citações, viu a Slashdot hoje? :-) 
+Um poll e uma avaliação externa. A avaliação saiu na 32bitsonline e eu
+ainda não consegui ler inteira... apenas "bati" o olho. 
+
+> >Essa também é minha filosofia. Para mim, o Guarani foi excelente. 
+> Pelos mesmos motivos defendo o Debian. Note que "In the Server Arena,
+> things run slightly different..."
+
+:-) 
+I know. We're all fighters.
+
+> Concordo plenamente, apenas nao estou entendendo o porque de comparar o
+> gerenciamento de versoes do Slack (inexistente) com o RPM. Por acaso nao
+
+Comparei devido ao subject. Concordo --- e conheço muito bem! --- com o
+que você disse. 
+
+> Vc eh um homem dos fatos, jah me disse em mails anteriores. O fato eh: isto
+> foi feito? A sugestao rolou nas listas Debian e Debian Devlopment - que eu
+> assino - porque o maior problema de aceitacao do Debian eh a interface
+> horrorosa do Dselect/Dpkg. Sabe qual foi a conclusao? Para resumir: Dane-se
+> a interface, queremos software bom. Tire suas conclusoes por sua conta,
+> apenas estou apresentando fatos.  :)
+
+:-) Não consegui voltar ao link. Me parece que a decisão foi devido ao
+fato de terem que refazer vários pacotes. Não estou afirmando! Não me
+lembro exatamente do que li no artigo e qual foi a resposta... apenas
+memorizei que eles cogitaram a troca de gerenciador.
+
+> Concordo plenamente com vc, mas nao estamos neste caso, falando de Servers
+> (vc escuta musica ou roda MP3 no seu server? Tem modem PNP nele? ) Quanto a
+> versoes e inovacoes de Soft, o KDE, p.ex. jah era parte integrante do DEB
+> muito antes de qualquer outra distribuicao. O AfterStep, tbm (coisa mais
+> antiquada, AfterStep, nao? - eh o que eu uso...). O Hylafax, tbm. O... Bom,
+> a lista toda vc pode ver numa lista do Dselect... :)
+> Para vc ter uma ideia, dezenas dos colaboradores do Debian sao os mesmos
+> que criaram os softwares que vc muito bem recompilou segundo suas
+> necessidades...
+
+Todos os aplicativos citados possuem versão em RPM.
+Quanto aos argumentos para o PnP não acho válidos. Não é apenas placa de
+som ou modem que é PnP. Placas de rede também o são e são as mais
+facilmente encontradas no mercado. Se a qualidade destas placas é boa ou
+não é outra coisa... O comentário sobre os desenvolvedores dos pacotes é
+válido, novamente, para qualquer distribuição. Veja o fetchmail, por
+exemplo. É o próprio Eric Raymond que mantém o RPM. 
+
+> Na minha ignorancia, posso garantir a este patrao que posso fazer isso
+> com Debian, algo que jah nao  poderia fazer com RH - provavelmente por
+> minha obtusidade. 
+
+Não creio que sejas obtuso. Se o fosses, não estaríamos com a discussão
+nessa mesma calma. Teria virado flame há muito tempo... :-) É aquela coisa
+inexplicável que todo administrador tem: um modo de trabalho. 
+
+> apropriado para determinada tarefa. E a minha opiniao, na Arena Server -
+> que eh onde tenho enfrentado meus leoes - o Debian eh a melhor Carabina a
+> minha disposicao - e nao me venha de estilingue, seu Jorge, q vc nao eh
+> David nem eu Golias!  :^P
+
+Hahahahahaha. Sim senhor, chefe! :-))
+
+(Desculpe se editei demais... quase não passa pelo filtro de 8K). 
+
+Sds,
+Jorge Godoy <jorge@bestway.com.br>
+-----------
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			USO BÁSICO DO LYNX
+Obs.: Este texto foi capturado da página do ANO2001 (www.ano2001.ml.org/).
+
+1.Consideracoes Iniciais 
+
+     LYNX e' um programa de dominio publico para
+visualizacao de informacoes disponiveis na Internet em
+servidores World Wide Web (WWW), para interface
+"não-gráfica", ou seja orientada a caracter. 
+
+     Uma caracteristica importante do lynx e' que ele
+permite tambem acesso a arquivos disponiveis em sistemas
+rodando Gopher, HTTP (Hyper Text Tranfer Protocol), FTP,
+WAIS e servidores NNTP. 
+
+     O lynx exibe arquivos em formato de hipertexto -
+HTML (Hypertext Markup Language). 
+
+2. Para iniciar o programa Lynx 
+
+     Digite lynx no prompt do Unix: 
+
+     % lynx 
+
+     Ao ser inicializado o lynx vai exibir a "homepage", ou página de entrada do servidor WWW do Centro Regional de Brasilia (CR/DF). 
+
+    RNP - Centro Regional de Brasilia
+
+    MCT/CNPq/RNP - Centro Regional/DF
+ ________________________________________________________________________
+
+    Logo RNP
+                     BEM-VINDO AO CENTRO REGIONAL/DF DA RNP!
+
+    Em construcao! Welcome to our CR/DF Web server.
+    Since it is under construction all the information available thus far
+    is only in Portuguese.
+ ________________________________________________________________________
+
+ Para obter informações sobre o CR/DF clique aqui!
+
+         -- pressione ESPACO para avancar a pagina --
+ SETAS: CIMA e BAIXO movimentam no texto; '->'novo texto; '<-'texto anterior
+  H)elp O)ptions P)rint G)o M)ain screen Q)uit /=search [delete]=history list
+
+
+     Observe no rodapé da tela os principais comandos para utilização do lynx. 
+
+     Os itens que aparecem em destaque (normalmente "highlighted"), funcionam como "links" para outros documentos. Ou seja, ao serem selecionados, exibem uma nova tela de informação. 
+
+
+3. Para percorrer uma página
+
+   Avançar tela a tela               barra de espaco                                
+   Voltar para a tela anterior       b                                        
+   Próximo item em destaque          seta para baixo                          
+   Item anterior                     seta para cima                           
+   Acesso ao link / nova página      enter ou seta para a direita             
+   Voltar para a página anterior     seta para a esquerda                    
+
+4. Para iniciar o lynx conectando-se a um servidor específico
+
+     URL (Uniform Resource Locator) 
+
+     URL é a notação padrão de arquivos na internet. A URL contém todas as informações necessárias para se localizar qualquer recurso na rede. Escreve-se dessa forma: 
+
+     protocol://host/path/filename 
+
+     protocol = identifica o protocolo de comunicação usado pelo servidor onde está o arquivo desejado.. 
+
+     host = endereço internet da máquina em que se encontra o serviço desejado 
+
+     path and filename = O diretório e o nome do arquivo desejado. 
+
+Conectando-se a uma URL específica 
+
+     O Lynx ( como diversos clientes www) pode interagir com grande variedade de servidores (gopher, wais, ftp, etc). 
+
+     % lynx URL (Uniform Resource Locator) 
+
+     Exemplos de URL's: 
+
+                                                                          
+HTTP (Hypertext Transfer Protocol)    FTP (File Transfer Protocol)           
+http://www.hq.rnp.br/docs/index.html  ftp://ftp2.cc.ukans.edu/pub/lynx/READM 
+
+Gopher                          WAIS (Wide Area Information Service protocol) 
+gopher://gopher.micro.umn.edu/11/  wais://cnidr.org/directory-of-servers  
+
+5.Para abrir novas conexões com outros servidores 
+
+   Para acesso a outras url's quando estiver utilizando o lynx, digite 'G' .
+O lynx vai abrir então uma linha de comando onde deve ser digitada a url desejada. 
+
+ URL to open: ftp://ftp.ncl.uk
+  '->' novo texto; '<-' texto anterior
+ H)elp O)ptions P)rint G)o M)ain screen Q)uit /=search...
+
+6. Para salvar e enviar telas por correio eletrônico
+
+     Para salvar ou imprimir qualquer tela, digite 'P". Você vai obter a seguinte tela: 
+
+
+ Lynx Printing Options
+
+                     PRINTING OPTIONS
+
+    There are 50 lines, or approximately 0 page, to print.       
+    You have the following print choices
+    please select one:
+
+          Save to a local file
+         Mail the file to yourself
+         Print to the screen
+
+
+Save to a local file o lynx pergunta o nome desejado para o arquivo, que será gravado em sua área de trabalho ( ~username). 
+
+Mail the file to yourself solicita um endereço eletrônico válido para o qual a página será enviada por correio eletrônico. 
+
+Print to the screen exibe a página em tela. 
+
+     Para imprimir uma página ou documento, utilize a opção de salvar e em seguida proceda como normalmente para impressão de arquivos (ver unix quick guide). 
+
+
+7. Para guardar seus achados - bookmark
+
+     O bookmark é seu caderno de anotações eletrônico, onde é possivel armazenar quaisquer URL's
+de interesse. Uma vez feitas as anotações no bookmark, este pode ser consultado todas as vezes que
+utilizar o lynx. 
+
+  Adicionar item ao bookmark a 
+  Remover item do bookmark r 
+  Ver bookmark v 
+
+
+8. Para fazer buscas usando lynx
+
+Busca na Internet 
+
+     Para acessar alguns meta-índices de recursos internet, digite"i". Através destes meta-índices é possível realizar buscas nos diversos serviços e recursos da net, informando palavras ou expressões chaves. 
+
+     Estes meta-índices oferecem opções de busca para sofwares, endereços eletrônicos, documentos, publicações, etc. 
+
+Busca na página corrente 
+
+     O comando "/ " abre uma linha de comando para a palavra de busca. Em seguida posiciona o cursor na ocorrência mais proxima da palavra informada. 
+
+                                                                         
+     Enter a search string: Brasil                                           
+
+9. Para ver o 'fonte' de uma página 
+
+     Visualizar o fonte de um página / 
+
+     O mesmo comando é usado para retornar ao modo original de visualização. 
+
+
+10. Help on line 
+
+     Digite ? ou H para obter as seguintes opções de help. 
+
+
+             Help! - Press the Left arrow key to exit help
+
+                             LYNX HELP FILES                     
+
+ Choose a subject
+      * Key-stroke commands
+      * About Lynx
+      * Lynx users guide version 2.3
+      * Help on version 2.3
+      * Help on HTML
+      * HTML Quick Reference
+      * Help on URL's
+
+
+11. Outros comandos 
+
+  Informações técnicas sobre tópico corrente: = 
+  Rearrumar tela (refresh): W 
+  Comandos da sessão (history page): del 
+  Cancela transferência: z 
+  Edita arquivos locais: e 
+
+Sair do lynx 
+
+     Digite 'Q' na linha de comando, o lynx vai pedir então confirmação e em seguida encerrar a seção. 
+
+ Voce deseja realmente terminar? [Y]   </pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

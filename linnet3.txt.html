@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			CONFIGURANDO A WWW NO LINUX
+
+Traduções de Documentos para o Linux
+
+Linux WWW-HOWTO
+
+por Peter Dreuw, pdreuw@wing.gun.de
+V0.7.6, 6 de outubro de 1996.
+Traduzido por: Bruno H. Collovini - buick@microlink.com.br
+Tradução: 17 de Agosto de 1997.
+
+Aviso: Esta tradução não está relacionada com o Projeto de Documentação do Linux LDP) que no Brasil é representada pela LDP-BR em http://www.dca.fee.unicamp.br/~malheiro/linux/LDP-br.html>, este material é uma tradução técnica e básica somente para auxiliar os colegas com a leitura em português.
+
+Outros documentos você pode obter em:
+<http://www.microlink.com.br/~buick/dragons/>
+
+Este documento contém informação sobre como configurar serviços WWW dentro do Linux (servidor e cliente) e como os manter. Não será um manual de detalhes mas uma avaliação e um bom índice de informação para começar.
+
+1. Introdução
+
+Muitas pessoas são steping em Linux 'porque elas estão procurando utilizar bem a internet dentro de uma plantaforma capaz. Outros usam Linux para a diversão instalando um SO grátis em seus sistemas. Alguns desses querem entrar na internet, é claro. Além disso, há institutos, universidades e outros organizações sem- lucros principalmente que querem ou precisam montar sites de internet com pequenas despesas. Isto é, aonde este HowTo WWW entra. Este documento tenta explicar como configurar os clientes e servidores para o (em minha mente) maior parte online da net - A World Wide Web.
+
+1.1. Direito autorais
+
+Este documento é Protegido por direitos autorais (c) 1996 por Peter Dreuw. Por favor copie e distribua amplamente, mas não modifique o texto ou omite o meu nome.
+
+Se você vender este HOWTO em um CD, em um livro ou em outras mídia, eu realmente gostaria de ter uma cópia para referência.
+
+Marcas registradas são dos seus próprios donos respectivamente.
+
+1.2. Retratação
+
+O significado deste documento é uma introdução em técnicas usadas para o WWW e utilizáveis em Linux. Eu um não sou um perito em segurança de WWW! EU NÃO SOU RESPONSÁVEL POR QUALQUER DANO INCORRIDO DEVIDO A AÇÕES BASEADAS NAS INFORMAÇÕES INCLUIDAS NESTE DOCUMENTO.
+
+1.3. Realimentação
+
+Qualquer realimentação é realmente bem-vinda. Remeta para
+pdreuw@wing.gun.de.
+
+1.4. Versões novas deste Documento
+
+Pode ser obtida novas versões deste documento por FTP anônimo em sunsite.unc.edu debaixo de /pub/Linux/docs/HOWTO e qualquer outro mirror de amigos do FTP do Linux.
+
+Além disso, você pode obter através de
+<http://ourworld.compuserve.com/homepages/dreuw/lxwwwh2.tgz> o arquivo
+descompactado (gunzip e tar) contém em formatos sgml, texto, latex e ps.
+A versão de html está disponível diretamente em
+<http://ourworld.compuserve.com/homepages/dreuw/lxwwwh2.htm>
+
+2. Configurando do software cliente WWW
+
+O capítulo seguinte é dedicado aos usuários de web. Alguns truques e macetes de configurações de versõrs atuais de browsers de web. Por favor sinta-se livre para me contactar, se seu browser de web favorito não é mencionado aqui. (Como esta é uma versão realmente nova do WWW-HOWTO, a maioria deles provávelmente não estarão listados...)
+
+Pessoalmente, eu prefiro o Emacs - W3 browser e Lynx como eles têm algumas vantagens de rodar rapidamente e não há nenhuma necessidade para recorer a gráficos para a minha conexão lenta acelerar ;)
+
+2.1. Avaliação
+
+Lynx é o menor browser de web que eu saiba e uso - mas ele tem muitas características especiais, assim não pule este capítulo.
+
+Emacs - bem não há nada que dizer sobre o Emacs W3 browser, somente é um Emacs, como o leitor Emacs de news, o leitor Emacs de mail etc. pp.
+
+O Netscape Navigator é o único browser mencionado aqui que é capaz destas coisas novas e engraçadas como o JavaScript e com a agradável tag <APPLET> com característica para rodar o Java. Por favor informe se há qualquer outro browser de web que pode fazer um ou outro. Eu realmente gosto de saber.
+
+Há rumores, que a Microsoft vai preparar o Internet Explorer para várias plataformas do Unix - talvez inclusive o Linux. Se você saiba algo mais veridico, por favor envie-me um mail.
+
+2.2. Lynx
+
+O menor (?, hm, algo em redor de 650K de executável) é talvez um dos browser de web mais rápido disponível. Não come muito a banda passante (bandwidth) e nem os recursos do sistema como só trata de visualização de texto e ótimo para qualquer console, terminal ou xterm. Você não precisa de qualquer sistema X window nem um adicional de megabytes de memória de sistema para rodar este pequeno browser.
+
+Além disso, o código fonte tambem está disponível.
+
+2.2.1. Onde adquirir
+
+A versão mais recente é a 2.5 e pode ser obtida em
+<http://www.wfbr.edu/dir/lynx> ou em quase todos ftp de Linux amigos como o
+servidor ftp://sunsite.unc.edu em
+/pub/Linux/system/Network/info-systems/www/ ou em algum mirror.
+
+Ou, dê uma olhada na páginas mestres do Lynx
+<http://www.nyu.edu/pages/wsn/subir/lynx.html> para informações sobre o
+Lynx.
+
+2.2.2. Como instalar
+
+Após obtido o arquivo, descompacte, e leia o README e siga os passos encontrados no arquivo de INSTALAÇÃO.
+
+Se você não quer uma distribuição do fonte, você pode obter talvez um distribuição binária para o Linux em sistemas baseados em Intel disponível na sunsite. Com o Lynx compilado e rodando no seu sistema sem qualquer problema em ambos os Linux 1.2.13 e 2.0.x.
+
+2.2.3. Características especiais
+
+Bem, há. Para uma descrição completa, leia os manuais e arquivos de doc que vêm com Lynx.
+
+Adquirir um agrádavel informação, digitando
+
+      lynx --help
+
+e sita impressionado.
+
+Em minha humilde opinião, a característica mais especial do lynx contra tudos os outros browsers de web é a capacidade por usar batch para obter documentos. A pessoa pode escrever um script em shell para obter um documento, arquivo ou qualquer coisa que queira por http, ftp, gopher, WAIS, NNTP ou arquivo:// - url's e salvar no disco. Além disso, a pessoa pode preencher dados em formulários de HTML dentro de batch e simplismente redirecionar a saída simplesmente usando a opção -post_data.
+
+2.3. Emacs-W3
+
+Há uma coisa triste sobre o browser Emacs W3 browser ;) Se você adquirisse GNU Emacs ou XEmacs executando, você adquiriu o W3 browser que roda provavelmente. Não há muito trabalho neste HOWTO. Se você sente que deveria haver mais informação sobre isto, por favor avise-me.
+
+O modo do Emacs W3 é completamente caracterizado no sistema de browser de web escrito no Sistema Lisp do Emacs. Principalmente para leitura de exto, mas pode exibir gráficos, também - pelo menos - se você rodar o emacs debaixo do Sistema X window. O pacote mais recente de emacs da GNU está disponível em <ftp://prep.mit.ai.edu>, o XEmacs mais recente poderia ser obtido de <ftp://ftp.xemacs.org>.
+
+2.4. Netscape Navigator Gold 3.0
+
+Yeah, você fez isto. A Rainha dos browsers de WWW. Muita gente gosta do Emacs no mundo de editores de texto. O Netscape Navigator pode fazer quase tudo (exclua fazer um café... mas talvez o java faça...). Mas por outro lado, é faminto por mais memória e comendo recursos por partes para o browser de web, leitor de news, o leitor de mail (pop3), mail & editor de news que eu alguma vez vi. A minha mais recente versão do Netscape Navigator Gold (versão de exportação) é de 28-Ago-1996 e (c) de 1995, 1996 Netscape Communications Corp.
+
+(Como eu moro na Europa, eu posso adquirir só a versão de exportação...)
+
+2.4.1. Onde adquirir
+
+O primeiro lugar para adquirir o Netscape Navigator para o Linux como distribuição binária é em <ftp://ftp.netscape.com>. O segundo - como estes servidores estão fortemente carregados - pode ser qualquer refletor do netscape. Você pode perguntar ao archie. Talvez, você tenha sorte e num cdrom - isto economizará alguma bandwidth com o arquivo que é bastante grande (2.5 MB).
+
+2.4.2. Descompactando & Instalando
+
+Descompacte o pacote e leia o arquivo de README! Realmente não há nada de estranho sobre ele, é só para você saber.
+
+2.4.3. Applets de Java com o navigator
+
+Há alguns relatórios que contam que há alguns problemas com os applets java atuais com o Netscape Navigator Gold 3.0 até mesmo se java for ativado na caixa de opções. O arquivo que eu conheço contem o java_30 que deve ser renomeado para java_30.zip. Depois disto, qualquer applet java deve trabalhar corretamente dentro do ambiente do netscape.
+
+Se você continuar tendo problemas em usar applets de java com o Netscape Navigator se pendura ou termina após carregar um applet java, dê uma olhada em sua versão do libc. Faça um
+
+       ldconfig -v | less
+
+(talvez, você tem que estar como root...) e veja se na saída há um
+
+       libc.so.5 => libc.so.5.xx.yy
+
+onde versão do seu libc é 5.xx.yy. Se seu libc não é 5.2.18, isto, pode ser o problema. Há muitos relatórios para sistemas Linux 1.2.13, que eles deveriam melhorar a libc 5.2.18 quando a necessidade para rodar o Netscape Navigator em geral. Adicione, pode ser uma idéia boa baixar o seu libc de 5.3.xx para os 5.2.18 se você rodar o Netscape Navigator num Kernel 2.0.x do Linux. (De fato, o libc série 5.3.xx é para-beta em testamento, assim você tem que saber o que está fazendo.) Alguns das série 5.3.xx quebra o Netscape Navigator e a classe do código do Java.
+
+Para mais informação sobre Java no Linux ou programação em Java, por favor leia o JAVA-HOWTO ou visite<http://www.sun.com>.
+
+3. Configurando um servidor de sistemas WWW
+
+Esta seção contém informação sobre diferentes pacotes de softwares de servidor de http e ferramentas adicionais para os servidores como linguagens de scripts para programas em CGI etc.
+
+Para uma descrição técnica do mecanismo de http, dê uma olhada nos documentos RFC mencionado no capítulo "Para mais leituras" neste HOWTO.
+
+3.1. httpd do CERN
+
+Como o servidor do CERN httpd original é informado por ter alguns bugs feios, e esta bastante lento e faminto por recurso, não é descrito neste HOWTO até agora. Se você quer oferecer alguns fatos ou capítulos, por favor, os envie a eu, eu os somarei a este doc.
+
+3.2. APACHE
+
+-Ainda a ser escrito - desculpas por não ter as Características, Avaliação, e Vantagens.
+
+3.2.1. Onde adquirir
+
+3.2.2. Instalando
+
+3.2.3. Configurando
+
+3.2.4. Características especiais
+
+O Httpd apache tem algumas características especiais na versão atual.
+
+3.2.4.1. Host multicasting
+
+BlaBla??? como configurar....
+
+3.2.4.2. Sistema em módulo
+
+como incluir outros módulos... onde adquirir infos sobre os módulos programando...
+
+3.3. Sistemas de scripts CGI
+
+- ainda para ser escrito - desculpe-me - CGI (common gateway interface)
+
+3.3.1. Como o CGI trabalham em princípio?
+
+- ainda para ser escrito - desculpe-me - chamando a estrutura, a estrutura do http, parâmetro de formatação de programação (ligeiramente comentado), coisas para se lembrar
+
+3.3.2. Perl
+
+- ainda para ser escrito - desculpe-me - algo fácil em perl (amostra de script)
+
+3.3.3. PHP/FI
+
+- ainda para ser escrito - desculpe-me - algo fácil em PHP/FI (amostra de script)
+
+3.3.4. W3-mSQL
+
+- ainda para ser escrito - desculpe-me - algo até mais fácil (amostra de script) indicação sobre como configurar!!!
+
+3.3.5. algums scripts úteis
+
+- ainda para ser escrito - desculpe-me - FaxInbound para tabela inclusive em php/fi script e script em shell
+
+4. Mantendo um site de WWW ou algumas Páginas de web
+
+Se você tem que manter um site de web ou se você mantém um pequena página na web, você tem que pensar em ferta à web e você tem gastar alguns pensamentos sobre aproximar o leitor / usuário de sua rede páginas.
+
+4.1. O popular: As técnicas de HTML
+
+Bem, eu não o gonna que fala, o HTML é um código que lhe auxilia na criação do design de suas páginas. Eu lhe fornecerei alguns locais onde você pode achar informações mais avançadas.
+
+Você deve dar uma olhada em <http://www.w3.org/> para saber as mudanças na especificação da linguagem HTML.
+
+Dê uma olhada na lista ao término deste artigo, você achará mais sugestões, para prosseguir lendo mais sobre isto.
+
+4.2. Alguns comentários sobre a banda passante (bandwidth)
+
+Muitos usuários conectam a internet por linhas de modem com velocidades baixas. Um velocidade entre 14,400 bps até 28,800 bps é estado-de-arte para "sites privados". Na europe, há o crescimento do sistema ISDN, mas uma velocidade de 64,000 bps não é muito rápida comparando-se - com uma simples conexão - 10,000,000 bps ethernet E 10 Mbps ethernet realmente não é um conexão alta hoje em dia para LAN.
+
+Como você percebe muitos usuários não têm este acesso rápido à net, você deveria se lembrar disto quando for colocar alguma informação e bytes. Aperfeiçoe às 1:1 - se você poder. Você pode usar gráficos em seu site seguindo as novas tendência de multi-mídia, mas lembre-se sempre das metas de sua página e do gráfico que você vai por. Se a maioria dos seus usuários
+é conectado por uma linha de modem pequena e o gráfico só server para razões de estetica ou um pouco de efeitos chamativos, você deve evitar isto de suas páginas, ou -a menos- redefinir para o menor tamanho possível e usa uma compressão melhor. Seus usuários vão gostar. Lembre-se sempre que ninguém realmente gosta de chamativos que só apareceram 3-5 minutos depois do texto.
+
+4.3. Alguns comentários sobre como chamar o servidor
+
+Em um servidor de web, há normalmente em funcionamento pelo menos uma tarefa. Se esta tarefa lê um pedido de um cliente de http, ele duplica-se (no Linux é chamado um loop) e a cópia nova serve ao pedido, enquanto o original continua escuta por novos pedidos. Depois de terminado o pedido, a cópia termina. (De fato, alguns servidores - como o apache - sempre mante uma cinco cópias do servidor a espera por pedidos em paralelo é a encarnação do mestre por razões de velocidade).
+
+Alguns browsers de web como o Netscape Navigator fazem muitos pedidos ao mesmo tempo ao servidor aumentanto assim o acesso gasto ao servidor através de um mesmo usuário. Estes browsers por exemplo pede o HTML e na chamada a analisam gramaticalmente enquanto pede e emite novos pedidos para outra informações como os gráficos embutidos, arquivos applet, os arquivos sãos qualquer outra forma de dados adicionais em mime-encoded. Em oposição, um
+'simples' pedido ao browser e pedido um arquivo depois do outro que mantém o servidor para o usuário carreguar a relação e então baixar o quanto possível.
+
+Muitos usuários preferem browsers que utilizam esta técnica de múltiplos pedidos como o Netscape Navigator porque eles expõem uma avaliação mais completa na página pedida antes do pedido único ao browser.
+
+Em minha opinião muitos designs de página aderem as informações embutidas
+em gráficos, negando somente os browsers texto.
+
+Assim, nós - como mantedores de servidor - adquirimos um problema que é da maioria do usuários lançar múltiplos pedidos de fora do servidor para a mesma página. Nós podemos limitar isto não limitando o software do servidor para sirvir mais pedidos que "x" do mesmo sistema pedindo ao mesmo tempo.
+Mas como adquirir este "x"? Não é fácil calcular um lote de pessoal de experiencia em site é necessário descrever isto. Mas eu lhe darei algumas sugestões. Nós temos que levar a nosso bandwidth de conexão em conta, o tamanho de memória do nosso servidor, um pouco de sentimento sobre nossos servidores, desempenho de cpu/disk e... pensar o que é bastante para o
+primeiro vislumbramento. Você deveria dar uma olhada no uso de memória de uma único tarefa no servidor. Então pensar, quanto deles pôdem ser mantidos na memória. Pensar, em quanto por centavos de suas páginas de web poderiam permanecer em seu cache de disco do servidores. Aperfeiçoar a conta de servidor de web atarefa contra o tamanho de cache de disco e você realmente estaria perto do seu x "pessoal". Além disso, você pode pôr outros trabalhos que o servidor adquiri. Por exemplo se o seu sistema também serve para ftp, você poderia limitar o máximo possível as conexões para manter algum quarto mínimo para a tarefa do servidor de ftp. Se o seu servidor de web também faz algum controle de banco de dados, você precisa manter alguns ciclos de cpu e também encolhe o seu "x". Chute um pouco ao redor destes valores e os
+teste. E (!) leia o capítulo seguinte sobre Scripting de CGI que também diminui o desempenho do servidor -dependendo dos trabalhos de CGI - e quantidade de memória.
+
+4.4. CGI vs . Applet / Cliente para script
+
+- ainda para ser escrito - desculpe-me - vantagens/desvantagens de onde avaliar e sugestões de como usar.
+
+4.5. Idéias de estilo
+
+Uh, este é um tema realmente difícil para iniciar em uma oração pequena. Não tente confundir suas idéias geniosoas de Nem sou um gonna e puseram a estratégias de designs pessoais comigo. Eu há pouco gostaria de somar uma ou duas declarações para as idéias acima de rodar o servidor e bandwidth. 
+
+Pesquisas numerosas sobre o comportamento humano em usuário conectados a tela apresentou resultados interessantes. Há alguns fatores simples que a pessoa deveria se lembrar quando projetar páginas de WWW.
+
+· Coloque textos em blocos resumidos. Este HOWTO seria feio se prossegui-se a leitura na tela, mas é agradável le em impressão de papel. (Experimente você!). Todos humanos freqüentemente tem dificuldades para ler textos longos impressos na tela. Eles pulam as sentenças; e perdem a concentração.
+
+· Não confundir gráficos e blocos de texto. Isto é bonito mas fica feio na tela. Você pode esparramar informações, chamativos mas, por favor, não confunda o bloco de textos com gráficos. Muitos não irão ver, muitos são atraídos através de gráficos na tela ao invés dos textos. As Pessoas acham mais fácil de perceber um gráfico na tela que no papel, em oposição o texto é mais fácil de visualizar e "decodificar" no papel no que na tela.
+
+Você soube disto? Se você quiser obter mais informação sobre isto, procure o GUI Guia de estilo e ergonometria que pesquisa muito dos resultados feitos pelas universidades e companhias de software (inclusive a MS).
+
+4.6. Editores de HTML sobre o Linux
+
+Hm, há alguns. De fato, lá é reportados muitos. Mas como eu já tirei o meu escolhido, eu não testei todos. Mas eu realmente sou curiosio e li os relatórios do gonna através do mail.
+
+4.6.1. vi, vim
+
+vi e vim são perfeitamente utilizáveis para escrever os códigos HTML ... (não ardamente eu disso) porque o código de HTML só usa texto ASCII para serviços domésticos. Eu não quero dar material para outra guerra de editores. OS que sabem sobre o vi/vim usam diáriamente para os códigos HRML. Você pode fazer com que o vi/vim utilizem alguns macros para vi/vim para os códigos de HTML. Mas eu não sei de nenhum VI-HOWTO, eu deixarei este fato por aqui. É possível de usar o vi/vim para editar o HTML (pelo menos para algumas pequenas mudanças). Se você já sabe trabalhar com o vi/vim, você certamente sabe abstrair o HTML. Se você não sabe, bem, faça cuidado.
+
+4.6.2. emacs & XEmacs
+
+- ainda para ser escrito - desculpe-me -
+
+4.6.3. asWedit
+
+- ainda para ser escrito - desculpe-me -
+
+4.6.4. outros links
+
+Ah, havia alguma referência para um pacote chamado phoenix, baseado no tkWWW, mas eu não pude os adquirir para executar no meu sistema. Eu acho, que era um problema com as minhas versões do tcl/tk mas nunca saberemos. Eu não gasti muito tempo com eles, assim, talvez eles possam rodar no seu sistema. Vá no archie e pergunte. Talvez, você envie me um mail sobre isto, se você tiver sucesso.
+
+Se você quer o seu editor favorito de HTML esteja aqui, escreva um email para mim. Talvez, eu coloque alguns links para as páginas de web sobre editores de HTML para o Linux. Envie-me uma boa URL.
+
+4.7. Gráficos
+
+Pensamentos, Idéias, Sugestões? Bem, você pode ler no newsgroup comp.graphics. E, você pode visitar. <http://www.w3.org/pub/WWW/Graphics/>
+
+4.7.1. Formato gif
+
+GIF (Formato de Intercâmbio de Gráficos) foi criado em 1987 pela Compuserve Inc. e revisada em 1989. Usa o algoritmo LZ, definido nos o E.U.A. Com direitos autorais ou lei patente. Assim lá pode existir alguns problemas legais para usar este tipo de formato gráfico na internet - apesar do fato que quase qualquer pessoa o faz.
+
+Gif é um ótimo formato para pequenos quadros com simples estrutura de gráficos como gráficos de computador ou bandeiras.
+
+O Gif tem poucas vantagens como (se não o tem) formato em expansão muito
+larga o em sistemas de online:
+
+· oferece uma ótima compressão
+
+· comprime sem a perda de informação
+
+· tem um capacidade de interlace, i.e. pode ser vistos em quadros no tamanho completo (com menos resolução) antes de ser visualizdos por completos.
+
+· pode assegurar mais de um quadro dentro de um mesmo arquivo
+
+· pode assegurar uma pequena animação dentro de um arquivo
+
+· quase todos os browser de web aceitam o gif
+
+· pode assegurar uma cor transparente
+
+· têm um sistema de descompressão
+
+As desvantagens são:
+
+· que só tem a possibilidade para 256 cores
+
+· problemas de autorização, protegido por direitos autorais (?)
+
+· não tem um tamanho de arquivo ideal
+
+4.7.2. Formato jpeg
+
+Os Peritos Groupo de Gráficos Em comum (JPEG) fez o desígnio para o formato gráfico jpeg/jpg/jiff. Este formato é baseado em uma discreta mudança do cosinus (DCT) e da codificação de compressão Huffmann. O JPEG trabalha com uma perda de informação significante que pode fazer com que o seu trabalho tenha menas cores ou menas resolução. A Compressão padrão é um fator variando entre 1:5 à 1:50. (Sobre 1:10 qualquer pessoa pode ver o artefatos subidndo o ciclo da compressão/descompressão).
+
+JPEG é um formato muito bom para fotografias, gráficos grandes e realmente quadros complexos.
+
+As vantagens são: · tem uma compressão forte, para arquivos pequenos prejudica...
+
+· que qualquer browser usa o jpeg
+
+As desvantagens são: · compressão/descompressão lenta
+
+· a possível perda de informação
+
+4.7.3. Formato png
+
+Gráficos de Cadeia portáteis (PNG) - É um formato novo na web. PNG é o favorito do consórcio W3. Para melhores informações visite <http://www.w3.org/pub/WWW/TR/WD-png.html> e <http://www.w3.org/pub/WWW/Graphics/PNG/Overview.html>. Aqui você vai achar uma especificação técnica, e um pouco de informação de programação etc. PNG é o formato ideal que substitui o GIF. A homepage de PNG é em <http://quest.jpl.nasa.gov/PNG/>. Para os usuários, PNG terá algumas vantagens e algumas desvantagens. Aqui estão elas:
+
+Para as vantagens: · pode substituir a licença da GIF - PNG não tem nenhum problema de licença
+
+· sistema de paleta de 256 também escala de cinza e realmente com capacidade de cor inclusive elemento de transparência
+
+· um complexo sistema de modo de interlace onde não só as linhas diferentes são sequenciadas mas umas série de dois sistemas dimensionam e recobrem o
+quadro resultando ao usuário receber mais cedo o conteúdo de quadro.
+
+· um algoritmo rápido de descompressão possível
+
+· a descrição pública existente - licença livre
+
+· código de amostra disponível ao público - licença livre
+
+· extensibilidade de design
+
+As desvantagens são: · não é amplamente aceito (a Netscape não apóia, alguns, até agora fizeram plugins)
+
+· não tem quadros fortes de comprenssão
+
+· nenhuma especificação final esta pronto, ainda trabalhando na especificação.
+
+O PNG é apoiado atualmente pelos seguintes programas no Linux: ImageMagick (Versão >=3.7), GhostScript 4.0, Gimp, PovRay 3.0, o pacote netpbm. Para o xv 3.10 existe um remendo Não oficial.
+
+4.7.4. Converçores
+
+- ainda para ser escrito - desculpe-me - netpbm, xv, ghostscript, gimp, ImageMagick, CorelDraw dentro do Wine :-)))
+
+4.8. Especiais
+
+Há muitos especiais agora além do alcance do HTML'n' imagens. Há os Applets escritos em Java e JavaScript para páginas e muitas outras coisas.
+
+4.8.1. Java
+
+Não há nada para somar em geral sobre o Java, leia a seção sobre o Java no Netscape Navigator no capítulo deste HOWTO e a avaliação de Java vs de Applett. Script de CGI neste HOWTO. Então, você pode também ler o Linux JAVA HOWTO realmente é ótimo. Para programar em Java, por favor procure livros realmente bons nisto.
+
+4.8.2. ActiveX
+
+ActiveX estava na hora da criança Microsoft. A Microsoft reivindicou, que eles lançariam para o domínio público ou pelo menos lançar para um consórcio de ActiveX.
+
+O ActiveX não tem nada que ver com o sistema X window nem com o XFree.
+
+É derivado de um sistema OLE da Microsoft e IBM. Depois de lançar o specs, deveria haver uma portibilidade para o Unix. Mas, nós temos que esperar na gaveta. Nada para Linux, contudo.
+
+
+5. FAQ
+
+Não há nenhuma das perguntas freqüentemente perguntadas - contudo...
+
+6. Para leituras mais adiante
+
+· RFC1866 written by T. Berners-Lee and D. Connolly, "Hypertext Markup Language - 2.0", 11/03/1995
+
+· RFC1867 writtenm by E. Nebel and L. Masinter, "Form-based File Upload in HTML", 11/07/1995
+
+· RFC1942 written by D. Raggett, "HTML Tables", 05/15/1996
+
+· RFC1945 by T. Berners-Lee, R. Fielding, H. Nielsen, "Hypertext Transfer Protocol -- HTTP/1.0", 05/17/1996.
+
+· RFC1630 by T. Berners-Lee, "Universal Resource Identifiers in WWW: A Unifying Syntax for the Expression of Names and Addresses of Objects on the Network as used in the World-Wide Web", 06/09/1994.
+
+· RFC1959 by T. Howes, M. Smith, "An LDAP URL Format", 06/19/1996.
+
+7. Obrigado
+
+Especialmente graças a Greg Hankins gregh@cc.gatech.edu por encoraja-me em escrever este trabalho e a diversão que eu tive fazendo isto.
+
+Eu também gostaria d agradecer a Chris Hendricks, Fido: 2:2433/443@fidonet.org pelo seu compromisso com o Linux e minha pessoal raça por manter um apelo a menos cheguei na frente :-)
+
+Última modificação em 1998.04.30
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

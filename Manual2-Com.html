@@ -1,0 +1,1360 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+<TITLE>Volume 2 - Manual de Comandos do Lninux</TITLE>
+</HEAD>
+<BODY LINK="#0000ff">
+
+
+<B><FONT SIZE=5><P ALIGN="CENTER">MANUAL DE LINUX – VOLUME 2</P>
+<P ALIGN="CENTER">GUIA DE COMANDOS</P>
+<P ALIGN="CENTER">&nbsp;</P>
+</B></FONT><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>APRESENTA&Ccedil;&Atilde;O</P>
+<P>&nbsp;</P>
+<P>Este manual &eacute; fruto do trabalho em conjunto com um grande n&uacute;mero de usu&aacute;rios do Linux. V&aacute;rios colegas das  listas Linux-br e Linuxabc e v&aacute;rias p&aacute;ginas sobre Linux colaboraram com este manual. </P>
+<P>&nbsp;</P>
+<P>Vou resistir &agrave; tenta&ccedil;&atilde;o de  citar alguns nomes para n&atilde;o correr o risco de ser injusto ao esquecer de citar algu&eacute;m.</P>
+<P>&nbsp;</P>
+<P>Ressalte-se que tivemos a devida autoriza&ccedil;&atilde;o de alguns colegas (donos de sites) para divulgar aqui suas dicas.</P>
+<P>&nbsp;</P>
+<P>O objetivo deste manual &eacute; tornar o Linux mais acess&iacute;vel para os iniciantes, simplificando, traduzindo (algumas vezes) e desmistificando o "SO dos experts". </P>
+<P>&nbsp;</P>
+<P>Caso algu&eacute;m ache aqui algo de sua autoria e n&atilde;o tenha sido citado como tal, entre em contato que fa&ccedil;o as devidas altera&ccedil;&otilde;es.</P>
+<P>&nbsp;</P>
+<P>Gostaria de receber cr&iacute;ticas e sugest&otilde;es, tanto t&eacute;cnicas quanto em rela&ccedil;&atilde;o &agrave; nossa l&iacute;ngua t&atilde;o rica quanto complexa.</P>
+<P>&nbsp;</P>
+<P>Quanto a direitos autorais, sinceramente n&atilde;o pensamos muito nisso. Quem quiser copiar, imprimir, usar e abusar esteja a vontade.</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>Maicon Wendhausen (<A HREF="mailto:maicon@zaz.com.br">maicon@zaz.com.br</A>)</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P ALIGN="RIGHT">Ribamar F. Sousa (<A HREF="mailto:ribafs@fortalnet.com.br">ribafs@fortalnet.com.br</A>)</P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>Thiago Correia(<A HREF="mailto:thiagoacorrea@sti.com.br">thiagoacorrea@sti.com.br</A>)</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>           &#9;&#9;&#9;&#9;&#9;&#9;      </P><DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+<DIR>
+
+<P>Maio de 1999</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+</DIR>
+
+<P>A melhor maneira de aprender algo &eacute; experimentando. Antes de mais nada, leia com aten&ccedil;&atilde;o os t&oacute;picos abaixo e experimente uma nova forma de trabalhar e interagir com o computador.</P>
+<P>&nbsp;</P>
+<P>Diferentemente do DOS, o Linux tem mecanismos internos de seguran&ccedil;a. Arquivos e diret&oacute;rios tem permiss&otilde;es associadas a eles; como resultado, alguns n&atilde;o podem ser acessados por usu&aacute;rios normais. O DOS, por outro lado, deixara voc&ecirc; apagar todo o conte&uacute;do do disco r&iacute;gido (hard disk).</P>
+<P>Para sair do Linux com seguran&ccedil;a. Se voc&ecirc; estiver em uma tela em modo texto, pressione &lt;CTRL-ALD-DEL&gt;, espere o sistema dar um reboot, e ent&atilde;o desligue o PC. Outro modo &eacute; a partir da linha de comando, voc&ecirc; pode digitar "poweroff" ou "shutdown -h now", que ter&atilde;o o mesmo efeito. Nunca pressione o bot&atilde;o reset, pois isto pode danificar o sistema de arquivos e isto se aplica a maioria dos sistemas operacionais.</P>
+<P>&nbsp;</P>
+<P>Existe um usu&aacute;rio especial chamado "root" que &eacute; o administrador do sistema, com poder total sobre a vida e a morte naquela m&aacute;quina. Se voc&ecirc; estiver trabalhando em seu pr&oacute;prio PC, voc&ecirc; ser&aacute; o <B>root </B>tamb&eacute;m. Mas trabalhar como root &eacute; perigoso, qualquer engano pode trazer s&eacute;rios danos ou destruir todo o sistema, assim como no DOS/Win. N&atilde;o trabalhe como root a menos que seja absolutamente necess&aacute;rio.</P>
+<P>&nbsp;</P>
+<P>Muita da complexidade do Linux v&ecirc;m de sua extrema configurabilidade: virtualmente toda caracter&iacute;stica e toda aplica&ccedil;&atilde;o pode ser configurada atrav&eacute;s de um ou mais arquivos de configura&ccedil;&atilde;o. Complexidade &eacute; o pre&ccedil;o a se pagar pelo poder. Mas n&atilde;o se preocupe, seu sistema j&aacute; esta configurado para iniciarmos os trabalhos.</P>
+<P>&nbsp;</P>
+<P>Redirecionamento e piping s&atilde;o caracter&iacute;sticas do DOS. No Linux s&atilde;o muito importantes e muito mais poderosas. Comandos simples podem ser combinados para desempenhar tarefas complexas. Eu sugiro que voc&ecirc; aprenda seu funcionamento antes de fazer uso.</P>
+<P>&nbsp;</P>
+<P><A NAME="_Toc445960944">Conven&ccedil;&otilde;es</A></P>
+<P>&nbsp;</P>
+<P>Em todo este documento, exemplos normalmente seguir&atilde;o o seguinte formato: </P>
+<P>&lt;...&gt; &eacute; um argumento necess&aacute;rio, [...] &eacute; um argumento opcional.  </P>
+<P>&nbsp;</P>
+<P>Ex:&#9;$ tar -tf &lt;file.tar&gt; [&gt; redir_file]</P>
+<P>&nbsp;</P>
+<P>file.tar precisa ser indicado, mas o redirecionamento para redir_file &eacute; opcional.</P>
+<P>&nbsp;</P>
+<P>Quando o prompt de um comando exemplo &eacute; "#", o comando s&oacute; pode ser usado pelo usu&aacute;rio root.</P>
+<P>&nbsp;</P>
+<P>Aqui vai um conselho: n&atilde;o tente aprender por <B>tentativa-e-erro</B>. Um arquivo n&atilde;o configurado ou um programa n&atilde;o executado pode custar a reinstala&ccedil;&atilde;o do sistema. Ler os documentos dispon&iacute;veis e fazer a coisa certa &eacute; o melhor. </P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+</B></FONT><P>&nbsp;</P>
+<B><FONT SIZE=4><P><A NAME="_Toc445960946"></P>
+<P>ARQUIVOS E PROGRAMAS</A></P>
+</B></FONT><P><A NAME="_Toc445960947"></P>
+<P>Arquivos: Notas Preliminares</A></P>
+<P>&nbsp;</P>
+<P>O Linux tem uma estrutura de arquivos e diret&oacute;rios bastante similar ao DOS/Win. Arquivos tem nomes que obedecem regras especiais, s&atilde;o armazenados em diret&oacute;rios, etc.</P>
+<P>Existem apenas algumas diferen&ccedil;as: No DOS, nomes de arquivos s&atilde;o, assim chamados, de forma 8.3; exemplo: NOTENOUG.TXT. No Linux, usando um sistema de arquivos como ext2 ou umsdos voc&ecirc; pode ter nomes de arquivos de ate 255 caracteres de comprimento. Note que eu usei apenas letras mai&uacute;sculas, de fato...</P>
+<P>Letras mai&uacute;sculas e min&uacute;sculas em nomes de arquivos ou comandos s&atilde;o diferentes. Portanto, FILENAME.tar.gz e filename.tar.gz s&atilde;o diferentes. ls &eacute; um comando, LS &eacute; um engano.</P>
+<P>Usu&aacute;rios de Windows95, tenham cuidado ao usar nomes longos no Linux, se um arquivo contem espa&ccedil;os (n&atilde;o recomendado, mas poss&iacute;vel), voc&ecirc; precisa coloca-lo entre aspas sempre que se referir a ele. Por exemplo:</P>
+<P>&nbsp;</P>
+<P>$ # the following command makes a directory called "My old files"</P>
+<P>$ mkdir "My old files"</P>
+<P>$ ls</P>
+<P>My old files    bin     tmp</P>
+<P>&nbsp;</P>
+<P>E mais, alguns caracteres n&atilde;o devem ser usados: alguns s&atilde;o: !*$&amp;.</P>
+<P>N&atilde;o h&aacute; extens&otilde;es obrigat&oacute;rias, como .COM ou .EXE para programas ou BAT para arquivos. Arquivos execut&aacute;veis s&atilde;o marcados por um asterisco no fim do nome. Arquivos execut&aacute;veis s&atilde;o marcados por um asterisco no final do seu nome. O comando ls -F por exemplo:</P>
+<P>$ ls -F</P>
+<P>I_am_a_dir/   cindy.jpg    cjpg*   letter_to_Joe    my_1st_script*  old~</P>
+<P>&nbsp;</P>
+<P>Os arquivos cjpg* e my_2st_script s&atilde;o execut&aacute;veis. Isto &eacute;, programas. Sob o DOS, arquivos de backup normalmente terminam com .BAK, enquanto que no Linux eles terminam com um til (~). Alem disso, um arquivo cujo nome comece com um ponto (.) &eacute; considerado escondido. Exemplo: o arquivo .I.am.a.hidden.file n&atilde;o serra exibido com o comando "ls".</P>
+<P>Programas DOS aceitam par&acirc;metros no formato "/paramentro", o Linux aceira par&acirc;metros com o formato "-paramentro" ou "--parametro". Exemplo: dir /s se torna ls -R. Note que muitos programas DOS, como PKZIP ou ARJ usam argumentos no estilo UNIX.</P>
+<P ALIGN="CENTER">&nbsp;</P>
+<B><FONT SIZE=4><P ALIGN="CENTER">COMANDOS</P>
+</B></FONT><P>&nbsp;</P>
+<P>- adduser - comando para adicionar um novo usu&aacute;rio. Ex.: adduser luis.</P>
+<P>Deve-se ent&atilde;o associar uma senha ao novo usu&aacute;rio com o comando passwd.</P>
+<P>&nbsp;</P>
+<P>- alias - este tem caracter&iacute;sticas de um arquivo .bat do DOS, sendo que n&atilde;o cria arquivo.</P>
+<P>Muito &uacute;til </P>
+<P>para agilizar algumas tarefas. Por exemplo:  montar um CD. </P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>Criar um alias chamado mcdrom: alias mcdrom="mount /dev/cdrom /mnt/cdrom". Ou, exagerando, criar um alias chamado "x" para acessar o X Windows (ao inv&eacute;s de startx). alias x="startx". E assim por diante. Sendo colocados no /etc/bashrc (que ali&aacute;s j&aacute; tem alguns) eles ficam permanentes e &agrave; disposi&ccedil;&atilde;o de todos os usu&aacute;rios.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- alien – utilit&aacute;rio para converter pacotes de qualquer distribui&ccedil;&atilde;o para qualquer outra.</P>
+<P>&nbsp;</P>
+<P>- awk - O  filtro AWK &eacute; um programa de analise de padr&otilde;es que l&ecirc; arquivos </P><DIR>
+<DIR>
+
+<P>linha por linha. As instru&ccedil;&otilde;es do comando AWK s&atilde;o na verdade um poderosa linguagem de programa&ccedil;&atilde;o.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>&#9;&#9;Seu formato geral &eacute;:</P>
+<P>&#9;&#9;awk `programa` nome(s)_de _arquivo(s)</P>
+<P>&nbsp;</P>
+<P>- as - Esse  &eacute; o montador usado  para montar fontes em linguagem asm. Para ter uma</P>
+<P>melhor defini&ccedil;&atilde;o &eacute; melhor consultar o guia do System V.&#9;Op&ccedil;&atilde;o -o: nome que o user quer dar ao arquivo .obj criado. Se n&atilde;o </P>
+<P>usar o nome do arquivo vai sair como o mesmo nome mas com o sufixo .o.</P>
+<P>&nbsp;</P>
+<P>&#9;Op&ccedil;&atilde;o -R: apaga o arquivo de entrada ap&oacute;s termino da montagem.</P>
+<P>&nbsp;</P>
+<P>&#9;Op&ccedil;&atilde;o -V: a vers&atilde;o do montador &eacute; inclu&iacute;da na sa&iacute;da gravada na sa&iacute;da </P>
+<P>&#9;de erro.</P>
+<P>&nbsp;</P>
+<P>- banner - Programa usado para fazer letras gigantes Os caracteres de </P>
+<P>entrada s&atilde;o ecoados na sa&iacute;da padr&atilde;o com letras gigantes. Pode ser usar no </P>
+<P>M&Aacute;XIMO 10 caracteres e n&atilde;o &eacute; recomendado usar espa&ccedil;o pois esses ser&atilde;o </P>
+<P>usados como delimitadores de partes que aparecem em partes separadas. </P>
+<P>&#9;Tente:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;banner Eu to aprendendo</P>
+<P>&#9;&#9;</P>
+<P>&#9;Pode direcionar para um arquivo:</P>
+<P>&#9;banner Eu to aprendo &gt; legal.sim</P>
+<P>&nbsp;</P>
+<P>- bc – Calculadora para modo texto.</P>
+<P>&nbsp;</P>
+<P>- bdiff - Compara dois arquivos grandes.</P>
+<P>- bfs - Procura um arquivo grande.</P>
+<P>&nbsp;</P>
+<P>- cal - Mostra o calend&aacute;rio em modo texto.</P>
+<P>&nbsp;</P>
+<P>- cat - Concatena e imprime arquivos, tipo o type do DOS (exibe conte&uacute;do de um arquivo na tela)</P>
+<P>&nbsp;</P>
+<P>- cb - Embelezador de C. Muito &uacute;til para desenvolvedores de programas em </P>
+<P>UNIX.</P>
+<P>&#9;&#9;cb -s velhofonte.c &gt; novofonte.c</P>
+<P>&#9;&#9;    </P>
+<P>- cc - Esse &eacute; o comando usado para chamar o compilador C do sistema unix. O </P>
+<P>formato geral &eacute; o seguinte:</P>
+<P>&#9;&#9;&#9;</P>
+<P>&#9;&#9;cc op&ccedil;&atilde;o(&otilde;es) arquivo(s)</P>
+<P>&#9;&#9;&#9;</P>
+<P>&#9;&#9;As principais op&ccedil;&otilde;es s&atilde;o:</P>
+<P>&#9;&#9;-c:  cria  um arquivo .o que vai conter dados  da fase de </P><DIR>
+<DIR>
+
+<P>liga&ccedil;&atilde;o e edi&ccedil;&atilde;o do processo. </P>
+<P>Normalmente o arquivo .o &eacute; apagado durante o processo.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Ex.: cat /teste/roteiro.txt | less (exibe o conte&uacute;do do arquivo parando por p&aacute;gina).</P>
+<P>&nbsp;</P>
+<P>- chmod - mudar as permiss&otilde;es de arquivos. Ex.: chmod 664 teste.txt.</P>
+<P>Veja detalhes na se&ccedil;&atilde;o Permiss&otilde;es de Arquivos.</P>
+<P>&nbsp;</P>
+<P>- cd    - semelhante ao "cd" do DOS, sendo que exige um espa&ccedil;o depois.</P>
+<P>&nbsp;</P>
+<P>Exs.: cd /usr/riba, cd .. (volta um n&iacute;vel, cd / (vai para o raiz) e</P>
+<P>&nbsp;</P>
+<P>cd - (volta para o anterior)</P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>Obs.: aqui &eacute; importante ressaltar uma diferen&ccedil;a sutil em rela&ccedil;&atilde;o ao DOS: o espa&ccedil;o ap&oacute;s o "cd" &eacute; obrigat&oacute;rio.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- chfn - Esse comando muda informa&ccedil;&otilde;es do finger.</P>
+<P>Ex: chfn</P>
+<P>Muda informa&ccedil;&otilde;es como nome,  trabalho, telefone do trabalho e telefone de casa.</P>
+<P>&nbsp;</P>
+<P>- chgrp  - Muda o dono de um arquivo (GID)</P><DIR>
+<DIR>
+
+<P>Quando um arquivo &eacute; criado s&atilde;o lhe atribu&iacute;dos valores de propriedade, os valores s&atilde;o atribu&iacute;dos de acordo  com os valores umask do dono no momento da cria&ccedil;&atilde;o do arquivo.Voc&ecirc; pode ser: dono, grupo ou user.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>&#9;&#9;Comando usado &eacute;:</P>
+<P>&#9;&#9;chgrp novo_grupo nome_do_arquivo</P>
+<P>&nbsp;</P>
+<P>- chmod - Comando usado para mudar permiss&otilde;es de arquivos&#9;&#9;Existe tr&ecirc;s tipos de permiss&otilde;es:&#9;&#9;r -  read         valor=  1&#9;&#9;w -  write        valor=  2&#9;&#9;x -  execute      valor=  4</P>
+<P>&#9;&#9;Os arquivos listados ecoam da seguinte forma:</P>
+<P>&#9;</P>
+<P>&#9;3 -r-xr-xr-x 1 uucp sys 1309 Jan 3 1986 Uutry</P>
+<P>&#9;&#9;&#9;Temos assim que olhar no rwx r-x r-x</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;  |   |   |</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;  |   |   |</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9; dono |   |</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;    grupo | </P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;&#9;outros</P>
+<P>&#9;&#9;&#9;No  caso o usu&aacute;rio tem r-x que na tabela de valores </P>
+<P>&#9;&#9;corresponde a 5 </P>
+<P>&#9;&#9;Podemos trocar uma permiss&atilde;o ent&atilde;o assim:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;chmod 005 nome_do_arquivo</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;Ai o arquivo ficaria assim:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;3 -------r-x 1 uucp sys 1309 Jan 3 1986 Uutry</P>
+<P>&#9;&#9;&#9;Ou poderia faze-lo assim:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;chmod a+rw nome_do_arquivo</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;O caracter "a" antes do +rw significa "todos os grupos".</P>
+<P>&#9;&#9;&#9;O sinal + e - s&atilde;o para atribuir e retirar respectivamente.</P>
+<P>&nbsp;</P>
+<P>Obs.: Mais detalhes no item 3.5 (Permiss&otilde;es de Arquivos).</P>
+<P>&nbsp;</P>
+<P>- chown – muda o dono de arquivo (UID)</P>
+<P>&#9;O formato geral do comando &eacute;:&#9;&#9;&#9;chown novo_dono nome_do_arquivo ou</P>
+<P>&#9;&#9;&#9;chown novo_dono:nome_grupo nome_do_arquivo</P>
+<P>&nbsp;</P>
+<P>- clear<B> -</B> Limpa tela.</P>
+<P>&nbsp;</P>
+<P>- cmp - Compara dois arquivos e mostra localiza&ccedil;&atilde;o linha e byte desde a &#9;primeira diferen&ccedil;a.&#9;Caso  do conte&uacute;do ser id&ecirc;ntico e n&atilde;o imprimi nada na tela.</P>
+<P>&#9;Tem duas op&ccedil;&otilde;es -l para lista longa e -s para lista curta.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- comm - Compara  dois  arquivos e determina qual linha &eacute;&#9;</P>
+<P>&#9;comum para os dois</P>
+<P>&nbsp;</P>
+<P>- cp - semelhante ao "copy" do DOS (copiar arquivos). </P>
+<P>&nbsp;</P>
+<P>Ex.: cp Teste.cp /usr/riba</P>
+<P>&nbsp;</P>
+<P>- cpio - &Eacute; um comando muito importante do UNIX e tamb&eacute;m muito &uacute;til geralmente </P><DIR>
+<DIR>
+
+<P>usado paracopias de seguran&ccedil;a. Ele faz a copia de entrada e sa&iacute;da, e´ particular mente  poderoso  quando combinado com o comando 'find' e o comando 'ls' em um instru&ccedil;&atilde;o composta. </P></DIR>
+</DIR>
+
+<P>Ele  tem  tr&ecirc;s modos b&aacute;sicos que s&atilde;o determinados pelas op&ccedil;&otilde;es -o, -i e -p.</P>
+<P>&#9;A op&ccedil;&atilde;o -o indica que o comando  cpio  deve criar  um arquivo </P>
+<P>especial de sa&iacute;da que ser&aacute; lido pelo comando -i.</P>
+<P>O arquivo de sa&iacute;da criado usando a op&ccedil;&atilde;o -o &eacute; um arquivo seq&uuml;encial  e pode</P>
+<P>ser manipulado por outros comandos, como o pack e o unpack.</P>
+<P>Podemos usar um enlace de comunica&ccedil;&atilde;o por meio do arquivo de transmiss&atilde;o </P>
+<P>do uucp. </P>
+<P>Podemos ate copiar algo de um sistema unix para uma rede local.</P>
+<P>Voc&ecirc; deve  criar o arquivo  de transmiss&atilde;o com o cpio e transmitir com o </P>
+<P>uucp.</P>
+<P>&#9;&#9;Vamos criar o arquivo de transmiss&atilde;o:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;find /usr/tsm - print | cpio -ocv &gt; arqtransm</P>
+<P> </P>
+<P>No caso o arquivo find come&ccedil;a no diret&oacute;rio /usr/tsm e imprime os nomes dos </P>
+<P>arquivos na sa&iacute;da padr&atilde;o  pegando todos os subdiret&oacute;rios que se encontram </P>
+<P>desse n&iacute;vel em diante.</P>
+<P>A  op&ccedil;&atilde;o -ocv  significa que o cpio deve criar um &#9;arquivo de sa&iacute;da (o) </P>
+<P>onde as informa&ccedil;&otilde;es do cabe&ccedil;alho  deve ser gravadas em ASCII, para </P>
+<P>assegurar portabilidade (c), e que a medida que cada arquivo  for  </P>
+<P>processado, seu nome deve ser exibido na tela.</P>
+<P>Uma vez tendo o arquivo de sa&iacute;da arqtransm podemos envia-lo  pelo comando </P>
+<P>uucp. Uma pratica comum &eacute; compactar os arquivos para que a transmiss&atilde;o </P>
+<P>suceda de um  modo mais r&aacute;pido  e com menos quantidade de dados. Pode </P>
+<P>compactar com o pack e descompactar com o unpack, mais tarde explicarei </P>
+<P>isso.</P>
+<P>Antes  de  executar o cpio seria necess&aacute;rio tornar corrente  o diret&oacute;rio </P>
+<P>/usr/wbu. Usando o nome arq transm de nosso exemplo anterior, a seguinte </P>
+<P>linha de comando seria ent&atilde;o usada para le-lo e restaurar os arquivos e </P>
+<P>diret&oacute;rios que contem:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;cpio -icduvm &lt; /usr/spool/uucppub/arqtransm</P>
+<P>&#9;      </P>
+<P>As op&ccedil;&otilde;es (-icduvm) podem aparecer em qualquer ordem, essa ordem e´ a </P>
+<P>convencionada. </P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>Com a op&ccedil;&atilde;o -i primeiro da para observar qual opera&ccedil;&atilde;o o cpio esta usando. A op&ccedil;&atilde;o -d indica os que os diret&oacute;rios n&atilde;o existentes  no  destino devem ser criados; a op&ccedil;&atilde;o -u  indica que todos os arquivos do arquivo de entrada devem ser restaurados, substituindo eventuais arquivos com mesmo nome no diret&oacute;rio </P></DIR>
+</DIR>
+
+<P>de destino.</P>
+<P>A a&ccedil;&atilde;o  de  restaura&ccedil;&atilde;o tomada pela op&ccedil;&atilde;o -u n&atilde;o &eacute; especificada a manter o </P>
+<P>nome do arquivo mais  novo dos dois; isso &eacute; determinada pelo registro de </P>
+<P>data e hora presente no inodo do arquivo.</P>
+<P>O operador de redirecionamento indica onde esta localizado o arquivo de </P>
+<P>entrada do cpio,  nesse caso o percurso absoluto </P>
+<P>/usr/spool/uucppublic/arqtransm.</P>
+<P>O diret&oacute;rio /usr/spool/uucppublic &eacute; aberto para ser acessado por todos e &eacute; </P>
+<P>onde o uucp coloca dados sem se preocupar com as permiss&otilde;es de acesso do </P>
+<P>arquivo.</P>
+<P>&nbsp;</P>
+<P>O modo -p (passe) permite copia em massa, executando o  processamento  de </P>
+<P>entrada e de sa&iacute;da em uma &uacute;nica opera&ccedil;&atilde;o:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;&#9;find /usr/tsm -print | cpio -pduvm /usr/wbu</P>
+<P>&nbsp;</P>
+<P>Esse  comando primeiro executa o find para criar &#9;</P>
+<P>uma lista dos arquivos e diret&oacute;rios que ser&atilde;o usados como entrada do cpio.</P>
+<P>&#9;&#9;A sa&iacute;da ser&aacute; colocada no diret&oacute;rio chamado /usr/wbu.</P>
+<P>Nesse exemplo, todos os arquivos com nomes id&ecirc;nticos  j&aacute;  existentes no </P>
+<P>diret&oacute;rio de destino  ser&atilde;o substitu&iacute;dos pois a op&ccedil;&atilde;o -u foi usada.</P>
+<P>&nbsp;</P>
+<P>- cu - Este comando estabelece uma sess&atilde;o com um sistema remoto. Este </P>
+<P>comando chama "call up" ou "call unix" permite que o usu&aacute;rio que estiver </P>
+<P>com uma sess&atilde;o aberta em uma maquina unix, abra sess&atilde;o em uma segunda como </P>
+<P>se estivesse conectado localmente.</P>
+<P>&#9;Exemplo:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # cu -s 1200 -n 12012980161</P>
+<P>&#9;&#9;     # cu -s 1200 -d -n 12012980161</P>
+<P>&#9;&#9;     # cu rambo</P>
+<P>&#9;&#9;      </P>
+<P>&#9;Primeira linha conecta um modem no numero -n a velocidade </P>
+<P>impressionante de 1200.</P>
+<P>Segunda faz o mesmo rasteando tudo q acontece.</P>
+<P>&#9;Terceira chama um sistema qualquer</P>
+<P>&nbsp;</P>
+<P>- cut - Comando usado para extrair informa&ccedil;&otilde;es selecionadas de um arquivo  </P>
+<P>de  entrada. Op&ccedil;&atilde;o -d e´ usada para  especificar  o caracter delimitador, </P>
+<P>se n&atilde;o colocar nada ele pega como padr&atilde;o um &uacute;nico espa&ccedil;o em branco. </P>
+<P>Op&ccedil;&atilde;o  -f &eacute; usada para indicar  quais campos ser&atilde;o recortados.</P>
+<P>&#9;&#9;Por exemplo, para  listar todas as IDs de usu&aacute;rios e seus nomes, o </P>
+<P>seguinte comando poderia ser usado:</P>
+<P> </P>
+<P>&#9;&#9;&#9;cat /etc/passwd | cut -d":" -f1,5       </P>
+<P>- date - ajustar data/hora do sistema. Para alterar a data completa</P>
+<P>use: </P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>MMddhhmm[yy], onde MM = m&ecirc;s, dd = dia, hh = hora, mm = minutos e  [yy] = ano (opcional, o que querem dizer os colchetes).</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- ddate – Converte data Gregorian para Discordian. ?</P>
+<P>&nbsp;</P>
+<P>- df - mostra o espa&ccedil;o ocupado e livre das parti&ccedil;&otilde;es. Ex.: df</P>
+<P>&nbsp;</P>
+<P>- diff - Mostra na tela diferen&ccedil;as entre dois arquivos ou diret&oacute;rios.- diff3 - Mostra na tela diferen&ccedil;as entre tr&ecirc;s arquivos ou diret&oacute;rios.</P>
+<P>- diskcopy – script para copiar disquetes (Slack).</P>
+<P>&nbsp;</P>
+<P>- du - Reports de um file system usado.</P>
+<P>Mostra espa&ccedil;o ocupado por diret&oacute;rio e sub-diret&oacute;rios em grupos de 512 b</P>
+<P>- echo - Mostra na tela um argumento.- ed - Editor de texto padr&atilde;o distribu&iacute;do com a maioria dos sistemas UNIX. &#9;N&atilde;o &eacute; t&atilde;o rico como os editores de texto do padr&atilde;o MS-DOS.</P>
+<P>&#9;Mas  o  negocio esta mudando rapidamente, pode  ser alternado com o </P>
+<P>vi.</P>
+<P>&nbsp;</P>
+<P>- egrep - Da fam&iacute;lia dos comandos grep de busca de padr&otilde;es.</P>
+<P>&#9;Ele geralmente aceita express&otilde;es regulares que o grep n&atilde;o aceita.</P>
+<P>&#9;&#9;Pode ser:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;egrep Rudi+ /etc/passwd</P>
+<P>&nbsp;</P>
+<P>&#9;Vai listar todas as entradas no arquivo que possu&iacute;rem o nome Rudi.</P>
+<P>&#9;Outra forma de fazer isso  e´ usando a sa&iacute;da ecoada:</P>
+<P> </P>
+<P>&#9;&#9;cat/etc/passwd | egrep Rudi+</P>
+<P>&nbsp;</P>
+<P>&#9;Essa forma &eacute; mais lenta porque primeiro copia o arquivo e depois </P>
+<P>filtra.                         </P>
+<P>&nbsp;</P>
+<P>- env - Comando usado para obter uma lista do conte&uacute;do do ambiete shell do usu&aacute;rio. O conte&uacute;do &eacute; formado por cadeias que comp&otilde;es as vari&aacute;veis do shell e seus valores.</P>
+<P>Ex: env</P>
+<P>&nbsp;</P>
+<P>- exit - sair de uma sess&atilde;o ativa, ou seja deixar um usu&aacute;rio para acessar outro ou voltar </P>
+<P>para outra sess&atilde;o (logout &eacute; semelhante).</P>
+<P>- f77 - Compilador FORTRAN.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- fgrep - &Eacute; o grep r&aacute;pido. Por n&atilde;o usar tempo nenhum na avalia&ccedil;&atilde;o das </P>
+<P>express&otilde;es como ocorre no comando e grep. S&oacute; aceita cadeias como padr&atilde;o </P>
+<P>de busca. </P>
+<P>&nbsp;</P>
+<P>- find - localizar arquivos com caracter&iacute;sticas especificadas. find / -name </P>
+<P>"nome.arquivo" - print.</P>
+<P>O comando  find  &eacute;  uma  ferramenta  poderos&iacute;ssima dentro do </P>
+<P>ambiente UNIX. Por meio deste comando pudesse copiar, encontrar,  </P>
+<P>executar e  modificar arquivos. Sua fun&ccedil;&atilde;o exata &eacute; satisfazer a express&atilde;o </P>
+<P>boleana da linha de comando.</P>
+<P>&#9;&#9;A busca sempre inicia do diret&oacute;rio de partida especificado.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # find / -name jacareh -print</P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>Aqui se procura desde a raiz todos os arquivos com o nome "jacar&eacute;" ecoando na tela com o -print.Podemos usar meta-caracteres para especificar um arquivo sem problemaalgum.&#9;&#9;     # find / -name jacareh -exec cp {} ~/ \;</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Aqui ele procura o jacar&eacute; s&oacute; que executa a ordem de copiar todos os </P>
+<P>arquivos "jacar&eacute;" encontrados     para dentro do diret&oacute;rio $/HOME ou ~/ </P>
+<P>Voc&ecirc; pode usar infinitos par&acirc;metros com ele, de uma consultada no manual </P>
+<P>do find e divirta-se com as possibilidades.</P>
+<P>&nbsp;</P>
+<P>- file – utilit&aacute;rio para dar informa&ccedil;&otilde;es sobre arquivos (inclusive se &eacute; execut&aacute;vel).</P>
+<P>&nbsp;</P>
+<P>- fontconfig – trocar fonte do console (no Slack).</P>
+<P>&nbsp;</P>
+<P>- free - exibe a mem&oacute;ria usada e a livre.</P>
+<P>&nbsp;</P>
+<P>- ftp - Protocolo de Transmiss&atilde;o de arquivos.</P><DIR>
+<DIR>
+
+<P>Ao entrar em algum endere&ccedil;o de ftp, e o mesmo pedir um cadastro e uma senha, o usu&aacute;rio deve-se cadastrar como anonymous, e entrar como senha qualquer palavra, seguido de @, pois ele estar&aacute; pedindo um e-mail como senha.</P>
+<P>Para copiar arquivos que o usu&aacute;rio tenha no sistema LINUX para o sistema W95, o usu&aacute;rio deve entrar no aplicativo ftp ( Iniciar - Programas - Internet - FTP), acessar a m&aacute;quina dinf, com o comando open dinf, e digitando o seu login e sua correspondente senha. O usu&aacute;rio automaticamente ir&aacute; para seu diret&oacute;rio home, onde o usu&aacute;rio tem permiss&atilde;o de gravar arquivos. Ent&atilde;o, &eacute; s&oacute; copia-los, como se estivessem em uma m&aacute;quina qualquer ( bin - hash - get ou mget ).</P>
+<P>Principais comandos:</P></DIR>
+</DIR>
+
+<P>open &lt;nome_m&aacute;quina&gt; =&gt; permite acesso na m&aacute;quina especificada.</P>
+<P>bin =&gt; Seta modo de transfer&ecirc;ncia bin&aacute;rio.</P>
+<P>cd &lt;diretorio&gt; =&gt; Muda de diret&oacute;rio.</P>
+<P>get remote.file &lt;local.file&gt; =&gt; Download o arquivo.</P>
+<P>hash =&gt; Mostra o sinal: #, a cada bloco transmitido.</P>
+<P>lcd &lt;drive: diret&oacute;rio&gt; =&gt; Seta o diret&oacute;rio local.</P>
+<P>ls -lF |more =&gt; Lista os arquivos com paradas na tela.</P>
+<P>mget &lt;arquivos&gt; =&gt; Download de v&aacute;rios arquivos</P>
+<P>put local.file &lt;remote.file&gt; =&gt; Upload o arquivo.</P>
+<P>bye =&gt; Sair.</P>
+<P>&nbsp;</P>
+<P>- fromdos – utilit&aacute;rio para converter arquivos textos do DOS para formato Unix.</P>
+<P>&nbsp;</P>
+<P>- grep - procura strings ou express&atilde;o em arquivos. </P>
+<P>&nbsp;</P>
+<P>Ex.: grep trabalho /teste/arquivo.txt (ir&aacute; procurar </P>
+<P>a string "trabalho" no arquivo arquivo.txt).</P>
+<P>&nbsp;</P>
+<P>Grep vem do "get regular expression" e &eacute; base dos comandos da </P>
+<P>fam&iacute;lia grep. Funciona como um filtro que   examina arquivos de entrada </P>
+<P>em busca de padr&otilde;es.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # grep op&ccedil;&otilde;es express&atilde;o arquivo(s)</P>
+<P>&nbsp;</P>
+<P>&#9;Nas op&ccedil;&otilde;es:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     -c : produz a contagem das linhas.</P>
+<P>&#9;&#9;     -i : n&atilde;o leva em conta diferen&ccedil;a de caixa alta e</P>
+<P>&#9;&#9;&#9;  baixa.</P>
+<P>&#9;&#9;     -l : s&oacute; exibe os nomes de arquivos com os padr&otilde;es.</P>
+<P>&#9;&#9;     -n : ativa a numera&ccedil;&atilde;o de linhas ( muito bom ).</P>
+<P>&#9;&#9;     -s : causa a supress&atilde;o das mensagens de erro.</P>
+<P>&#9;&#9;     -v : imprime as linhas onde se encontra o padr&atilde;o.</P>
+<P>&nbsp;</P>
+<P>&#9;Coloque a express&atilde;o entre pilecas representando o padr&atilde;o procurado </P>
+<P>que n&atilde;o tem erro.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # grep 'root' /etc/passwd</P>
+<P>&#9;&#9;&#9;&#9;&#9;&#9;      ou...</P>
+<P>&#9;&#9;     # cat /etc/passwd | grep 'root'  outra</P>
+<P>&#9;Embora resultados iguais o segundo &eacute; mais lento por envolver dois </P>
+<P>processos.</P>
+<P>&nbsp;</P>
+<P>- gzexe – compactar execut&aacute;veis permitindo o uso dos mesmos compactados. &Uacute;til para HD pequenos ou lotados.</P>
+<P>&nbsp;</P>
+<P>- halt - comando para desligar o micro. Quando aparecer a mensagem "system halted" pode desligar. Uso: halt e Enter.</P>
+<P>&nbsp;</P>
+<P>- help - ajuda sobre os comandos do Linux. Ex.: ls --help, rm --help.     </P><DIR>
+<DIR>
+
+<P>Obs.: como alguns comandos preenchem mais de uma p&aacute;gina &eacute; interessante utilizar o | less, ou ent&atilde;o teclar Shift+PgUp ou PgDn para rolar a tela para cima ou para baixo.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- init 6 - reinicia o micro.</P>
+<P>&nbsp;</P>
+<P>- kde   - inicia o Gerenciador de Janelas KDE (K Desktop Enviroment).</P>
+<P>- kill - N&atilde;o tem mist&eacute;rio, apenas encerra processos que est&atilde;o ativos no </P>
+<P>sistema. Existe gra&ccedil;as ao unix ser  um  OS Multitarefa. Voc&ecirc; sendo usu&aacute;rio</P>
+<P>normal s&oacute; pode encerrar seus processos, j&aacute; o root super usu&aacute;rio pode </P>
+<P>encerrar todos os processos inclusive o 0.</P>
+<P>&#9;</P>
+<P>O sinal default &eacute; 15 = SIGTERM (terminar).</P>
+<P>&#9;&#9;J&aacute; a op&ccedil;&atilde;o 9 &eacute; um raio e encerra matando o bicho com um tiro na </P><DIR>
+<DIR>
+
+<P>cabe&ccedil;a...</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>&#9;&#9;     # kill -numero_do_sinal PID</P>
+<P>&nbsp;</P>
+<P>&#9;O 9 &eacute; o SIGKILL causa termino incondicional.</P>
+<P>&#9;Com o comando ps se pode listar os processos ativos.</P>
+<P>&nbsp;</P>
+<P>- last – mostra um log dos usu&aacute;rios e terminais utilizados.</P>
+<P>&nbsp;</P>
+<P>- ld - &Eacute; o editor de liga&ccedil;&atilde;o, muito usado. Combinando m&uacute;ltiplos arquivos </P>
+<P>objetos em um &uacute;nico modulo de execu&ccedil;&atilde;o. Eu uso:&#9;&#9;     # ld -op&ccedil;&otilde;es nome(s)_do(s)_arquivo(s)&#9;&#9;     -m : fornece o mapa de liga&ccedil;&atilde;o&#9;&#9;     -o : especifica o modulo de sa&iacute;da ( output )</P>
+<P>&nbsp;</P>
+<P>&#9;Qualquer duvida consulte o UNIX Sys V Ref. Man.</P>
+<P>&nbsp;</P>
+<P>- less - tipo o "more" do DOS com mais recursos (auxiliar outros comandos na </P>
+<P>visualiza&ccedil;&atilde;o de arquivos). Tamb&eacute;m pode ser utilizado para visualizar arquivos. </P><DIR>
+<DIR>
+
+<P>Faz parar por p&aacute;gina, possibilitando rolar a tela para cima e para baixo com PgDn e PgUp. </P>
+<P>&nbsp;</P>
+<P>Ex.: less teoria.txt</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- lint - Este comando &eacute; legal porque verifica a sintaxe de c&oacute;digo C </P>
+<P>antes da compila&ccedil;&atilde;o.&#9;Tamb&eacute;m identifica erros que possam ter ocorrido, como vari&aacute;veis n&atilde;o </P><DIR>
+<DIR>
+
+<P>usadas e tal...</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>&#9;&#9;     # lint op&ccedil;&otilde;es arquivo(s)</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     -h : suprime testes que identifique erros.</P>
+<P>&#9;&#9;     -n : suprime informa&ccedil;&otilde;es sobre c&oacute;digo n&atilde;o port&aacute;til.</P>
+<P>&#9;&#9;     -p : habilita para fazer um teste mais rigoroso.</P>
+<P>&nbsp;</P>
+<P>&#9;Este comando ajuda o programador a n&atilde;o perder tempo.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- ln - Famoso link. Usado para criar liga&ccedil;&otilde;es entre arquivos. S&oacute; SP=(super usu&aacute;rio)</P><DIR>
+<DIR>
+
+<P> pode ligar diret&oacute;rios.&#9;Modificar o link &eacute; modificar a origem.&#9;&#9;     # ln -s /home/globo/documento.doc porcarias.doc&#9;Linkamos o documento.doc ao arquivo porcarias.doc</P></DIR>
+</DIR>
+
+<P>&#9;Para se desfazer do link usamos o rm ou o unlink.</P>
+<P>&nbsp;</P>
+<P>- locate - localizar arquivos. Sendo que antes de execut&aacute;-lo pela primeira vez deve-se</P>
+<P> usar o "updatedb" para criar o banco de dados e deve-se execut&aacute;-lo</P>
+<P>freq&uuml;entemente (sempre que se </P>
+<P>instalar/remover) programas do micro.</P>
+<P>&nbsp;</P>
+<P>Ex.: locate fvwm | less.</P>
+<P>&nbsp;</P>
+<P>- lpr   - comando para imprimir arquivos na linha de comando. </P>
+<P>Ex.: lpr teste.doc</P>
+<P>&nbsp;</P>
+<P>- ls    - semelhante ao "dir" do DOS (listar arquivos e diret&oacute;rios).</P><DIR>
+<DIR>
+
+<P>Exs.: ls /usr/local, ls -la /usr/local (mostra tamb&eacute;m os arquivos ocultos e outras informa&ccedil;&otilde;es sobre os arquivos e diret&oacute;rios e as defini&ccedil;&otilde;es de cada arquivo) ls /usr/local | less - lista os </P>
+<P>arquivos/diret&oacute;rios e para por p&aacute;gina Pode-se usar PageDowm/PageUp para movimentar-se e para sair teclar q.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- lynx -  Esse comando faz voc&ecirc; navegar pelas p&aacute;ginas da www. Basta colocar um </P>
+<P>endere&ccedil;o ap&oacute;s o comando lynx, para acess&aacute;-lo.</P>
+<P>Ex: lynx <A HREF="http://www.unicruz.tche.br/">www.unicruz.tche.br</A></P>
+<P>&nbsp;</P>
+<P>- mail - Esse comando permite ver os mail’s recebidos.</P>
+<P>Ex: mail</P>
+<P>&nbsp;</P>
+<P>- make - Utilit&aacute;rio muito utilizado pelos desenvolvedores em UNIX para </P><DIR>
+<DIR>
+
+<P>automatizar processo de gera&ccedil;&atilde;o de programas. Ele l&ecirc; o arquivo de entrada"Makefile" e vai realizando o servi&ccedil;o sobre as depend&ecirc;ncias.&#9;Ele faz tudo, desde compilar ate ligar os m&oacute;dulos.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>&#9;&#9;     # make all</P>
+<P>&#9;&lt; isso tomando como base um Makefile que tenha esta</P>
+<P>&#9;&#9;       op&ccedil;&atilde;o &gt;</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     -e : indica as vari&aacute;veis do sistema q devem prevalecer.</P>
+<P>&#9;&#9;     -i : despreza os c&oacute;digos retornados.</P>
+<P>&#9;&#9;     -k : abandona o trabalho na entrada corrente.</P>
+<P>&#9;&#9;     -n : lista apenas os comandos do Makefile.</P>
+<P>&#9;&#9;     -p : ecoa para impressora os comandos.</P>
+<P>&#9;&#9;     -r : despreza as regras intr&iacute;nsecas.</P>
+<P>&#9;&#9;     -s : modo silencioso.</P>
+<P>&#9;&#9;     -t : atualiza data e hora</P>
+<P>- man   - p&aacute;ginas do manual sobre comandos e programas em geral.</P>
+<P>          Ex.: man tar, man ls.</P>
+<P>&nbsp;</P>
+<P>- mc – Midnight Commander . Interpretador de comandos que vem com um excelente </P>
+<P>gerenciador de arquivos, editor de textos e etc. Executar: mc.</P>
+<P>&nbsp;</P>
+<P>- mcedit – editor de texto ascii do mc. Uso: mcedit nome.do.arquivo.</P>
+<P>- mcopy - Comando este, que transfere um ou mais arquivos para um drive espec&iacute;fico. </P>
+<P>Comandoespec&iacute;fico para trabalhar com disquetes em formato DOS.</P>
+<P>Ex: mcopy arq a:\</P>
+<P>Exerc&iacute;cio:</P><DIR>
+<DIR>
+
+<P>Copiar o arquivo listao.txt, que foi buscado do site da UFSM, e descompactado com gunzip, para um disquete do drive a: .</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- mkdir -  Comando usado para criar diret&oacute;rios. &Eacute; um dos comandos fundamentais do </P>
+<P>UNIX, e todos os usu&aacute;rios devem conhec&ecirc;-lo.</P>
+<P>Ex: mkdir novodir</P>
+<P>Para criar um diret&oacute;rio em um local espec&iacute;fico, &eacute; o seguinte.</P>
+<P>Ex: mkdir /usr/tsm/novodir</P>
+<P>&nbsp;</P>
+<P>Exerc&iacute;cio:</P>
+<P>Crie o diret&oacute;rio download no seu diret&oacute;rio HOME.</P>
+<P>&nbsp;</P>
+<P>- mkdir - semelhante ao "md" do DOS (criar diret&oacute;rios). Ex.: mkdir</P>
+<P>/usr/teste.</P>
+<P>&nbsp;</P>
+<P>- mkdir -p /dir1/sub1/sub2 (criar toda a hierarquia de diret&oacute;rios).</P>
+<P>&nbsp;</P>
+<P>- mv    - Move arquivos/diretorios de um lugar ao outro ou renomeia, se no mesmo </P>
+<P>diret&oacute;rio. </P>
+<P>&#9;Tamb&eacute;m sobrep&otilde;e o arquivo se ele j&aacute; existir sem pedir confirma&ccedil;&atilde;o </P>
+<P>alguma (exceto no Conectiva Linux, que vem com uns aliases de seguran&ccedil;a)..</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # mv /usr/src/linux.tar.gz /home/usuario1/linux.tar.gz</P>
+<P>&nbsp;</P>
+<P>- od - Exibe um arquivo em octal. Tamb&eacute;m pode ser em hexa,</P>
+<P>&#9;</P>
+<P>ASCII, decimal ou ate combina&ccedil;&otilde;es destes.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # od -op&ccedil;&otilde;es arquivo</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     -b : exibe bytes em octal</P>
+<P>&#9;&#9;     -c : exibe bytes em ASCII</P>
+<P>&#9;&#9;     -d : exibe palavra como decimal sem sinal</P>
+<P>&#9;&#9;     -o : exibe palavra em octal</P>
+<P>&#9;&#9;     -x : exibe palavra em hexa</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- pack - Este rapaz l&ecirc; o arquivo de entrada normalmente e produz como </P><DIR>
+<DIR>
+
+<P>sa&iacute;da uma vers&atilde;o comprimida.Recebem o sufixo ".z" que indica a compress&atilde;o.Em arquivos texto chega a compactar 70% j&aacute; em bin&aacute;rios atinge menos </P></DIR>
+</DIR>
+
+<P>que 15%. Utilizando ele com o find podemos ter:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # find /usr/jacuh -print | cpio -ocv &gt; transarq</P>
+<P>&#9;&#9;       pack -f transarq</P>
+<P>&nbsp;</P>
+<P>- passwd - comando para associar uma senha a um usu&aacute;rio. Ex.: passwd luis. Ent&atilde;o </P>
+<P>digita-se e redigita-se a senha. Isso no Red Hat, no Slackware quando voc&ecirc; </P>
+<P>adiciona um usu&aacute;rio ele j&aacute; pergunta muitas coisas sobre ele, o grupo, nome, </P>
+<P>telefones e a senha.</P>
+<P>&nbsp;</P>
+<P>- path - vari&aacute;vel semelhante a do DOS. Para colocar algum programa no path age-se </P>
+<P>assim: </P>
+<P>PATH=$PATH:/caminho/completo/do/programa. Isso far&aacute; com que </P>
+<P>temporariamente este </P><DIR>
+<DIR>
+
+<P>programa fique no path. Caso deseje coloc&aacute;-lo permanentemente no path ent&atilde;o adicione esta linha no /etc/profile (por exemplo),  que ficar&aacute; a disposi&ccedil;&atilde;o de todos os usu&aacute;rios.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- pdf2ps – converte de pdf para ps.</P>
+<P>&nbsp;</P>
+<P>- pico – editor de texto ascii. Uso: pico nome.do.arquivo.</P>
+<P>&nbsp;</P>
+<P>- pine - Aplicativo que visualiza, envia, recebe e escreve-se fax.</P>
+<P>Ex: pine</P>
+<P>&nbsp;</P>
+<P>Principais Fun&ccedil;&otilde;es:</P>
+<P>?&#9;&#9;Help;</P>
+<P>C &#9;Composi&ccedil;&atilde;o de Mensagens;</P>
+<P>I &#9;Visualizar Mensagens que est&atilde;o na Pasta Corrente;</P>
+<P>L &#9;Selecionar Pasta de Mail’s;</P>
+<P>A &#9;Endere&ccedil;os Particulares;</P>
+<P>S &#9;Setup;</P>
+<P>Q &#9;Exit.</P>
+<P>&nbsp;</P>
+<P>C &#9;Composi&ccedil;&atilde;o de Mensagens:</P>
+<P>To&#9;&#9;:  &lt;endere&ccedil;o do destinat&aacute;rio&gt;</P>
+<P>Cc&#9;&#9;:  &lt;endere&ccedil;o de quem manda&gt;</P>
+<P>Attachment&#9;:  &lt;arquivos que o usu&aacute;rio deseja enviar com o mail&gt;</P>
+<P>Subject&#9;&#9;:  &lt;t&iacute;tulo do mail&gt;</P>
+<P>---------------- Message Text -------------</P>
+<P>&lt;mensagem&gt;</P>
+<P>&nbsp;</P>
+<P>L &#9;Selecionar Pasta de Mail’s:</P>
+<P>Para visualizar um mail novo, selecione a Pasta INBOX.</P>
+<P>Exerc&iacute;cio:</P>
+<P>Mandar um mail para um usu&aacute;rio vizinho.</P>
+<P>- ping - Esse comando v&ecirc; a comunica&ccedil;&atilde;o entre seu terminal e o endere&ccedil;o desejado.</P>
+<P>Ex: ping www.ibm.com</P><DIR>
+<DIR>
+
+<P>Esse comando &eacute; necess&aacute;rio saber, pois com ele, verifica-se a velocidade da rede e se ela est&aacute; parada. Para sair, click Ctrl-C.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>Exerc&iacute;cio:</P>
+<P>Compare as velocidades de transmiss&atilde;o de dados dos endere&ccedil;os:</P>
+<P>- www.microsoft.com</P>
+<P>- www.unijui.tche.br</P>
+<P>&nbsp;</P>
+<P>- ps - O comando `ps' reporta a situa&ccedil;&atilde;o dos processos atuais no unix. &Eacute; o </P><DIR>
+<DIR>
+
+<P>mesmo que o velho "d a,l" das maquinas MVS da IBM.&#9;As op&ccedil;&otilde;es -e e -f s&atilde;o de maior interesse para desenvolvedores, j&aacute; que reportam todas as infos.</P></DIR>
+</DIR>
+
+<P>Usando o par&acirc;metro -ef surgem 8 colunas.</P>
+<P>&#9;&#9;     </P>
+<P>     1. Coluna UID: identifica a ID do dono do processo.</P>
+<P>     2. Coluna PID: identifica o numero ID do processo.</P>
+<P>     3. Coluna PPID: identifica o processo pai.</P>
+<P>     4. Coluna C: indica a quantidade de utiliza&ccedil;&atilde;o do processador para </P>
+<P>escalamento.</P>
+<P>     5. Coluna STIME: indica a hora que o processo foi iniciado.</P>
+<P>     6. Coluna TTY: indica o terminal de controla associado ao processo.</P>
+<P>     7. Coluna TIME: tempo total da execu&ccedil;&atilde;o que o processo acumulou.</P>
+<P>     8. Coluna COMMAND: descreve o nome do processo indicando qual </P>
+<P>comando </P>
+<P>esta sendo executado.</P>
+<P>&nbsp;</P>
+<P>ps ax - informa&ccedil;&otilde;es sobre o sistema: uso da mem&oacute;ria, do processador, etc.</P>
+<P>&nbsp;</P><DIR>
+<DIR>
+
+<P>As op&ccedil;&otilde;es -e e -f s&atilde;o de maior interesse para os desenvolvedores, j&aacute; que reportam todas as informa&ccedil;&otilde;es dispon&iacute;veis para todos os processos. Essas op&ccedil;&otilde;es s&atilde;o especificadas como -ef, que produz oito colunas de informa&ccedil;&atilde;o, como segue (as principais):</P>
+<P>* Coluna UID: identifica a ID do dono do processo. A ID correspondente ao nome de conex&atilde;o do usu&aacute;rio, como especificado em seu registro no etc/passwd.</P>
+<P>* Coluna PID: identifica o n&uacute;mero de ID do processo. &Eacute; preciso conhecer esse n&uacute;mero para tomar qualquer atitude com rela&ccedil;&atilde;o ao processo, como usar o comando <B>kill</B>.</P>
+<P>* Coluna PPID: identifica o pai do processo.</P>
+<P>* Coluna STIME: indica a hora em que o processo foi iniciado.</P>
+<P>* Coluna TTY: indica o terminal de controle associado ao processo, e podem conter o caracter ?, significando que o processo n&atilde;o tem um terminal de controle.</P>
+<P>* Coluna TIME: indica o tempo total de execu&ccedil;&atilde;o que o processo acumulou desde quando foi come&ccedil;ado.</P>
+<P>* Coluna COMMAND: descreve o nome do processo, indicando qual comando que est&aacute; sendo executado, bem como seus argumentos.</P>
+<P>Ex: ps -ef</P></DIR>
+</DIR>
+
+<P>- ps2ascii – converte de ps para ASCII.</P>
+<P>&nbsp;</P>
+<P>- ps2pdf – converte de ps para pdf.</P>
+<P>&nbsp;</P>
+<P>- pwd - Esse comando &eacute; usado para mostrar o diret&oacute;rio corrente, e &eacute;, na </P>
+<P>realidade um acr&ocirc;nimo de print working directory. Geralmente n&atilde;o reporta </P>
+<P>erros :/</P>
+<P>&nbsp;</P>
+<P>- reboot - reiniciar o micro. Semelhante a Ctrl+Alt+Del. Uso: reboot e Enter.</P>
+<P>&nbsp;</P>
+<P>- rm - Esse comando &eacute; usado para remover arquivos do sistema de arquivos do </P>
+<P>UNIX. Utilizando as op&ccedil;&otilde;es -f, -r e -i ( mais usadas ). Para diret&oacute;rios </P>
+<P>use op&ccedil;&atilde;o -r.</P>
+<P>&#9;&#9;Para se utilizar destes comandos deve-se ter permiss&atilde;o sobre os </P>
+<P>arquivos a serem exclu&iacute;dos.</P><DIR>
+<DIR>
+
+<P>-f (para n&atilde;o pedir confirma&ccedil;&atilde;o)Com a op&ccedil;&atilde;o -i voc&ecirc; ter&aacute; possibilidade de confirmar a remo&ccedil;&atilde;o do arquivo.  </P></DIR>
+</DIR>
+
+<P>Use com cuidado a op&ccedil;&atilde;o rm -rf principalmente quando tiveres permiss&atilde;o de </P>
+<P>super usu&aacute;rio.</P>
+<P>A utiliza&ccedil;&atilde;o de coringas tamb&eacute;m &eacute; desaconselhada.</P>
+<P> </P>
+<P>&#9;n&atilde;o tente: rm -rf / ou * (POIS &Eacute; IGUAL A *.* NO DOS)</P>
+<P>&nbsp;</P>
+<P>- rmdir - Comando utilizado para remover diret&oacute;rios vazios da estrutura. </P>
+<P>&Eacute; aconselh&aacute;vel que se utilize toda estrutura na hora do comando ex.:</P>
+<P> </P>
+<P>&#9;&#9;     # rmdir /home/users1/billgates</P>
+<P>&nbsp;</P>
+<P>- sed - Esse comando &eacute; o editor do sistema. &Eacute; uma vers&atilde;o bem mais fraca do </P>
+<P>awk eu suponho, na realidade pode se usar como um filtro.</P>
+<P>Pode-se por vez "editar" grandes arquivos em um roteiro do shell. Um </P>
+<P>roteiro do shell pode ser tornado extremamente inteligente atrav&eacute;s do use </P>
+<P>do comando "sed".</P>
+<P>Exemplo real dele pode ser o fato de querer se trocar todas as ocorr&ecirc;ncias </P>
+<P>do tipo "axur" para "AXUR" em um arquivo qualquer.</P>
+<P>&#9;&#9;    </P>
+<P>&#9;&#9;     # sed s/axur/AXUR/g ~/axur0503.old /tmp/axur0503.new</P>
+<P>&nbsp;</P>
+<P>&#9;Usando o fonte no home e com sa&iacute;da no /tmp. </P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- showfont – exibe a tabela ASCII.</P>
+<P>&nbsp;</P>
+<P>- showkey – exibe o c&oacute;digo da tecla pressionada. Se nenhuma for pressionada por 10s </P><DIR>
+<DIR>
+
+<P>ele sai.</P>
+<P>&nbsp;</P></DIR>
+</DIR>
+
+<P>- shutdown - encerra todas as atividades do Linux e prepara para o micro ser desligado.</P>
+<P> Exs.: </P>
+<P>shutdown now (desliga o micro), shutdown -r now (reinicializa o micro).</P>
+<P>&nbsp;</P>
+<P>- sleep – para por &quot;n&quot; segundos. Tamb&eacute;m pode ser em minutos ou horas.</P>
+<P>&nbsp;</P>
+<P>- sort - Sua fun&ccedil;&atilde;o &eacute; produzir arquivos ordenados como fala o nome. Temos como</P>
+<P>op&ccedil;&atilde;o:</P>
+<P>&nbsp;</P>
+<P>     -c : verifica se um arquivo j&aacute; esta ordenado de acordo.</P>
+<P>     -m : toma os arquivos de entrada como previamente </P>
+<P>ordenados e somente os funde na sa&iacute;da.</P>
+<P>     -u : compara arquivos especificados evitando duplicidade.</P>
+<P>     -o : especifica nome do arquivo de sa&iacute;da</P>
+<P>     -d : especifica que a ordena&ccedil;&atilde;o deve usar ordem do </P>
+<P>dicion&aacute;rio.</P>
+<P>-f : despreza diferen&ccedil;a de caixa.</P>
+<P>&#9;-i : inclui o sort de n&atilde;o levar em conta os caracteres que estejam </P>
+<P>em ASCII.</P>
+<P>&#9;-r : inverte a seq&uuml;&ecirc;ncia de ordena&ccedil;&atilde;o.</P>
+<P>&#9;-t : identifica o caracter a ser usado como delimitador.</P>
+<P>&#9;+n : n indica o iniciado numero do campo no qual ter-</P>
+<P>&#9;&#9;&#9;  minar a ordena&ccedil;&atilde;o.</P>
+<P>  </P>
+<P>&#9;Exemplo:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # sort arquivo1 arquivo2</P>
+<P>&#9;&#9;     # sort -o sei l&aacute; arquivo1 arquivo2</P>
+<P>&#9;&#9;     # sort -urf arquivo1 arquivo2 &gt; sei l&aacute;</P>
+<P>&#9;&#9;     # ls -l | sort -r +5 -7</P>
+<P>&#9;&#9;     # ls -l | sort -o sei l&aacute; -r +5</P>
+<P>&#9;&#9;     # ls -l | sort -r +5 -7 &gt; sei l&aacute;</P>
+<P>Onde o primeiro ordena os arquivos chamados arquivo1 e arquivo2. No segundo</P>
+<P>executa o mesmo mas a sa&iacute;da &eacute; gravada em um arquivo chamado sei l&aacute;.</P>
+<P>No terceiro usa o m&eacute;todo de redirecionamento para colocar a sa&iacute;da no </P>
+<P>arquivo chamado ordenado enquanto as op&ccedil;&otilde;es -urf indicam que os registros </P>
+<P>devem ser &uacute;nicos e gravados em ordem invertida e as diferen&ccedil;as de caixa </P>
+<P>n&atilde;o devem ser levadas em conta. </P>
+<P>&#9;&#9;   </P>
+<P>- stty - O comando stty pode ser usado para alterar ou para verificar certas </P>
+<P>caracter&iacute;sticas do terminal.</P>
+<P>Todos os usu&aacute;rios com sess&atilde;o aberta no UNIX devem possuir essas </P>
+<P>caracter&iacute;sticas estabelecidas.</P>
+<P>Elas podem incluir informa&ccedil;&otilde;es como tipo de conex&atilde;o e velocidade, </P>
+<P>caracteres especiais, dados de controle de fluxo e caracter&iacute;stica da linha </P>
+<P>de comunica&ccedil;&atilde;o.</P>
+<P>Acho que os ajustes que ter&atilde;o interesse imediato provavelmente ser&atilde;o </P>
+<P>aqueles como mudar o caracter de retrocesso, a paridade e a velocidade da </P>
+<P>linha e como voltar os caracteres de aparamento de car&aacute;ter e de linha </P>
+<P>para seus valores.</P>
+<P>&#9;</P>
+<P>&#9;Algumas especifica&ccedil;&otilde;es validas abaixo:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty -a</P>
+<P> &#9;Esse comando exibe uma listagem longa de todos os valores </P>
+<P>configur&aacute;veis do stty e seus valores atuais.</P>
+<P>&#9;&#9;</P>
+<P>&#9;&#9;     # stty erase '^H'</P>
+<P>&nbsp;</P>
+<P>&#9;Este exemplo acerta o caracter de retrocesso como de apagamento de </P>
+<P>caracter.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty kill '#'</P>
+<P>&nbsp;</P>
+<P>&#9;Este exemplo coloca o caracter # como caracter de apagamento de linha.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty ek</P>
+<P>&nbsp;</P>
+<P>Esse exemplo volta os caracteres de apagamento  de  caracter e de linha </P>
+<P>para seus valores, respectivamente '#' e '@'.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty parodd</P>
+<P>&#9;     </P>
+<P>Seta paridade impor "-parodd" oposto de paridade par. Que &eacute; aquele esquema </P>
+<P>que todos sabem que define o bit que vai servir de  checagem 7/8.</P>
+<P>  </P>
+<P>&#9;&#9;     # stty  cs8</P>
+<P>&nbsp;</P>
+<P>&#9;Esse exemplo indica que um caracter tem 8 bits de dados; os valores </P>
+<P>s&atilde;o cs5-8, sendo padr&atilde;o 7.</P>
+<P>&#9;&#9;    </P>
+<P>&#9;&#9;     # stty 19200</P>
+<P>&nbsp;</P>
+<P>Atribui velocidade ao terminal conectado.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty ixon</P>
+<P>&nbsp;</P>
+<P>Comando indica que deve ser ativado o controle de fluxo XON;-ixon </P>
+<P>desabilitar&aacute; o processamento de controle de fluxo XON.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # stty ixoff</P>
+<P>&nbsp;</P>
+<P>&#9;Esse exemplo indica que o controle de fluxo XOFF deve ser </P>
+<P>desabilitado.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     Tem uma montoeira de op&ccedil;&otilde;es... de um man stty!</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>- startx - inicia o Gerenciador de Janelas default ou X Window System.</P>
+<P>&nbsp;</P>
+<P>- su - sair de uma sess&atilde;o e entrar noutra como superusu&aacute;rio (sem sair do console). Ex.: </P>
+<P>su antonio, </P>
+<P>su root ou apenas su.</P>
+<P>&nbsp;</P>
+<P>- sudo – utilit&aacute;rio para dar poderes de su (su do) ao usu&aacute;rio comum.</P>
+<P>&nbsp;</P>
+<P>- superformat – formatar disquetes. Deve ser preferido so fdformat (este est&aacute; obsoleto). Uso: superformat /dev/fd0u1440. Lembrar que deve-se criar depois disso, o sistema de arquivos com mke2fs /dev/fd0 (para ext2) ou mformat a: (para vfat) ou outro.</P>
+<P>&nbsp;</P>
+<P>- SuperProbe – comando para mostrar caracter&iacute;sticas da placa de v&iacute;deo. Sintaxe: </P>
+<P>SuperProbe</P>
+<P>- talk - Esse comando d&aacute; a permiss&atilde;o de conversar com outro usu&aacute;rio por meio do </P>
+<P>teclado. O outro</P>
+<P>usu&aacute;rio necessariamente deve estar logado no sistema UNIX.</P>
+<P>Ex: talk &lt;nome_do_usuario&gt;@dinf.unicruz.tche.br</P>
+<P>Para sair, Ctrl-C.</P>
+<P>&nbsp;</P>
+<P>Exerc&iacute;cio:</P>
+<P>D&ecirc; um talk para seu vizinho.</P>
+<P>&nbsp;</P>
+<P>- tar - Compacta v&aacute;rios arquivos, transformando em apenas um.</P>
+<P>Ex: tar  cvf  backup.tar *</P>
+<P>&quot;Backup.tar&quot; &eacute; o nome do arquivo criado.</P>
+<P>* s&atilde;o os arquivos a serem compactados.</P>
+<P>&nbsp;</P>
+<P>v =&gt; mostra os arquivos processados;</P>
+<P>&nbsp;</P>
+<P>- telnet  - Terminal remoto. Emula um terminal virtual do servidor remoto. Possibilita </P>
+<P>conectar-se</P>
+<P>em outros computadores da Internet com plataforma Unix.</P>
+<P>Ex: telnet www.unijui.tche.br</P><DIR>
+<DIR>
+
+<P>Esse comando conecta o usu&aacute;rio com o servidor &quot;www.unijui.tche.br&quot;. Ao receber mensagem indicando conex&atilde;o, o sistema ir&aacute; pedir o seu login. Se o usu&aacute;rio estiver cadastrado no servidor, somente digita-se seu login e sua password. Se estiverem corretas, o usu&aacute;rio entrar&aacute; no sistema automaticamente em seu diret&oacute;rio HOME.</P>
+<B><U><FONT SIZE=2><P>&nbsp;</P></DIR>
+</DIR>
+
+
+<UL>
+</B></U></FONT><LI>tr - Comando usado para traduzir caracteres de um arquivo. Ele n&atilde;o &eacute; t&atilde;o      sofisticado quando o sed ou awk, as &eacute; bastante &uacute;til. Um dos motivos mais      comuns para  se usar o comando tr &eacute; executar tradu&ccedil;&atilde;o de caixa de arquivos </LI></UL>
+
+<P>texto, e&#9;xecutar substitui&ccedil;&otilde;es simples de cadeias e executar edi&ccedil;&atilde;o simples </P>
+<P>de padr&otilde;es.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # tr cuh1 cuh2 &lt; arquivo</P>
+<P>&nbsp;</P>
+<P>&#9;Indica que todas ocorr&ecirc;ncias de cuh1 no arquivo devem ser </P>
+<P>substitu&iacute;das por cuh2 saindo no padr&atilde;o.</P>
+<P>&#9;</P>
+<P>&#9;     Ou...:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # tr cuh1 cuh2 &lt; arquivo &gt; arquivo2</P>
+<P>&#9;</P>
+<P>&#9;&#9;     # tr \[a-z\] \[A-Z\] &lt; arquivo &gt; arquivo2</P>
+<P>&#9;&#9;     # tr '[a-z'] '[A-Z'] &lt; arquivo &gt; arquivo2</P>
+<P>&nbsp;</P>
+<P>Como Neston... invente uma!</P>
+<P>&nbsp;</P>
+<B><P>- </B>traceroute<B> - </B>Esse comando tra&ccedil;a toda a rota que o servidor faz para chegar em um </P>
+<P>endere&ccedil;o www.</P>
+<P>Ex: traceroute www.ibm.com</P>
+<P>O comando acima tra&ccedil;a a rota de servidores at&eacute; chegar no endere&ccedil;o ibm.com.</P>
+<P>&nbsp;</P>
+<P>Exerc&iacute;cio:</P>
+<P>Tra&ccedil;ar a rota para o endere&ccedil;o da Microsoft. (www.microsoft.com).</P>
+<P>- uname -a - mostra vers&atilde;o do kernel do Linux. Ex.: uname -a.- uname -r -exibe vers&atilde;o do kernel. Veja man uname para outros par&acirc;metros.</P>
+<P>&nbsp;</P>
+<P>- uname -m  - exibe a vers&atilde;o do processador</P>
+<P>&nbsp;</P>
+
+<UL>
+<LI>unpack - O oposto l&oacute;gico de pack. (unix) Para resumir os descompactadores  sabe-se para linux os mais usados:&#9;&#9;     unarj - ARJ</LI></UL>
+
+<P>&#9;&#9;     unzip - n&atilde;o sei ainda... ;)</P>
+<P>&#9;mas na compacta&ccedil;&atilde;o n&atilde;o pode se esquecer do tar e o gzip.</P>
+<P>&#9;No SCO se usa: </P>
+<P>&#9;&#9;     # unpack arquivo.z</P>
+<P>&nbsp;</P>
+<P>- uulog - Examina o sumario de registros de transa&ccedil;&otilde;es uucp e uux. N&atilde;o </P>
+<P>deixa de ser um comando de suporte. </P>
+<P>Ex:.</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # uulog -sleft</P>
+<P>&#9;&#9;     # uulog -utsm</P>
+<P>&#9;&#9;     # uulog</P>
+<P>&nbsp;</P>
+<P>- uustat - Comando obt&eacute;m situa&ccedil;&atilde;o de tarefas enfileiradas, ou elimina </P>
+<P>tarefas da fila. Permite que o usu&aacute;rio tenha  informa&ccedil;&otilde;es  sobre as tarefas</P>
+<P>do uucp. Tb serve para cancelar qualquer tarefa que ainda esteja esperando </P>
+<P>processamento pelo uucp, ou qualquer tarefa que possa estar em progresso.</P>
+<P>&nbsp;</P>
+<P>- uuto - Comando envia um arquivo local para o diret&oacute;rio publico de um </P>
+<P>sistema UNIX remoto.</P>
+<P>O comando uuto trabalha de forma bastante semelhante ao uucp exceto que </P>
+<P>somente um destino pode ser  especificado como identificador do sistema de </P>
+<P>destino.</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P> - uupick - Comando aceita ou rejeita os arquivos transmitidos para o </P>
+<P>usu&aacute;rio. O comando uupick &eacute; usado para recuperar arquivos enviados para o </P>
+<P>usu&aacute;rio na maquina remota. Quando os arquivos chegam, o subsistema uucp da </P>
+<P>maquina de destino, via correio eletr&ocirc;nico, notifica o usu&aacute;rio da chegada </P>
+<P>dos arquivos. O destinat&aacute;rio pode ent&atilde;o usar o uupick para copiar os </P>
+<P>arquivos de dados do diret&oacute;rio em que o subsistema uucp os colocou, </P>
+<P>no diret&oacute;rio corrente do destinat&aacute;rio.</P>
+<P>&nbsp;</P>
+<P>- vi - O comando chama o editor visual, que &eacute; um editor de texto de tela cheia. Esse </P>
+<P>editor &eacute; falto de alguns recursos e carece do resplendor dispon&iacute;vel nos ambientes </P>
+<P>DOS e IBM de grande porte, mas mesmo assim, o vi &eacute; uma ferramenta &uacute;til e </P>
+<P>poderosa.</P>
+<P>&nbsp;</P>
+<P>- w -  Esse comando lista os usu&aacute;rios que est&atilde;o logados no sistema UNIX. A lista </P>
+<P>mostra o login, ahora em que foi o usu&aacute;rio logou-se, o aplicativo em que </P>
+<P>encontra-se e a quanto tempo, entre outras informa&ccedil;&otilde;es.</P>
+<P>Ex: w</P>
+<P>&nbsp;</P>
+<P>- wc - Acr&ocirc;nimo de "word count" ( i think ;)).&#9;Ele &eacute; &oacute;timo porque pode conta e informar a quantidade de palavras, </P>
+<P>caracteres e linhas de um arquivo.&#9;Pode-se usar as tr&ecirc;s op&ccedil;&otilde;es:-l : s&oacute; &eacute; informada a quantidade de linhas.</P>
+<P>&#9;&#9;-w : s&oacute; &eacute; informada a quantidade de palavras.</P>
+<P>&#9;&#9;-c : s&oacute; &eacute; informada a quantidade de caracteres.</P>
+<P>&#9;Tem um exemplo pratico do wc numa das minhas backdoors mas coloco </P>
+<P>outro abaixo:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # wc -l /etc/passwd</P>
+<P>&#9;&#9;     # wc -cl ~/.profile</P>
+<P>&#9;&#9;     # wc -w /etc/passwd</P>
+<P>&nbsp;</P>
+<P>- whereis -b  - procurar arquivos. Ex.: whereis -b nome.do.arquivo.</P>
+<P>Obs.: o par&acirc;metro "-i" usado com os comandos "rm", "cp" e "mv" solicitar&aacute; </P>
+<P>confirma&ccedil;&atilde;o da </P>
+<P>execu&ccedil;&atilde;o. O Red Hat Marumbi (creio que o Guarani tamb&eacute;m) j&aacute; vem com esse </P>
+<P>par&acirc;metro </P>
+<P>adicionado (por default) a esses comandos atrav&eacute;s de aliases no bashrc.</P>
+<P>&nbsp;</P>
+<P>- who - Comando who &eacute; usado para determinar a quantidade e identidade dos </P>
+<P>usu&aacute;rios que est&atilde;o utilizando o sistema no momento. Alem do nome dos </P>
+<P>usu&aacute;rios, o comando  who pode tamb&eacute;m informar a hora de abertura da sess&atilde;o </P>
+<P>e outras infos obtidas no /etc/utmp.</P>
+<P>&#9;</P>
+<P>Algumas das suas varias op&ccedil;&otilde;es s&atilde;o listadas abaixo:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     -a : essa op&ccedil;&atilde;o produz um relato de todas as op&ccedil;&otilde;es </P>
+<P>especificadas.</P>
+<P>&#9;&#9;-H : coloca cabe&ccedil;alho nas colunas de sa&iacute;da do who.</P><DIR>
+<DIR>
+
+<P>-s : informa apenas os campos ID do usu&aacute;rio, ID do terminal usado e hora </P></DIR>
+</DIR>
+
+<P>de abertura da sess&atilde;o.</P>
+<P>&#9;   &#9;-q : informa quantos usu&aacute;rios est&atilde;o com sess&atilde;o aberta.  </P>
+<P>    &#9;-l : lista as linhas que est&atilde;o dispon&iacute;veis para abertura </P>
+<P>de sess&atilde;o.</P>
+<P>&#9;&#9;     Exemplos...? bug-off!</P>
+<P>&nbsp;</P>
+<P>Comunica&ccedil;&otilde;es b&aacute;sicas em Rede</P>
+<P>&nbsp;</P>
+<P>- uucp - Esse comando fornece acesso mais f&aacute;cil ao subsistema do uucp para a </P><DIR>
+<DIR>
+
+<P>maior parte das transferencias de dados e fornece mais controle do que os outros utilit&aacute;rios de transferencia de dados do uucp. O formato geral do </P></DIR>
+</DIR>
+
+<P>comando uucp &eacute;:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # uucp arq.origem arq.destino</P>
+<P>&nbsp;</P>
+<P>O fonte deve estar no sistema local ou remoto, o mesmo valendo para o </P>
+<P>arq.destino arq.origem podem ser substitu&iacute;dos por qualquer nome do de </P>
+<P>arquivo unix valido, incluindo identificadores de sistema remoto que </P>
+<P>precedam o nome do percurso como o caractere de exclama&ccedil;&atilde;o (!). </P>
+<P>Exemplo de transmiss&atilde;o uucp numa rede:</P>
+<P>&nbsp;</P>
+<P>&#9;&#9;     # uucp -msaxur05 -ntsm -j -c ~/.profile hack|~pro-</P>
+<P>&#9;&#9;     file senha007</P>
+<P>Lista de comandos compilada com a colabora&ccedil;&atilde;o de AciDmuD - (c)1996 - Global Domination Inc. </P>
+<B><FONT SIZE=4><P>&nbsp;</P>
+<P>&nbsp;</P>
+<P>ALGUMAS OBSERVA&Ccedil;&Otilde;ES IMPORTANTES SOBRE ARQUIVOS NO LINUX:</P>
+</B></FONT><P>&nbsp;</P>
+<P>- No Linux o * e ? tamb&eacute;m podem ser usados e de maneira semelhante, com algumas diferen&ccedil;as tamb&eacute;m. No Linux *.* procura apenas pelos arquivos que contem um ponto, j&aacute; no DOS procura todos os arquivos. Ex.: cp s* /teste (copia todos os arquivos come&ccedil;ados com s para o diret&oacute;rio /teste.</P>
+<P>- Mai&uacute;sculas/min&uacute;sculas . LS n&atilde;o existe e ls &eacute; um comando.</P>
+<P>- Arquivos de backup no Linux terminam com "~" semelhante aos .bak do DOS.</P>
+<P>- Arquivos execut&aacute;veis s&atilde;o os que quando usamos ls -F aparece um asterisco ao lado direito. Exs.: </P>
+<P>ls*, mkdir*, teste.txt.</P>
+<P>- N&atilde;o existe o comando undelete, por isso deve-se apagar um arquivo quando  tiver certeza do que est&aacute; fazendo. Talvez por isso o comando rm tem um   alias com o par&acirc;metro -i (pedir confirma&ccedil;&atilde;o). Isso no Linux Conectiva.</P>
+<P>- Enquanto no DOS os diret&oacute;rios s&atilde;o c:\teste\arquivo.rmx no Linux ficaria assim  teste/arquivo.rmx</P>
+<P>- O caractere "~" antes de um diret&oacute;rio indica um atalho para o diret&oacute;rio home do usu&aacute;rio. Os comandos cd e Enter ou cd ~ e Enter leva ao diret&oacute;rio home. </P>
+<P>Quando logado como root, o comando cd ~/teste conduz ao diret&oacute;rio  /root/teste de qualquer diret&oacute;rio que esteja.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P><A NAME="_Toc445960948">Links Simb&oacute;licos (Symbolic Links)</A></P>
+</B></FONT><P>&nbsp;</P>
+<P>UNIX t&ecirc;m um tipo de arquivo que n&atilde;o existe no DOS: o link simb&oacute;lico. Este pode ser imaginado como um ponteiro para um arquivo ou para um diret&oacute;rio, e pode ser usado no lugar do arquivo ou diret&oacute;rio para onde ele aponta; Ele &eacute; similar aos <B>shortcuts</B> (<I>atalhos</I>) do Windows 95/98. Exemplos de links simb&oacute;licos s&atilde;o <FONT FACE="Arial">/usr/X11</FONT>, que aponta para <FONT FACE="Arial">/usr/X11R6; /dev/modem</FONT>, que aponta tanto para <FONT FACE="Arial">/dev/ttyS0 </FONT>ou <FONT FACE="Arial">/dev/ttyS1</FONT>.</P>
+<P>Para fazer um link simb&oacute;lico:</P>
+<P>&nbsp;</P>
+<P>$ ln -s &lt;arquivo_ou_diretorio&gt; &lt;nome_do_link&gt;</P>
+<P>Exemplo:</P>
+<P>$ ln -s /usr/doc/g77/DOC g77manual.txt</P>
+<P>&nbsp;</P>
+<P>Agora, voc&ecirc; pode se referir a g77manual.txt ao inv&eacute;s de /usr/doc/g77/DOC. </P>
+<P>Os links aparecem desta forma ao listar diret&oacute;rios:</P>
+<P>&nbsp;</P>
+<P>$ ls -F</P>
+<P>g77manual.txt@</P>
+<P>$ ls -l</P>
+<P>(v&aacute;rias coisas...)&#9;&#9;g77manual.txt -&gt; /usr/doc/g77/DOC</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<P><A NAME="_Toc445960951">Rodando programas: Multitarefa e Sess&otilde;es</A></P>
+<P>&nbsp;</P>
+<P>Para rodar um programa, digite seu nome como voc&ecirc; faria sob o DOS. Se o diret&oacute;rio onde o programa esta armazenado se localiza no PATH, o programa ira ser executado. </P>
+<P>&nbsp;</P>
+<P>Exce&ccedil;&atilde;o: diferentemente do DOS, sob o Linux um programa localizado no diret&oacute;rio corrente n&atilde;o ira rodar a menos que o diret&oacute;rio esteja inclu&iacute;do no PATH. Dica: sendo prog seu programa, digite ./prog.</P>
+<P>&nbsp;</P>
+<P>Isto &eacute; tudo que &eacute; necess&aacute;rio para rodar programas, existe um passo simples a diante que podemos dar. Um dos principais motivos de usar Linux &eacute; que ele &eacute; multitarefa --- ele pode rodar diversos programas (de agora em diante processos) ao mesmo tempo. Voc&ecirc; pode carregar processos em segundo plano (background) e continuar a trabalhar normalmente. E mais ainda, Linux lhe permite ter diversas sess&otilde;es: &eacute; como ter diversos computadores para trabalhar ao mesmo tempo!</P>
+<P>&nbsp;</P>
+<P>Para alternar entre as sess&otilde;es 1...6 no console virtual, pressione &lt;ALT-F1&gt; ... &lt;ALT-F6&gt; para carregar um processo em background, adicione o &amp; (&quot;E&quot; comercial) no fim da linha de comando:</P>
+<P>&nbsp;</P>
+<P>$ progname [-switches] [par&acirc;metros] [&lt; input] [&gt; output] &amp;</P>
+<P>[1] 123</P>
+<P>O shell identifica o processo com o n&uacute;mero de trabalho (job) [1], e o PID (Process Identification Number; 123 no nosso exemplo).</P>
+<P>&nbsp;</P>
+<P>Para ver quantos processos est&atilde;o rodando, digite "ps -ax". Isto ir&aacute; exibir uma lista dos processos que rodando.</P>
+<P>Para interromper um processo, digite kill &lt;PID&gt;. Voc&ecirc; pode precisar matar um processo quando voc&ecirc; n&atilde;o sabe sair corretamente dele. A menos que voc&ecirc; seja o root, voc&ecirc; n&atilde;o pode matar os processos de outras pessoas. Algumas vezes um processo s&oacute; ir&aacute; ser interrompido por kill -SIGKILL &lt;PID&gt;.</P>
+<P>&nbsp;</P>
+<P>Em adi&ccedil;&atilde;o, o shell permite que voc&ecirc; interrompa ou suspenda temporariamente um processo, mande um processo para o segundo plano, e traga o processo para o primeiro plano. Neste contexto, processos s&atilde;o chamados de "jobs".</P>
+<P>Para ver quantos jobs existem, digite "jobs". Aqui os jobs s&atilde;o identificados pelos seus n&uacute;meros de job, n&atilde;o pelo seu PID.</P>
+<P>&lt;CTRL-C&gt;  Para um processo rodando em primeiro plano, mas aten&ccedil;&atilde;o, isto n&atilde;o funciona com todos os programas</P>
+<P>&lt;CTRL-Z&gt; Suspende um processo rodando em primeiro plano</P>
+<P>bg &lt;job&gt; Manda um processo suspenso para o segundo-plano</P>
+<P>fg &lt;job&gt; Traz um job para o primeiro plano</P>
+<P>kill &lt;%job&gt; Mata um job, onde job pode ser 1, 2, 3,...</P>
+<P>&nbsp;</P>
+<P>Usando estes comandos, voc&ecirc; pode formatar disquetes, compactar diversos arquivos, compilar um programa e descompactar um arquivo tudo ao mesmo tempo, e ainda ter um prompt a sua disposi&ccedil;&atilde;o. Tente isto no DOS! Ou ent&atilde;o no Windows, aqui veja a diferen&ccedil;a de performance (se ele n&atilde;o travar, &eacute; claro...).</P>
+<P>&nbsp;</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P><A NAME="_Toc445960952"></P>
+<P>USANDO DIRET&Oacute;RIOS</A></P>
+</B></FONT><P><A NAME="_Toc445960953">Diret&oacute;rios: no&ccedil;&otilde;es preliminares</A></P>
+<P>&nbsp;</P>
+<P>N&oacute;s vimos as diferen&ccedil;as entre arquivos no DOS e no Linux. Agora veremos as diferen&ccedil;as no caso de diret&oacute;rios. Diret&oacute;rios no DOS s&atilde;o indicados por uma barra invertida &quot;\&quot;, no Linux a barra &eacute; normal: &quot;/&quot;.Exemplos de caminhos de arquivos:</P>
+<B><P>DOS</B>:&#9;C:\PAPERS\GEOLOGY\MID_EOC.TEX</P>
+<B><P>Linux</B>:&#9;/home/guido/papers/geology/middle_eocene.tex</P>
+<P>Como &eacute; usual, o indicativo &quot;..&quot; &eacute; o diret&oacute;rio m&atilde;e ou raiz do usu&aacute;rio e o indicativo &quot;.&quot; &eacute; o diret&oacute;rio corrente. </P>
+<P>No Linux, cada usu&aacute;rio come&ccedil;a do seu pr&oacute;prio diret&oacute;rio, chamado 'home', dado pelo administrador do sistema.</P>
+<P>&nbsp;</P>
+<P>Tabela de Tipos de Arquivos:<B> </P></B>
+<P ALIGN="CENTER"><CENTER><TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5 WIDTH=507>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>Compactador</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Descompactador</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P>Extens&atilde;o</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>Zip</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Unzip</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P>.zip</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>Pack</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Unpack</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P>.z</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>Compress</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Uncompress</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P>.Z</TD>
+</TR>
+<TR><TD WIDTH="33%" VALIGN="TOP">
+<P>Gzip</TD>
+<TD WIDTH="42%" VALIGN="TOP">
+<P>Gunzip ou Gzip –d</TD>
+<TD WIDTH="26%" VALIGN="TOP">
+<P>.gz</TD>
+</TR>
+</TABLE>
+</CENTER></P>
+
+<P>&nbsp;</P>
+<P ALIGN="RIGHT"><TABLE CELLSPACING=0 BORDER=0 CELLPADDING=5 WIDTH=671>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>Awk</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>Formatar sa&iacute;das para aparecer determinadas colunas</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>Cb</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>Embelezador de programas para C.</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>Split:</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>Ex.: split -b 1440k arquivo.exe arquivo&#9;(Linux)</P>
+<P>Ex.: copy /b arquivo.* arquivo.exe</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>Cal</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>Mostra um calend&aacute;rio</TD>
+</TR>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P>Sed</TD>
+<TD WIDTH="81%" VALIGN="TOP">
+<P>Substitui cadeias em arquivos</P>
+<P>E.: sed s/4/9/g  arqfonte  arqdestino</TD>
+</TR>
+</TABLE>
+</P>
+
+<P>Quando digitamos ^Z mandamos um sinal SIGSTOP. bg ir&aacute; reiniciar o processo em background.</P>
+<P>A lista com os processos ativos &eacute; o comando jobs -l. fg coloca-o em foreground</P>
+<P>kill -l = mostra os sinais.</P>
+<P>Uso da &aacute;rea de swap (mem&oacute;ria secund&aacute;ria)</P>
+<P><A NAME="_Toc445960961">Exemplo de processo em background</A></P>
+<P>Remetente de uma mensagem. As mensagens s&atilde;o transferidas no formato texto.</P>
+<P>&nbsp;</P>
+<P>Processos = s&atilde;o gerenciados pelo n&uacute;cleo do sistema UNIX.</P>
+<P>Dutos ou pipes = &eacute; um meio de conex&atilde;o entre a sa&iacute;da de uma aplica&ccedil;&atilde;o e a entrada de outra.</P>
+<P>Execut&aacute;veis = s&atilde;o os shell scripts e arquivos compilados.</P>
+<P>Multitarefa = n&atilde;o h&aacute; programas residentes, mas h&aacute; processos sendo executados</P>
+<P>Arquivos = Cada arquivo est&aacute; ligado a um inodo. Temos que usar shutdown para evitar discrep&acirc;ncias na contagem de blocos livres e aloca&ccedil;&atilde;o de inodos que afetar&atilde;o arquivos e diret&oacute;rios modificados durante a &uacute;ltima sess&atilde;o operacional do UNIX. O superbloco seria, a gross&iacute;ssimo modo, uma FAT, e &eacute; gravado periodicamente pelo n&uacute;cleo.</P>
+<P>Multiusu&aacute;rios = programas devem considerar o compartilhamento de arquivos</P>
+<P>Disquetes = 1. Deve ter sido formatado; 2. O sistema de arquivo ser v&aacute;lido; 3. Deve ser montado.</P>
+<P>Shell Scripts = s&atilde;o os equivalentes aos arquivos .bat do DOS, mas identificados aqui com a extens&atilde;o .sh.</P>
+<P>&nbsp;</P>
+<B><FONT SIZE=4><P><A NAME="_Toc445960962">SIGLAS</A></P>
+</B></FONT><P>&nbsp;</P>
+<P>FTP - File Transfer Protocol</P>
+<P>HTML - Hipertext Markup Language</P>
+<P>HTTP - Hipertext Transfer Protocol</P>
+<P>ICMP - Internet Control Message Protocol. Controle entre gateways e hosts.</P>
+<P>IRC - Internet Relay Chat</P>
+<P>TCP-IP - Transmission Control Protocol / Internet Protocol.</P>
+<P>ARP, Rarp, ICMP, IGMP, UDP, SMTP, RPC, FTP, Telnet, DNS, SNMP, TFTP.</P>
+<P>TCP - Servi&ccedil;o de transporte orientado &agrave; conex&atilde;o</P>
+<P>IP- Servi&ccedil;o de rede n&atilde;o orientado &agrave; conex&atilde;o (protocolo do tipo datagrama)</P>
+<P>NFS – Network File System – Esquema de compartilhameto de diret&oacute;rios em rede.</P>
+<P>Slip / PPP - Protocolos utilizados na conex&atilde;o entre dois computadores via modem e linha telef&ocirc;nica.</P>
+<P>SLIP - Serial Line IP. Comunica&ccedil;&atilde;o ponto a ponto ass&iacute;ncrono.</P>
+<P>SMPT – Simple Mail Transfer Protocol.</P>
+<P>UDP - User Datagram Protocol. Funcionalidades mais simplificadas que o TCP. ex.: DNS</P>
+<P>URL - Uniform Resource Locators</P>
+<FONT SIZE=4><P>WWW - World Wide Web</P>
+</FONT><P>&nbsp;</P></BODY>
+</HTML>
+</div><script>
+<!-- 
+d=document;
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+if (width>=806 && height>=445 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(//www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:35px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+x = d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1010px;top:31px;z-index:11;padding-bottom:3px"><div id="ft72">');
+d.write('<script language="JavaScript" type="text/javascript src="//static.criteo.net/js/ld/publishertag.js">');
+d.write('<\/scr'+'ipt>');
+d.write('<script type="text/javascript">');
+d.write('Criteo.DisplayAd({ "zoneid": 35999, "async": false});');
+d.write('<\/scr'+'ipt><\/div><div id="ft73">');
+d.write('<script language="JavaScript" type="text/javascript src="//static.criteo.net/js/ld/publishertag.js">');
+d.write('<\/scr'+'ipt>');
+d.write('<script type="text/javascript">');
+d.write('Criteo.DisplayAd({ "zoneid": 35999, "async": false});');
+d.write('<\/scr'+'ipt><\/div><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+if ( width-x>=440 || width>=1425){
+d.write('<div id="footer" style="position:fixed;left:1300px;top:31px;z-index:10;padding-bottom:3px"><div id="ft74">');
+d.write('<script language="JavaScript" type="text/javascript src="//static.criteo.net/js/ld/publishertag.js">');
+d.write('<\/scr'+'ipt>');
+d.write('<script type="text/javascript">');
+d.write('Criteo.DisplayAd({ "zoneid": 35999, "async": false});');
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+d.write('<script language="JavaScript" type="text/javascript src="//static.criteo.net/js/ld/publishertag.js">');
+d.write('<\/scr'+'ipt>');
+d.write('<script type="text/javascript">');
+d.write('Criteo.DisplayAd({ "zoneid": 35999, "async": false});');
+d.write('<\/scr'+'ipt><\/div><\/div>');
+}
+}
+-->
+</script>
+<script>
+
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-45243945-1', 'oocities.org');
+  ga('send', 'pageview');
+</script>
+
+
+

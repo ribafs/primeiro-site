@@ -1,0 +1,657 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [pt] (Win95; I) [Netscape]">
+   <TITLE>Documante&ccedil;&atilde;o de de dselect para iniciantes [Debian 1.3.1]</TITLE>
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--             AnO 2001 Linux Page - www.ano2001.ml.org                  -->
+<!--                                                                       -->
+<!--  Esta página foi desenvolvida para ajudar os usuários do sistema      -->
+<!--  operacional Linux e para difundir o sistema. A AnO 2001 está no ar   -->
+<!--  desde 20 de setembro de 1997.                                        -->
+<!--                                                                       -->
+<!--  Webmaster: Adriano Caetano - RosS                                    -->
+<!--  E-mail: ano2001@sti.com.br                                           -->
+<!--                                                                       -->
+<!--  Caso você esteja pensando em colocar algo deste documento em sua     -->
+<!--  página ou manual, por favor, coloque as devidas referências.         -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+</HEAD>
+<BODY TEXT="#CACBDD" BGCOLOR="#000000" LINK="#6FA0E2" VLINK="#415F8F" ALINK="#FF0000">
+
+&nbsp;
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" BACKGROUND="liner.GIF" >
+<TR>
+<TD COLSPAN="2">
+<CENTER><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT COLOR="#FFFFFF"><FONT SIZE=+1>Documante&ccedil;&atilde;o
+de DSELECT para iniciantes [Debian 1.3.1]</FONT></FONT></FONT></B></CENTER>
+</TD>
+</TR>
+</TABLE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Este
+arquivo documenta Dselect para usu&aacute;rios de primeira viagem e &eacute;
+destinado a ajudar na instala&ccedil;&atilde;o com sucesso de Debian. N&atilde;o
+tem a inten&ccedil;&atilde;o de explicar tudo, deste modo, quando voc&ecirc;
+encontrar dselect pela primeira vez, trabalhe pelas telas de ajuda.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Dselect
+&eacute; usado para somente selecionar quais <A HREF="dicsdebi.html#Pacote">pacotes</A>
+(de~1100) voc&ecirc; deseja instalar. Ele rodar&aacute; para voc&ecirc;
+durante a instala&ccedil;&atilde;o e &eacute; algo um tanto complexo e
+muito poderoso, algum conhecimento anterior dele n&atilde;o se perder&aacute;.
+Ele o guiar&aacute; pelo processo de instala&ccedil;&atilde;o de pacotes
+como segue:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Escolha o m&eacute;todo de acesso para usar.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Atualiza lista de pacotes dispon&iacute;veis, se poss&iacute;vel.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Requisita quais pacotes voc&ecirc; quer em seu sistema.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Instala e atualiza pacotes desejados.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Configura quaisquer pacotes que n&atilde;o estejam configurados.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Remove software indesej&aacute;vel.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Conforme
+cada passo seja completado com sucesso ele o conduzir&aacute; ao pr&oacute;ximo.
+Prossiga na ordem sem pular qualquer passo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Aqui
+e ali neste documento n&oacute;s falamos de iniciar outro shell. Linux
+possui 6 sess&otilde;es de console ou shells dispon&iacute;veis a qualquer
+hora. Voc&ecirc; alterna entre eles teclando &lt;ALT-ESQUERDO> &lt;F1>&nbsp;
+... &lt;F6>, depois do que voc&ecirc; faz o login em seu novo shell e continua.
+O shell usado pelo processo de instala&ccedil;&atilde;o &eacute; o #1 ent&atilde;o
+aperte &lt;ALT-ESQUERDO> &lt;F1> quando voc&ecirc; quiser retornar &agrave;quele
+processo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Uma
+vez em dselect voc&ecirc; ter&aacute; esta tela:-</FONT></FONT>
+<H4>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Debian
+Linux `dselect' package handling front end.</FONT></FONT></H4>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>0.&nbsp; [A]ccess&nbsp; Choose the access method to use.&nbsp;
+1.&nbsp; [U]pdate&nbsp; Update list of available packages, if possible.&nbsp;
+2&nbsp;&nbsp; [S]elect&nbsp; Request which packages you want on your system.
+3.&nbsp; [I]nstall Install and upgrade wanted packages.&nbsp;
+4.&nbsp; [C]onfig&nbsp; Configure any packages that are unconfigured.&nbsp;
+5.&nbsp; [R]emove&nbsp; Remove unwanted software.
+6.&nbsp; [Q]uit&nbsp;&nbsp;&nbsp; Quit dselect.</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;Vamos olh&aacute;-los um por um.</FONT></FONT></PRE>
+
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>0 Access:</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Eis
+a tela de acesso:</FONT></FONT>
+<H4>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect
+- list of access methods</FONT></FONT></H4>
+
+<UL>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Abbrev.&nbsp;&nbsp; Description
+</B>cdrom&nbsp;&nbsp;&nbsp;&nbsp; Install from a CD-ROM.&nbsp;
+nfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Install from an NFS server (not yet mounted).
+harddisk&nbsp; Install from a hard disk partition (not yet mounted).&nbsp;
+mounted&nbsp;&nbsp; Install from a filesystem which is already mounted.&nbsp;
+floppy&nbsp;&nbsp;&nbsp; Install from a pile of floppy disks.&nbsp;
+ftp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Install using ftp.</FONT></FONT></PRE>
+</UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Aqui
+n&oacute;s dizemos a dselect onde nossos pacotes est&atilde;o. Note que
+os primeiros tr&ecirc;s itens s&atilde;o somente uma comodidade e seriam
+como se voc&ecirc; montasse seu cdrom, nfs ou outra parti&ccedil;&atilde;o
+voc&ecirc; mesmo e ent&atilde;o usasse a op&ccedil;&atilde;o _mounted_&nbsp;
+(montado). Esta segue que seu cdrom j&aacute; _est&aacute;_&nbsp; montado,
+dessa forma voc&ecirc;&nbsp; usa o item _mounted_ , preferivelmente ao
+item cdrom. A mesma coisa acontece para nfs e para parti&ccedil;&otilde;es
+em seu disco rigido.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+voc&ecirc; concorre para um problema aqui - talvez Linux n&atilde;o pode
+ver seu cdrom, seu nfs n&atilde;o est&aacute; trabalhando ou voc&ecirc;
+esqueceu qual parti&ccedil;&atilde;o est&atilde;o os pacotes - voc&ecirc;
+tem um par de op&ccedil;&otilde;es:-</FONT></FONT>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Inicie
+outro shell. Corrija o problema e ent&atilde;o retorne para o shell principal.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Saia
+de dselect e execute-o novamente mais tarde. Voc&ecirc; pode ainda precisar
+desligar (shut down) o computador para&nbsp; resolver algum problema. Isto
+&eacute; verdadeiramente correto mas quando retornar para dselect rode-o
+como root. Ele n&atilde;o executar&aacute; automaticamente depois da primeira
+vez.</FONT></FONT></LI>
+
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+de escolher o m&eacute;todo de acesso, dselect <FONT COLOR="#000000">pedir&aacute;
+para voc&ecirc; indicar a localiza&ccedil;&atilde;o precisa dos pacotes</FONT>.
+Se voc&ecirc; n&atilde;o conseguir isto direito na primeira vez aperte
+^C e retorne ao item Access.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+de passar por aqui voc&ecirc; retornar&aacute; para a tela principal.</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>1 Update</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Dselect
+ler&aacute; os arquivos <B>Packages</B> ou <B>Packages.gz</B> do mirror
+e criar&aacute; um banco de dados em seu sistema&nbsp; de todos os pacotes
+dispon&iacute;veis.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<BR>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>2 Select</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Pendure
+seu chap&eacute;u. Aqui &eacute; onde tudo acontece. O objetivo do exerc&iacute;cio
+&eacute; selecionar apenas quais pacotes voc&ecirc; deseja ter</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>instalado.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Aperte
+&lt;Enter>. Se voc&ecirc; possui uma m&aacute;quina lenta esteja ciente
+que a tela limpar&aacute; e poder&aacute; permanecer vazia por 15 segundos
+assim n&atilde;o inicie uma surra de teclas neste momento.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+primeira coisa que surge na tela &eacute; a&nbsp; p&aacute;gina 1 do arquivo
+Help. Voc&ecirc; pode chegar a esta ajuda apertando <B>?</B> em qualquer
+ponto nas telas de Select e pode paginar pelas telas apertando a tecla
+<B>.</B> (full stop)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Antes
+de voc&ecirc; se aprofundar observe estes pontos:</FONT></FONT>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+<B>sair</B> da tela de Select depois que todas as sele&ccedil;&otilde;es
+estiverem completas, aperte &lt;Enter>. Isto far&aacute; voc&ecirc; retornar
+para&nbsp; a tela principal <B>se</B> n&atilde;o houver problema com sua
+sele&ccedil;&atilde;o. Al&eacute;m disso ser&aacute; exigido que voc&ecirc;
+lide com aquele problema. Quando estiver satisfeito com toda tela oferecida
+aperte &lt;Enter> para sair.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>_Problemas_</B>
+s&atilde;o bem normais e s&atilde;o esperados. Se voc&ecirc; selecionar
+o pacote A e aquele pacote requerer o pacote B para funcionar, ent&atilde;o
+dselect o advertir&aacute;&nbsp; do problema e na maioria das vezes sugerir&aacute;
+uma solu&ccedil;&atilde;o. Se o pacote A conflita com o pacote B (eles
+s&atilde;o mutuamente exclusivos) ser&aacute; solicitado para voc&ecirc;
+decidir entre eles.</FONT></FONT></LI>
+
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vamos
+olhar para as duas linhas superiores da tela de Select.</FONT></FONT>
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect - main package listing (avail.,priority)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mark:+/=/- verbose:v help:?&nbsp;
+EIOM Pri Section Package Description</FONT></FONT></B></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Isto
+fala-nos de algumas teclas especiais:-</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Seleciona um pacote para instala&ccedil;&atilde;o.
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Coloca um pacote em seguran&ccedil;a - &uacute;til em um pacote "quebrado". Voc&ecirc; pode reinstalar uma
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; vers&atilde;o mais antiga e coloc&aacute;-la em seguran&ccedil;a enquanto aguarda uma nova aparecer.
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove um pacote
+_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove um pacote e seus arquivos de configura&ccedil;&atilde;o.
+i,I&nbsp;&nbsp;&nbsp; <FONT COLOR="#000000">Altera o modo de </FONT>exibi&ccedil;&atilde;o de informa&ccedil;&atilde;o.
+o,O&nbsp;&nbsp;&nbsp; Troca a ordem de ordena&ccedil;&atilde;o.
+v, V&nbsp;&nbsp; Alterna entre apresenta&ccedil;&atilde;o <FONT COLOR="#000000">sucinta/detalhista</FONT>. Use esta tecla para explicar <FONT COLOR="#000000">os signifi-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cados de</FONT><FONT COLOR="#FF0000"> </FONT><FONT COLOR="#000000">EIOM </FONT>na linha dois, mas eu lhe darei um resumo aqui de qualquer jeito. (Note
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; que teclas mai&uacute;sculas e min&uacute;sculas s&atilde;o bem diferentes no efeito.)</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Flag&nbsp;&nbsp; Significado&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Valores poss&iacute;veis
+</B>E&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Erro&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Espa&ccedil;o, R, I
+I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Estado da instala&ccedil;&atilde;o&nbsp;&nbsp; Espa&ccedil;o, *, -, U, C, I
+O&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marca antiga&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *, -, =, _, n
+M&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marca&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *, -, =, _, n</FONT></FONT></PRE>
+
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+trecho abaixo foi colocado por mim.</FONT></FONT>
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Valores poss&iacute;veis em cada Flag:</FONT></FONT></B></PRE>
+
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>E - Erro</FONT></FONT></B></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Espa&ccedil;o = sem erro (mas o pacote pode estar em modo "quebrado" - veja abaixo)
+R&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = erro grave durante a instala&ccedil;&atilde;o, precisa reinstalar</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>I - Estado da instala&ccedil;&atilde;o
+
+</B>Espa&ccedil;o = n&atilde;o instalado
+*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = instalado
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = n&atilde;o instalado mas os arquivos de configura&ccedil;&atilde;o permanecem
+
+Pacotes nos estados abaixo est&atilde;o "quebrados":</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>U&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = desempacotado mas ainda n&atilde;o configurado
+C&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = configurado pela metade (um erro aconteceu)
+I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = instalado pela metade (um erro aconteceu)
+
+<B>O - Marca antiga
+
+</B>O que foi pedido para o pacote antes da apresenta&ccedil;&atilde;o da lista de pacotes.
+Veja abaixo os significados dos valores para este flag que s&atilde;o os mesmos do
+flag M - Marca.&nbsp;
+
+<B>M - Marca
+
+</B>O que &eacute; pedido para o pacote.</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = marcado para instala&ccedil;&atilde;o ou upgrade
+-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = marcado para remo&ccedil;&atilde;o mas os arquivos de configura&ccedil;&atilde;o permanecer&atilde;o
+=&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = em seguran&ccedil;a. Pacote n&atilde;o ser&aacute; processado no todo
+_ (underline)= marcado completamente para expurgo. Remove ainda arquivos de configura&ccedil;&atilde;o
+n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = pacote &eacute; novo e precisa ainda ser marcado para instala&ccedil;&atilde;o/remo&ccedil;&atilde;o</FONT></FONT></PRE>
+
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Melhor
+que soletrar tudo isto, eu o encaminho para as telas de Ajuda onde tudo
+&eacute; revelado. Um exemplo no entanto. Voc&ecirc; entra em dselect e
+encontra uma&nbsp; linha como esta:-</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>EIOM Pri&nbsp; Section&nbsp; Package&nbsp;&nbsp; Description&nbsp;
+</B>&nbsp; ** Opt&nbsp; misc&nbsp;&nbsp;&nbsp;&nbsp; loadlin&nbsp;&nbsp; a loader (running under DOS) for LINUX kernel</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Isto
+est&aacute; dizendo que loadlin foi selecionado quando voc&ecirc; rodou
+dselect por &uacute;ltimo e que est&aacute; ainda selecionado, por&eacute;m
+n&atilde;o est&aacute; instalado. Por qu&ecirc; n&atilde;o? A resposta
+deve ser que o pacote loadlin n&atilde;o est&aacute; fisicamente dispon&iacute;vel.
+Est&aacute; faltando de seu mirror.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+informa&ccedil;&atilde;o que dselect usa para conseguir todos os pacotes
+instalados corretamente est&aacute; inserida nos pr&oacute;prios pacotes.
+Nada neste mundo &eacute; perfeito e algumas vezes acontece que as depend&ecirc;ncias
+constru&iacute;das no pacote est&atilde;o incorretas, com o resultado que
+dselect simplesmente n&atilde;o pode resolver a situa&ccedil;&atilde;o.
+Uma sa&iacute;da est&aacute; providenciada, onde o usu&aacute;rio pode
+recuperar o controle, e toma a forma dos comandos Q e X que est&atilde;o
+dispon&iacute;veis na tela de Select.</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Q</B>&nbsp;&nbsp; For&ccedil;a dselect ignorar a constru&ccedil;&atilde;o nas depend&ecirc;ncias e fazer o que voc&ecirc; especificou.
+&nbsp;&nbsp;&nbsp; Os resultados, naturalmente, ser&atilde;o por sua pr&oacute;pria conta.
+<B>X</B>&nbsp;&nbsp; Use <B>X</B> se voc&ecirc; ficar totalmente perdido. Coloca as coisas de volta ao que estavam e sai.</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>As
+teclas que o ajudam a _n&atilde;o_ ficar perdido (!) s&atilde;o <B>R</B>,
+<B>U</B> e <B>D</B>.</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>R&nbsp;&nbsp;</B> Cancela todas as sele&ccedil;&otilde;es neste n&iacute;vel. N&atilde;o afeta sele&ccedil;&otilde;es feitas em um n&iacute;vel anterior.
+<B>U&nbsp;&nbsp;</B> Se dselect prop&ocirc;s mudan&ccedil;as e voc&ecirc; tamb&eacute;m fez mudan&ccedil;as U restaurar&aacute; as sele&ccedil;&otilde;es de dselect.
+<B>D&nbsp;&nbsp;</B> Remove as sele&ccedil;&otilde;es feitas por dselect, deixando somente as suas.</FONT></FONT></PRE>
+<B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Um
+exemplo:</FONT></FONT></B>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+pacote boot-floppies depende destes pacotes:-</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>libc5-pic</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>ncurses3.0-pic</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>mkrboot</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>ncurses3.0-dev</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+pessoa que mant&eacute;m boot-floppies tamb&eacute;m pensa que os seguintes
+pacotes devem estar instalados. Estes n&atilde;o s&atilde;o, entretanto,
+essenciais:-</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>loadlin
+fdos
+dosemu</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Dessa forma quando eu selecione boot-flopies eu consigo esta tela:</FONT></FONT></PRE>
+
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect - recursive package listing mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +/=/- verbose:v help:?
+EIOM Pri Section Package Description
+
+</FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp; _* Opt devel boot-floppie Scripts to create the Debian installationfloppy
+&nbsp; _* Xtt devel libc5-pic Kit for building specialized versions of the sha
+&nbsp; _* Xtr devel ncurses3.0-p Video termial manipulation: Shared-library subs
+&nbsp; _* Opt devel mkrboot Make a kernel + rootimage bootable from one disk
+&nbsp; _* Opt devel ncurses3.0-d Video terminal manipulation: Developer's librari
+&nbsp; _* Opt misc loadlin a loader (running under DOS) for LINUX kernel i
+&nbsp; _* Opt misc fdos Free DOS (Kernel + boot utilities + Documentatio&nbsp;
+&nbsp; __ Opt misc dosemu The Linux DOS Emulator</FONT></FONT></PRE>
+
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Veja como todos os pacotes requeridos foram selecionados para mim.</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A tecla
+<B>R</B> devolve as coisas ao ponto de partida.</FONT></FONT>
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect - recursive package listing mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +/=/- verbose:v help:?
+EIOM Pri Section Package Description
+</FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp; __ Opt devel boot-floppie Scripts to create the Debian installationfloppy
+&nbsp; __ Xtt devel libc5-pic Kit for building specialized versions of the sha
+&nbsp; __ Xtr devel ncurses3.0-p Video termial manipulation: Shared-library subs
+&nbsp; __ Opt devel mkrboot Make a kernel + rootimage bootable from one disk
+&nbsp; __ Opt devel ncurses3.0-d Video terminal manipulation: Developer's librari
+&nbsp; __ Opt misc loadlin a loader (running under DOS) for LINUX kernel i
+&nbsp; __ Opt misc fdos Free DOS (Kernel + boot utilities + Documentatio
+&nbsp; __ Opt misc dosemu The Linux DOS Emulator</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>(Se
+eu decidir agora que eu n&atilde;o quero boot-floppies eu somente aperto
+&lt;Enter>.)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+tecla <B>D</B> coloca as coisas no modo que eu selecionei em primeiro lugar.</FONT></FONT>
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect - recursive package listing mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +/=/- verbose:v help:?
+EIOM Pri Section Package Description
+</FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp; _* Opt devel boot-floppie Scripts to create the Debian installation floppy
+&nbsp; __ Xtt devel libc5-pic Kit for building specialized versions of the sha
+&nbsp; __ Xtr devel ncurses3.0-p Video termial manipulation: Shared-library subs
+&nbsp; __ Opt devel mkrboot Make a kernel + rootimage bootable from one disk
+&nbsp; __ Opt devel ncurses3.0-d Video terminal manipulation: Developer's librari
+&nbsp; __ Opt misc loadlin a loader (running under DOS) for LINUX kernel&nbsp;
+&nbsp; __ Opt misc fdos Free DOS (Kernel + boot utilities + Documentatio
+&nbsp; __ Opt misc dosemu The Linux DOS Emulator</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A tecla
+<B>U</B> restaura as sele&ccedil;&otilde;es de dselect.</FONT></FONT>
+<PRE><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>dselect - recursive package listing mark:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; +/=/- verbose:v help:?
+EIOM Pri Section Package Description
+</FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp; _* Opt devel boot-floppie Scripts to create the Debian installation floppy&nbsp;
+&nbsp; _* Xtt devel libc5-pic Kit for building specialized versions of the sha
+&nbsp; _* Xtr devel ncurses3.0-p Video termial manipulation: Shared-library subs
+&nbsp; _* Opt devel mkrboot Make a kernel + rootimage bootable from one disk
+&nbsp; _* Opt devel ncurses3.0-d Video terminal manipulation: Developer's librari
+&nbsp; _* Opt misc loadlin a loader (running under DOS) for LINUX kernel i
+&nbsp; _* Opt misc fdos Free DOS (Kernel + boot utilities + Documentatio
+&nbsp; __ Opt misc dosemu The Linux DOS Emulator</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+ora eu sugiro a execu&ccedil;&atilde;o com os defaults - voc&ecirc; ter&aacute;
+ampla oportunidade de acrescentar mais tarde. Uma poss&iacute;vel exce&ccedil;&atilde;o
+a qual voc&ecirc; pode escolher ao inv&eacute;s de dselect dependendo de
+sua experi&ecirc;ncia &eacute;:-</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>emacs</B> (muito grande, nem todo mundo quer)</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>E eu
+n&atilde;o sugeriria instalar:</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>inn&nbsp;&nbsp;&nbsp; </B>(grande, dif&iacute;cil para continuar)
+<B>x11&nbsp;</B>&nbsp;&nbsp; (grande, dif&iacute;cil para continuar)</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Qualquer
+que voc&ecirc; decidir, aperte &lt;Enter> para aceitar e retornar &agrave;
+tela principal. Se isto resultar em problemas n&atilde;o resolvidos voc&ecirc;
+ser&aacute; levado de volta para outra tela de resolu&ccedil;&atilde;o
+do problema.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Deste
+modo as teclas <B>R</B>, <B>U</B> e <B>D</B> s&atilde;o muito &uacute;teis
+em certas situa&ccedil;&otilde;es. Voc&ecirc; pode experimentar a vontade
+e depois restaurar tudo e iniciar novamente. <B>N&atilde;o</B> olhe para
+elas como sendo uma caixa de vidro chamada&nbsp; <B>Break In Emergency.
+(Quebre em Emerg&ecirc;ncia)</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+que fizer suas sele&ccedil;&otilde;es na tela de Select, aperte <B>I</B>
+para voc&ecirc; conseguir uma janela grande, <B>t</B> para ir ao inicio
+e ent&atilde;o use a tecla <B>page-down</B> para olhar rapidamente pelas
+configura&ccedil;&otilde;es. Desta forma voc&ecirc; pode verificar os resultados
+de seu trabalho e descobrir erros not&oacute;rios. Algumas pessoas desfizeram
+a sele&ccedil;&atilde;o de grupos inteiros de pacotes por engano e n&atilde;o
+inteiraram-se do erro at&eacute; mais tarde. Dselect &eacute; uma ferramenta
+_muito_ poderosa ent&atilde;o n&atilde;o a use errado.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voc&ecirc;
+deve agora ter esta situa&ccedil;&atilde;o:-</FONT></FONT>
+<PRE><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>categoria do pacote&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; status
+
+</B>REQ = required&nbsp;&nbsp; (requerido)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; todo selecionado
+IMP = important&nbsp; (importante)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; todo selecionado
+STD = standard&nbsp;&nbsp; (padr&atilde;o)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maior parte selecionado
+OPT = optional&nbsp;&nbsp; (opcional)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maior parte selecionado
+XTR = extra&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (extra)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; maior parte selecionado</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Feliz?
+Aperte &lt;Enter> para sair do processo Select. Voc&ecirc; pode voltar
+e rodar Select novamente se desejar.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<BR>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>3 Install</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Dselect
+roda 1100 pacotes inteiros e instala aqueles selecionados. Espere ser questionado
+para tomar decis&otilde;es conforme voc&ecirc; prossiga. &Eacute; frequentemente
+&uacute;til alternar para um shell diferente para comparar uma configura&ccedil;&atilde;o
+velha com uma nova. Se o arquivo velho &eacute; conf.modules o novo ser&aacute;
+conf.modules.dpkg-new.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+tela rolar&aacute; bastante r&aacute;pido em uma m&aacute;quina nova. Voc&ecirc;
+pode parar/iniciar com ^S/^Q e no fim da execu&ccedil;&atilde;o voc&ecirc;
+receber&aacute; uma lista dos pacotes n&atilde;o instalados. Se voc&ecirc;
+quiser manter um registro de tudo que acontece use features normais de
+Unix como tee ou script.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Pode
+acontecer que um pacote n&atilde;o seja instalado porque depende de algum
+outro pacote que &eacute; listado para a instala&ccedil;&atilde;o por&eacute;m
+ainda n&atilde;o est&aacute; instalado. A resposta aqui &eacute; rodar
+Install novamente. Casos foram informados onde era necess&aacute;rio rod&aacute;-lo
+4 vezes antes que tudo ficasse certo.</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;4
+Configure</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A maioria
+dos pacotes conseguem ser configurados no passo 3, mas alguma coisa pendente
+pode ser configurada aqui.</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>5 Remove</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Remove
+pacotes que est&atilde;o instalados mas n&atilde;o s&atilde;o mais necess&aacute;rios.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<BR>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>6 Quit</FONT></FONT></H3>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Sugiro
+rodar <B>/etc/cron.daily/find</B> neste ponto conforme voc&ecirc; tenha
+muitos novos arquivos em seu sistema. Assim voc&ecirc; pode usar <B>locate</B>
+para conseguir a localiza&ccedil;&atilde;o de qualquer arquivo.</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<BR><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Algumas
+sugest&otilde;es na conclus&atilde;o.</FONT></FONT></B>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Quando
+o processo de instala&ccedil;&atilde;o roda dselect para voc&ecirc;, voc&ecirc;
+sem d&uacute;vida estar&aacute; &aacute;vido para conseguir Debian rodando
+t&atilde;o logo quanto poss&iacute;vel. Bem, por favor esteja preparado
+para tomar aproximadamente uma hora ou menos conforme tenha que aprender
+sua maneira e ent&atilde;o consegui-lo direito. Quando voc&ecirc; entra
+na tela de Select pela primeira vez n&atilde;o fa&ccedil;a QUAISQUER sele&ccedil;&otilde;es
+ao todo - somente aperte &lt;Enter> e veja quais problemas de depend&ecirc;ncias&nbsp;
+existem . Tente corrigi-los. Se voc&ecirc; achar por si mesmo volte para
+a tela principal e rode <B>Select </B>novamente.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voc&ecirc;
+pode obter uma id&eacute;ia do tamanho de um pacote apertando <B>i </B>duas
+vezes e procurando a figura Size. Isto &eacute; o tamanho do pacote comprimido,
+desta forma os arquivos descomprimidos ser&atilde;o bastante maiores.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Instalar
+um novo sistema Debian &eacute; uma coisa muito complexa, mas dselect pode
+faz&ecirc;-lo para voc&ecirc;&nbsp; t&atilde;o facilmente quanto pode ser.
+Sendo assim, tome o tempo para aprender como gui&aacute;-lo. Leia as telas
+de ajuda e experimente com <B>i, I, o, </B>e <B>O</B>. Use a tecla <B>R</B>.
+Est&aacute; tudo l&aacute;, mas est&aacute; &agrave; altura para voc&ecirc;
+us&aacute;-lo eficientemente.</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<BR><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Gloss&aacute;rio:</FONT></FONT></B>
+
+<P><A NAME="Pacote"></A><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Pacote</FONT></FONT></B>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Um
+arquivo que cont&eacute;m tudo o necess&aacute;rio para instalar, desinstalar
+e executar um programa em particular.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+programa que manipula pacotes &eacute; <B>dpkg</B>. <B>Dselect</B> &eacute;
+um gerenciador para dpkg. Usu&aacute;rios experientes frequentemente usam
+dpkg para instalar ou remover um pacote.</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+
+<P><A NAME="Package"></A><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Nomes
+de pacotes</FONT></FONT></B>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Todos
+os nomes de pacote possuem o formato xxxxxxxxxxx.deb</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Exemplo
+de nomes de pacotes s&atilde;o</B>:</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>efax_08a-1.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>lrzsz_0.12b-1.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>mgetty_0.99.2-6.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>minicom_1.75-1.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>term_2.3.5-5.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>uucp_1.06.1-2.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>uutraf_1.1-1.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>xringd_1.10-2.deb</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>xtel_3.1-2.deb</FONT></FONT>
+
+<P>
+<HR WIDTH="98%" ALIGN="Center" SIZE="1" color=white>
+<CENTER><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Tradu&ccedil;&atilde;o:</FONT></FONT></B></CENTER>
+
+<CENTER><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Fernando
+Cesar Carreira - fcar@universe.com.br</FONT></FONT></CENTER>
+
+<script language="JavaScript" type="text/javascript">
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+if (width>=639 && height>=468 || top.location.href == window.location.href) {
+}
+rp_account   = '9645';rp_site      = '17527';rp_zonesize  = '1527362-51';rp_slot   = 'ad_group_786919';rp_adtype    = 'js';rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write(' src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt>');}</script>
+</BODY>
+</HTML>
+</div><style> 
+.zoomout { -webkit-transition: -webkit-transform 0.5s ease;
+-moz-transition: -moz-transform 0.5s ease;
+-o-transition: -o-transform 0.5s ease;
+transition: transform 0.5s;
+-ms-transition: transform 0.5s ease;}
+.zoomin { 
+filter: blur(0)
+-webkit-transform: scaleY(1.15);
+-moz-transform: scaleY(1.15);
+-o-transform: scaleY(1.15);
+transform: scaleYY(1.15);
+-ms-transform: scaleY(1.15);
+} 
+#archive:hover { zoom:101%;)
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+
+if (width>=806 && height>=468 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(https://www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:30px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+var x =  d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1018px;top:31px;z-index:10;padding-bottom:3px"><div id="ft72">');
+rp_account   = '9645';
+rp_site      = '17527';
+rp_zonesize  = '55620-15';
+rp_slot   = 's';
+rp_adtype    = 'iframe';
+rp_width     = '300';
+rp_height    = '250';
+rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write('src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt></div>');
+if ( height>=543) {
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'"></script>')
+}
+
+d.write('<div id="ft73"><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+
+if ( width-x>=440 || width>=1425) { 
+d.write('<div id="footer" style="position:fixed;left:1310px;top:31px;z-index:11;padding-bottom:3px"><div id="ft74">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">')
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp4" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">');
+d.write('<\/scr'+'ipt></div></div>');
+}}
+-->
+</script>
+<script type="text/javascript">
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+
+<script type="text/javascript">
+<!--
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26808115-1']);
+  _gaq.push(['_setDomainName', 'oocities.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script><script type="text/javascript"> window.google_analytics_uacct = "UA-26808115-1"; </script>
+
+
+
+

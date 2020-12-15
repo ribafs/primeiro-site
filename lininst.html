@@ -1,0 +1,609 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [pt] (Win95; I) [Netscape]">
+   <META NAME="FORMATTER" CONTENT="Microsoft FrontPage 2.0">
+   <TITLE>Instala&ccedil;&atilde;o do Linux passo a passo</TITLE>
+<!--"Begin footer for member pages. Delete this portion if
+     editing downloaded HTML source."-->
+<url-minder-ignore>
+</HEAD>
+<BODY TEXT="#FFFFFF" BGCOLOR="#000000" LINK="#FF8000" VLINK="#FF8000" ALINK="#FF0000">
+
+&nbsp;
+<CENTER><TABLE BORDER=0 >
+<TR>
+<TD></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF0000">INSTALA&Ccedil;&Atilde;O
+DO LINUX (Slackware) PASSO A PASSO:</FONT></FONT></B></TD>
+</TR>
+</TABLE></CENTER>
+<U><FONT FACE="Arial"><FONT SIZE=+1>&Iacute;ndice</FONT></FONT></U>
+<BR>&nbsp;
+<TABLE BORDER=0 CELLPADDING=2 BGCOLOR="#2B2B2B" >
+<TR>
+<TD BGCOLOR="#000000"><FONT FACE="Arial"><FONT SIZE=-1><FONT COLOR="#000000">.</FONT><B><FONT COLOR="#FF8000"><A HREF="lininst.html#Primeiros Passos">1</A></FONT></B><FONT COLOR="#000000">.</FONT></FONT></FONT></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1><A HREF="lininst.html#Primeiros Passos">Primeiros
+Passos</A></FONT></FONT></FONT></B></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><FONT FACE="Arial"><FONT SIZE=-1><FONT COLOR="#000000">.</FONT><FONT COLOR="#FF8000"><A HREF="lininst.html#Pacotes">2</A></FONT><FONT COLOR="#000000">.</FONT></FONT></FONT></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1><A HREF="lininst.html#Pacotes">Pacotes</A></FONT></FONT></FONT></B></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><FONT FACE="Arial"><FONT SIZE=-1><FONT COLOR="#000000">.</FONT><FONT COLOR="#FF8000"><A HREF="lininst.html#Instalando Apenas o Básico">3</A></FONT><FONT COLOR="#000000">.</FONT></FONT></FONT></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1><A HREF="lininst.html#Instalando Apenas o Básico">Instalando
+Apenas o B&aacute;sico</A></FONT></FONT></FONT></B></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><FONT FACE="Arial"><FONT SIZE=-1><FONT COLOR="#000000">.</FONT><FONT COLOR="#FF8000"><A HREF="lininst.html#Particionando o HD">4</A></FONT><FONT COLOR="#000000">.</FONT></FONT></FONT></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1><A HREF="lininst.html#Particionando o HD">Particionando
+o HD</A></FONT></FONT></FONT></B></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><FONT FACE="Arial"><FONT SIZE=-1><FONT COLOR="#000000">.</FONT><FONT COLOR="#FF8000"><A HREF="lininst.html#Instalando os Pacotes (via disquete)">5</A></FONT><FONT COLOR="#000000">.</FONT></FONT></FONT></TD>
+
+<TD><B><FONT FACE="Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1><A HREF="lininst.html#Instalando os Pacotes (via disquete)">Instalando
+os Pacotes (via-disquete)</A></FONT></FONT></FONT></B></TD>
+</TR>
+</TABLE>
+&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD><FONT FACE="Arial"><FONT SIZE=+1>1</FONT></FONT></TD>
+
+<TD><U><FONT FACE="Arial"><FONT SIZE=+1>Primeiros Passos</FONT></FONT></U></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Este manual explica passo-a-passo
+todos os procedimentos de instalacao do unix (LINUX) em particao estendida
+do HD, ou seja nao explica o procedimento de instalacao em cima do MSDOS
+(na particao primaria), que por sua vez nao eh aconselhavel.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>O linux roda em maquinas 386SX
+e superior o minimo de memoria RAM eh 4Mb e tambem roda c/ monitor CGA.</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>ps: usaremos apenas disquetes
+e arquivos de 1,44Mb</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>O Manual do linux completo
+(em ingles) vc encontra neste site: (sunsite.unc.edu:/pub/Linux/) tambem
+neste site vc encontra todo tipo de documentacao sobre o sistema, deste
+FAQ, HOWTO ate DOC em geral.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Para voce continuar lendo
+este manual, voce devera possuir os seguintes requisitos minimos. Saber
+particionar o HD, pois conheco pessoas, que tem muita vontade em fucar
+no computador, mas ainda nao sabe fazer este processo de particionar. Vale
+a pena lembrar, que o procedimento usado pelo o Linux *nao* eh igual ao
+do MSDOS, e eh mais complicado. mas se mesmo assim vc quiser arriscar va
+em frente e boa sorte, pois eh perdendo os dados que a gente aprende. :)</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Computador usado como exemplo:
+PC-AT 486DX2 Intel - Winchester IDE</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Espaco livre minimo: 15Mb
+(voce nao ira conseguir instalar nenhum pacote!)</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Espaco livre recomendado,
+entre 150 a 250Mb</FONT></FONT>
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD><FONT FACE="Arial"><FONT SIZE=+1>2</FONT></FONT></TD>
+
+<TD><U><FONT FACE="Arial"><FONT SIZE=+1>Pacotes</FONT></FONT></U></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Voce pode encontrar os arquivos/pacotes
+de instalacao em varios servidores FTP pela internet, mas eu aconselho
+copiar do servidor da universidade de Santa Maria-RS, por ser mais rapido
+que os outros (ftp://ftp.ufsm.br/pub/linux/slackware).</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Descricao do diretorio slackware:</FONT></FONT>
+<BR>&nbsp;
+<TABLE BORDER=0 CELLPADDING=2 WIDTH="100%" BGCOLOR="#2B2B2B" >
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>A(*)</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>O Basico do sistema
+para rodar.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>AP(*)</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Aplicativos em
+geral</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>D</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Linguagens de
+programacao /GCC/G++/Perl/C/ e outros...</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>E</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>GNU Emacs 19.25.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>F(*)</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Colecao de FAQs
+e outros documentos.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>I</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Documentacao
+de varios programas&nbsp;</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>N</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Networking. TCP/IP,
+UUCP, mailx, dip, deliver, elm, pine, smail, cnews, nn, tin, trn. (necessario
+para comunicacao internet/rede em geral)</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>OOP</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Programas Orientado
+a Objecto</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Q(*)</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Kernel do linux
+(necesario para compilar do kernel, p/ atualizacao do hardware)</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>TCL</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Tcl, Tk, TclX,
+blt, itcl.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Y</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Games. The BSD
+games collection, and Tetris for terminals.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>X</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>XFree86 2.1.1
+system (X-Window tipo o Windows convencional)</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>XAP</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Aplicativos para
+X : X11 ghostscript, libgr13, seyon, workman, xfilemanager, xv 3.01, GNU
+chess and xboard, xfm 1.2, ghostview, e varios X games.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>XD</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>X11 program development.
+X11 libraries, server linkkit, PEX support.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="8%" BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>XV</FONT></FONT></FONT></B></TD>
+
+<TD WIDTH="92%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Xview 3.2 release
+5. XView libraries, and the Open Look virtual and non-virtual window managers.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>IV</FONT></FONT></FONT></B></TD>
+
+<TD><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Interviews libraries, include
+files, and the doc and idraw apps. These run unreasonably slow on my machine,
+but they might still be worth looking at.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>OI</FONT></FONT></FONT></B></TD>
+
+<TD><FONT FACE="Verdana, Arial"><FONT SIZE=-1>ParcPlace's Object Builder
+2.0 and Object Interface Library 4.0, generously made available for Linux
+developers according to the terms in the "copying" notice found in these
+directories. Note that these only work with libc-4.4.4, but a new version
+may be released once gcc 2.5.9 is available.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD BGCOLOR="#000000"><B><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>T</FONT></FONT></FONT></B></TD>
+
+<TD><FONT FACE="Verdana, Arial"><FONT SIZE=-1>The TeX and LaTeX2e text
+formatting systems.</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD COLSPAN="2" BGCOLOR="#000000"><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>*
+S&atilde;o os arquivos b&aacute;sicos, caso vc n&atilde;o queira baixar
+tudo. Todos os pacotes do linux somam mais de 100 MB.</FONT></FONT></FONT></TD>
+</TR>
+</TABLE>
+&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD><FONT FACE="Arial"><FONT SIZE=+1>3</FONT></FONT></TD>
+
+<TD><U><FONT FACE="Arial"><FONT SIZE=+1>Instalando Apenas o B&aacute;sico</FONT></FONT></U></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Para iniciar voce precisa copiar
++- 6Mb de arquivos, que sao: bare.gz / color144.gz / rawrite.exe / gzip.exe
+e os diretorios A1 / A2 / A3 / A4</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>ps: quando vc for baixar os
+arq. note q tera dois arquivo bare e</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>color144 copie apenas os
+da versao de 1,44Mb q sao os de 5??Kb</FONT></FONT>
+<BR>&nbsp;
+<TABLE BORDER=0 WIDTH="100%" >
+<TR>
+<TD WIDTH="20%"><B><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Arquivo/Diret&oacute;rio</FONT></FONT></B></TD>
+
+<TD WIDTH="80%"><B><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Descri&ccedil;&atilde;o</FONT></FONT></B></TD>
+</TR>
+
+<TR>
+<TD WIDTH="20%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>gzip</FONT></FONT></TD>
+
+<TD WIDTH="80%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>descompacta arq.
+com extensao .gz</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="20%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>bare.gz.</FONT></FONT></TD>
+
+<TD WIDTH="80%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>cria disco de
+boot</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="20%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>color144.gz</FONT></FONT></TD>
+
+<TD WIDTH="80%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>cria disco de
+root</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD WIDTH="20%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>rawrite.exe</FONT></FONT></TD>
+
+<TD WIDTH="80%"><FONT FACE="Verdana, Arial"><FONT SIZE=-1>formata o disquete
+com os arquivo acima</FONT></FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT FACE="Verdana, Arial"><FONT SIZE=-1>DIR (A1-A2-A3-A4)</FONT></FONT></TD>
+
+<TD><FONT FACE="Verdana, Arial"><FONT SIZE=-1>arquivos basicos para rodar
+o linux</FONT></FONT></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Depois de ter feito a copia vc
+precisara de 6 disquetes (1,44Mb).</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>No diretorio q vc baixou
+os arq., digite o seguinte:</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>gzip
+-d bare.gz</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>gzip
+-d color144.gz</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Insira o disquete e digite...</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>rawrite
+bare a:</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>troque o disquete e digite...</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>rawrite
+color144 a:</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>depois copie cada A? para
+os 4 disquetes.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>copy
+A1\*.* A:</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Pois bem o disquete q vc copiou
+o bare eh o disco de BOOT e o colo144 o de ROOT. Agora resete a maquina
+e insira o disco de BOOT.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>ps1: caso vc tenha dados na
+particao primaria do HD, nao se preocupe pois o linux nao apagara.</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>ps2: faca backup sempre.</FONT></FONT>
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD><FONT FACE="Arial"><FONT SIZE=+1>4</FONT></FONT></TD>
+
+<TD><U><FONT FACE="Arial"><FONT SIZE=+1>Particionando o HD</FONT></FONT></U></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Depois do boot siga as instrucoes
+que apareceram na tela.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Logo apos o boot com disquete
+ira aparecer...</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>boot:</FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT SIZE=-1>tecle e enter, entao aparecera
+mais mensagens, e em seguida sera solicitado trocar o disco pelo o do ROOT,
+faca isto e tecle enter. Aguarde alguns segundo e aparecera uma mensagem
+dizendo para digitar 'root' e entao caira o shell do unix. Ai que a historia
+comeca a ficar boa.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>O Linux pede que depois de
+digitar 'root' digite 'setup' para comecar a configura-lo, mas antes, este
+procedimento so ira adiante se seu winchester ja estiver particionado.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>slackware
+login: root</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>#</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1># setup</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>erro,
+digite primeiro 'fdisk'</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1># fdisk</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Lembre-se sua unidade C e
+chamada pelo linux d '/dev/hda' &curren; esqueca disso! para criar a particao
+e barbada, e so seguir os exemplos. a unica diferenca e a capacidade do
+seu HD com a do exemplo.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>digite '?' para ver os camandos
+do fdisk. Use o comando 'p' para ver as informacoes (particoes) atuais.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Comecando...</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Primeiro use o comando 'p'
+par ver a(s) particao(oes) corrente. Se voce ja possui uma particao primaria
+no DOS, note que aparecera... veja o exemplo:</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Cuidado: para nao deletar
+sua particao primaria DOS/Win, o camando para deletar ‚ 'd' mais a particao
+que no caso ‚ o numero '1'</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Proximo passo - Use o comando
+``n'' para criar a nova particao. Vamos supor que voce queira deixar 80Mb
+para o linux.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Partition
+number (1-4): 2</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>First
+cylinder (204-683): 204</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Last
+cylinder or +size or +sizeM or +sizeK (204-683): +80M</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>O linux mostrou que tem (204-683).
+Voce tem que informar o primeiro numero '204' depois na outra linha tem
+que informar o numero de MBytes para a particao ex. '+80M' Ai eh sera necessario
+criar um particao 'virtual' ... siga o exemplo</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Command
+(m for help): n</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Command
+action</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>e extended</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>p primary
+partition (1-4)</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>p</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Partition
+number (1-4): 3</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>First
+cylinder (474-683): 474</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Last
+cylinder or +size or +sizeM or +sizeK (474-683): +10M</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Ficara mais ou menos assim:</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Command
+(m for help): p</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Disk
+/dev/hda: 16 heads, 38 sectors, 683 cylinders</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Units
+= cylinders of 608 * 512 bytes</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Device
+Boot Begin Start End Blocks Id System</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>/dev/hda1
+* 1 1 203 61693 6 DOS 16-bit >=32M</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>/dev/hda2
+204 204 473 82080 83 Linux native</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>/dev/hda3
+474 474 507 10336 83 Linux native</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Voce precisa trocar a particao
+/dev/hda3 de 'Linux native' para 'Linux Swap' use o comando 't'...</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Command
+(m for help): t</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Partition
+number (1-4): 3</FONT></FONT></FONT>
+<BR><FONT FACE="Verdana, Arial"><FONT COLOR="#FF8000"><FONT SIZE=-1>Hex
+code (type L to list codes): 82</FONT></FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Agora voce precisa 'escrever'
+&lt;w>rite no winchester, confira mais uma vez a particao teclando 'p'
+se estiver tudo legal (parecido com o exemplo) tecle 'w' para gravar ou
+q de quit para sair sem gravar.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Depois ‚ so rebootar a maquina
+e fazer o procedimento de boot e root e quando o disco de root solicitar
+que digite 'setup', siga a instalacao. pois seu winchester ja esta particionado.</FONT></FONT>
+<BR>&nbsp;
+<BR>&nbsp;
+<TABLE BORDER=0 >
+<TR>
+<TD><FONT FACE="Arial"><FONT SIZE=+1>5</FONT></FONT></TD>
+
+<TD><U><FONT FACE="Arial"><FONT SIZE=+1>Instalando os Pacotes (via disquete)</FONT></FONT></U></TD>
+</TR>
+</TABLE>
+<FONT FACE="Verdana, Arial"><FONT SIZE=-1>Primeiro voce tem que instalar
+o basico, os disquetes que contem os arquivo/diretorios A1 A2 A3 A4, para
+fazer isto utilize o menu SOURCE. depois de instala-los va para o menu
+CONFIGURE. para configurar o linux.</FONT></FONT>
+
+<P><FONT FACE="Verdana, Arial"><FONT SIZE=-1>Para instalar os demais pacotes
+use o menu PKGTOOL</FONT></FONT>
+<script language="JavaScript" type="text/javascript">
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+if (width>=639 && height>=468 || top.location.href == window.location.href) {
+}
+rp_account   = '9645';rp_site      = '17527';rp_zonesize  = '1527362-51';rp_slot   = 'ad_group_786919';rp_adtype    = 'js';rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write(' src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt>');}</script>
+</BODY>
+</HTML>
+</div><style> 
+.zoomout { -webkit-transition: -webkit-transform 0.5s ease;
+-moz-transition: -moz-transform 0.5s ease;
+-o-transition: -o-transform 0.5s ease;
+transition: transform 0.5s;
+-ms-transition: transform 0.5s ease;}
+.zoomin { 
+filter: blur(0)
+-webkit-transform: scaleY(1.15);
+-moz-transform: scaleY(1.15);
+-o-transform: scaleY(1.15);
+transform: scaleYY(1.15);
+-ms-transform: scaleY(1.15);
+} 
+#archive:hover { zoom:101%;)
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+
+if (width>=806 && height>=468 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(https://www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:30px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+var x =  d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1018px;top:31px;z-index:10;padding-bottom:3px"><div id="ft72">');
+rp_account   = '9645';
+rp_site      = '17527';
+rp_zonesize  = '55620-15';
+rp_slot   = 's';
+rp_adtype    = 'iframe';
+rp_width     = '300';
+rp_height    = '250';
+rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write('src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt></div>');
+if ( height>=543) {
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'"></script>')
+}
+
+d.write('<div id="ft73"><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+
+if ( width-x>=440 || width>=1425) { 
+d.write('<div id="footer" style="position:fixed;left:1310px;top:31px;z-index:11;padding-bottom:3px"><div id="ft74">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">')
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp4" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">');
+d.write('<\/scr'+'ipt></div></div>');
+}}
+-->
+</script>
+<script type="text/javascript">
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+
+<script type="text/javascript">
+<!--
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26808115-1']);
+  _gaq.push(['_setDomainName', 'oocities.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script><script type="text/javascript"> window.google_analytics_uacct = "UA-26808115-1"; </script>
+
+
+
+

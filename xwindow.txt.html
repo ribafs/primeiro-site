@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>O X Window System
+
+ A intenção deste artigo é servir de introdução ao X Window System e aos
+próximos artigos. O XWindow System é fonte de constante confusão para grande
+parte dos usuários que estão acostumados a sistemas operacionais monousuário. 
+A maior parte desta confusão vem do fato do XWindow System (ou simplesmente 
+"X") ser um sistema gráfico baseado em arquitetura cliente-servidor. Este 
+será o segundo e o mais "carregado" artigo desta série, mas com informação
+de fundamental importância.
+
+ No MS-DOS não havia um padrão que ditasse a maneira como os programas se 
+comportariam em modo gráfico, cada programa era responsável por entrar em 
+modo gráfico, cuidar de saber qual placa de vídeo você tinha, que resolução 
+era suportada, além de desenhar botões, barras de rolagem, etc.
+ O Windows surgiu como uma solução para este tipo de problema, provendo uma 
+interface comum de programação em ambiente gráfico que garantia consistência 
+de aparência a todas as aplicações. O Windows era um programa que rodava 
+sobre o DOS. Posteriormente, o Windows 95 veio a estreitar as relações entre 
+o Sistema operacional e o ambiente gráfico, de forma a serem indistinguíveis 
+por um usuário comum. Para o usuário do Windows, o ambiente de janelas e o 
+sistema operacional são a mesma coisa(*).
+
+ No Unix, o sistema de janelas segue a risca a tradição de se escrever 
+sistemas modulares com funcionalidade rica e bem definida. O X é uma 
+aplicação do usuário e não parte integrante do sistema operacional em si. 
+Voce pode muito bem sobreviver no Unix na completa ausência do sistema de
+janelas ou escolher um outro sistema de janelas que atenda melhor suas 
+necessidades, caso você o encontre. Esta escolha, como várias outras não 
+existe para usuários Windows.
+
+ O X foi desenvolvido no Massachussets Institute of Technology com suporte da Digital Equipment
+ Corporation. O nome e algumas idéias originais de design foram retiradas de um outro sistema chamado "W" desenvolvido em Stanford. Os principais bjetivos 
+do projeto eram criar um ambiente gráfico distribuído e independente de
+hardware. Inicialmente adotado apenas pelo MIT e pela Digital, o X passou a 
+fazer parte de praticamente todas as versões de Unix presentes no mercado, o 
+que inclui o Linux.
+
+ O Linux possui várias versões comerciais do X, como o da Xi  Graphics ou da 
+Metro Link, mas a versão que faz parte de quase todas as distribuições é 
+conhecida como XFree86, um projeto que visava criar um ambiente gráfico 
+baseado nas especificações do X de livre distribuição (daí o XFree do nome) 
+para a arquitetura Intel x86 (daí o "86"), mas que hoje roda em várias outras 
+arquiteturas e sistemas, incluindo o OS/2.
+
+ Afinal de contas, o que é o X? Em termos simples, o X é um programa servidor
+de rede (em Unix, conhecidos como daemons) cujas atribuições principais são 
+entrar em modo gráfico, criar janelas (áreas geralmente quadradas na tela) e 
+responder a eventos dos dispositivos de entrada (geralmente Mouse e Teclado) 
+que atuem nestas áreas da "tela", desenhar texto em diversos tamanhos e
+fontes e fornecer primitivas para desenho (linhas, pontos, cores, etc.).
+
+ O X fornece as funcionalidades de rede, gráfica e de controles básicos. A 
+tarefa de "decorar" as janelas (adicionar bordas, criar ícones, etc) são 
+responsabilidade de duas camadas adicionais de software que abordaremos nos 
+próximos artigos, os Window Managers e os "toolkits".
+
+ Revisando: eu disse que o X é distribuído e independente de hardware ou 
+plataforma. Isso é conseguido através de sua arquitetura cliente-servidor. A 
+confusão agora ocorre porque tendemos a entender como "servidor" a máquina 
+remota na rede e como "cliente" a máquina que estamos utilizando. No caso do 
+X, o "servidor" é a máquina que está mostrando os gráficos, enquanto a
+máquina cliente é a que está efetivamente executando a aplicação. OPA! Que 
+história é essa de executar a aplicação em uma máquina e mostrar os gráficos 
+em outra? É aí que está a graça. 
+
+ Imagine que você tem uma empresa e que você tem poucos recursos para 
+investir (este último não é difícil de imaginar). Você precisa que 30 
+funcionários utilizem estações de trabalho para desenvolver projetos e 
+simulações de turbinas. Ao invés de comprar 30 estações de trabalho 
+poderosas, você concentra seus recursos em uma única máquina com capacidades 
+superiores de processamento e compra 30 máquinas "menores" que serão 
+utilizadas apenas como "display" (guarde bem esta palavra) para que seus 
+usuários possam interagir com os programas, que serão executados na máquina 
+"parruda". No caso, as máquinas menores são "servidores de gráficos". 
+
+ Como exemplo imagine duas máquinas, uma, chamada "kingkong" que é 
+responsável por executar os programas e uma outra, chamada "chita" que será 
+seu desktop. Em uma seção comum, um usuário usando a máquina "chita" faria:
+
+ chita$ telnet kingkong (vamos nos conectar ao kingkong) 
+ kingkong login: tarzan (entremos usuario e senha)
+ password: IluvJane
+
+ kingkong% (estamos remotamente na kingkong agora)
+ kingkong% export DISPLAY=chita:0.0 (dizemos que o servidor de display será a chita)
+ kingkong% meucad & (executamos nosso programa hipotético) 
+
+ Ao executar estes passos, o usuário da máquina chita estaria vendo a tela do 
+programa "meucad" (CAD = Desenho Auxiliado por Computador) e estaria 
+interagindo com ela. Os clicks de mouse e teclado são transmitidos pela rede 
+na forma de "eventos X" que serão processados na máquina "kingkong". Os 
+resultados destes eventos são enviados ao servidor X (chita) que irá 
+mostrá-los em seu "display" e assim o ciclo de interação entre o usuário e o 
+programa se desenvolve em máquinas separadas. Como estas mensagens são 
+independentes de sistema operacional ou de hardware, voce pode estar 
+executando o programa em uma máquina Sun (por exemplo) e vendo a tela do 
+programa em um Pentium rodando Linux (ou mesmo OS/2, Windows ou Mac, veja a 
+seção de links no final do artigo).
+
+ De fato, os clientes X são tão independentes de seus servidores que o 
+primeiro cliente X (o xterm, um equivalente ao DOS prompt do Windows, só que 
+sério) ficou pronto um mês antes do primeiro servidor X estar disponível para 
+testes.
+
+ Parece complicado, não? Realmente o é a primeira vista, as pessoas estão 
+acostumadas a instalar um editor de texto, planilha e software de 
+apresentação em cada computador. Aproveite este tempo para relaxar um pouco, 
+e vamos aos detalhes cabeludos (você pensou que tinha acabado?).
+
+ Eu pedi que você prestasse atenção à palavra "display" e, se você estava 
+realmente prestando atenção, notou que ela apareceu na linha de comando 
+(export DISPLAY=chita:0.0) que apresentamos acima. Esta linha de comando irá 
+funcionar em interpretadores derivados  da Bourne Shell (sh), como a ksh 
+(Korn SHell) ou a bash (Bourne Again SHell, default na maioria dos Linux). O
+uso freqüente deste comando ajudou a cunhar a expressão "exportar o DISPLAY", 
+no nosso caso para a máquina chita. Isso é apenas força de expressão, este 
+comando não está fazendo nada senão criando uma variável global chamada 
+DISPLAY, com o valor "chita:0.0". Esta variável é consultada por todos os 
+clientes X (programas) para saberem para qual servidor direcionar suas saídas 
+de tela. Se ela não estiver definida, o programa irá tentar encontrar um 
+servidor X rodando na própria máquina.
+
+ Geralmente temos uma única placa de vídeo no computador e um único monitor, 
+mas isso não precisa ser necessariamente verdade. Nada nos impede de 
+instalarmos várias placas de vídeo e consequentemente vários monitores em um 
+único computador, se tivermos software capaz de gerenciar isso. Um servidor X 
+pode gerenciar vários "displays" (dispositivos de saída).  Um mesmo
+computador pode também ter vários servidores X rodando simultaneamente. A 
+possibilidade existe, muito embora seja raramente utilizada. Daí, ao 
+informarmos aos clientes X qual será o endereço do dispositivo de saída 
+usamos a sintaxe host:N.M , onde "N" é o N-ésimo servidor X (começando com
+0) rodando na máquina "host" e "M" é o M-ésimo display (também a partir de 0) 
+controlado por este servidor. Como no caso geral teremos um único servidor X 
+rodando na máquina e um único display, o mais comum é termos a designação 
+"host:0.0" para identificá-lo. 
+
+ Esta característica é chamada de "Multiheaded display" ou display com 
+múltiplas cabeças (alguns devem estar pensando "de sete cabeças" a esta 
+altura). E está presente em alguns servidores X comerciais, como por exemplo 
+o da Xi graphics. O XFree86 tem suporte precário a multiheaded displays, o 
+suporte mais completo está previsto para a próxima versão do servidor.
+
+ Quando você instala um linux e configura seu ambiente gráfico você está 
+automaticamente habilitando estas características. Caso você esteja em rede 
+(mesmo através de um provedor de acesso) você pode se utilizar dos recursos 
+do X para abrir aplicativos em máquinas remotas na rede e visualizá-los em 
+sua própria máquina (claro, voce precisa ter acesso a estas máquinas 
+remotas). O visual do seu ambiente gráfico é o trabalho de um pacote 
+complementar de software chamado "window manager" ao qual dedicarei os 
+próximos artigos, que prometo, serão mais leves, incluindo várias imagens 
+coloridas dos vários "look and feel" disponíveis para Linux. 
+
+ Se você não conseguiu absorver de uma vez toda esta informação não se 
+preocupe, a intenção é mostrar que há muito mais entre o sistema operacional 
+e o ambiente gráfico do que supõe a filosofia do usuário (perdão, 
+Shakespeare!) e alertá-lo para a potencialidade do desktop Unix em rede, que 
+vai muito além dos jogos de paciência.
+
+ Como curiosidade, vale dizer que recentemente (meados de 1998) o Open Group, 
+detentor dos direitos do padrão X, tentou alterar a licença das novas versões 
+do protocolo, que impediria que o XFree86 continuasse fiel a tais versões sem 
+ter que pagar (caro) por isso.  A força dos padrões abertos como o Linux fez 
+com que o Open Group, (que de "Open" não tem tanto assim) voltasse atrás. A 
+ameaça era que o XFree86, por ser desenvolvido pela comunidade e ser 
+completamente aberto, passasse a ditar os padrões, ao invés do próprio Open 
+Group. Mais um ponto a favor do Free Software.
+
+ (*) Nota do autor: Fica evidente que não são quando você examina de perto os 
+arquivos de inicialização do sistema, e também pela existência do "modo DOS" 
+de inicialização. 
+
+ Alguns links:
+
+ Os atuais "donos" do padrão X:
+
+      Open Group: http://www.opengroup.org
+
+
+ Alguns Servidores X para Linux (livre e comerciais):
+
+
+      Projeto XFree86 (livre): http://www.xfree86.org
+
+      Xi Graphics: http://www.xi.com
+
+      MetroLink: http://www.metrolink.com
+
+ Alguns Servidores X para Windows e Mac. 
+
+      M/IX server (não é "livre" mas é gratuito e quebra o galho): 
+      http://www.microimages.com
+
+      Xwin32 (versão demo para download, bastante completo):  http://www.starnet.com
+
+ O Portuguese-HOWTO contém informações interessantes sobre o X Window System (em portugues):
+
+      http://metalab.unc.edu/LDP/HOWTO/Portuguese-HOWTO-2.html#ss2.2
+</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

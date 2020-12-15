@@ -1,0 +1,821 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>
+
+Opa galera! Descobri uma manha genial pra configurar o X. Nao sei se
+alguem ja passou por isso... Qdo vc coloca uma resolucao melhor, tipo
+1024 x 780, e coloca a configuracao de frenquencia horizontal x vertical
+do seu monitor, o X coloca na frequencia mais baixa possivel, para nao
+estragar seu monitor...e a tela em baixa frequencia causa mal estar pra
+quem ta usando...  entao tipo coloque a frequencia inferior um pouco
+acima da minima do seu monitor...aih a frequencia enviada pro monitor
+sera um pouco maior..causando uma boa resolucao grafica sem mal estar...
+
+PS: nao brinque com essas coisas caso seu monitor nao seja digital... c
+pode queimar o tubo... T+
+
+Felipe Russo
+				-------------
+
+				    TTY
+
+Gostaria de saber como faço para colocar o TTY (console)
+> no prompt do slackware. Acho que devo colocar uma variavel, mas
+> qual ? Onde aprendo sobre isso ? O man do bash nao fala...
+
+Como as sequencias especiais do prompt do bash (PS1) nao permitem
+que voce especifique a TTY, voce pode coloca-la direto no PS1. A
+solucao nao vale para quando voce mudar de TTY, mas, teoricamente,
+isso nao deve acontecer.
+
+no seu script que define PS1, faca com que ele chame /usr/bin/tty.
+Por exemplo, troque
+PS1='\h:\w\$ '
+por
+PS1='\h(`/usr/bin/tty`):\w\$ '
+(note as aspas ao contrario)
+ Thiago Macieira - UFOT Registry number: 1001
+  thiagom@usa.net  talha@geocities.com
+-----
+Eu fiz assim:
+
+Dentro da profile (geral), eu acrescentei essas linhas:
+
+TTY=`tty | cut -b 6-`  <-- pega o "/dev/ttyNN" e extrai apenas o "ttyNN"
+
+ai no prompt troquei o original para [\u@\h]:$TTY:\w\$ (acho que era isso!!)
+
+Agora ele mostra o terminal sempre: nos telnets eh ttyp?, nas seriais eh
+ttyS?, no console, tty?.
+
+Porque guardar a variavel e nao acrescentar [\u@\h]:`tty`:\w\$ diretamente?
+Porque deste modo ele estara executando o programa "tty" a CADA prompt, um
+processamento desperdicado. Guardando a variavel fica BEM melhor. Alias....
+nao existia nenhuma outra variavel por natureza que guardasse o terminal, 
+entao de carona agora voce tem uma!! :-)
+
+P.S.: nao estou no linux agora, senao confirmaria os dados.
+				-------------
+
+			CRIANDO UM HOST VIRTUAL COM O APACHE
+
+Para dominios virtuais, vc tem que criar as linhas de Virtual host no 
+/etc/httpd/conf/httpd.conf
+
+<VirtualHost www.cliente.com.br>
+DocumentRoot /home/cliente/html
+</VirtualHost>
+
+Alem disso vc tem que criar os arquivos de DNS e configurar o 
+etc/named.algumacoisa
+
+Espero ter ajudado
+
+Sidnei Pruinelli
+				---------------
+
+				INSTALAÇÃO DE KERNEL
+
+Quando você for instalar seu novo kernel, você digita "rm linux" e pronto.
+Pode descompactar o arquivo que baixou, mantendo os dois códigos caso haja
+algum problema. O novo kernel funcionou direitinho? Ótimo! "rm -rf
+linux.2.0.36" e pronto. Retire as entradas do antigo kernel do lilo.conf
+também, rode o lilo e dê outro reboot. Seu sistema está com apenas um
+kernel configurado e rodando perfeitamente. 
+Este link é mais uma salva-guarda. Você não precisa fazê-lo se não quiser,
+mas no seu lugar eu iria querer sempre... :-) Melhor não arriscar.
+-------
+COMANDOS PARA COMPILAÇÃO DE KERNEL
+make dep
+make clean
+make bzImage
+cp ...bzImage  ..../boot/vmlinuz-2.2.1
+make zlilo
+make modules
+make modules_install
+
+cosmo@hackhour.com.br
+-----
+o bzImage eh usando para compilar seu kernel qdo a imagem dele esta muito
+grande.
+---------
+Gostaria de saber o que eu preciso atualizar agora para que meu linux fique
+> "em dia!"??? e onde posso achar estes programas??
+
+No arquivo /usr/src/linux/Documentation/Changes tem a lista de todos os
+programas que devem ser atualizados incluindo os locais de onde
+baixá-los.
+-------
+/usr/src/linux/Documentation/Changes onde tem as mudanças que se deve fazer.
+				----------------
+
+				VÁRIAS PARTIÇÕES NO DISCO
+
+Pode. E muitos usam (eu, por exemplo, uso). 
+Vantagens: você pode administrar melhor as coisas usando quota, por
+exemplo; pode organizar melhor o layout dos disco; evita alguns ataques
+DoS que consistem em encher o seu disco e tornar o sistema inutilizável;
+facilita a execução de backups seletivos; facilita o upgrade do sistema
+(aqui, por exemplo, tenho uma partição /home e uma /root que são sempre
+mantidas, independentemente de quando eu rodava Slackware ou agora com o
+Marumbi. Aqui está a parte mais importante do meu sistema e anotações
+minhas e de todos os usuários); etc.
+Desvantagens: se você dimensionar errado, terá uma partição com 1GB livre
+e outra com 20MB faltando... Isso pode trazer problemas. Recomendo não ter
+partições menores que 200MB (exceto a partição de swap, claro). 
+O Linux as monta automaticamente e copia os arquivos nos lugares certos.
+Durante a instalação do Marumbi/Guarani, você pode ver isto nas telas de
+ALT-F2 a ALT-F5. São informações adicionais durante a instalação.
+O Installation-HOWTO também comenta sobre isso. 
+Um outro comentário: o disk druid só pode ser usado na instalação. Ele não
+pode ser usado num sistema já funcionando ou após a instalação. (Aprendi,
+Arnaldo? :o)). Um sistema já existente não pode ser reparticionado. Você
+deve fazer backup, reparticionar tudo, formatar e restaurar os dados.
+				---------------
+
+			PARA ACHAR UM ARQUIVO
+whereis -b quake
+				---------------
+
+				LILO É ESSENCIAL
+
+Gostaria de saber se preciso instalar o LILO se vou utilizar o Linux
+> Guarani em 100% do meu computador, porque antes eu usava com o Ruindows
+> 98 e tinha que instalar?
+
+LILO = LInux LOader
+Se voce tem Linux, precisa do LILO.
+				---------------
+
+			PARTICIONANDO PARA LINUX
+
+Para que complicar tanto amigo, crie todas as particoes com o
+fdisk do DOS, digo faca assim.
+
+     Crie 1 particao 1.0 GB para Windows 95 FAT32
+     Depois crie mais 1 particao 1.0 GB para Linux FAT32
+     e finalmente crie 1 particao 100MB para Linux Swap FAT32
+
+     Formate todas elas com o DOS
+     Voce tera no total 3 particoes C,D e E com FAT32
+     Em seguida instale o Red Hat e com o fdisk para o Red Hat converta as
+particoes feitas pelo fdisk do DOS para Linux Native e Linux Swap com o
+comando t.
+     Voce vera que e bem mais facil dessa maneira.
+				---------------
+
+				PLACA SIS NO LINUX
+
+o X se recusa a enteder que minha placa eh a SiS 6326 AGP, aquela
+>on-board de 8MB, to pegando o novo server do X na SuSE mas nao sei se
+vai
+>adiantar...
+--------
+No SuSe eu naõ sei, mas no RH eu instalei o xfree 3.3.3, rodei o
+xf86config e depois acrescentei no XF86Config, seção graphic device, as
+linhas a seguir
+    Chipset "sis6326"
+    VideoRam "8192"
+    Option "no_bitblt"
+    Option "sw_cursor"
+
+    No RH funcionou perfeitamente e uso 800x600 a 16 bit color
+				--------------
+
+				PLACA DE SOM CMI 8330
+
+Alguém sabe como configuro essa placa direto pelo kernel e
+> conf.modules sem usar o OSS ? Pode ser no slackware ou RedHat.
+>     Obrigado a todos ...
+> --
+
+Eu tenho uma placa-mae com esta placa de som embutida. Configuro
+como se fosse uma SB16.
+
+No kernel (versao 2.2.1, Slackware 3.6):
+
+<M> Sound Card support
+...
+<M> OSS sound modules
+...
+<M> 100% Sound Blaster compatibles ...
+<M> Generic OPL2/OPL3 FM synthesizer support
+...
+...
+<M> SoftOSS software wave table engine
+<M> FM synthesizer (YM3812/OPL-3) support
+
+Compilo o kernel, utilizo o comando "isapnp" como a configuracao
+necessaria a placa de som, e depois ativo a placa da seguinte maneira:
+
+#!/bin/sh
+#
+#       echo "Starting Sound Card SB32 Pnp... "
+#       /sbin/modprobe sound trace_init=1
+#       echo "Sound Card Ok!!!"
+
+        echo -e "Starting Sound Card... \c"
+
+        modprobe soundcore
+        modprobe soundlow
+        modprobe sound
+        
+        modprobe softoss2
+        modprobe uart401
+        modprobe adlib_card io=0x388
+        
+        modprobe sb io=0x220 irq=5 dma=1 dma16=5 mpu_io=0x330
+        
+        echo "Ok!!!"
+
+
+Funciona perfeitamente. Nao consegui colocar o suporte a esta
+placa diretamente no kernel. Deve ser porque ela, apesar de se comportar
+como uma sb16, seja uma CMI8330.
+				--------------
+
+			CONFIGURAR O MODEM
+
+Você já reconheceu o seu modem ? Vá shell e digite o seguinte:
+ 
+#rm -f  /dev/modem
+#ln -s /dev/cua1 /dev/modem
+#setserial /dev/cua1 irq 3 spd_hi
+ 
+Verifique se as alterações foram feitas:
+ 
+#ls -l  /dev/modem
+#setserial  /dev/modem
+ 
+Agora insira como última linha do seu /etc/rc.d/rc.local:
+ 
+#setserial /dev/cua1 irq 3 spd_hi
+ 
+Teste final: digite
+ 
+#minicom
+ 
+e veja se o modem inicializa.
+Eriberto
+				--------------
+
+			MONTANDO PARTIÇÃO WIN NO LINUX
+
+crie um diretorio
+
+mkdir /mnt/win
+
+depois monte,
+
+mount /dev/hda1 /mnt/win -t vfat
+				--------------
+
+			USANDO O RPM DO RH
+
+rpm -U <nome do pacote do X q eu peguei> --replacepkgs --replacefiles
+				--------------
+
+			CONFIGURAÇÃO DE PLACAS DE VIDEO
+
+Acho q o q acontece em relacao a placa de video eh o seguinte. Bom, tcho comecar do comeco. 
+O que eh o Xfree? Eh o servidor de modo grafico para linux. 
+O que eh um window Manager? Eh quem cuida das janelas, de abrir fechar programas etc dentro
+do Xfree. 
+O window manager padrao que vem no Slakcware eh o fvwm2. O problema, eh q ele soh aceita
+256 cores...entao mesmo que sua configuracao no XF86Setup, ou no Xconfigurator (no caso do
+Red Hat) esteja correta, nao vai funcionar... pq o window manager nao aceita. 
+Tanto que qdo eu instalei o afterstep (window manager), eu estava com o fvwm a 256 cores (e
+achando q nao estava bem configurado), e qdo rodei o afterstep, ja foi pra true color... pq ele
+suporta... acho q eh isso q acontece com todo mundo.. 
+Aih agora q ja ta ocnfigurado, eh facil...vou alterando o XF86Setup ate melhorar... to usando True
+color a 1024 x 768... esta muito bom.. 
+Qto ao modem, o Red Hat realmente eh chato de instalar... o Slack eu rodei na primeira tentativa, e
+qq uma das receitinhas de bolo pra acessar a net funcionaram nele (2 receitinhas estao na minha HP,
+members.xoom.com/linux_page), enquanto que no RH eu vejo q varias pessoas tentam tentam,
+seguem passo a passo os FAQs e nao obtem sucesso... e por isso mais uma vez, comento a
+superioridade do Slack... T+ 
+
+Felipe Russo
+				---------------
+
+			PROCURAR ARQUIVO COM O FIND
+
+> Nao consigo achar este arquivo changes no meu meu pc.  Como faco ???
+
+find /usr/src/ -name Changes -print
+				-------------
+
+			INSTALAÇÃO DA PLACA DE VIDEO SiS
+
+Eu tenho uma placa Asus SP97-v (a qual eu acho muito boa por sinal) com o
+chip Sis 5598.
+Nao sei se no caso de voces sera da mesma forma, mas eu peguei o arq com o
+Felipe e depois de descompactar basta executar <make install> (ou config,
+nao lembro direito). Ele lhe mostrara um testo indicando:
+make 1 > 640x480 16bits
+make 2 > 800x600 16bits
+make 3 >1024x768 16bits
+escolha qual configuracao e execute <make (1,2 ou3)>
+Ps.: Precisa do ter o server SVGA instalado
+Marcio Lacerda
+------
+Mesmo assim, tente rodar o xf86config (aquele que nao eh grafico, eh via
+shell script) que dai ele grava um /etc/XF86Config, dai vc edita ele e
+coloca:
+
+    Chipset "sis6326"	#CASO SEJA ESTE O SEU MODELO
+    VideoRam "8192"	#AQUI O TAMANHO DE MEMORIA
+    Option "no_bitblt"
+    Option "sw_cursor"
+
+    na secao Device
+				------------
+
+		CONFIGURANDO PLACA DE VIDEO TRIDENT 3DImage95 AGP
+
+Com o XFree86-3.3.3 eo XFree86-SVGA-3.3.3 consegui configurar a Trident
+3DImage95 AGP,inclua as alteracoes abaixo no seu /etc/X11/XF86config:
+
+
+Section "Device"
+    Identifier  "Trident 3DImage975 AGP"
+    VendorName  "Trident"
+    BoardName   "3DImage975 AGP"
+    VideoRam    4096                    <--- quantidade de RAM do video
+    Option      "noaccel"               <--- inclua esta linha
+
+
+na minha maquina o Xfree86 pegou resolucao de video 1024x768 e 32 bpp para
+cor, o meu monitor eh um Studioworks 55i da LG....
+Marlon.
+				------------
+
+     CONFIGURANDO AS PLACAS DE VIDEO SiS 5597, Trident 975AGP E SiS 6326
+
+O que voce nao conseguiu? Tenho um SiS 5597, uma Trident 975AGP e uma
+SiS 6326 e TODAS funcionaram no XFree86 3.3.2 e 3.3.3. Com a versao
+3.3.2 tive que pegar os Server's da SuSE. Isso jah nao eh mais necessario
+com a versao 3.3.3. A Diferenca eh que utilizo Slackware. Configuro via
+"xf86config" e depois eh preciso editar o XF86Config nao mao para
+acrescentar alguns parametros especificos das placas. Acho que eh isso
+que voce nao estah fazendo...
+				------------
+
+			USO DO ZIP DRIVE NO LINUX
+
+Para usar o zip drive digite:
+
+    $ modprobe ppa
+    $ mount  /dev/sda4 /mnt
+    $ cd  /mnt
+
+Para ejetar:
+    $ eject  /dev/sda
+Para retirar:
+    $ umount  /mnt
+-----Original Message-----
+From: Wilson Komatsu <wilsonk@usp.br>
+				------------
+
+			TRANSFORMAR PARTIÇÃO DOS/95 EM EXT2
+
+Eu hoje removi uma partição DOS que usava como backup, e criei-a como
+ext2. Eu mesmo só fiz o fdisk (do Linux)  e o mke2fs e alterar o fstab.
+				-----------
+
+			INSTALANDO IMPRESSORAS HP 820
+
+Alguem pode me dar uma ajuda quanto a instalar a impressora HP 820CXi (For
+>Rwindows) no Linux? alguem me disse que tem como, mas nao consegui!
+
+
+Eu li algo no faq da Conectiva Linux Marumbi:
+(texto original) "As HP DeskJet 720C, 722C, 820C e 1000C são impressoras
+PPA.  Elas não funcionarão com os controladores PCL disponíveis.
+Normalmente impressoras PPA são utilizadas com um controlador de impressora
+especial do windows.
+Um controlador PPA para a HP 820C existe para Ghostscript, mas foi escrito
+sem ter-se o acesso às especificações oficiais da impressora, então pode
+estar incompleto e/ou com alguns problemas específicos.  Pode-se encontrá-lo
+em:
+ftp://ftp.ig.utexas.edu/outgoing/scottk/820C "
+Protheus
+				------------
+
+				CRASH NO XWINDOW
+
+Caso tenho ocorrido um Crash no X, vc deve procurar dentro do seu
+diretorio /tmp um arquivo de lock, delete-o and try again.
+				-------------
+				
+				EXPORTAR DISPLAY - VNC
+
+Pegue o VNC, ele eh o programa mais incrivel que jah vi para este
+tipo de funcao.... voce pode usar o ambiente do Linux no Windows (como um
+TElnet Grafico ) Windows no Linux, linux no Mac, Mac no Linux etc...
+
+        Coloquei a versao que uso no server da prov. pra vc puxar, pegue
+em ftp://200.197.71.4/pub/vnc  aqui vc vai encontrar uma versao em source
+para linux e outra em binario para Linux e para Win32...
+
+        O source deu erro na compilacao, mas o binario executou
+perfeitamente logo na primeira vez
+
+        Ele contem tres arquivos principais de execusao, o vncpasswd serve
+para vc setar o password do server, o vncserver executa o servidor que
+voce ira chamalo de outra maquina com o vncviewer dando o comando
+vncviewer maq01.dominio.com.br:1 ( de acordo com o vncserver) ou pelo IP
+mesmo.
+
+        Eu executo o vncserver no linux e venho no Windows e "pego" a tela
+do linux, com direito a WindowMaker e tudo...
+
+        Para colocar o Window Manager de sua preferencia, edite o arquivo
+~/.vnc/xstartup  e coloque lah o executaver do seu window manager, por
+exemplo o KDE ( startkde & ) ou o Windowmaker ( wmaker & )
+				-----------
+
+			INSTALAÇÃO DE PACOTES SRC DO RED HAT
+
+Note que src.rpm não são instalados como os binários. Você deveria
+ rpm --rebuild rpm-3-3--1.src.rpm
+
+ e depois instalar o binário criado em /usr/src/redhat/RPMS/i386
+				-----------
+
+			ATIVAR IDE DA PLACA DE SOM
+
+edite seu arquivo /etc/isapnp.conf
+				------------
+
+			USO DO RPM2TGZ.FGZ
+
+PARA USAR: rpm2tgz filename.rpm
+				------------
+
+		COMANDO PARA MOSTRAR A VERSÃO DO LINUX
+
+saber a versão do meu Linux e ele me mostrou  o seguinte:
+
+      uname -a:
+      Linux 2.0.29 #1 ....
+				----------------
+
+				USO DE FTP NO LINUX
+
+Para se conectar ao ftp da Netscape , basta digitar o comando abaixo
+
+                    ftp ftp.netscape.com
+Quando conectar e pedir o nome do usuario, digite: anonymous e
+a senha serah o seu endereco de mail:
+
+Feito isso, vc estah no /home do ftp da Netscape. Para chegar ao
+Communicator, basta entrar no diretorio:
+
+cd /pub/communcator/4.xx/english/unix/supported/   . . .
+
+depois, escolha o sistema operacional e pegue o arquivo. isso eh feito
+usando o comando
+
+lembrese digite bin antes de puxar......
+
+get  nomedoarquivo
+
+depois, eh soh esperar, instalar e curtir a Web
+				--------------
+
+			ACESSO REMOTO NO LINUX
+
+Ha' pouco tempo atras tinha uma galera tentando fazer o "acesso remoto"
+> de um X para um outro computador. Gostaria que me enviassem uma receita
+> de bolo, mostrando como se faz isto. Ok?
+
+Bem, voce deveria ter guardado as mensagens...
+
+Passo-a-passo:
+1) Abra o Remote-X-Apps mini-HOWTO. Se nao tiver no seu micro,
+pegue nos sites de praxe (linusp/LDP, conectiva/LDP).
+2) Leia atentamente.
+3) Faca o que esta' escrito la'.
+4) Pronto.
+
+Simples, nao? :)
+
+Quer um resumo?
+1) Rode o servidor X na maquina cliente.
+2) De um telnet do cliente para o servidor.
+3) Exporte o DISPLAY para o cliente.
+4) Dependendo do caso (eu nao precisei), use o xhost.
+5) Rode o programa que quiser.
+				------------
+
+			SCANNER DE PORTA PARALELA
+
+Para quem tem um scanner de porta paralela e esta' morrendo de
+vontade de usar no Linux, confira a URL abaixo:
+
+http://www2.prestel.co.uk/hex/scanners.html
+
+Me parece que por enquanto so' tem um driver em alfa, mas outros
+estao em desenvolvimento.
+				------------
+
+			PARA SABER QUE PACOTES ESTÃO INSTALADOS
+
+se você usa RedHat ou Conectiva, o comando:
+
+$ rpm -qa | grep XFree
+
+que dará o que você tem agora de pacotes .rpm relacionados
+com o XFree.
+				-------------
+
+				XWINDOWS CONFIGURAÇÃO
+
+i gente fiquei +- um mes pra configurar minha trident TGUI 9680 e 
+meu monitor Samsung SyncMaster 3Ne(consegui configura-lo ontem). Nesse 
+tempo apanhei pra caramba do xf86config, ate na hora que resolvi 
+configura-lo manualmente. Sugiro vcs que estao tendo problemas  
+verificar na lista de video cards no site da XFree86, qual servidor 
+usar com a sua placa. Instale somente o servidor nescessario(sugiro 
+usar somente um servidor). Em seguida rode o xf86config e escolha o 
+modo que mais se aproxima do seu hardware. Apos isto e bem provavel 
+que na hora que vc inicializar o xwindows ele vai tar completamente 
+diferente do vc selecionou. Agora vc vai ter que editar o 
+xf86config(use o vi ou outro editor), provavelmente sua placa nao 
+deve estar com a memoria adequada e ele deve estar usando modos 
+diferentes do que vc selecionou ajuste tudo manualmente.
+Eu tive que fazer desta forma, talvez vcs tenham que fazer o mesmo.
+Sugiro desisntalar o xwindows todo e reinstala-lo antes de fazer isso.
+Espero poder ter ajudado!
+				-------------
+
+			CONFIGURANDO O AFTERSTEP
+
+Partindo do pressuposto que os arquivos do afterstep jah estejam no
+lugar certo:
+   Para usar o afterstep, voce deve editar o arquivo $HOME/.xinitrc. O
+arquivo deve conter a seguinte linha:
+
+exec startkde
+
+   Basta modifica-la para:
+exex afterstep
+
+   Assim toda vez que vc chamar startx ele vai entrar no afterstep em vez
+do Kde... Agora saber qual eh o melhor dos tres jah eh uma questao de
+gosto pessoal.
+				-------------
+
+			INSTALAÇÃO DO WORD PERFECT 8
+
+Certo, voce descompactou, agora use o comando tar -emcima do aplicativo sem
+a extencao, depois é SÓ ir no setup.
+				------------
+
+				   ALIAS
+
+No arquivo bashrc ( /etc/bashrc ) existem alguns alias'es, que, são muito
+úteis e vc tb pode criar outros ( eu criei um pra montar o CD ).  Ficou
+assim:
+alias mcd="mount /dev/hdc mnt/cdrom"
+Sintaxe: alias <apelido>="<comando e opções>"
+				-------------
+
+			CONECTANDO A INTERNET COM DIP
+
+Como eu faço pra utilizar o DIP pra conectar a internet?
+> é 
+> dip -t
+
+        Ler o man de vez em quando (leia-se sempre) faz bem.
+
+dip -t
+port seu_modem_device
+term
+atdt_phone_numbah
+^]
+mode ppp
+e.g:
+
+dip -t
+port modem
+term
+atdt6666666
+^]
+mode ppp
+				---------------
+
+			PROGRAMAÇÃO EM LINGUAGEM X
+
+From: Marcelo Samsoniuk <marcelos@cwbone.bsi.com.br>
+Date: Tue, 02 Feb 1999 09:24:40 -0200
+To: linux-br@unicamp.br
+Subject: [linux-br] programacao X ao alcance de todos! :)
+
+saudacoes! :)
+
+a quem se interessa por programacao X, estou disponibilizando
+a versao 3.2.1 do XSTEP, um toolkitzinho pequeno e rapido, para
+aplicacoes X pequenas e rapidas em linguagem C!
+
+os sources estao disponiveis em:
+
+        http://www.bsi.com.br/~marcelos/xstep-3.2.1.tar.gz
+
+esta versao inclui:
+
+- documentacao extendida, em diversos formatos (ascii, ps e
+  wp8), incluindo agora um pratico tutorial com exemplos em
+  linguagem C, ilustrando o funcionamento de cada widget! 
+
+- codigo melhorado: a maioria das widgets sao capazes de 
+  se redimensionar automaticamente quando o usuario redimensiona
+  uma janela X; melhorias de codigo diversas, com a eliminacao
+  de milhares de bugs e melhor performance (funciona muito bem
+  no meu 486 :)
+
+- novas widgets: listas de multiplas colunas, menus e etc.
+
+- visual melhorado, mais proximo do N*XTSTEP, e melhor integracao
+  com o WindowMaker (todas as aplicacoes XSTEP sao facilmente 
+  'dockaveis' :)
+
+- instalacao simples e rapida (de antemao, soh para quem tem
+  Linux ou FreeBSD ;)) a distribuicao dos arquivos ficou 
+  mais clara tambem (ao menos melhor do q antes)
+
+espero q o pequeno tutorial ajude o pessoal a derrubar aquela
+ideia de q programacao X eh complicada! o XSTEP nao somente
+prova q aplicacoes X podem ter codigo simples, como tambem 
+podem ser rapidas e eficientes! :)
+
+[]x!
+
+        marcelo samsoniuk
+-- 
+linux-br  FAQ: http://linux.unicamp.br/linux-br/faq.html
+          Historico: http://linux.unicamp.br/linux-br/historico.html
+          Veja tambem: http://linux.unicamp.br
+				-------------
+
+			RODANDO O WP NO XWINDOW
+
+Vc entra no X e então, abra um terminal e chame o xwp...do mesmo modo
+que vc o chama no prompt, fora do X.
+Guto Falcão
+falcao@netsite.com.br
+				-------------
+
+			IMPRESSORAS NO KERNEL 2.2.1
+
+Utilizo o REDHAT 5.1 e ate' a kernel 2.0.36 ele detectava a minha
+> impressora em /dev/lp1 (LPT2 do dos) so' que meu computador nao tem
+> LPT2. Como nao podia ficar sem impressora, resolvi fazer uns testes ate'
+> dar um "cat /etc/lilo.conf > /dev/lp0". Neste momento a impressora
+> imprimiu.
+
+Ate' o kernel 2.0.x, o device era dependente do endereco I/O que a
+porta paralela usa. No caso do 0x378 que e' normalmente usado, o
+device era lp1.
+
+> Assim sendo, imaginei que o novo kernel, estaria configurando minha
+> impressora na porta correta (LPT1 = /dev/lp0). Por isso hackiei a
+> entrada do meu /etc/printcap e auterei a linha de ":lp=/dev/lp1:\" para
+> ":lp=/dev/lp0:\".
+
+A partir do 2.2.x esse esquema mudou. Maiores detalhes no 
+/usr/src/linux/Documentation/parport.txt.
+
+--
+Ricardo Yassuo Igarashi
+E-mail: iga@originet.com.br
+				-------------
+
+			SCRIPT PARA O MINICOM
+
+O script abaixo não é exatamente pro Minicom mas para qualquer terminal.
+
+Crie o arquivo com o VI ou seu editor preferido colocando as opções de
+sua conta na internet e rode o mesmo (imagino que vc saiba como rodar um
+script no linux).
+
+
+#!/bin/bash
+pppd connect 'chat "" ATDP2900010 CONNECT "" \
+ogin: seu_login word: sua_senha' \
+/dev/modem 115200 -detach debug crtscts modem defaultroute \
+noipdefault  
+
+(este script roda no redhat, não foi testado em outras distribuições)
+
+./Marumbeiro
+jmprado@planetarium.com.br
+				-----------
+
+			CONFIGURANDO A TRIDENT 9440
+
+tenta isso:
+
+Section "Screen"
+ Driver "SVGA"
+ Device "Trident"
+ Monitor "Samsung"
+ DefaultColorDepth 16  <---------------inclua esta linha
+ ......
+ ......   
+EndSection
+				--------------
+
+			CONFIGURANDO A Trident 3DImage975 AGP
+
+Oi, pra configurar essa placa com o Gurani 3.0, faca o seguinte no seu
+/etc/X11/XF86config:
+
+Section "Device"
+    Identifier  "Trident 3DImage975 AGP"
+    VendorName  "Trident"
+    BoardName   "3DImage975 AGP"
+    VideoRam    4096                    <--- quantidade de RAM do video
+    Option      "noaccel"               <--- inclua esta linha
+EndSection
+				---------------
+				CONFIG. TRIDENTE 9668
+
+tive esse problema e resolvi assim:
+¦# The accelerated servers (S3, Mach32, Mach8, 8514, P9000, AGX, W32,
+Mach64)
+¦
+¦Section "Screen"
+¦    Driver      "accel"
+¦    Device      "Diamond Fire GL 1000 PRO"
+¦    Monitor     "My Monitor"
+¦*   DefaultColorDepth 16
+¦    Subsection "Display"
+¦        Depth       8
+¦        Modes       "640x480" "800x600"
+¦        ViewPort    0 0
+¦        Virtual     800 600
+¦    EndSubsection
+¦    Subsection "Display"
+¦        Depth       16
+¦        Modes       "640x480" "800x600"
+¦        ViewPort    0 0
+¦        Virtual     800 600
+¦    EndSubsection
+¦    Subsection "Display".............
+
+A linha q coloquei um * no inicio arrumou esse problema...eh soh coloca-lo
+na secao
+da sua placa (SVGA,VGA,etc)</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

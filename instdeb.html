@@ -1,0 +1,1391 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="Generator" CONTENT="Microsoft Word 97">
+   <META NAME="Template" CONTENT="C:\Arquivos de Programas\Microsoft Office\Office\HTML.DOT">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [pt] (Win95; I) [Netscape]">
+   <TITLE>Instalacao do Debian 1.3.1</TITLE>
+</HEAD>
+<BODY TEXT="#000000" LINK="#000080" VLINK="#0000FF" ALINK="#FF0000" BACKGROUND="Image3.jpg">
+
+
+<CENTER><FONT FACE="Arial"><FONT SIZE=+2>Instalando o</FONT><FONT SIZE=+4></FONT></FONT></CENTER>
+
+<CENTER><FONT FACE="Arial"><FONT SIZE=+4><B>Linux Debian</B></FONT></FONT></CENTER>
+
+
+<P>
+<HR WIDTH="70%">
+<CENTER></CENTER>
+
+<CENTER><FONT FACE="Arial"><FONT SIZE=-1>AVISO</FONT></FONT></CENTER>
+
+<CENTER><FONT FACE="Arial"><FONT SIZE=-2>Este documento foi traduzido mas
+ainda nao foi revisado. Nao tome a traducao como definitiva.</FONT></FONT></CENTER>
+
+
+<P>
+<HR WIDTH="70%">
+<H4>
+<FONT FACE="Arial">Sobre Copyrights e Licen&ccedil;as de Software</FONT></H4>
+<I><FONT SIZE=-2>Estou certo que voc&ecirc; leu as licen&ccedil;as que
+v&ecirc;m com software comercial - dizem que voc&ecirc; s&oacute; pode
+usar uma c&oacute;pia do software em um computador. O Sistema Debian GNU/Linux
+n&atilde;o &eacute; assim. Encorajamos voc&ecirc; a colocar uma c&oacute;pia
+em cada computador em sua escola ou local de trabalho. Empreste-o a seus
+amigos, e ajude-os a instalar em seus computadores. Voc&ecirc; pode ainda
+fazer milhares de c&oacute;pias e vend&ecirc;-las - com algumas restri&ccedil;&otilde;es.
+Isto &eacute; porque Debian &eacute; baseado em software livre.</FONT></I><I><FONT SIZE=-2></FONT></I>
+
+<P><I><FONT SIZE=-2>Software livre n&atilde;o quer dizer que n&atilde;o
+tem copyright, e n&atilde;o quer dizer que o CD que voc&ecirc; compra contendo
+este software &eacute; distribu&iacute;do sem nenhum cr&eacute;dito, simplesmente
+significa que as licen&ccedil;as de programas individuais n&atilde;o requerem
+que voc&ecirc; pague o privil&eacute;gio de copiar os programas. H&aacute;
+outros tipos de restri&ccedil;&otilde;es sobre como copiar o software,
+as quais voc&ecirc; pode ler uma vez que tenha instalado o sistema. Por
+exemplo, muitos dos programas no sistema s&atilde;o licenciados sob a GNU
+General Public License, ou GPL. A GPL requer que voc&ecirc; torne o c&oacute;digo
+fonte dos programas dispon&iacute;vel sempre que distribuir uma c&oacute;pia
+do programa. Assim, inclu&iacute;mos o c&oacute;digo fonte para todos aqueles
+programas no sistema Debian. H&aacute; v&aacute;rias outras formas de copyright
+e licen&ccedil;a de software usados nos programas em Debian. Voc&ecirc;
+pode encontrar os copyright&nbsp; e licen&ccedil;as de cada programa olhando
+no diret&oacute;rio /usr/doc/nome do programa/copyright ap&oacute;s ter
+instalado seu sistema.</FONT></I><I><FONT SIZE=-2></FONT></I>
+
+<P><I><FONT SIZE=-2>O aviso jur&iacute;dico mais importante &eacute; que
+este software vem sem nenhuma garantia. As pessoas que escrevem software
+livre n&atilde;o podem ser processadas por isso.</FONT></I>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- REQUISITOS DO SISTEMA</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>CPU</FONT></FONT></B>
+
+<P><B>Seu computador deve possuir um processador 386, 486, Pentium, ou
+Pentium Pro, ou um dos clones desses processadores produzido por fabricantes
+tal como Cyrix, AMD, TI, IBM, etc. Se seu processador tem letras como "sx",
+"sl", "slc", etc. depois do n&uacute;mero como em "386sx",&nbsp; isto &eacute;
+bom. O sistema <I>n&atilde;o</I> rodar&aacute; em processadores 286 ou
+mais antigos.</B>
+
+<P><B>Bus de I/O</B>
+
+<P><B>Seu computador deve usar bus ISA, EISA, PCI, ou VL. O bus VL &eacute;
+tamb&eacute;m conhecido como VESA Local Bus ou VLB. Os computadores que
+possuem&nbsp; PCI ou VLB geralmente t&ecirc;m slots ISA ou EISA tamb&eacute;m.
+Linux oferece algum suporte para o bus Micro-Channel usado em computadores
+IBM PS/2, mas isto n&atilde;o &eacute; inclu&iacute;do no Debian rescue
+disk. RAM e Disco Voc&ecirc; deve ter pelo menos 4MB de RAM e 40MB de disco
+rigido. Se quiser instalar <I>tudo</I>, do jogo de xadrez at&eacute; o
+software de projeto de circuito-impresso, voc&ecirc; necessitar&aacute;
+de 300MB ou mais. As interfaces de disco que emulam a interface de disco
+rigido "AT" as quais freq&uuml;entemente s&atilde;o chamadas MFM, RLL,
+IDE, ou&nbsp; ATA s&atilde;o suportadas. As controladoras de disco SCSI
+de muitos fabricantes diferentes s&atilde;o suportadas. Veja o </B><FONT FACE="Arial"><FONT SIZE=-1><A HREF="http://sunsite.unc.edu/mdw/HOWTO/Hardware-HOWTO.html">Linux
+Hardware Compatibility HOWTO</A> para mais detalhes.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Video</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; deveria usar uma interface
+de video VGA-compat&iacute;vel para o terminal de console. Quase toda placa
+de video moderna &eacute; compat&iacute;vel com VGA.&nbsp; CGA, MDA, ou
+HGA trabalham OK para texto, mas elas n&atilde;o trabalhar&atilde;o com
+o Sistema X Window, e n&oacute;s n&atilde;o as&nbsp; testamos. O uso de
+um terminal serial para o console ainda n&atilde;o &eacute; suportado.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Outro Hardware</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>O Linux suporta uma grande variedade
+de dispositivos de hardware como mouses, impressoras, scanners, modems,
+placas de rede, etc. Entretanto, nenhum desses dispositivos s&atilde;o
+requisitados na instala&ccedil;&atilde;o do sistema.</FONT></FONT>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- ANTES DE VOCE COMECAR</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>Backups</FONT></FONT></B>
+
+<P><B>Antes de voc&ecirc; come&ccedil;ar, assegure-se de fazer backup de
+cada arquivo que est&aacute; agora em seu sistema. O procedimento de instala&ccedil;&atilde;o
+pode limpar todos os dados em seu disco rigido!</B>
+
+<P><B>A informacao que voce precisara</B>
+
+<P><B>Al&eacute;m deste documento, voc&ecirc; necessitar&aacute; do manual
+de cfdisk - cfdisk.txt,&nbsp; o&nbsp; tutorial de dselect - dselect.beginner.8.html,
+o </B><FONT FACE="Arial"><FONT SIZE=-1><A HREF="http://sunsite.unc.edu/mdw/HOWTO/Hardware-HOWTO.html">Linux
+Hardware Compatibility HOWTO,</A>&nbsp; e o X11_release_ note.txt&nbsp;
+para usu&aacute;rios de teclado diferente de US.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se seu computador est&aacute; conectado
+a uma rede, voc&ecirc; deve pedir a seu administrador de sistema esta informa&ccedil;&atilde;o:</FONT></FONT>
+<BR><FONT FACE="Arial"><FONT SIZE=-1>&nbsp;</FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Seu host name (voc&ecirc; pode ser capaz
+de decidir isto por conta pr&oacute;pria).</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Seu domain name.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Endere&ccedil;o IP do seu computador.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O netmask para usar com sua rede.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O endere&ccedil;o IP de sua rede.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O endere&ccedil;o de transmiss&atilde;o
+para usar em sua rede.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O endere&ccedil;o IP do sistema gateway
+default para o qual voc&ecirc; deve rotear, se sua rede <I>possui</I> um
+gateway.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O sistema em sua rede que voc&ecirc; deve
+usar como um servidor DNS (Domain Name service).</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Qual tipo de rede voc&ecirc; usa para
+conectar-se a rede (Ethernet, Token Ring).</FONT></FONT></LI>
+</UL>
+
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- CONFIGURANDO SEU SISTEMA</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>Discos</FONT></FONT></B>
+
+<P><B>H&aacute; alguns detalhes de hardware que voc&ecirc; deve examinar.
+Primeiro, decida em qual disco voc&ecirc; quer colocar o sistema Linux.
+Voc&ecirc; j&aacute; fez backup dele junto com seus outros discos, certo?</B>
+
+<P><B>O menu de SETUP do BIOS</B>
+
+<P><B>Sua motherboard provavelmente providencia um menu de SETUP do BIOS.
+Alguns sistemas iniciam esse menu se voc&ecirc; aperta DEL enquanto o sistema
+est&aacute; inicializando, alguns requerem um SETUP disk (disco de SETUP),
+e alguns possuem outros meios de invocar o menu. Se voc&ecirc; pode iniciar
+esse menu, use-o para controlar as caracter&iacute;sticas discutidas nos
+v&aacute;rios par&aacute;grafos seguintes.</B>
+
+<P><B>Selecao do Dispositivo de Boot</B>
+
+<P><B>Muitos menus de SETUP do BIOS permitem a voc&ecirc; selecionar os
+dispositivos que ser&atilde;o usados para comandar a entrada do sistema.
+Configure isto para procurar um sistema operacional inicializ&aacute;vel
+em a:, (o primeiro disco flexivel), e ent&atilde;o c:</B>
+<BR><B>(o primeiro disco rigido). Uma vez que voc&ecirc; vai inicializar
+Linux de um disquete na instala&ccedil;&atilde;o, &eacute; importante que
+o BIOS habilite o boot de um disco flexivel.</B>
+
+<P><B>Memoria Estendida vs. Expandida</B>
+
+<P><B>Se seu sistema proporciona tanto mem&oacute;ria <I>esten</I>dida
+quanto <I>expan</I>dida, configure-o de modo que exista muita mem&oacute;ria
+estendida e pouca mem&oacute;ria expandida quanto poss&iacute;vel. Linux
+requer mem&oacute;ria estendida e n&atilde;o pode usar mem&oacute;ria&nbsp;
+expandida.</B>
+
+<P><B>Protecao de virus</B>
+
+<P><B>Desabilite quaisquer caracter&iacute;sticas de prote&ccedil;&atilde;o
+de v&iacute;rus que seu BIOS pode proporcionar. Se voc&ecirc; possui uma
+placa de prote&ccedil;&atilde;o de v&iacute;rus ou outro hardware especial,
+assegure-se que esteja desabilitado ou fisicamente removido. Estes n&atilde;o
+s&atilde;o compat&iacute;veis com Linux, e Linux possui um melhor m&eacute;todo
+de proteg&ecirc;-lo de v&iacute;rus.</B>
+
+<P><B>Shadow Ram</B>
+
+<P><B>Sua motherboard provavelmente providencia <I>shadow RAM</I>. Voc&ecirc;
+pode ver configura&ccedil;&otilde;es para "Video BIOS Shadow", "C800-CBFF
+Shadow", etc. Desabilite toda shadow RAM. Shadow RAM &eacute; usada para
+acelerar acessos a ROMs em sua motherboard e em algumas placas controladoras.
+Linux evita usar essas ROMs na sua inicializa&ccedil;&atilde;o porque providencia
+seu pr&oacute;prio software de 32-bits mais r&aacute;pido em lugar dos
+programas de 16 bits nas ROMs. Desabilitando a shadow RAM pode tornar alguma
+parte dela dispon&iacute;vel para os programas usarem como mem&oacute;ria
+normal. Deixando a shadow RAM habilitada pode interferir com o acesso de
+Linux a dispositivos de hardware.</B>
+
+<P><B>Advanced Power Management</B>
+
+<P><B>Se sua motherboard proporciona Advanced Power Management (APM - Gerenciamento
+Avan&ccedil;ado de Energia), configure-a de modo que o gerenciamento de
+energia seja controlada por APM. Desabilite os modos doze, standby, suspend,
+nap e sleep, e desabilite hard-disk power-down timer. Linux pode controlar
+esses modos, e pode fazer um melhor trabalho de gerenciamento de energia
+que o BIOS. A vers&atilde;o do kernel do sistema operacional nos disquetes
+de instala&ccedil;&atilde;o n&atilde;o faz isso, entretanto, use APM, porque
+tivemos relat&oacute;rios de um crash de sistema de um laptop quando o
+Linux APM driver &eacute; configurado. Depois que voc&ecirc; tenha instalado
+Linux, voc&ecirc; pode instalar o pacote <I>fonte do kernel</I> e construir
+uma vers&atilde;o customizada do kernel para habilitar APM e outras caracter&iacute;sticas.</B>
+
+<P><B>A Chave de Turbo</B>
+
+<P><B>Muitos sistemas possuem uma chave de <I>turbo</I> que controla a
+velocidade da CPU. Selecione a configura&ccedil;&atilde;o de alta velocidade.
+Se seu BIOS permite voc&ecirc; desabilitar controle de software da chave
+de turbo (ou controle de software da velocidade da CPU), fa&ccedil;a-o
+ent&atilde;o e trave o sistema em modo turbo. Temos um relat&oacute;rio
+que, num sistema particular, enquanto Linux est&aacute; auto-investigando
+(procurando por dispositivos de hardware), pode acidentalmente atingir
+o controle de software para a chave de turbo.</B>
+
+<P><B>Turbinando sua CPU</B>
+
+<P><B>Muitas pessoas tentaram operar sua CPU 90 MHz a 100 MHz, etc. Ela
+&agrave;s vezes trabalha, mas &eacute; sens&iacute;vel a temperatura e
+outros fatores e realmente pode danificar seu sistema. O autor deste documento
+turbinou seu pr&oacute;prio sistema durante um ano; o sistema iniciava
+abortando o programa gcc com um sinal inesperado enquanto estava compilando
+o kernel do sistema operacional. Voltando a velocidade da CPU a seu valor
+normal resolveu o problema.</B>
+
+<P><B>RAM ruim</B>
+
+<P><B>O compilador<I> gcc</I> &eacute; freq&uuml;entemente o primeiro a
+para de RAM ruim (ou outros problemas de hardware que mudam dados imprevisivelmente)
+porque constr&oacute;i enormes estruturas de dados que cruza repetidamente.
+Um erro nessas estruturas de dados provocar&aacute; uma instru&ccedil;&atilde;o
+ilegal ou acesso a um endere&ccedil;o n&atilde;o existente. O sintoma disso
+ser&aacute; a parada de gcc por um sinal inesperado.</B>
+
+<P><B>A melhor das motherboards suporta RAM c/ paridade e atualmente avisar&aacute;
+se seu sistema tem um erro de single-bit na RAM. Infelizmente, elas n&atilde;o
+possuem um meio de fixar o erro, de modo que geralmente travam imediatamente
+depois que noticiam sobre a RAM ruim. Ainda &eacute; melhor ser avisado
+que se tem mem&oacute;ria ruim que ter silenciosamente erros inseridos
+em seus dados. Dessa forma, os melhores sistemas possuem motherboards que
+suportam SIMMs com paridade e paridade verdadeira.</B>
+
+<P><B>RAM c/ Paridade Falsa ou ("virtual" )</B>
+
+<P><B>Se voce pergunta sobre RAM c/ Paridade em uma loja de computador,
+voc&ecirc; provavelmente conseguir&aacute; SIMMs c/ <I>paridade virtual</I>
+em vez de c/ <I>paridade verdadeira</I>. SIMMs c/ paridade virtual podem
+freq&uuml;entemente (mas n&atilde;o sempre) ser distinguidas porque elas
+s&oacute; possuem um chip a mais que uma equivalente SIMM sem paridade,
+e esse chip extra &eacute; menor que todos os outros. SIMMs c/ paridade
+virtual trabalham exatamente como a mem&oacute;ria sem paridade. Elas n&atilde;o
+podem avis&aacute;-lo quando tem um erro de single-bit como fazem as SIMMs
+c/ paridade verdadeira em motherboard que implementa paridade. Jamais pague
+mais por uma SIMM c/ paridade virtual que uma sem paridade. Espere pagar
+um pouco mais por SIMMs c/ paridade verdadeira, porque voc&ecirc; realmente
+est&aacute; comprando um bit extra de mem&oacute;ria para cada 8 bits.</B>
+
+<P><B>Se voc&ecirc; possui RAM c/ paridade verdadeira e sua motherboard
+pode manipul&aacute;-la,&nbsp; tenha certeza de habilitar qualquer configura&ccedil;&atilde;o
+de BIOS que fa&ccedil;a a motherboard interromper em erros de paridade
+de mem&oacute;ria.</B>
+
+<P><B>CPUs Cyrix e Erros de Disquete</B>
+
+<P><B>Muitos usu&aacute;rios de CPUs Cyrix tiveram que desabilitar o cache
+em seus sistemas durante a instala&ccedil;&atilde;o, porque o disquete
+possuia erros se assim n&atilde;o fizessem. Se tiver de fazer isso, assegure-se
+de reabilitar seu cache quando terminar com a instala&ccedil;&atilde;o,
+j&aacute; que o sistema roda <I>muito mais</I> lento com o cache desabilitado.</B>
+
+<P><B>N&oacute;s n&atilde;o achamos que isto seja necessariamente uma falha
+da CPU Cyrix. Pode ser alguma coisa que Linux pode trabalhar perto. Continuaremos
+a examinar o problema. Para o tecnicamente curioso, suspeitamos de um problema
+com o cache ser inv&aacute;lido depois de um chaveamento de c&oacute;digo
+de 16 para 32 bits.</B>
+
+<P><B>Multiplos Processadores</B>
+
+<P><B>Temos v&aacute;rios relat&oacute;rios que Debian roda bem (e muito
+r&aacute;pido) em sistemas com dois (ou mais) processadores Pentium ou
+Pentium Pro na mesma motherboard. Para tirar proveito de m&uacute;ltiplos
+processadores, voc&ecirc; ter&aacute; que instalar o pacote<I> fonte do
+kernel</I> e ent&atilde;o recompil&aacute;-lo com suporte a multiprocessamento
+sim&eacute;trico habilitado. Neste momento (kernel vers&atilde;o 2.0.30)
+o meio que voc&ecirc; habilita isso &eacute; editar o topo do Makefile
+para o kernel e comentar a linha que diz "SMP = 1". Se voc&ecirc; compila
+software num sistema multiprocessado, procure o flag "-j" na documenta&ccedil;&atilde;o
+sobre "make".</B>
+
+<P><B>Configuracoes de BIOS para se Ter Cuidado</B>
+
+<P><B>Se seu BIOS oferece algo como "15-16 MB Memory Hole", por favor desabilite
+isso. Linux espera encontrar mem&oacute;ria l&aacute; se voc&ecirc; possui
+esse tanto de RAM.</B>
+
+<P><B>Temos um relat&oacute;rio de uma motherboard Intel Endeavor em que
+existe uma op&ccedil;&atilde;o chamada "LFB" ou "Linear Frame Buffer".
+Isto tem duas configura&ccedil;&otilde;es: "Disabled" e "1 Megabyte". Configure-o
+para "1 Megabyte". Quando desabilitado, o disco de instala&ccedil;&atilde;o
+n&atilde;o era lido corretamente, e o sistema eventualmente travava. Neste
+documento, n&oacute;s n&atilde;o entendemos o que est&aacute; ocorrendo
+com esse dispositivo particular - ele somente trabalhava com essa configura&ccedil;&atilde;o
+e n&atilde;o sem ela.</B>
+
+<P><B>Configuracoes de Hardware para se Ter Cuidado</B>
+
+<P><B>Se algumas placas proporcionam "mem&oacute;ria mapeada", a mem&oacute;ria
+deve ser mapeada em algum lugar entre 0xA0000 e 0xFFFFF (de 640K a 1 megabyte)
+ou num endere&ccedil;o pelo menos 1 megabyte maior que a quantidade total
+de RAM em seu sistema.</B>
+
+<P><B>Hardware especifico para Windows</B>
+
+<P><B>Uma tend&ecirc;ncia perturbadora &eacute; a prolifera&ccedil;ao de
+modems <I>Windows</I> e impressoras. Em alguns casos, eles s&atilde;o especialmente
+projetados para ser operados pelo sistema operacional Microsoft Windows
+e levam a legenda <I>WinModem</I> ou <I>Made expecially for Windows-based
+computers </I>(fabricado especialmente para computadores baseados em Windows).
+Isto geralmente &eacute; feito pela&nbsp; remo&ccedil;&atilde;o dos processadores
+embutidos do hardware e deixando o trabalho que eles fazem para um driver
+Windows que &eacute; executado pela CPU principal de seu computador. Essa
+estrat&eacute;gia torna o hardware mais barato, mas as economias <I>n&atilde;o</I>
+s&atilde;o freq&uuml;entemente repassadas para o usu&aacute;rio e esse
+hardware pode ainda ser mais caro que os dispositivos equivalentes que
+preservam sua intelig&ecirc;ncia embutida.</B>
+
+<P><B>Voc&ecirc; deve evitar hardware especifico para Windows por duas
+raz&otilde;es. A primeira &eacute; que os fabricantes geralmente n&atilde;o
+tornam os recursos disponiveis para escrever um driver Linux. Geralmente,
+o hardware e a interface de software para o dispositivo s&atilde;o propriet&aacute;rios,
+e a documenta&ccedil;&atilde;o n&atilde;o est&aacute; dispon&iacute;vel
+sem um acordo de n&atilde;o-revela&ccedil;&atilde;o, caso esteja dispon&iacute;vel
+no todo. Isto impede-o de ser usado para software livre, uma vez que os
+produtores de software exp&otilde;em o c&oacute;digo fonte de seus programas.
+A segunda raz&atilde;o &eacute; que como os dispositivos iguais a esses
+tiveram seus processadores removidos, o sistema operacional deve executar
+o trabalho desses processadores, freq&uuml;entemente em prioridade <I>real-time</I>
+( tempo real), e dessa forma a CPU n&atilde;o est&aacute; dispon&iacute;vel
+para rodar seus programas pois estar&aacute; guiando esses dispositivos.
+Desde que o usu&aacute;rio tipico de Windows n&atilde;o faz multitarefa
+t&atilde;o intensivamente quanto um usu&aacute;rio de Linux, os fabricantes
+esperam que o usu&aacute;rio de Windows simplesmente n&atilde;o note o
+peso que esse hardware coloca em sua CPU. Entretanto, qualquer sistema
+operacional multitarefa, ainda que <I>Windows 95</I> ou<I> NT</I>, &eacute;
+degradado quando os fabricantes de perif&eacute;ricos restringem a pot&ecirc;ncia
+de processamento embutido de seu hardware.</B>
+
+<P><B>Voc&ecirc; pode ajudar nessa situa&ccedil;&atilde;o encorajando esses
+fabricantes a liberar a documenta&ccedil;&atilde;o e outros recursos necess&aacute;rios
+para n&oacute;s programarmos seu hardware, mas a melhor estrat&eacute;gia
+&eacute; simplesmente evitar esse tipo de hardware at&eacute; que esteja
+listado como em funcionamento no </B><FONT FACE="Arial"><FONT SIZE=-1><A HREF="http://sunsite.unc.edu/mdw/HOWTO/Hardware-HOWTO.html">Linux
+Hardware Compatibility HOWTO.</A></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Hardware Proprietario</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Alguns fabricantes simplesmente n&atilde;o
+nos contar&atilde;o como escrever drivers para seu hardware, nem nos permitir&atilde;o
+acessar a documenta&ccedil;&atilde;o sem acordo de n&atilde;o-revela&ccedil;&atilde;o
+que nos preveniria de liberar o c&oacute;digo fonte de Linux. Um exemplo
+&eacute; o sistema de som DSP de laptop da IBM usado em recentes sistemas
+ThinkPad - algum desses sistemas tamb&eacute;m acoplam o sistema de som
+ao modem. Uma vez que n&atilde;o tivemos acesso &agrave; documenta&ccedil;&atilde;o
+nesses dispositivos, eles simplesmente n&atilde;o funcionar&atilde;o sob
+Linux. Voc&ecirc; pode ajudar pedindo aos fabricantes de tal hardware que
+liberem a documenta&ccedil;&atilde;o. Se bastante pessoas pedirem, saber&atilde;o
+que Linux &eacute; um importante mercado. O <A HREF="http://sunsite.unc.edu/mdw/HOWTO/Hardware-HOWTO.html">Linux
+Hardware Compatibility HOWTO</A> providencia informa&ccedil;&atilde;o sobre
+quais dispositivos atualmente possuem drivers Linux.</FONT></FONT>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- OS METODOS PARA INSTALAR O DEBIAN</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Para instalar Debian voc&ecirc; necessita
+de um <I>Initial Boot Medium</I> (M&iacute;dia de Boot Inicial). Depois
+do boot voc&ecirc; instala <I>o Kernel e os M&oacute;dulos</I>, o <I>Sistema
+Base</I> e os <I>pacotes Debian</I>. (Instru&ccedil;&otilde;es detalhadas
+de instala&ccedil;&atilde;o seguem abaixo)</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>A seguinte lista mostra qual midia
+pode ser usada como fonte para esses componentes.</FONT></FONT>
+<DL>
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Initial Boot Medium</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>O Initial Boot Medium &eacute; usado para
+iniciar a instala&ccedil;&atilde;o de Debian. Ele inicializa o sistema
+de instala&ccedil;&atilde;o e executa o programa de instala&ccedil;&atilde;o.
+O sistema de instala&ccedil;&atilde;o pode ser inicializado por:</FONT></FONT></DD>
+</DL>
+<FONT FACE="Arial"><FONT SIZE=-1>disco flexivel&nbsp;&nbsp; O disco necess&aacute;rio
+&eacute; chamado Rescue Disk. O Rescue Disk (normalmente) cont&eacute;m
+o kernel e o filesystem root que providencia os arquivos e programas necess&aacute;rios
+para a instala&ccedil;&atilde;o b&aacute;sica. CD-ROM</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; necessita de Debian num
+CD inicializ&aacute;vel e o computador deve ser capaz de inicializar do
+drive de CD-ROM. Loadlin em um sistema DOS em funcionamento</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; necessita de um sistema
+DOS j&aacute; rodando. Copie linux e root.bin nesse sistema, al&eacute;m
+do mais voc&ecirc; precisa&nbsp; de loadlin do diret&oacute;rio tools.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Loadlin &eacute; usado para inicializar
+o kernel: </FONT></FONT><TT>loadlin linux root=/dev/ram initrd=root.bin</TT><FONT FACE="Arial"><FONT SIZE=-1>
+Em alguns casos o filesystem root deve ser carregado de um disco extra:
+Quando voc&ecirc; inicializa de um disquete de 1.2MB, voc&ecirc; necessita
+do Root Disk porque o arquivo de imagem de disco n&atilde;o cabe no primeiro
+disquete de 1.2MB. Quando voc&ecirc; tem menos de 6MB de RAM, voc&ecirc;
+necessita do especial Low-Memory Root Disk. Voc&ecirc; deve inicializar
+de disquete.</FONT></FONT>
+<DL>
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Kernel e M&oacute;dulos Driver</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>O kernel Linux e os m&oacute;dulos podem
+ser instalados de:</FONT></FONT></DD>
+</DL>
+<FONT FACE="Arial"><FONT SIZE=-1>disquete (Rescue Disk e Driver Disk) filesystem
+no disco rigido local (msdos, minix ou ext2) CD-ROM Em todos menos no primeiro
+caso voc&ecirc; necessita de um diret&oacute;rio que contenha os arquivos
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/resc1440.bin">resc1440.bin</A>
+e <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/drv1440.bin">drv1440.bin</A>
+na m&iacute;dia.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; possui um drive de CD-ROM
+com uma interface propriet&aacute;ria (nem SCSI nem ATAPI) voc&ecirc; necessita
+do Driver Disk em ordem para instalar o driver de interface de CD-ROM do
+disquete.</FONT></FONT>
+<DL>
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Sistema Base</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>O Sistema Base cont&eacute;m o sistema
+inicial de Debian que ser&aacute; copiado para o disco rigido. O Sistema
+Base pode ser instalado de:</FONT></FONT></DD>
+</DL>
+<FONT FACE="Arial"><FONT SIZE=-1>disquete (cinco disquetes de 3,5" ou 5,25")
+filesystem num disco rigido local (msdos, minix ou ext2) CD-ROM NFS (Network
+File System) Em todos menos no primeiro caso voc&ecirc; necessita de um
+diret&oacute;rio que contenha o arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base1_3.tgz">base1_3.tgz</A>
+na midia.</FONT></FONT>
+<DL>
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Pacotes Debian</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>Uma vez que voc&ecirc; instalou o sistema
+Base e reinicializou para atualizar o sistema, dselect instala mais Pacotes
+Debian. Esses Pacotes podem ser instalados de:</FONT></FONT></DD>
+</DL>
+<FONT FACE="Arial"><FONT SIZE=-1>disquete (voc&ecirc; necessitar&aacute;
+de muitos disquetes, tente evitar isso!) filesystem num disco rigido local
+(msdos, minix ou ext2) CD-ROM NFS FTP</FONT></FONT>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- ESCREVENDO OS ARQUIVOS DE IMAGEM
+DE DISCO PARA DISQUETE.</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Os seguintes discos podem ser necess&aacute;rios
+para instalar Debian (Leia se&ccedil;&atilde;o acima para decidir quais
+discos voc&ecirc; necessita):</FONT></FONT>
+<DL>
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Rescue Disk</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>Se seu drive <B>a:</B> do sistema sobre
+o qual voc&ecirc; instalar&aacute; Linux usa disquetes de 1.44MB, voc&ecirc;
+necessitar&aacute; do arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/resc1440.bin">resc1440.bin</A>;
+se usa disquetes de 1.2MB, voc&ecirc; necessitar&aacute; do arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/resc1200.bin">resc1200.bin</A>.</FONT></FONT></DD>
+
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Driver Disk</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>Se seu drive <B>a:</B> do sistema sobre
+o qual voc&ecirc; instalar&aacute; Linux usa disquetes de 1.44 MB, voc&ecirc;
+necessitar&aacute; do arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/drv1440.bin">drv1440.bin</A>;
+se usa disquetes de 1.2 MB, voc&ecirc; precisar&aacute; do arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/drv1200.bin">drv1200.bin</A>.</FONT></FONT></DD>
+
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Root Disk</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>O Root Disk pode ser criado do arquivo
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/root.bin">root.bin</A>.</FONT></FONT></DD>
+
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Low-Memory Root Disk</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>O Low-Memory Root Disk pode ser criado
+do arquivo <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/lmemroot.bin">lmemroot.bin</A>.
+Esse arquivo &eacute; de 1.2MB, ent&atilde;o cabe em ambos os disquetes
+de alta densidade 3,5" e 5,25".</FONT></FONT></DD>
+
+<DT>
+<FONT FACE="Arial"><FONT SIZE=-1>Discos Base</FONT></FONT></DT>
+
+<DD>
+<FONT FACE="Arial"><FONT SIZE=-1>Esses discos ser&atilde;o gerados dos
+arquivos <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base-1.bin">base-1.bin</A>,
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base-2.bin">base-2.bin</A>,
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base-3.bin">base-3.bin</A>,
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base-4.bin">base-4.bin</A>,
+e <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/base-5.bin">base-5.bin</A>.
+Esses arquivos s&atilde;o de 1.2MB, ent&atilde;o cabem em ambos os disquetes
+de alta densidade 3,5" e 5,25".</FONT></FONT></DD>
+</DL>
+<FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; est&aacute; usando um web
+browser num computador ligado em rede para ler este documento, voc&ecirc;
+provavelmente pode recuperar os arquivos selecionando seus nomes em seu
+web browser. Diferentemente, voc&ecirc; pode recuper&aacute;-los de <A HREF="ftp://ftp.debian.org/debian/stable/disks-i386/current/">ftp://ftp.debian.org/debian/stable/disks-i386/current/</A>,
+ou um diret&oacute;rio semelhante em qualquer dos sites de espelho de FTP
+Debian. Todos eles s&atilde;o <I>arquivos de imagem de disco</I>, o que
+significa que cada arquivo cont&eacute;m o conte&uacute;do completo de
+um disquete em modo <I>raw</I> <I>(bruto)</I>. Um programa especial &eacute;
+usado para escrever os arquivos de imagem para disquete em modo <I>raw.</I></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Encontre (at&eacute;) 8 disquetes formatados.
+Marque-os como "Rescue", "Device Drivers", "Custom Boot", "Base 1", "Base
+2", "Base 3", e "Base 4".</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Nenhum arquivo &eacute; escrito para
+o disquete Custom Boot, este ser&aacute; escrito pelo sistema Debian quando
+estiver sendo instalado.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Escrevendo de um sistema DOS, Windows,
+ou OS-2</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; achar&aacute; o programa
+<A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/rawrite2.exe">rawrite2.exe</A>
+no mesmo diret&oacute;rio das imagens de disco. Existe tamb&eacute;m um
+arquivo <U><FONT COLOR="#0000FF">rawrite2.txt</FONT></U> contendo instru&ccedil;&otilde;es
+para rawrite2.exe.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Para escrever os arquivos de imagem
+de disco para os disquetes, use o comando</FONT></FONT>
+<DIR>
+<PRE>rawrite2 -f <I>arquivo</I> -d <I>drive</I></PRE>
+</DIR>
+<FONT FACE="Arial"><FONT SIZE=-1>onde <I>arquivo</I> &eacute; um dos arquivos
+de imagem de disco, e <I>drive</I> &eacute; <B>a:</B> ou <B>b:</B>.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Conjunto de disco de Instalacao
+Especial</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Algumas vezes um determinado hardware
+requer vers&otilde;es especiais do kernel Linux ou&nbsp; especialmente
+kernels "remendados" (patch) s&atilde;o necess&aacute;rios para rodar Linux
+em ordem. Por este motivo, imagens de disco usando estes kernels especiais
+est&atilde;o dispon&iacute;veis. Eles est&atilde;o colocados em subdiret&oacute;rios
+de <A HREF="ftp://linux.if.usp.br/pub/mirror/ftp.debian.org/debian/bo/disks-i386/current/special">special/</A>.
+Se voc&ecirc; tiver algum problema com a instala&ccedil;&atilde;o de Debian
+verifique os arquivos README&nbsp; nesses diret&oacute;rios para descobrir
+ou seja voc&ecirc; deve tentar estas imagens de disco.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Escrevendo de um Sistema Linux ou
+Unix</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Alguns sistemas tentam automaticamente
+montar o disquete quando voc&ecirc; o coloca no drive. Voc&ecirc; pode
+ter de desabilitar essa feature antes da workstation permitir-lhe escrever
+um disquete em <I>modo raw</I>. Infelizmente, eu n&atilde;o sei o comando
+necess&aacute;rio para fazer isso em sua workstation particular. Pe&ccedil;a
+ao seu administrador de sistema.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Para escrever os arquivos de imagem
+de disco para os disquetes, use o comando</FONT></FONT>
+<DIR><FONT FACE="Arial"><FONT SIZE=-1>dd if=<I>arquivo</I> of=/dev/fd0
+bs=512 conv=sync; sync</FONT></FONT></DIR>
+<FONT FACE="Arial"><FONT SIZE=-1>onde <I>arquivo</I> &eacute; um dos arquivos
+de imagem de disco.<I> /dev/fd0</I> &eacute; um nome comumente usado do
+dispositivo de disco flexivel, pode ser diferente em sua workstation. O
+comando pode retornar ao prompt antes do Unix ter acabado a escrita do
+disquete, assim procure o led de disco-em-uso e tenha certeza que o led
+esteja apagado e o disco tenha parado de girar antes de voc&ecirc; remov&ecirc;-lo
+do drive. Em alguns sistemas, voc&ecirc; ter&aacute; de executar um comando
+para ejetar o disquete do drive.</FONT></FONT>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- INSTALANDO O SISTEMA</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>Confiabilidade de Disquete</FONT></FONT></B>
+
+<P><B>O problema n&uacute;mero um de pessoas instalando Debian pela primeira
+vez parece ser confiabilidade de disquete.</B>
+
+<P><B>O Rescue Floppy &eacute; aquele com os piores problemas, porque esse
+disco &eacute; lido pelo BIOS antes de Linux inicializar. O BIOS n&atilde;o
+parece ler t&atilde;o confi&aacute;vel quanto o driver de disco flexivel
+de Linux, e pode parar sem imprimir uma mensagem de erro caso leia dados
+incorretos. Tamb&eacute;m pode haver falhas no disquete de drivers e nos
+disquetes base, a maioria das quais indica eles mesmos com uma inunda&ccedil;&atilde;o
+de mensagens sobre erros de I/O de disco.</B>
+
+<P><B>Se voc&ecirc; est&aacute; tendo a instala&ccedil;&atilde;o paralisada
+num disquete particular, a primeira coisa que voc&ecirc; deve fazer &eacute;
+efetuar o download novamente da imagem de disco e escrev&ecirc;-la para
+um disquete <I>diferente</I>. Simplesmente reformatar o disquete antigo
+n&atilde;o &eacute; suficiente, mesmo que aparentemente o disquete tenha
+sido reformatado e escrito sem erros. &Agrave;s vezes &eacute; &uacute;til
+tentar escrever o disquete em um sistema diferente.</B>
+
+<P><B>Um usu&aacute;rio informa que teve de escrever <I>tr&ecirc;s</I>
+disquetes de boot antes de um ter funcionado, e assim tudo correu bem com
+o terceiro disquete.</B>
+
+<P><B>O Rescue Floppy</B>
+
+<P><B>Coloque o Rescue Floppy no drive a:, e resete o sistema pressionando
+a chave reset, desligando o sistema e ent&atilde;o ligando, ou pressionando
+Control-Alt-Del no teclado. O disquete deve ser acessado, e voc&ecirc;
+deve ent&atilde;o ver uma tela que introduz o rescue floppy e termina com
+o prompt boot: . &Eacute; chamado de Rescue floppy (disquete de recupera&ccedil;&atilde;o
+ou de socorro) porque voc&ecirc; pode us&aacute;-lo para inicializar seu
+sistema e executar reparos sempre que um problema torna seu disco rigido
+n&atilde;o-inicializ&aacute;vel. Por isso, voc&ecirc; deve guardar esse
+disquete depois que tenha instalado seu sistema. Pressionando F3 dar&aacute;
+mais informa&ccedil;&atilde;o sobre isto.</B>
+
+<P><B>Voc&ecirc; pode fazer duas coisas no prompt boot: . Pode pressionar
+as teclas de fun&ccedil;&atilde;o F1 at&eacute; F10 para ver algumas p&aacute;ginas
+de informa&ccedil;&atilde;o &uacute;til, ou pode inicializar o sistema.
+Se voc&ecirc; tem menos de 6 MB de RAM, voc&ecirc; tem de usar um m&eacute;todo
+de boot de disquete (os m&eacute;todos de boot s&atilde;o listados apertando
+F3), e voc&ecirc; tem de inserir o Low-Memory Root Disk quando solicitado
+pelo root floppy. Este disquete n&atilde;o deve ser protegido contra escrita.
+Se voc&ecirc; inicializar de um drive de 1.2MB, voc&ecirc; precisa&nbsp;
+usar o m&eacute;todo de boot ramdisk, e voc&ecirc; necessitar&aacute; do
+Root Disk. Se voc&ecirc; possui alguns dispositivos de hardware que n&atilde;o
+s&atilde;o acessados corretamente por Linux quando este inicializa, voc&ecirc;
+pode encontrar um par&acirc;metro para adicionar &agrave; linha de comando
+do boot nas telas que voc&ecirc; v&ecirc; apertando F4 e F5. Se voc&ecirc;
+adiciona alguns par&acirc;metros &agrave; linha de comando do boot, esteja
+certo de digitar o m&eacute;todo de boot (o default &eacute; linux) e um
+espa&ccedil;o antes do primeiro par&acirc;metro. Se voc&ecirc; simplesmente
+apertar Enter, isto &eacute; o mesmo que digitar linux sem qualquer par&acirc;metro
+especial.</B>
+
+<P><B>Se esta &eacute; a primeira vez que voc&ecirc; est&aacute; inicializando
+o sistema, somente pressione Enter e veja se funciona corretamente. Provavelmente
+sim. Se n&atilde;o, voc&ecirc; pode reinicializar mais tarde e procurar
+alguns par&acirc;metros especiais que informam ao sistema sobre seu hardware.</B>
+
+<P><B>Depois que voc&ecirc; apertar Enter, voc&ecirc; deve ver a mensagem
+<I>Loading</I>..., e depois <I>Uncompressing Linux</I>..., e ent&atilde;o
+uma p&aacute;gina ou menos de informa&ccedil;&atilde;o enigm&aacute;tica
+sobre o hardware em seu sistema. Pode haver muitas mensagens na forma <I>can't
+find something</I>, ou <I>something not present</I>, <I>can't initialize
+something</I>, or ainda <I>this driver release depends on something </I>.
+A maioria dessas mensagens s&atilde;o inofensivas. Voc&ecirc; as v&ecirc;
+porque o disco de boot de instala&ccedil;&atilde;o &eacute; constru&iacute;do
+para rodar em computadores com muitos dispositivos perif&eacute;ricos diferentes.
+Obviamente, nenhum computador ter&aacute; todo perif&eacute;rico poss&iacute;vel,
+sendo assim o sistema operacional pode emitir algumas queixas enquanto
+procura perif&eacute;ricos que voc&ecirc; n&atilde;o possue. Voc&ecirc;
+tamb&eacute;m pode ver o sistema parar temporariamente. Isto acontece quando
+ele est&aacute; esperando por um dispositivo responder, e aquele dispositivo
+n&atilde;o est&aacute; presente em seu sistema. Se voc&ecirc; achar o tempo
+de boot do sistema inaceitavelmente longo, voc&ecirc; pode criar um <I>custom
+kernel</I> <I>(kernel customizado),</I> depois de ter instalado seu sistema,
+sem todos os drivers para dispositivos n&atilde;o-existentes.</B>
+
+<P><B>Se voc&ecirc; escolhe um m&eacute;todo de boot n&atilde;o-default,
+por exemplo ramdisk ou floppy, voc&ecirc; ser&aacute; solicitado a inserir
+o Root floppy. Insira o Root Floppy no primeiro drive de disquete e pressione
+Enter. (Se voc&ecirc; escolhe floppy1 insira o Root Floppy no segundo drive
+de disco.)</B>
+
+<P><B>Sistemas c/ Pouca Memoria</B>
+
+<P><B>Se seu sistema tem menos de 6MB de RAM, um par&aacute;grafo sobre
+pouca mem&oacute;ria e um menu de texto com quatro escolhas podem ser exibidos.
+Isto significa que o sistema detectou que voc&ecirc; n&atilde;o tem mem&oacute;ria
+suficiente para uma instala&ccedil;&atilde;o normal, doravante deve seguir
+um procedimento especial de instala&ccedil;&atilde;o c/ pouca mem&oacute;ria.
+Siga pelas sele&ccedil;&otilde;es do menu na ordem:</B>
+<UL>
+<LI>
+<B>Use fdisk para criar uma parti&ccedil;&atilde;o de Swap Linux (tipo
+82). A parti&ccedil;&atilde;o de swap &eacute; necess&aacute;ria para proporcionar
+<I>mem&oacute;ria virtual</I> durante o processo de instala&ccedil;&atilde;o,
+j&aacute; que o processo usar&aacute; mais mem&oacute;ria que voc&ecirc;
+possui em seu sistema. Selecione o tamanho para a quantidade de mem&oacute;ria
+virtual que voc&ecirc; pretende usar depois que seu sistema esteja instalado.
+16 megabytes &eacute; provavelmente a menor quantidade que &eacute; pr&aacute;tico,
+use 32 megabytes se puder dispender espa&ccedil;o, e 64 se seu disco for
+suficientemente grande para voc&ecirc; n&atilde;o perder tanto.</B></LI>
+</UL>
+
+<DIR>
+<DIR><B>Em acr&eacute;scimo crie uma parti&ccedil;&atilde;o MINIX (tipo
+81). Ela sustentar&aacute; o filesystem root no processo de pr&eacute;via
+instala&ccedil;&atilde;o. Seu tamanho deve ser pelo menos 2 megabytes.
+Esta parti&ccedil;&atilde;o pode ser deletada quando a instala&ccedil;&atilde;o
+terminar.</B>
+
+<P><B>Agora crie as parti&ccedil;&otilde;es ext2 (tipo 83) nas quais voc&ecirc;
+instalar&aacute; Debian.</B></DIR>
+</DIR>
+
+<UL>
+<LI>
+<B>Ative a parti&ccedil;&atilde;o de swap.</B></LI>
+
+<LI>
+<B>Copie o filesystem root para disco.</B></LI>
+
+<LI>
+<B>Reboot: inicializa o sistema novamente usando as op&ccedil;&otilde;es
+de boot que s&atilde;o mostradas.</B></LI>
+</UL>
+<B>A Caixa de Dialogo Colorido ou Monocromatico</B>
+
+<P><B>Depois que o sistema terminou o boot, voc&ecirc; deve ver a caixa
+de di&aacute;logo de escolha colorido ou monocrom&aacute;tico. Se seu monitor
+exibe preto e branco, pressione Enter para continuar com a instala&ccedil;&atilde;o.
+Diferentemente,&nbsp; use a tecla de dire&ccedil;&atilde;o para mover o
+cursor para o item de menu <I>Color</I> (Colorido) e ent&atilde;o pressione
+Enter. O display deve mudar de preto e branco para colorido. Pressione
+Enter novamente para continuar com a instala&ccedil;&atilde;o.</B>
+
+<P><B>O Menu Principal</B>
+
+<P><B>Voc&ecirc; pode ver uma caixa de di&aacute;logo que diz <I>The installation
+program is determining the current state of your system </I>(O programa
+de instala&ccedil;&atilde;o est&aacute; determinando o estado atual de
+seu sistema). Em alguns sistemas, isto ser&aacute; muito r&aacute;pido
+para ler. Voc&ecirc; ver&aacute; essa caixa de di&aacute;logo entre os
+passos no menu principal. O programa de instala&ccedil;&atilde;o verificar&aacute;
+o estado do sistema entre cada passo. Esta verifica&ccedil;&atilde;o permite
+a voc&ecirc; reiniciar a instala&ccedil;&atilde;o sem perder o trabalho
+que voc&ecirc; j&aacute; tenha feito se acontecer de paralisar seu sistema
+no meio do processo de instala&ccedil;&atilde;o. Se tiver de reiniciar
+uma instala&ccedil;&atilde;o, voc&ecirc; ter&aacute; de configurar colorido
+ou monocrom&aacute;tico, configurar seu teclado, reativar sua parti&ccedil;&atilde;o
+de swap, e remontar quaisquer discos que foram inicializados. Alguma coisa
+tamb&eacute;m que voc&ecirc; tenha feito com o sistema de instala&ccedil;&atilde;o
+ser&aacute; salvo.</B>
+
+<P><B>Durante o processo inteiro de instala&ccedil;&atilde;o, voc&ecirc;
+ser&aacute; apresentado ao menu principal. As escolhas no topo do menu
+mudar&atilde;o indicando seu progresso na instala&ccedil;&atilde;o do sistema.
+Phil Hughes escreveu no <I>Linux Journal</I> que voc&ecirc; podia ensinar
+uma <I>galinha</I> a instalar Debian! Ele quis dizer que o processo de
+instala&ccedil;&atilde;o foi sobretudo <I>bicar</I> na tecla return. A
+primeira alternativa no menu de instala&ccedil;&atilde;o &eacute; a pr&oacute;xima
+a&ccedil;&atilde;o que voc&ecirc; deve executar de acordo com o que o sistema
+detecta que j&aacute; tenha feito. Ele deve dizer <I>Next</I> (Pr&oacute;ximo),
+e neste ponto o <I>pr&oacute;ximo</I> item deve ser <I>Configure the Keyboard
+(Configure o Teclado)</I>.</B>
+
+<P><B>Configurando o Teclado</B>
+
+<P><B>Assegure-se que o cursor esteja real&ccedil;ado no item <I>Next</I>,
+e Pressione Enter para ir ao menu de configura&ccedil;&atilde;o do teclado.
+Selecione um teclado que se adapta ao layout usado para sua lingua, ou
+selecione alguma coisa para fechar se o layout de teclado que voc&ecirc;
+quer n&atilde;o esteja representado. Depois que o sistema tenha sido instalado,
+voc&ecirc; ser&aacute; capaz de selecionar um layout de teclado de um leque
+maior de op&ccedil;&otilde;es. Mova o cursor para a sele&ccedil;&atilde;o
+de teclado que voc&ecirc; deseja e aperte Enter. Use as teclas de dire&ccedil;&atilde;o
+para mover o cursor - elas est&atilde;o no mesmo lugar em todos os layout
+de teclado- sendo ent&atilde;o independentes da configura&ccedil;&atilde;o
+de teclado.</B>
+
+<P><B>O Shell</B>
+
+<P><B>Se voc&ecirc; &eacute; um usu&aacute;rio avan&ccedil;ado de Unix
+ou Linux, aperte Alt esquerdo-F2 para conseguir o segundo <I>console virtual,
+</I>isto &eacute;,<I>&nbsp;&nbsp;</I> a tecla Alt do lado esquerdo da barra
+de espa&ccedil;o e a tecla de fun&ccedil;&atilde;o F2, ao mesmo tempo.
+Essa &eacute; uma janela separada rodando um clone do Bourne shell chamado
+ash. Neste ponto voc&ecirc; est&aacute; inicializado do RAM disk, e h&aacute;
+um conjunto limitado de utilit&aacute;rios Unix dispon&iacute;veis para
+seu uso. Voc&ecirc; pode ver quais programas est&atilde;o dispon&iacute;veis
+com o comando&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ls /bin /sbin /usr/bin /usr/sbin. Use os menus para executar qualquer tarefa
+que eles estejam habilitados a fazer - o shell e os comandos est&atilde;o
+l&aacute; somente no caso de algo dar errado. Em particular, voc&ecirc;
+sempre deve usar os menus, n&atilde;o o shell, ativar sua parti&ccedil;&atilde;o
+de swap, porque o software de menu n&atilde;o pode detectar que voc&ecirc;
+tenha feito isto do shell. Pressione Alt esquerdo-F1 para voltar aos menus.
+Linux proporciona at&eacute; 64 consoles virtuais, embora o Rescue floppy
+somente use alguns deles.</B>
+
+<P><B>Ultima Chance!</B>
+
+<P><B>Dizemos para voc&ecirc; fazer backup de seus discos?. Eis sua primeira
+chance para limpar todos os dados em seus discos, e sua &uacute;ltima chance
+para salvar seu antigo sistema. Se voc&ecirc; n&atilde;o tem backup dos
+seus discos, remova o disquete do drive, resete o sistema, e faca backups.</B>
+
+<P><B>Divisao de seus Discos Rigidos</B>
+
+<P><B>Se voc&ecirc; j&aacute; n&atilde;o particionou seus discos para filesystems
+Linux nativo e Linux swap, o item do menu <I>Next</I> ser&aacute; <I>Partition
+a Hard Disk (Divis&atilde;o de um Disco Rigido)</I>. Se voc&ecirc; j&aacute;
+criou pelo menos uma parti&ccedil;&atilde;o de disco Linux Nativo e uma
+Linux Swap, a sele&ccedil;&atilde;o do menu <I>Next</I> ser&aacute; <I>Initialize
+and Activate the Swap Partition (Inicialize e Ative a Parti&ccedil;&atilde;o
+de Swap)</I>, ou voc&ecirc; pode ainda pular este passo se seu sistema
+tinha pouca mem&oacute;ria e voc&ecirc; foi questionado para ativar a parti&ccedil;&atilde;o
+de swap t&atilde;o logo o sistema tenha inicializado. Qualquer que seja
+a sele&ccedil;&atilde;o do menu <I>Next</I>, voc&ecirc; pode usar a tecla
+da seta para baixo para selecionar <I>Partition a Hard Disk</I>.</B>
+
+<P><B>O item de menu <I>Partition a Hard Disk</I> apresenta-se com uma
+lista de drives de disco que voc&ecirc; pode particionar, e roda o programa
+<I>cfdisk</I>, o qual permite voc&ecirc; criar e editar parti&ccedil;&otilde;es
+de disco. O manual de cfdisk - </B><FONT FACE="Arial"><FONT SIZE=-1><U><FONT COLOR="#0000FF">cfdisk.txt</FONT></U>
+- est&aacute; incluido com este documento, e voc&ecirc; deveria l&ecirc;-lo
+agora. Voc&ecirc; deve criar pelo menos uma parti&ccedil;&atilde;o "Linux"
+(tipo 83), e uma parti&ccedil;&atilde;o "Linux Swap" (tipo 82).</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Sua parti&ccedil;&atilde;o de swap
+ser&aacute; usada para proporcionar mem&oacute;ria virtual para o sistema
+e deve estar entre 16 e 128 megabytes de tamanho, dependendo de quanto
+espa&ccedil;o em disco voc&ecirc; possui e quantos programas voc&ecirc;
+quer rodar. Linux n&atilde;o usar&aacute; mais que 128 megabytes de swap,
+ent&atilde;o n&atilde;o h&aacute; nenhuma raz&atilde;o para fazer sua parti&ccedil;&atilde;o
+de swap maior que isto. Uma parti&ccedil;&atilde;o de swap &eacute; altamente
+recomendada, mas voc&ecirc; n&atilde;o precisa fazer se quiser, caso seu
+sistema possua mais que 16 megabytes de RAM. Se deseja fazer isso, por
+favor selecione o item <I>Do Without a Swap Partition</I> do menu.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>A parti&ccedil;&atilde;o "Linux" abrigar&aacute;
+todos os seus arquivos, e voc&ecirc; pode cri&aacute;-la de qualquer tamanho
+entre 40 megabytes e o tamanho m&aacute;ximo de seu disco menos o tamanho
+da parti&ccedil;&atilde;o de swap. Se voc&ecirc; j&aacute; est&aacute;
+familiarizado com Unix ou Linux, voc&ecirc; pode querer criar parti&ccedil;&otilde;es
+adicionais - por exemplo, voc&ecirc; pode criar parti&ccedil;&otilde;es
+que abrigar&atilde;o os filesystems <B>/var</B>, e <B>/usr</B>.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Inicialize e Ative a Particao de
+Swap</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Este ser&aacute; o item do menu <I>Next</I>
+depois que voc&ecirc; tenha criado uma parti&ccedil;&atilde;o de disco.
+Voc&ecirc; tem a escolha de inicializar e ativar uma nova parti&ccedil;&atilde;o
+de swap, ativar uma previamente inicializada, e continuar sem uma parti&ccedil;&atilde;o
+de swap. &Eacute; sempre permitido reinicializar uma parti&ccedil;&atilde;o
+de swap, assim selecione <I>Initialize and Activate the Swap Partition</I>
+a menos que voc&ecirc; tenha certeza que sabe o que est&aacute; fazendo.
+Essa escolha do menu lhe dar&aacute; a op&ccedil;&atilde;o para vasculhar
+a parti&ccedil;&atilde;o inteira por blocos de disco n&atilde;o-leg&iacute;veis
+causado por defeitos na superf&iacute;cie das bandejas do disco rigido.
+Isto &eacute; &uacute;til se voc&ecirc; possui discos MFM, RLL, ou discos
+SCSI mais velhos, e esta op&ccedil;&atilde;o nunca os danifica. Discos
+IDE que funcionam corretamente n&atilde;o necessitam dessa op&ccedil;&atilde;o,
+pois possuem seu pr&oacute;prio mecanismo interno para mapear blocos de
+disco ruins.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>A parti&ccedil;&atilde;o de swap providencia
+<I>mem&oacute;ria virtual</I> em complemento a mem&oacute;ria RAM que voc&ecirc;
+tem instalado em seu sistema. &Eacute; igualmente usada para mem&oacute;ria
+virtual enquanto o sistema esteja sendo instalado. Esta &eacute; a raz&atilde;o
+pela qual n&oacute;s a iniciamos primeiro.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Inicialize uma Particao Linux</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Neste ponto, o item do menu <I>Next</I>
+deve ser <I>Initialize a Linux Partition (Inicialize uma Parti&ccedil;&atilde;o
+Linux)</I>. Se n&atilde;o for, &eacute; porque voc&ecirc; n&atilde;o completou
+o processo de particionamento do disco, ou voc&ecirc; n&atilde;o executou
+uma das op&ccedil;&otilde;es do menu no procedimento com sua parti&ccedil;&atilde;o
+de swap.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; pode inicializar uma parti&ccedil;&atilde;o
+Linux, ou alternadamente voc&ecirc; pode montar uma previamente inicializada.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Estes disquetes de instala&ccedil;&atilde;o
+n&atilde;o atualizam um sistema antigo sem remover os arquivos - Debian
+proporciona um procedimento diferente usando os disquetes de boot para
+upgrade de sistemas existentes. Assim, se voc&ecirc; est&aacute; usando
+parti&ccedil;&otilde;es velhas de disco que n&atilde;o estejam vazias,
+deve inicializ&aacute;-las (o que apaga todos os arquivos) aqui. Voc&ecirc;
+deve inicializar quaisquer parti&ccedil;&otilde;es que criou no passo de
+particionamento do disco. Sobre a &uacute;nica raz&atilde;o para montar
+uma parti&ccedil;&atilde;o sem inicializ&aacute;-la neste ponto, seria
+montar uma parti&ccedil;&atilde;o sobre a qual voc&ecirc; j&aacute; tenha
+executado alguma parte do processo de instala&ccedil;&atilde;o usando este
+mesmo conjunto de disquetes.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Selecione o item do menu <I>Next</I>
+para inicializar e montar a parti&ccedil;&atilde;o de disco /. A primeira
+parti&ccedil;&atilde;o que voc&ecirc; monta ou inicializa ser&aacute; montada
+como / (pronuncia-se <I>root</I>). Voc&ecirc; ter&aacute; a op&ccedil;&atilde;o
+para vasculhar a parti&ccedil;&atilde;o do disco por blocos ruins, da mesma
+forma quando voc&ecirc; inicializou a parti&ccedil;&atilde;o de swap. Vasculhar
+por blocos ruins nunca danifica o disco, mas pode tomar 10 minutos ou mais
+se voc&ecirc; possui um disco grande.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Uma vez que voc&ecirc; tenha montado
+a parti&ccedil;&atilde;o /, o item do menu <I>Next</I> ser&aacute; <I>Install
+Operating System Kernel and Modules</I> a menos que voc&ecirc; j&aacute;
+tenha executado algum dos passos da instala&ccedil;&atilde;o. Voc&ecirc;
+pode usar as teclas das setas de dire&ccedil;&atilde;o para selecionar
+os itens de menu para inicializar e/ou montar parti&ccedil;&otilde;es de
+disco se voc&ecirc; possui mais parti&ccedil;&otilde;es para configurar.
+Se voc&ecirc; criou parti&ccedil;&otilde;es separadas para <B>/var</B>,
+<B>/usr</B>, ou outros filesystems, voc&ecirc; deve inicializar e/ou mont&aacute;-las
+agora.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Instale o Kernel do Sistema Operacional
+e os Modulos</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Este deve ser o passo do menu <I>Next</I>
+depois que voc&ecirc; montou seu disco /, a menos que voc&ecirc; j&aacute;
+tenha executado alguns dos passos da instala&ccedil;&atilde;o em /. Selecione-o,
+e voc&ecirc; ser&aacute; apresentado a um menu de drives para usar na leitura
+do kernel. Se voc&ecirc; escolhe instalar de disquete insira o Rescue Floppy
+como requisitado, e o kernel ser&aacute; copiado para o disco rigido. Em
+um passo posterior, este kernel ser&aacute; usado para criar um disquete
+de boot customizado para seu sistema, e tornar o disco rigido inicializ&aacute;vel
+sem um disquete.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; escolhe instalar de disquete
+voc&ecirc; ser&aacute; solicitado a inserir o disquete device drivers.
+Os device drivers ser&atilde;o copiados para seu disco rigido.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Configure os Device Drivers</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Selecione o item do menu <I>Configure
+Device Drivers Modules</I> e procure por dispositivos que estejam em seu
+sistema. Configure esses device drivers, e eles ser&atilde;o carregados
+sempre quando seu sistema iniciar. Se voc&ecirc; quer instalar o sistema
+base via NFS voc&ecirc; deve carregar e configurar o m&oacute;dulo de driver
+para sua placa de rede.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; pode carregar os device
+drivers PCMCIA aqui, mas voc&ecirc; n&atilde;o necessita us&aacute;-los.
+Depois que seu sistema esteja instalado, voc&ecirc; pode instalar o pacote
+<B>pcmcia-cs</B>. Ele detecta cart&otilde;es PCMCIA automaticamente, e
+configura os que encontrar. Tamb&eacute;m pode com<FONT COLOR="#FF0000">
+</FONT>os cart&otilde;es plugados "a quente" (sem desligar o equipamento)
+enquanto o sistema &eacute; inicializado - eles todos ser&atilde;o configurados
+enquanto estiverem plugados, e desconfigurados quando voc&ecirc; desconect&aacute;-los.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Configure a Rede</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; ter&aacute; que configurar
+a rede mesmo que voc&ecirc; n&atilde;o possua uma, mas voc&ecirc; s&oacute;
+ter&aacute; que responder as duas primeiras perguntas - <I>what is the
+name of your computer? (qual &eacute; o nome de seu computador?)</I>, e&nbsp;
+<I>is your system connected to a network? (Seu sistema est&aacute; ligado
+a uma rede?).</I></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; est&aacute; ligado a
+uma rede, aqui vem algumas quest&otilde;es que voc&ecirc; pode n&atilde;o
+ser capaz de decidir por conta pr&oacute;pria - verifique com seu administrador
+de rede se voc&ecirc; n&atilde;o sabe:</FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Seu host name.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Seu domain name.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>Endere&ccedil;o IP do seu computador.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O netmask para usar com sua rede.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O endere&ccedil;o de transmiss&atilde;o
+para usar em sua rede.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O endere&ccedil;o IP do sistema de gateway
+default para o qual voc&ecirc; deve rotear,&nbsp; se sua rede <I>possui</I>
+um gateway.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O sistema em sua rede que voc&ecirc; deve
+usar como um servidor DNS (Domain Name Service).</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial"><FONT SIZE=-1>O tipo de sua rede (Ethernet, Token Ring)
+e se voc&ecirc; usa um adaptador PCMCIA (Se voc&ecirc; escolher configurar
+um adaptador de rede PCMCIA, ele n&atilde;o funcionar&aacute; ainda. Voc&ecirc;
+precisa obter e instalar o pacote pcmcia-cs primeiro.)</FONT></FONT></LI>
+</UL>
+<FONT FACE="Arial"><FONT SIZE=-1>Alguns detalhes t&eacute;cnicos que voc&ecirc;
+possa, ou n&atilde;o possa, achar &agrave; m&atilde;o: o programa assume
+que o endere&ccedil;o IP da rede &eacute; o bitwise-AND do endere&ccedil;o
+IP de seu sistema e seu netmask. Ele achar&aacute; que o endere&ccedil;o
+de transmiss&atilde;o &eacute; o bitwise OR do&nbsp; endere&ccedil;o IP
+de seu sistema com o bitwise negation do netmask. Ele achar&aacute; que
+seu sistema gateway &eacute; tamb&eacute;m seu servidor de DNS. Se voc&ecirc;
+n&atilde;o pode encontrar algumas dessas respostas, use as suposi&ccedil;&otilde;es
+do sistema - voc&ecirc; pode mud&aacute;-las depois que o sistema esteja
+instalado, se necess&aacute;rio, editando /etc/init.d/network.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Instale o Sistema Base</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Selecione o item do menu <I>Install
+the Base System (Instale o Sistema Base)</I>. Voc&ecirc; ser&aacute; apresentado
+a um menu de drives para usar na leitura dos disquetes base. Selecione
+o drive apropriado. Se voc&ecirc; escolher instalar de disquete insira
+o Base 1, 2, 3, 4 e 5 como requisitado pelo programa. Se um dos disquetes
+base est&aacute; ilegivel, voc&ecirc; ter&aacute; que criar um disquete
+de substitui&ccedil;&atilde;o e inserir todos os disquetes para o sistema
+novamente. Uma vez que todos os disquetes foram lidos, o sistema instalar&aacute;
+os arquivos. Isto poderia tomar 10 minutos ou mais em sistemas lentos,
+por&eacute;m menos tempo em sistemas mais r&aacute;pidos.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Configure o Sistema Base</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Neste ponto voc&ecirc; leu todos os
+arquivos que comp&otilde;e um sistema Debian m&iacute;nimo, mas voc&ecirc;
+deve executar alguma configura&ccedil;&atilde;o antes do sistema rodar.
+Selecione o item do menu <I>Configure the Base System (Configure o Sistema
+Base)</I>.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Ser&aacute; pedido para voc&ecirc;
+selecionar sua time zone. Procure sua time zone ou regi&atilde;o do mundo
+no menu, e digite-o no prompt. Isto pode levar a outro menu, no qual voc&ecirc;
+pode selecionar sua atual time zone.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Depois disso, ser&aacute; perguntado
+se o clock do seu sistema &eacute; para ser configurado para GMT ou local
+time (hora local). Selecione GMT se voc&ecirc; s&oacute; estar&aacute;
+rodando Linux e Unix em seu sistema, e selecione local time se estar&aacute;
+rodando outro sistema operacional tal como DOS ou Windows. Unix e Linux
+mant&ecirc;m hora GMT no clock do sistema e usam software para convert&ecirc;-la
+&agrave; time zone local. Isto permite a eles manter-se informado sobre
+a &eacute;poca do hor&aacute;rio de ver&atilde;o e anos bissexto, e ainda
+permite usu&aacute;rios que est&atilde;o logados de outras time zones individualmente
+configurar a time zone usada em seu terminal. Se voc&ecirc; roda o clock
+do sistema em GMT e sua localidade obedece ao <I>hor&aacute;rio de ver&atilde;o</I>,
+voc&ecirc; ver&aacute; que o sistema ajusta-se para o hor&aacute;rio de
+ver&atilde;o adequadamente nos dias que come&ccedil;a e termina.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Faca o Disco Rigido Inicializavel</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; selecionar fazer o boot
+do disco rigido diretamente para Linux, voc&ecirc; ser&aacute; questionado
+a instalar um master boot record. Se voc&ecirc; n&atilde;o est&aacute;
+usando um boot manager (e este &eacute; provavelmente o caso se voc&ecirc;
+n&atilde;o sabe o que &eacute; um boot manager), responda <B>sim</B> para
+esta quest&atilde;o. A pr&oacute;xima pergunta ser&aacute; se voc&ecirc;
+quer iniciar Linux automaticamente do disco rigido quando voc&ecirc; liga
+o sistema. Isto configura Linux para ser a <I>parti&ccedil;&atilde;o inicializ&aacute;vel</I>
+- a que ser&aacute; carregada do disco rigido. Se voc&ecirc; responde <B>n&atilde;o</B>
+a essa pergunta, voc&ecirc; pode configurar a parti&ccedil;&atilde;o inicializ&aacute;vel
+mais tarde usando o programa <B>fdisk</B> do DOS, ou com os programas <B>fdisk</B>
+de Linux ou <B>activate</B>.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Se voc&ecirc; est&aacute; instalando
+Linux em um drive que n&atilde;o &eacute; o primeiro disco rigido em seu
+sistema, assegure-se de fazer um disquete de boot. A ROM de boot da maioria
+dos sistemas s&oacute; &eacute; capaz de inicializar diretamente do primeiro
+disco rigido, n&atilde;o do segundo. Voc&ecirc; pode, entretanto, trabalhar
+sobre este problema ap&oacute;s ter instalado seu sistema. Para fazer isso,
+leia as instru&ccedil;&otilde;es no diret&oacute;rio <B>/usr/doc/lilo</B>.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Faca um Disquete de Boot</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Voc&ecirc; deve fazer um disquete de
+boot mesmo que pretenda inicializar o sistema do disco rigido. A raz&atilde;o
+para isto &eacute; que &eacute; poss&iacute;vel o bootstrap do disco rigido
+ser mal instalado, mas um disquete de boot quase sempre funcionar&aacute;.
+Selecione <I>Make a Boot Floppy</I> do menu e alimente o sistema com um
+disquete vazio conforme orientado. Assegure-se que o disquete n&atilde;o
+esteja protegido contra grava&ccedil;&atilde;o, pois o software vai format&aacute;-lo
+e grav&aacute;-lo. Marque-o como disquete "Custom Boot" e proteja-o contra
+grava&ccedil;&atilde;o.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>A Hora da Verdade</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Isto &eacute; o que os engenheiros
+el&eacute;tricos chamam the <I>smoke test (a prova da fuma&ccedil;a)</I>
+- o que acontece quando voc&ecirc; liga um novo sistema pela primeira vez.
+Remova o disquete de boot do drive, e selecione o item do menu <I>Reboot
+the System</I>. Se o sistema Linux n&atilde;o iniciar, insira o disquete
+Custom Boot que voc&ecirc; criou e resete seu sistema. Linux deve inicializar.
+Voc&ecirc; deve ver as mesmas mensagens quando inicializou o disquete de
+boot da instala&ccedil;&atilde;o, seguido por algumas novas mensagens.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>Configure a Password do Root</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Esta &eacute; a password (senha) para
+o <I>superusu&aacute;rio</I>, um login que passa por cima de toda prote&ccedil;&atilde;o
+de seguran&ccedil;a em seu sistema. Somente deve ser usada para executar
+administra&ccedil;&atilde;o do sistema, e s&oacute; por curto tempo quanto
+poss&iacute;vel. N&atilde;o use <B>root</B> como seu login pessoal. Voc&ecirc;
+ser&aacute; incitado a criar um login pessoal tamb&eacute;m, e este &eacute;
+o que voc&ecirc; deve usar para enviar e receber e-mail e executar a maioria
+de seu trabalho - n&atilde;o root. A raz&atilde;o para evitar privil&eacute;gios
+de root &eacute; que voc&ecirc; pode ser enganado pelo funcionamento de
+um programa <I>trojan-horse</I> (cavalo de Tr&oacute;ia) - esse &eacute;
+um programa que tira proveito de seu poder de superusu&aacute;rio para
+comprometer a seguran&ccedil;a de seu sistema atr&aacute;s das suas costas.
+Qualquer bom livro em administra&ccedil;&atilde;o de sistema Unix cobrir&aacute;
+este tema com mais detalhe - considere a leitura de um se &eacute; novidade
+para voc&ecirc;. A boa not&iacute;cia &eacute; que Linux &eacute; provavelmente
+mais seguro que os outros sistemas operacionais que voc&ecirc; pode rodar
+em seu PC. DOS e Windows, por exemplo, d&atilde;o privil&eacute;gio de
+superusu&aacute;rio a <I>todos</I> os programas. Esta &eacute; uma raz&atilde;o
+pela qual eles t&ecirc;m sido atacados por v&iacute;rus.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Todas as passwords que voc&ecirc; cria
+devem conter de 6 a 8 caracteres, e devem conter ambos os caracteres mai&uacute;sculos
+e min&uacute;sculos, bem como caracteres de pontua&ccedil;&atilde;o.</FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Ap&oacute;s ter adicionado ambos os
+logins, voc&ecirc; cair&aacute; no programa <B>dselect</B>. &Eacute; exigido
+a leitura do tutorial de dselect - <U><FONT COLOR="#0000FF">dselect.beginner.8.html</FONT></U>
+- antes de voc&ecirc; rodar dselect. Dselect permite a voc&ecirc; selecionar
+<I>pacotes</I> para ser instalados em seu sistema. Se voc&ecirc; possui
+um CD-ROM ou disco rigido contendo os pacotes Debian adicionais que voc&ecirc;
+quer instalar em seu sistema, ou voc&ecirc; est&aacute; ligado a Internet,
+isto ser&aacute; imediatamente &uacute;til a voc&ecirc;. Diferentemente,
+voc&ecirc; pode querer sair de dselect e come&ccedil;ar mais tarde, depois
+que tenha transportado os arquivos de pacote Debian para seu sistema. Voc&ecirc;
+deve ser o superusu&aacute;rio (root) quando rodar dselect. Se voc&ecirc;
+est&aacute; prestes a instalar o sistema X Window e n&atilde;o usa um teclado
+US, voc&ecirc; deve ler o <U><FONT COLOR="#0000FF">X11_release_note.txt</FONT></U></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1><B>LogIn</B></FONT></FONT>
+
+<P><FONT FACE="Arial"><FONT SIZE=-1>Depois que voc&ecirc; saiu de dselect,
+voc&ecirc; ser&aacute; apresentado ao prompt login:&nbsp; Logue-se usando
+o login pessoal e password&nbsp; que voc&ecirc; selecionou. Seu sistema
+est&aacute; agora pronto para uso.</FONT></FONT>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- INFORMACAO TECNICA SOBRE OS DISQUETES
+DE BOOT</FONT></FONT></B>
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>Codigo Fonte</FONT></FONT></B>
+
+<P><B>O pacote "boot-floppies" cont&eacute;m todo o c&oacute;digo fonte
+para os disquetes de instala&ccedil;&atilde;o.</B>
+
+<P><B>O Rescue Floppy</B>
+
+<P><B>O Rescue Floppy &eacute; um filesystem MS-DOS, e voc&ecirc; deve
+ser capaz de acess&aacute;-lo de um sistema DOS ou Windows ou ainda algum
+outro que possa montar discos DOS. O kernel de Linux est&aacute; dentro
+do arquivo "linux". O arquivo root.bin &eacute; uma imagem de disco gzip-comprimida
+de um filesystem Minix de 1.44 MB, e ser&aacute; carregada para a RAM disk
+e usada como o filesystem root.</B>
+
+<P><B>Substituindo o Kernel</B>
+
+<P><B>Se voc&ecirc; achar necess&aacute;rio substituir o kernel no Rescue
+Floppy, voc&ecirc; deve configurar seu novo kernel com essas features linkadas,
+n&atilde;o em m&oacute;dulos carreg&aacute;veis:</B>
+<UL>
+<LI>
+<B>RAM disk inicial</B></LI>
+
+<LI>
+<B>Filesystems MSDOS, Minix, e EXT2.</B></LI>
+
+<LI>
+<B>Execut&aacute;veis ELF.</B></LI>
+</UL>
+<B>Copie seu novo kernel para o arquivo "linux" no Rescue Floppy, e ent&atilde;o
+rode o script shell "rdev.sh" que voc&ecirc; encontrar&aacute; no disquete.</B>
+
+<P><B>Os Disquetes Base</B>
+
+<P><B>Os disquetes base cont&ecirc;m um header de 512 bytes seguido por
+uma parte de arquivo "tar" gzip-comprimido. Se voc&ecirc; desmontar byte
+por byte os headers e ent&atilde;o concatenar os conte&uacute;dos dos disquetes
+base, o resultado deve ser o arquivo tar comprimido. O arquivo cont&eacute;m
+o sistema base que ser&aacute; instalado em seu disco rigido. Depois que
+este arquivo esteja instalado, voc&ecirc; deve ir atrav&eacute;s do item
+de menu <I>Configure the Base System</I> dentro do sistema de instala&ccedil;&atilde;o
+e outros itens de menu para configurar a rede e instalar o kernel do sistema
+operacional e m&oacute;dulos antes do sistema estar pronto para uso.</B>
+<BR>&nbsp;
+
+<P>
+<HR>
+
+<P><B><FONT FACE="Arial"><FONT SIZE=-1>- COPYRIGHT DESTE DUCUMENTO</FONT></FONT></B>
+<BR>&nbsp;
+<BR>&nbsp;<I><FONT SIZE=-2></FONT></I>
+
+<P><I><FONT FACE="Arial"><FONT SIZE=-2>Copyright 1996 de Bruce Perens;
+1996, 1997 Sven Rudolph.</FONT></FONT></I>
+<BR><I><FONT FACE="Arial"><FONT SIZE=-2>Traduzido em 25 de setembro de
+1997 por Fernando Cesar Carreira (fcar@universe.com.br) e revisado em 23/10/1997.</FONT></FONT></I>
+<BR><I><FONT FACE="Arial"><FONT SIZE=-2>Este documento pode ser distribu&iacute;do
+sob os termos da GNU General Public License.</FONT></FONT></I><I><FONT SIZE=-2></FONT></I>
+
+<P>
+<HR WIDTH="90%" SIZE=1>
+<CENTER><B><FONT FACE="Arial"><FONT SIZE=-1><A HREF="http://www.oocities.org/ribafs/linux.htm"></A></FONT></FONT></B>&nbsp;</CENTER>
+
+<script language="JavaScript" type="text/javascript">
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+if (width>=639 && height>=468 || top.location.href == window.location.href) {
+}
+rp_account   = '9645';rp_site      = '17527';rp_zonesize  = '1527362-51';rp_slot   = 'ad_group_786919';rp_adtype    = 'js';rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write(' src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt>');}</script>
+</BODY>
+</HTML>
+</div><style> 
+.zoomout { -webkit-transition: -webkit-transform 0.5s ease;
+-moz-transition: -moz-transform 0.5s ease;
+-o-transition: -o-transform 0.5s ease;
+transition: transform 0.5s;
+-ms-transition: transform 0.5s ease;}
+.zoomin { 
+filter: blur(0)
+-webkit-transform: scaleY(1.15);
+-moz-transform: scaleY(1.15);
+-o-transform: scaleY(1.15);
+transform: scaleYY(1.15);
+-ms-transform: scaleY(1.15);
+} 
+#archive:hover { zoom:101%;)
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+
+if (width>=806 && height>=468 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(https://www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:30px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+var x =  d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1018px;top:31px;z-index:10;padding-bottom:3px"><div id="ft72">');
+rp_account   = '9645';
+rp_site      = '17527';
+rp_zonesize  = '55620-15';
+rp_slot   = 's';
+rp_adtype    = 'iframe';
+rp_width     = '300';
+rp_height    = '250';
+rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write('src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt></div>');
+if ( height>=543) {
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'"></script>')
+}
+
+d.write('<div id="ft73"><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+
+if ( width-x>=440 || width>=1425) { 
+d.write('<div id="footer" style="position:fixed;left:1310px;top:31px;z-index:11;padding-bottom:3px"><div id="ft74">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">')
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp4" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">');
+d.write('<\/scr'+'ipt></div></div>');
+}}
+-->
+</script>
+<script type="text/javascript">
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+
+<script type="text/javascript">
+<!--
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26808115-1']);
+  _gaq.push(['_setDomainName', 'oocities.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script><script type="text/javascript"> window.google_analytics_uacct = "UA-26808115-1"; </script>
+
+
+
+

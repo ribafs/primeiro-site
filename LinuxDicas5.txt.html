@@ -1,0 +1,469 @@
+<!DOCTYPE HTML PUBLIC><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8"><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"><body><div id="content" style="max-width:1200px;overflow:auto"><pre>			PERMISSÕES NO LINUX
+
+>   Ou preciso dar uma permissão em um arquivo que o seu atributo fique 
+> assim "drwxr-x--x"  Alguem pode me falar como faço isso, é muito 
+> importante. de preferencia em numeros tipo chmod 777 sei la.
+
+Vamos por partes:
+
+1 - A primeira letra indica o tipo do arquivo, no caso é um diretório 'd'
+
+2 - As letras seguinte são agrupadas de três em três a cada conjunto idica o 
+acesso que vc vai permitir a:
+
+        a - o dono do arquivo - primeiro grupo
+        b - usuários do mesmo grupo do dono - segundo grupo
+        c - demais usuários - terceiro grupo
+
+3 -     r --> permissão de leitura (Read)
+        w --> permissão de escrita (Write)
+        x --> permissão para executar (eXecute)
+
+4 - Cada grupo de três letra é representado por um número octal, para alterar
+as permissões você só precisa fgazer o seguinte:
+
+        a - devida como vc quer setar as permissões e escreva um número 
+binários com elas (se quer setar bote 1 senão bote 0). Veja o seu exemplo
+
+        "drwxr-x--x"
+          111101001
+
+        separando para visualizar melhor temos:
+
+        "d rwx r-x --x"
+           111 101 001
+
+        b - agora pegue cada um dos números binários resultantes e trasforme
+no seu equivalente em octal (em decimal dá a mesma coisa). então temos:
+
+        "d rwx r-x --x"
+           111 101 001
+            7   5   5
+
+5 - Agora vc só precisa fazer 'chmod 755 <arquivo>' pra ter apermissão que 
+vc queria.
+
+Simples não?
+
+inté
+
+ah sim, só quem pode mudar as permissões do arquivo é o dono dele ou então 
+o root
+				----------------
+				IMPRESSORAS WINPRINTER
+
+Minha dúvida: a 720C tem cheiro de Winprinter!!! Pois nas
+> suas especificações o pessoal fica martelando o tempo todo
+> "impressora para Windows 95, 98 e NT", assim como não tem
+> (...)
+
+Wilson,
+
+  Sim, essa impressora e´ "winprinter", assim como a HP820.
+				--------------
+			PERSONALIZANDO O PROMPT DE LOGIN
+
+altere o /etc/issue
+
+On Sat, 6 Feb 1999, EVERALDO F. BROGLIO wrote:
+
+> Olá pessoal alguém sabe como eu posso personalizar o prompt de login do
+> Redhat aquele que dá as boas vindas para cada usuario? Não é que eu não
+> goste, mas eu queria deixar mais pessoal sabe como e né.
+----
+So nao vale esquecer que no redhat ( e nos Conectivas ) o arquivo /etc/issue
+eh re-gerado a cada boot. Verifique o arquivo /etc/rc.d/rc.local e voce vera
+o arquivo sendo criado com um 'echo >' e alguns 'echo >>'
+No Slackware tb!
+Vale lembrar tambem que o arquivo /etc/issue eh mostrado quando voce esta
+local na maquina. Se esta acessando via rede, o arquivo eh o /etc/issue.net.
+No rc.local ele gera o /etc/issue e cria uma copia com o nome
+/etc/issue.net. Se quiser telas de logins diferentes, vai ter que alterar
+isso tambem.
+---
+Nao esqueca de alterar o /etc/rc.d/rc3.d/S99local comentando ou
+excluindo as linhas que conhtenham 
+echo "qualquer coisa" >> /etc/issue
+
+Estas linhas, sobrepoem o seu /etc/issue, toda vez que a maquina
+reinicializa.
+				------------
+		NOVO MECANISMO DE BUSCA DA LISTA LINUX-BR
+
+    Por favor testem o novo mecanismo de busca do historico da lista,
+disponivel em http://bazar.conectiva.com.br/listas/linux-br.
+
+			------------------
+Se voce nao se importar em ter um placa de som e uma placa de video
+que nao vao ser as melhores, funciona sim.
+Por exemplo: 
+
+Placa de Som CMI8330    -> emula uma Sound Blaster 16
+Placa de Video SiS 6326 -> funciona no XWindows 3.3.3, mas eh lenta
+			------------------
+			CONFIGURAÇÃO DO AFTERSTEP
+
+Heheh, os olhos sao faceis... 
+Bem, vamos lah. Pra comecar, tudo qto eh configuracao do afterstep eh
+/usr/local/share/afterstep/. Dentro desse dir tem tudo e mais um pouco do q
+precisa pra configurar... e sempre depois q vc mudar algo, vc vai no menu start ->
+Quit -> Update All, para que as configuracoes q foram refeitas sejam compiladas
+e colocadas nos diretorios de trabalho do afterstep... 
+Os programas do menu start, vc configura em /usr/local/share/afterstep/start/,
+cada arquivo desse diretorio eh um item, e cada subdir uma subpasta...eh bem
+intuitivo, basta vc editar um arquivo pra saber como ele funciona... 
+Qto ao Olhao grande que fica te seguindo, ele esta sendo executado num modulo
+(o afterstep trabalha com modulos)... se vc for em start -> modules, vc vai ver
+qtos modulos ele tem. O olhao esta no wharf ou no zharf. Vc pode desabilitr pelo
+menu, mas aih qdo vc entrar de novo vai estar lah, entao edite o
+/usr/local/share/afterstep/autoexec. Nesse arquivo esta as configuracoesw para a
+inicializacao do afterstep, assim como os modulos q serao executados... 
+Qto ao Wharf, ao inves de vc desabilita-lo para nao ficar com o olhao, vc pode
+editar o /usr/local/share/afterstep/wharf e colocar na barrinha o que vc quiser... eu
+configurei o wharf para ser uma barra vertical, e nela eu rodei varios programas,
+tipo um cdplayer, um mixer, um relogio, e um visualizador de desempenho... cada
+programinha q vc coloca nesse wharf (ou no zharf) eh chamado de dock apps...
+tem uma serie deles na minha hp http://members.xoom.com/linux_page/... 
+Bem, eh isso...eu sei q eu te confundi mais do q expliquei, mas guarde este mail e
+va fazndo passo a passo, e qq duvida pergunta.T+ 
+Felipe Russo 
+				-------------
+
+				  AWE 32/64
+
+Bem ai vai a solucao por mim conseguida para o problema da AWE32/64.
+Bem para implementar o AWE 32/64 da sua soud blaster, devemos:
+
+1- Configurar o kernel, recomendo que se use o Kernel 2.2.1.
+Para configure o kernel no devemos:
+cd /usr/src/linux
+make menuconfig
+sound --->
+
+< > Sound Card Support        responder M
+< > OSS sound modules         responder M
+< > 100% Sound Blaster...     responder M
+< > Generic OPL2/OPL3  FM ... responder M
+< > SoftOSS software ware ... responder M
+
+Additional low level sound drivers -->
+< > Additional low level sound drivers responder Y
+< > AWE32 synth ...                    responder M
+
+
+2- Compile o Kernel
+make dep >> /dev/null
+make clean >> /dev/null
+make zlilo >> /dev/null
+make modules >> /dev/null
+make modules_install >> /dev/null
+
+
+3- Reinicie o sistema
+
+
+4- Pego o utilitarios isapnp-1.17.tar.gz no ftpsearch.ntnu.no, compile,
+instale>
+rode o programa pnpdump >> /etc/isapnp.conf
+e depois execute o programa isapnp /etc/isapnp.conf
+Este programa inicializa sua sound blaster PnP e deve ser usado antes de
+se carregar o modulo
+
+
+5- OPCIONAL: Eu acrescentei uma chamada para isapnp em /etc/rc.d
+Mando em anexo os arquivos
+
+
+6- Edite o arquivo /etc/conf.modules, adicionando as linhas abaixo:
+alias sound sb
+alias midi awe_wave
+post-install awe_wave /usr/local/bin/sfxload synthgm.sbk
+options sb io=0x200 irq=9 dma=1 dmaq6=5 mpu_io=0x300
+
+
+7- Reinicie o sistema novamente.
+
+
+8- Pege os arquivos awedrv-0.4.3.tar.gz, awemidi-0.4.3.tar.gz e
+awesfx-0.4.3.tar.gz no ftpsearch.ntnu.no
+Compile o awesfx e instale
+Compile o awemidi e instale
+
+
+9- Rode o isapnp /etc/isapnp.conf.
+Se voce tiver feito o passo 5 surgira uma mensagem de erro, NAO SE
+PREOCUPE.
+
+
+10- Insira o modulo
+Pela documentacao consultada deveriamos usar
+modprobe -a sound
+Porem eu sinto a necessidade de carregar alguns modulos adionais na mao
+insmod awe_wave --- <SoundBlaster EMU8000 (RAM0k)>
+insmod opl3 --- YM3812 and OPL3 driver Copyright (C) by Hanno
+Savolainen, Rob Hooft 1993-1996.
+ismod softoss2 --- SoftOSS driver Copyright (C) by Hanno Savolainen
+1993-1997.
+
+
+11- Carregue sfxload synthgm.sbk.
+Ah, os arquivos *.sbk estao, no meu caso no Window Nojenta e oito que
+sao
+synthgm.sbk, synthgs.sbk, synthmt.sbk and sample.sbk.
+
+12- Execute sua seu arquivo .mid e se sinta feliz ( eu me senti e
+muito!!! )
+
+
+Ps. Se voce tiver problemas eu posso ajudar sim, tenho mais conhecimento
+do
+Slackeware, mas ....
+
+Os meus arquivos vou mandar compactados numa segunda menssagem.
+-- 
+Andre Luiz Fassone Canova
+alf@techno.com.br
+				--------------
+conf.modules.txt	rc.isapnp.txt	rc.S.txt
+
+
+alias net-pf-4 off
+alias net-pf-5 off
+alias sound sb
+alias midi awe_wave
+post-install awe_wave /usr/local/bin/sfxload synthgm.sbk
+options sb io=0x220 irq=9 dma=1 dma16=5 mpu_io=0x330
+
+
+#!/bin/sh
+#
+# /etc/rc.d/rc.isapnp:  Isa PnP Board initialization script.
+#
+# Put any local setup commands in here:
+/sbin/isapnp /etc/isapnp.conf
+
+
+#!/bin/sh
+#
+# /etc/rc.d/rc.S:  System initialization script.
+#
+# Mostly written by:  Patrick J. Volkerding, <volkerdi@ftp.cdrom.com>
+#
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+# enable swapping
+/sbin/swapon -a
+
+# Start update.
+/sbin/update &
+
+# Automatic module loading.  To load and unload kernel modules
+# automatically as needed, uncomment the lines below to run kerneld.
+# In some cases, you'll need to create aliases to load the correct
+# module. For more information, see the docs in /usr/doc/modules.
+# NOTE: This is commented out by default, since running kerneld has
+# caused some experimental kernels to hang during boot.
+#if [ -x /sbin/kerneld ]; then
+#  /sbin/kerneld
+#fi
+
+# Test to see if the root partition is read-only, like it ought to be.
+READWRITE=no
+if echo -n >> "Testing filesystem status"; then
+ rm -f "Testing filesystem status"
+ READWRITE=yes
+fi
+
+# Check the integrity of all filesystems
+if [ ! $READWRITE = yes ]; then
+ /sbin/fsck -A -a
+ # If there was a failure, drop into single-user mode.
+ if [ $? -gt 1 ] ; then
+  echo
+  echo
+  echo "**************************************"
+  echo "fsck returned error code - REBOOT NOW!"
+  echo "**************************************"
+  echo
+  echo
+  /bin/login 
+ fi
+ # Remount the root filesystem in read-write mode
+ echo "Remounting root device with read-write enabled."
+ /sbin/mount -w -n -o remount /
+ if [ $? -gt 0 ] ; then
+  echo
+  echo "Attempt to remount root device as read-write failed!  This is going to"
+  echo "cause serious problems...  "
+  echo 
+  echo "If you're using the UMSDOS filesystem, you **MUST** mount the root partition"
+  echo "read-write!  You can make sure the root filesystem is getting mounted "
+  echo "read-write with the 'rw' flag to Loadlin:"
+  echo
+  echo "loadlin vmlinuz root=/dev/hda1 rw   (replace /dev/hda1 with your root device)"
+  echo
+  echo "Normal bootdisks can be made to mount a system read-write with the rdev command:"
+  echo
+  echo "rdev -R /dev/fd0 0"
+  echo
+  echo "You can also get into your system by using a bootkernel disk with a command"
+  echo "like this on the LILO prompt line:  (change the root partition name as needed)"
+  echo 
+  echo "LILO: mount root=/dev/hda1 rw"
+  echo
+  echo "Please press ENTER to continue, then reboot and use one of the above methods to"
+  echo -n "get into your machine and start looking for the problem. " 
+  read junk; 
+ fi
+else
+ echo "Testing filesystem status: read-write filesystem"
+ if cat /etc/fstab | grep ' / ' | grep umsdos 1> /dev/null 2> /dev/null ; then
+  ROOTTYPE="umsdos"
+ fi
+ if [ ! "$ROOTTYPE" = "umsdos" ]; then # no warn for UMSDOS
+  cat << EOF
+
+*** ERROR: Root partition has already been mounted read-write. Cannot check!
+
+For filesystem checking to work properly, your system must initially mount
+the root partition as read only. Please modify your kernel with 'rdev' so that
+it does this. If you're booting with LILO, add a line:
+
+   read-only
+
+to the Linux section in your /etc/lilo.conf and type 'lilo' to reinstall it.
+
+If you boot from a kernel on a floppy disk, put it in the drive and type:
+  rdev -R /dev/fd0 1
+
+If you boot from a bootkernel disk, or with Loadlin, you can add the 'ro' flag.
+
+This will fix the problem *AND* eliminate this annoying message. :^)
+
+EOF
+  echo -n "Press ENTER to continue. "
+  read junk;
+ fi
+fi
+
+# remove /etc/mtab* so that mount will create it with a root entry
+/bin/rm -f /etc/mtab* /etc/nologin /etc/shutdownpid 
+
+# mount file systems in fstab (and create an entry for /)
+# but not NFS because TCP/IP is not yet configured
+/sbin/mount -avt nonfs
+
+# Clean up temporary files on the /var volume:
+/bin/rm -f /var/run/utmp /var/run/*.pid
+
+# Looks like we have to create this.
+cat /dev/null > /var/run/utmp
+
+# Configure the system clock.
+# This can be changed if your system keeps GMT.
+if [ -x /sbin/clock ]; then
+  /sbin/clock -s
+fi
+
+if [ "$ROOTTYPE" = "umsdos" ]; then # we need to update any files added in DOS:
+ echo "Synchronizing UMSDOS directory structure:"
+ echo "  umssync -r99 -v- /"
+ umssync -r99 -v- /
+fi
+
+#Configure the Isa PnP boards before loading modules.
+#Nedd to do this before loading modules to get a change
+#of configuring and starting PnP boards before the drivers
+#mess all this up.
+if [ -x /etc/rc.d/rc.isapnp ]; then
+  . /etc/rc.d/rc.isapnp
+fi
+
+# Setup the /etc/issue and /etc/motd to reflect the current kernel level:
+# THESE WIPE ANY CHANGES YOU MAKE TO /ETC/ISSUE AND /ETC/MOTD WITH EACH
+# BOOT. COMMENT THEM OUT IF YOU WANT TO MAKE CUSTOM VERSIONS.
+echo > /etc/issue
+echo Welcome to Linux `/bin/uname -a | /bin/cut -d\  -f3`. >> /etc/issue
+echo >> /etc/issue
+echo "`/bin/uname -a | /bin/cut -d\  -f1,3`." > /etc/motd
+
+# This loads any kernel modules that are needed.  These might be required to
+# use your CD-ROM drive, bus mouse, ethernet card, or other optional hardware.
+if [ -x /etc/rc.d/rc.modules ]; then
+  . /etc/rc.d/rc.modules
+fi
+
+# Initialize PCMCIA devices:
+#
+# NOTE: This had been closer to the top of this script so that PCMCIA devices
+# could be fsck'ed along with the other drives.  This had some unfortunate
+# side effects, however, since root isn't yet read-write, and /var might not
+# even be mounted the .pid files can't be correctly written in /var/run and
+# the pcmcia system can't be correctly shut down.  If you want some PCMCIA
+# partition to be mounted at boot (or when the card is inserted) then add
+# the appropriate lines to /etc/pcmcia/scsi.opts.
+#
+if [ -x /etc/rc.d/rc.pcmcia ] ; then
+  . /etc/rc.d/rc.pcmcia start
+fi
+
+# Run serial port setup script:
+# (CAREFUL! This can make some systems hang if the rc.serial script isn't
+# set up correctly. If this happens, you may have to edit the file from a
+# boot disk)
+#
+. /etc/rc.d/rc.serial</pre><h3> &nbsp&nbsp&nbsp Source: <a href="http://www.oocities.org/ribafs">geocities.com/ribafs</a><br></h3></div><table align="center" style="height:320px"><tr><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="2" style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="1"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="3"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div></td><td>
+<div onClick="setTimeout(function(){location.reload();},2300);" id="4"  style="display: inline;">
+<script language="JavaScript" type="text/javascript">
+var rp_account   = '9645';
+var rp_site      = '17527';
+var rp_zonesize  = '55620-15';
+var rp_adtype    = 'js';
+var rp_smartfile = '[SMART FILE URL]';
+</script>
+<script type="text/javascript" src="https://ads.rubiconproject.com/ad/9645.js"></script>
+</div>
+</td></tr></table><br>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26808115-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+

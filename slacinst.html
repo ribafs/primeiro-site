@@ -1,0 +1,1606 @@
+<!DOCTYPE HTML PUBLIC>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.64">
+<meta http-equiv="Cache-control" content="public, min-fresh:2400000">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<style type="text/css"> html { max-width:1024px;overflow:auto;} </style>
+<script language="JavaScript" type="text/javascript">
+if (window == top) { 
+//document.write('<div style="height:30px;"></div><div id="content" style="max-width:1022px;overflow:auto">');
+}
+else {document.write('<div id="content" style="max-width:804px;overflow:auto">');} </script>
+
+<script language="JavaScript" src="https://www.oocities.org/js_source/geovck08.js"></script>
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.03 [pt] (Win95; I) [Netscape]">
+   <TITLE> Guia de instala&ccedil;&atilde;o do Linux Slackware </TITLE>
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--             AnO 2001 Linux Page - www.ano2001.ml.org                  -->
+<!--                                                                       -->
+<!--  Esta página foi desenvolvida para ajudar os usuários do sistema      -->
+<!--  operacional Linux e para difundir o sistema. A AnO 2001 está no ar   -->
+<!--  desde 20 de setembro de 1997.                                        -->
+<!--                                                                       -->
+<!--  Webmaster: Adriano Caetano - RosS                                    -->
+<!--  E-mail: ano2001@sti.com.br                                           -->
+<!--                                                                       -->
+<!--  Caso você esteja pensando em colocar algo deste documento em sua     -->
+<!--  página ou manual, por favor, coloque as devidas referências.         -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+</HEAD>
+<BODY TEXT="#CACBDD" BGCOLOR="#000000" LINK="#6FA0E2" VLINK="#415F8F" ALINK="#FF0000">
+
+&nbsp;
+<TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0 WIDTH="100%" BACKGROUND="liner.GIF" >
+<TR>
+<TD COLSPAN="2">
+<CENTER><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT COLOR="#FFFFFF"><FONT SIZE=+2>Guia
+de instala&ccedil;&atilde;o do Linux Slackware</FONT></FONT></FONT></B></CENTER>
+</TD>
+</TR>
+</TABLE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Este
+documento descreve como obter e instalar o software Linux, com base na
+popular distribuicao Slackware (versao 3.3/3.4). Este e' o primeiro documento
+que um novo usuario Linux deve ler antes de comecar a trabalhar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Requisitos
+minimos:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Qualquer
+ISA, EISA ou VESA Local Bus 80386 ou 80486 rodara o sistema. Atualmente,
+a arquitetura MicroChannel (MCA) (encontrada em IBM PS/2) nao e' suportada.
+Qualquer CPU de 386SX a 486DX2 vai funcionar. Voce nao precisa de um co-processador,
+mas e' bom ter um.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+precisa de no minimo 4 megabytes de memoria na sua maquina. Tecnicamente,
+o Linux vai rodar apenas com 2 megas, mas a instalacao e alguns softwares
+requerem 4 megas. Quanto mais memoria voce tiver, mais feliz voce vai ser
+:). Eu sugiro 8 ou 16 megabytes se voce esta pensando em usar o X-Windows.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>E'
+claro, que voce precisa de um HD e uma controladora do drive. Todos os
+MFM, RLL, e drives IDE e controladoras vao funcionar. Alguns drives SCSI
+e adaptadores sao suportados; O Linux SCSI-HOWTO contem mais informacoes
+sobre drives SCSI.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+Linux pode atualmente rodar num simples disquete de 1.44 MB", mas este
+e' somente usado para instalacao e manutencao do sistema.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Espaco
+livre no seu HD e' preciso, claro. O espaco requerido depende de quantos
+softwares voce esta pensando em instalar. A maioria das instalacoes requerem
+de 40 a 80 megas. Mas como hoje o Linux possui programas de grande porte
+como o Netscape, Word Perfect, Star Ofiice, eu aconselho um espaco proximo
+dos 500 MB no minimo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Linux
+vai co-existir com outros sistemas operacionais, como MS-DOS, MS-Windows,
+ou OS/2, no seu HD.(de fato, voce podera sempre acessar arquivos MS-DOS
+e roda-los no Linux). Em outras palavras, quando voce particionar seu HD
+para o Linux, MS-DOS ou OS/2, cada OS ficara em sua particao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+nao precisa estar rodando MS-DOS, OS/2, ou qualquer outro sistema operacional
+para usar o Linux. Linux e' completamente independente, trabalha sozinho
+e nao precisa de outros OS's para a sua instalacao e uso.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+vai precisar de um monitor Hercules, CGA, EGA, VGA, ou Super VGA e placa
+de video. Em geral, se sua placa de video e monitor trabalham sobre MS-DOS,
+tambem trabalham sobre Linux. Agora, se voce deseja rodar o X-Windows,
+ha' outras restricoes no suporte de hardware de video. O Linux XFree86-HOWTO
+contem mais informacoes de como rodar o X-Windows e seus requisitos.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.
+Pegando o Linux</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Na
+secao ARQUIVOS da AnO 2001 Linux Page vc pega as ultimas versoes das distribuicoes
+do Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.1.
+Distribuicoes Linux</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Antes
+de voce instalar o Linux, voce tem que decidir quais 'distribuicoes' do
+Linux estao disponiveis para voce instalar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Distribuicoes
+do Linux estao disponiveis via FTP anonimo, via ordem de e-mail, em disquetes,
+fitas e CD-ROM. O Linux Distribution-HOWTO (veja sunsite.unc.edu no arquivo
+/pub/Linux/docs/HOWTO/Distribution-HOWTO) inclui uma lista de algumas distribuicoes
+Linux disponiveis via FTP e mail.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+distribuicao do Linux descrita aqui e' a distribuicao <B>Slackware</B>,
+mantida por <A HREF="mailto:volkerdi@mhd1.moorhead.msus.edu">Patrick J.
+Volkerding</A>. Esta e' uma das mais populares distribuicoes disponiveis;
+Sofre varios Updates e inclui uma boa quantidade de softwares como X-Windows,
+TeX, emacs, minicom e outros. A distribuicao Slackware se consiste num
+numero de ''disk sets'', cada um contem um tipo particular de software
+(por exemplo, o disk set "D" contem ferramentas de desenvolvimento como
+o compilador GCC, e outros). Voce podera escolher para instalar, todos
+os disk sets que voce gostar, e podera instalar facilmente outros disk
+sets depois (apos ja ter instalado o Linux).</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+versao da distribuicao Slackware descrita aqui e' 3.3/3.4. Instalacao de
+versoes mais novas poderao ser muito similar as informacoes descritas aqui,
+senao identicas.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+pode encontrar as inumeras versoes do Linux nos seguintes enderecos:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><A HREF="ftp://ftp.cdrom.com/pub/linux" TARGET="direita">ftp.cdrom.com/pub/linux</A></FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><A HREF="ftp://sunsite.unc.edu:/pub/Linux/distributions" TARGET="direita">sunsite.unc.edu:/pub/Linux/distributions</A></FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><A HREF="ftp://ftp.uoknor.edu/linux/sunsite/distributions/" TARGET="direita">ftp.uoknor.edu/linux/sunsite/distributions/</A></FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><A HREF="ftp://ftp.engr.uark.edu/pub/linux/sunsite/distributions/" TARGET="direita">ftp.engr.uark.edu/pub/linux/sunsite/distributions/</A></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Veja
+o Distribution-HOWTO para mais detalhes.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>As
+informacoes descritas aqui nao podem ser aplicadas a outras versoes a nao
+ser a distribuicao Slackware, caso a sua distribuicao seja o Debian, veja
+como instala-lo na secao INICIANTES em <B>"Guia de instala&ccedil;&atilde;o
+do Linux Debian 1.3.1"</B>.</FONT></FONT>
+
+<P><B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>1.2.
+Espaco requerido para a distribuicao Slackware</FONT></FONT></B>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Infelizmente,
+a Slackware nao mantem uma lista completa do espaco requerido para cara
+disk set. Voce precisa de, no minimo, 7 megas para instalar apenas a serie
+`A' dos discos; A estimativa do espaco requerido por disco e' de 2 a 2.5
+megas por disco.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Os
+seguintes disk sets estao disponiveis:</FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>A
+- </B>A base do sistema. Baseado no Kernel 2.0.30 e o Linux filesystem
+standard (FSSTND).</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>AP
+- </B>Varios aplicativos e add ons, como as man pages (paginas manuais),
+groff, ispell , term, joe, jove,ghostscript, sc, bc, e varios outros.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>D
+- </B>Programas de desenvolvimento. GCC/G++/Objective C 2.7.2.2, make (GNU
+e BSD), byacc e GNU bison, flex, a 5.4.33 C libraries, gdb, SVGAlib, ncurses,
+clisp, f2c, p2c, m4, perl, rcs.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>E
+- </B>GNU Emacs 19.34.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>F
+- </B>Uma colecao de FAQs e outros documentos.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>K
+- </B>Codigo de origem para o Linux Kernel 2.0.30.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>N
+- </B>Redes. TCP/IP, UUCP, mailx, dip, deliver, elm, pine, smail, cnews,
+nn, tin, trn.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>T
+- </B>O TeX e LaTeX2e sistema de formatacao de texto.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>TCL
+- </B>Tcl, Tk, TclX, TkDesk.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>X
+- </B>A base do sistema X Windows (XFree86 3.3)</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>XAP
+- </B>Aplicativos X: X11 ghostscript, libgr, seyon, workman, xfilemanager,
+xv 3.10a, GNU chess e xboard, xfm, ghostview, e varios jogos para X.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>XD
+- </B>Programa de desenvolvimento X11. X11 libraries, server linkkit, PEX
+suporte.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>XV
+- </B>Xview 3.2-X11R6. XView libraries, e o Open Look virtual e nao-virtual
+window managers.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Y
+- </B>Jogos. BSD games collection, Sasteroids, Koules, e Lizards.</FONT></FONT></LI>
+</UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+so' precisa pegar o disk set ''a''; o resto e' opcional. Eu sugiro para
+uma pequena instalacao os disk sets: a, ap, d e X (se voce esta pensando
+em rodar o X-Windows).</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>**<B>Atencao:</B>
+Agora a coisa vai comecar a esquentar. Ate agora foi so teoria mas daqui
+para frente o negocio comeca a pesar um pouco. Pelo menos para voce que
+nunca instalou o Linux antes. <B>** LEIA COM BASTANTE ATENCAO **</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.3.
+Baixando os arquivos</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+precisa baixar os seguintes arquivos do site de FTP do qual vc baixou o
+Linux: <I>* Lembre-se de baixa-los em MODO BINARIO!! *</I></FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Os
+varios arquivos README, assim como o FAQ.TXT. Leia atenciosamente estes
+documentos se algo ainda nao estiver claro para voce.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A imagem
+para o <B>bootdisk</B>. Este e' um arquivo que voce tera que gravar em
+um disquete para criar o boot disk. Se o seu drive de boot e' de 1.44 (3.5"),
+va' ao diretorio /bootdsks.144. Se o seu drive de boot e' de 1.2M (5.25")
+va' ao diretorio /bootdsks.12. O arquivo de README, no diretorio mostra
+quais os arquivos com suas respectivas funcoes. Um deles voce vai ter que
+baixar. Veja na lista abaixo o correspondente a sua maquina.</FONT></FONT></LI>
+</UL>
+<B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+precisa de um dos seguintes arquivos para o seu bootdisk:</FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1></FONT></FONT>
+<TABLE BORDER=2 BGCOLOR="#000000" BORDERCOLORLIGHT="#8080C0" BORDERCOLORDARK="#004080" >
+<TR>
+<TD><FONT SIZE=-1>bootdisks IDE:</FONT></TD>
+
+<TD><FONT SIZE=-1>(Todos os bootdisks IDE suportam os HD's IDE e CD-ROM
+drive)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aztech.i</FONT></TD>
+
+<TD><FONT SIZE=-1>CD-ROM drives: Aztech CDA268-01A, Orchid CD-3110, Okano/Wearnes
+CDD110, Conrad TXC, CyCDROM CR520, CR540.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>bare.i</FONT></TD>
+
+<TD><FONT SIZE=-1>(nenhum) Apenas suporte a IDE.</FONT>
+<BR><FONT SIZE=-1>- Se seu HD e' IDE, pegue este aqui que funciona com
+todos os HD's IDE e CD-ROMs</FONT>.</TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cdu31a.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Sony CDU31/33a CD-ROM.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cdu535.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Sony CDU531/535 CD-ROM.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cm206.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Philips/LMS cm206 CD-ROM com cm260 placa adaptadora.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>goldstar.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Goldstar R420 CD-ROM.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>mcd.i</FONT></TD>
+
+<TD><FONT SIZE=-1>NON-IDE Mitsumi CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>mcdx.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Improved NON-IDE Mitsumi CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>net.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporte a Ethernet.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>optics.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Optics Storage 8000 AT CD-ROM (O 'DOLPHIN' drive).</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>sanyo.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Sanyo CDR-H94A CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>sbpcd.i</FONT></TD>
+
+<TD><FONT SIZE=-1>Matsushita, Kotobuki, Panasonic, CreativeLabs (SB), Longshine
+e Teac NON-IDE CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>xt.i</FONT></TD>
+
+<TD><FONT SIZE=-1>MFM HD suporte.</FONT></TD>
+</TR>
+</TABLE>
+<B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>bootdisks
+SCSI: <I>(Todos os bootdisks SCSI possuem suporte para HD's IDE e CD-ROM
+drive.)</I></FONT></FONT></B><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1></FONT></FONT>
+<TABLE BORDER=2 BGCOLOR="#000000" BORDERCOLORLIGHT="#8080C0" BORDERCOLORDARK="#004080" >
+<TR>
+<TD><FONT SIZE=-1>7000fast.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Western Digital 7000FASST SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>advansys.s</FONT></TD>
+
+<TD><FONT SIZE=-1>AdvanSys SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aha152x.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Adaptec 152x SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aha1542.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Adaptec 1542 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aha1740.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Adaptec 1740 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aha2x4x.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Adaptec AIC7xxx SCSI suporte. (Para estas placas: AHA-274x,
+AHA-2842, AHA-2940, AHA-2940W, AHA-2940U, AHA-2940UW, AHA-2944D, AHA-2944WD,
+AHA-3940, AHA-3940W, AHA-3985, AHA-3985W)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>am53c974.s</FONT></TD>
+
+<TD><FONT SIZE=-1>AMD AM53/79C974 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>aztech.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus CD-ROM suporte
+para Aztech CDA268-01A, Orchid CD-3110, Okano/Wearnes CDD110, Conrad TXC,
+CyCDROM CR520, CR540.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>buslogic.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Buslogic MultiMaster SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cdu31a.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus CD-ROM suporte
+para Sony CDU31/33a.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cdu535.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus CD-ROM suporte
+para Sony CDU531/535.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>cm206.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus Philips/LMS
+cm206 CD-ROM com cm260 placa adaptadora.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>dtc3280.s</FONT></TD>
+
+<TD><FONT SIZE=-1>DTC (Data Technology Corp) 3180/3280 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>eata_dma.s</FONT></TD>
+
+<TD><FONT SIZE=-1>DPT EATA-DMA SCSI support. (Placas como as PM2011, PM2021,
+PM2041, PM3021, PM2012B, PM2022, PM2122, PM2322, PM2042, PM3122, PM3222,
+PM3332, PM2024, PM2124, PM2044, PM2144, PM3224, PM3334.)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>eata_isa.s</FONT></TD>
+
+<TD><FONT SIZE=-1>DPT EATA-ISA/EISA SCSI support. (Placas como as PM2011B/9X,
+PM2021A/9X, PM2012A, PM2012B, PM2022A/9X, PM2122A/9X, PM2322A/9X)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>eata_pio.s</FONT></TD>
+
+<TD><FONT SIZE=-1>DPT EATA-PIO SCSI suporte. (PM2001 e PM2012A)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>fdomain.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Future Domain TMC-16x0 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>goldstar.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus Goldstar R420
+CD-ROM (sometimes sold in a 'Reveal Multimedia Kit').</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>in2000.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Always IN2000 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>iomega.s</FONT></TD>
+
+<TD><FONT SIZE=-1>IOMEGA PPA3 porta paralela SCSI suporte. (somente suporta
+a versao de porta paralela do ZIP drive)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>mcd.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus standard non-IDE
+Mitsumi CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>mcdx.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus enhanced non-IDE
+Mitsumi CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>n53c406a.s</FONT></TD>
+
+<TD><FONT SIZE=-1>NCR 53c406a SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD></TD>
+
+<TD></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>n_5380.s</FONT></TD>
+
+<TD><FONT SIZE=-1>NCR 5380 e 53c400 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>n_53c7xx.s</FONT></TD>
+
+<TD><FONT SIZE=-1>NCR 53c7xx, 53c8xx SCSI suporte. (Algumas NCR PCI SCSI
+controladoras usam este driver)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>optics.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus suporte para
+a Optics Storage 8000 AT CD-ROM (A 'DOLPHIN' drive).</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>pas16.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Pro Audio Spectrum/Studio 16 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>qlog_fas.s</FONT></TD>
+
+<TD><FONT SIZE=-1>ISA/VLB/PCMCIA Qlogic FastSCSI! suporte. (somente suporta
+a Control Concepts SCSI placas baseadas no Qlogic FASXXX chip)</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>qlog_isp.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas Qlogic PCI SCSI controladoras, exceto a
+PCI-basic, que e' suportada pelo AMD SCSI driver.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>sanyo.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus Sanyo CDR-H94A
+CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>sbpcd.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus Matsushita,
+Kotobuki, Panasonic, CreativeLabs (Sound Blaster), Longshine e Teac NON-IDE
+CD-ROM suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>scsinet.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Suporta todas as controladoras SCSI, plus full ethernet
+suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>seagate.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Seagate ST01/ST02, Future Domain TMC-885/950 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>trantor.s</FONT></TD>
+
+<TD><FONT SIZE=-1>Trantor T128/T128F/T228 SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>ultrastr.s</FONT></TD>
+
+<TD><FONT SIZE=-1>UltraStor 14F, 24F, e 34F SCSI suporte.</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>ustor14f.s</FONT></TD>
+
+<TD><FONT SIZE=-1>UltraStor 14F e 34F SCSI suporte.</FONT></TD>
+</TR>
+</TABLE>
+&nbsp;
+<UL>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A imagem
+rootdisk. Este e' o arquivo que vc vai gravar para um disquete para criar
+o disco de instalacao do Slackware. Assim como a imagem do bootdisk, veja
+nos diretorios rootdsks.144 ou rootdsks.12, depende do drive que faz o
+boot na sua maquina. O mais comum eo <B>color.gz</B></FONT></FONT></LI>
+
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Voce
+precisa de um dos seguintes arquivos:</B></FONT></FONT>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>color.gz</B>.
+O disco de instalacao que possui um menu colorido para as configuracoes.
+(p/ drives 1.44). A maioria dos usuarios usam esse rootdisk.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>umsdos.gz</B>.
+Uma versao do color.gz para instalar o Linux com o UMSDOS filesystem, que
+permite a voce instalar o Linux num diretorio do sistema MS-DOS. Este metodo
+de instalacao nao e' discutido em detalhes aqui mas ele previne voce de
+reparticionar seu HD.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>text.gz</B>.
+O disco de instalacao por terminal, para drives de 1.44. Voce pode usar
+color.gz mas algumas pessoas ja reclamaram de problemas com este em seus
+sistemas. Se o color.gz nao funcionar para vc, tente o text.gz. O proceso
+de instalacao nao e' identico mas ele pode funcionar caso o color.gz nao
+funcione.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>pcmcia.gz</B>.
+Este disco possui suporte para a instalacao via cartao PCMCIA.</FONT></FONT></LI>
+
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Novamente,
+voce precisa apenas de uma das imagens de rootdisks, dependendo do tipo
+de drive que faz o boot na sua maquina.</FONT></FONT>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>RAWRITE.EXE</B>.
+Este e' um programa MS-DOS que vai gravar o conteudo de um arquivo (como
+as imagens de boot e rootdisk) diretamente para um disquete pre-formatado.
+Vc vai usar o RAWRITE.EXE para criar o boot e root disks. Este arquivo
+pode ser encontrado no diretorio /install.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voce
+vai precisar apenas do RAWRITE.EXE se voce deseja criar o boot e root disks
+no seu MS-DOS. Se vc tem acesso a uma estacao de trabalho UNIX com floppy
+drive, vc pode criar os discos dela, usando o comando dd. Veja a pagina
+manual para o comando dd ou pergunte para o administrador sobre duvidas
+de como proceder.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Os
+arquivos dos diretorios a1 a a9. Estes arquivos fazem parte da serie "a"
+da distribuicao Slackware. Eles sao requeridos. Vc vai copiar estes arquivos
+para discos MS-DOS para a instalacao ou se preferir, pode instalar de seu
+proprio HD. Antes de tudo, quando voce for fazer o download destes arquivos,
+coloque-os em diretorios separados. Nao misture arquivos do diretorio a1
+com os arquivos do diretorio a2 e assim por diante.</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Os
+arquivos dos diretorios ap1, ap2, etc., dependendo de quais disksets vc
+vai instalar. Por exemplo, se vc vai instalar os discos da serie X, pegue
+os arquivos dos diretorios x1, x2, etc... Assim, como e' feito com a serie
+A. E lembre-se de nao misturar arquivos do diretorio x1 com arquivos do
+diretorio x2.</FONT></FONT></LI>
+</UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>3.4.2.
+Metodos de instalacao</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A
+distribuicao Slackware provem de varios meios diferentes de instalacao.
+O mais popular e' instalar de uma particao MS-DOS no seu HD; um outro meio
+e' instalar de uma serie de discos MS-DOS criados das series de discos
+que voce fez download.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+ainda pode instalar o Slackware de um sistema montado NFS sobre uma rede
+TCP/IP. E' claro que este metodo requer bastante experiencia e nao e' discutido
+neste documento. Se voce precisar de ajuda, pergunte aos gurus que conhecam
+UNIX de como configurar seu sistema para montar um NFS filesystem para
+que vc possa instalar o Slackware do mesmo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Primeiro
+vou descrever como criar o boot e root disks, e quais as escolhas que devem
+ser feitas para a instalacao de disquetes ou do HD.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.4.
+Criando os disquetes de boot e root</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+so' precisa criar discos das imagens do bootdisk e rootdisk que vc fez
+download, sem problemas de que tipo de instalacao vc vai fazer. Aqui e'
+como o programa do MS-DOS RAWRITE.EXE vai funcionar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Primeiro,
+vc deve ter 2 disquetes alta densidade formatados pelo MS-DOS. (se o seu
+drive de boot e' 3.5", os dois disquetes deverao ser de 3.5") Vc vai usar
+o RAWRITE.EXE para gravar as imagens de boot e rootdisk para os disquetes
+(a imagem bootdisk vai em um disk e a de rootdisk vai em outro)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+exemplo, se vc estiver usando a imagem de bootdisk bare.i, use este comando:</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>C:\>
+RAWRITE BARE.I A:</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O RAWRITE
+vai copiar o arquivo, block-por-block, diretamente para o disquete. Faca
+o mesmo para a imagem de rootdisk (como COLOR.GZ). Quando voce terminar,
+vai ter 2 disquetes: um contendo o bootdisk e outro contendo o rootdisk
+(escreva neles para nao esquecer qual e' qual). Lembre-se tambem que estes
+arquivos nao sao lidos pelo MS-DOS (eles estao no formato do Linux) e se
+vc tentar ler, vai dar erro e dai voce vai pensar que aconteceu algo errado
+na criacao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>**
+Esteja certo de que vc esta usando disquetes novos, livres de erros e que
+nao possuam bad blocks.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>**
+Saiba tambem que nao e' necessario estar rodando MS-DOS para instalar o
+Slackware. Mas rodando MS-DOS torna-se muito mais facil criar o boot e
+root disks e tambem torna-se mais facil instalar o software (pois os arquivos
+de instalacao podem ficar na particao do MS DOS/Windows).</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.5.
+Preparando para instalar do HD</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc esta pensando em instalar o Slackware diretamente do HD (o que e' muito
+mais facil e seguro do que a instalacao via disquetes), vc vai precisar
+de uma particao MS-DOS no sistema no qual vc vai instalar o Slackware.
+(E' isto, vc ja deve estar rodando o MS-DOS no sistema.)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>Nota:</B>
+Se vc esta pensando em instalar o Slackware de uma particao MS-DOS, esta
+particao nao deve estar comprimida com DoubleSpace, Stacker, ou qualquer
+outro utilitario de compressao para MS-DOS. O Linux nao pode ler particoes
+MS-DOS diretamente que rodam DoubleSpace/Stacker. (Vc pode acessa-las via
+emulador de MS-DOS, mas esta nao e' uma opcao quando vai se instalar o
+software Linux.)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+se preparar para a instalacao do HD, simplesmente crie um diretorio no
+HD para deixar os arquivos do Slackware. Por exemplo:</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>C:\>
+MD SLACK</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>vai
+criar o diretorio C:\SLACK para deixar os arquivos do Slackware. Dentro
+desse diretorio, vc deve copiar os arquivos que vc fez o download, como
+o A1, A2, ... Todos os arquivos do disco A1 deverao ficar no diretorio
+SLACKWAR\A1, e assim vai.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Agora
+vc ja esta pronto para instalar o software Linux; pule para a secao "Instalando
+o software".</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>1.6.
+Preparando para a instalacao de disquetes</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc vai instalar o Slackware via disquetes ao inves da instalacao do HD,
+vc vai precisar ter os disquetes em branco, para copiar os discos do Slackware
+que vc fez download. Estes discos deverao ser de alta densidade.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+disk set A (discos A1 ate' A8, ou A9) deverao ser copiados em discos de
+3.5" ou 5.25". O resto dos disk sets podem ser em discos de 3.5". Mas,
+se vc so' tem o drive de 5.25", vc vai ter que instalar um drive de 3.5"
+para instalar os disk sets (exceto A). (Ou, vc pode instalar do HD, explicado
+na secao anterior.)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+criar os disquetes, simplesmente copie os arquivos do diretorio do Slackware
+em disquetes formatados, usando o comando COPY do MS-DOS. Exemplo:</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>C:\>
+COPY A1\*.* A:</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>vai
+copiar o conteudo do disco A1 para o disquete no drive A:. Vc pode repetir
+isto com os discos que vc fez download. Vc nao deve modificar ou descompactar
+os arquivos dos discos. Vc so' precisa copia-los para os disquetes. O processo
+de instalacao do Slackware toma conta da descompactacao dos arquivos para
+vc.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.
+Instalando o Software</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Nesta
+secao vou descrever como preparar seu sistema para a instalacao do Slackware,
+e finalmente como instala-lo ! :)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.1.
+Reparticionando (preste atencao nesta parte pois e' importante)</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Na
+maioria dos sistemas, o HD ja esta pronto para receber particoes para MS-DOS,
+OS/2, e outros. Vc precisa alterar o tamanho delas para guardar espaco
+para o Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>NOTA:</B>
+Se vc usa um dos disquetes umsds de root, vc pode instalar o Slackware
+para um diretorio na sua particao MS-DOS. (Isto e' diferente de instalar
+de uma particao MS-DOS.) Entao, se vc usa o ''UMSDOS filesystem'', o que
+permite que vc use um diretorio da sua particao MS-DOS como um sistema
+de arquivos do Linux. Neste modo, vc nao precisa reparticionar seu HD.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Eu
+somente sugiro este metodo se seu HD tem quatro particoes e reparticionando
+vai ser menos trabalhoso. Mas se vc sabe mexer com particoes, nao precisa
+ter medo! :) Aqui eu uso 3 particoes em um HD e nunca me deu problema algum,
+pelo menos ate' agora ! :)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Uma
+particao e' apenas uma "secao" no HD que e' criada para o uso de um sistema
+operacional particular. Se vc somente tem o MS-DOS instalado, provavelmente
+seu HD so' possui uma particao (a famosa C:) que e' usada pelo MS-DOS.
+Para usar o Linux, nem sempre, vc precisa reparticionar o HD, para que
+vc tenha uma particao para o MS-DOS e uma ou mais para o Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Existe
+3 tipos de particoes: primaria, extendida e logica. Particoes primarias
+e' uma das quatro particoes no seu HD. Nem sempre, vc vai ter quatro particoes
+por HD, vc vai ter que criar particao extendida, que pode conter algumas
+particoes logicas. Vc nao grava dados diretamente numa particao extendida---esta
+e' usada somente como um "container" para particoes logicas. Dados sao
+gravados somente em particoes primarias ou logicas.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+por este outro caminho, algumas pessoas usam apenas particoes primarias.
+Mas, se vc precisa de mais de quatro particoes em um HD, vc cria uma particao
+extendida. Particoes logicas sao criadas no topo das particoes extendidas,
+e assim vc tem isto---mais de quatro particoes por drive.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Note
+que vc pode facilmente instalar o Linux no segundo drive do seu sistema
+(conhecido como D: pelo MS-DOS). Vc simplesmente especifica o device name
+apropriado quanto estiver criando particoes Linux. Iso e' descrito em detalhes
+mais tarde.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Voltando
+para ''reparticionando seu HD'': O problema com o tamanho das particoes
+e' que nao ha' caminho para fazer isto (facilmente) sem deletar os dados
+das particoes. Entao, vc vai precisar fazer um back-up completo do seu
+sistema antes de reparticionar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+pode tambem instalar outro HD e deixar para o Linux para nao precisar mexer
+no HD do MS DOS/Windows.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>NOTA:
+Ha' um meio nao-destrutivel de reparticionar o HD, disponivel para MS-DOS,
+chamado FIPS. Veja em sunsite.unc.edu no diretorio /pub/Linux/system/Install.
+Com o FIPS, um optimizador do disco (como o Norton Speed Disk), e um pouco
+de sorte, vc podera reparticionar seu HD sem destruir os dados nele contidos.
+Mas ainda e' recomendavel que vc faca um back-up completo antes de rodar
+o FIPS.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc nao estiver usando o FIPS, entao, o classico metodo para modificar particoes
+e' com o programa FDISK. Por exemplo, digamos que vc tenha um HD de 1.6
+GB, dedicado ao MS DOS/Windows. Vc gostaria de reparticiona-lo: 1 GB para
+o MS-DOS e 600 MB para o Linux. Obrigatoriamente, vc roda o FDISK no MS-DOS,
+deleta a particao de 1,6 GB do MS-DOS e re-cria uma particao MS-DOS de
+1 GB. Vc pode formatar esta nova particao e re-instalar o MS-DOS dos back-ups.
+Entao, 600 MB do HD ficaram vazios. Depois, vc vai criar particoes Linux
+na porcao inutilizada do HD.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Resumidamente,
+vc deve seguir os seguintes passos para recriar a particao MS-DOS com o
+FDISK:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>1.
+Faca um backup completo do seu sistema.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>2.
+Crie um disco de boot do MS-DOS, usando o comando:</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>FORMAT
+/S A:</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>3.
+Copie os arquivos FDISK.EXE e FORMAT.COM para este disquete e tambem, outros
+utilitarios que vc possa utilizar. (Por exemplo, utilitarios para regravar
+seu sistema do backup)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>4.
+De um boot na maquina com o disco de boot criado.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>5.
+Rode o FDISK, possivelmente especificando o drive para modificar (como
+C: ou D:).</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>6.
+Use o menu do FDISK para deletar as particoes que vc quer reparticionar.
+Isto destruira todos os dados na particao selecionada.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>7.
+Use o menu do FDISK para re-criar as particoes, com tamanhos menores.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>8.
+Saia do FDISK e re-formate a nova particao com o comando FORMAT.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>9.
+Recarregue os arquivos originais do backup.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Note
+que o FDISK do MS-DOS lhe dara uma opcao de criar um ''logical DOS drive''.
+Um logical DOS drive e apenas uma particao logica no seu HD. Vc pode instalar
+o Linux numa particao logica, mas vc nao pode criar a particao logica com
+o FDISK do MS-DOS. Entao, se vc estiver usando um drive logico DOS, e quer
+instalar o Linux neste lugar, vc deve deletar o drive logico com o FDISK
+do MS-DOS, e depois criar uma particao logica para o Linux neste lugar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+mecanismo usado para reparticionar drives para OS/2 e outros sistemas operacionais
+e' similar. Veja a documentacao para estes sistemas para mais detalhes.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.2.
+Criando particoes para o Linux</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+de reparticionar seu drive, vc precisa criar particoes para o Linux. Antes
+de descrever como fazer isto, vamos falar sobre particoes e sistema de
+arquivos sobre o Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.3.
+Sistema de arquivos e espaco swap</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+Linux requer no minimo uma particao, para o sistema de arquivos da raiz,
+que vai construir o software Linux dele mesmo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+pode achar que um sistema de arquivos e' como uma particao Linux formatada.
+Sistema de arquivos sao usados para manter arquivos. Todo o sistema deve
+ter um sistema de arquivos de raiz, no minimo. Mas alguns usuarios preferem
+ter multiplos sistemas de arquivos. Por exemplo, vc pode criar um sistema
+de arquivos separado para guardar todos os arquivos do diretorio /usr.
+(Note que no sistema UNIX, barras para frente sao usadas para delimitar
+os diretorios, e nao barras para tras como o MS-DOS.) Neste caso vc tem
+um sistema de arquivo de raiz, e um sistema de arquivo /usr.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Cada
+sistema de arquivo requer sua particao. Mas, se vc estiver usando ambos
+sistemas de arquivos de raiz e /usr, vc vai precisar criar duas particoes
+Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Adicionalmente,
+a maioria dos usuarios criam uma particao SWAP, que e' usada para RAM virtual.
+Se vc tem, digamos, 4 megas de memoria na sua maquina, e 10 megas de particao
+SWAP, para o Linux, e' certo que vc tem 14 megas de memoria virtual.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Quando
+estiver usando o espaco swap, o Linux move as paginas nao usadas de fora
+da memoria para o disco, permitindo que vc rode mais aplicativos de uma
+so' vez no seu sistema. Mas nem sempre, porque o espaco swap e' lento,
+nao ha' reposicao para a RAM real. Mas aplicativos que requerem uma grande
+quantidade de memoria (como o sistema X-Windows) realmente contam com o
+espaco swap se vc nao tiver RAM.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Geralmente
+todos os usuarios Linux usam uma particao swap. Se vc tem 4 megas de RAM
+ou menos, uma particao swap e' requerida para instalar o software. E' fortemente
+recomendado que vc tenha uma particao swap de qualquer jeito, ao menos
+que vc tenha uma boa quantidade de RAM.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.4.
+Dando boot com o disco de instalacao</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+primeiro passo e' dar o boot com o bootdisk do Slackware. Depois que seu
+sistema der o boot, vc vai ver a mensagem:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>VFS:
+<B>Insert root floppy disk</B> to be loaded into ramdisk and press ENTER</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Neste
+momento vc deve remover o bootdisk do drive e inserir o rootdisk. Entao
+pressione enter para continuar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+rootdisk vai ser carregado na memoria, e vc vai ser presenteado com um
+prompt de login. Digite ''root''.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>slackware
+login: root</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>#</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.5.
+Usando o fdisk do Linux</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+criar particoes, vc vai usar o programa FDISK do Linux. Depois que logar
+como root, rode o comando</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>fdisk&nbsp;</FONT></FONT><drive></UL>
+<drive><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>e'
+o nome do drive que vc vai criar as particoes Linux. Os device names dos
+HDs sao:</FONT></FONT>
+<UL>
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>/dev/hda
+Primeiro drive IDE</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>/dev/hdb
+Segundo drive IDE</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>/dev/sda
+Primeiro drive SCSI</FONT></FONT></LI>
+
+<LI>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>/dev/sdb
+Segundo drive SCSI</FONT></FONT></LI>
+</UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+exemplo, para criar particoes Linux no primeiro drive SCSI no seu sistema,
+use o comando</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>fdisk
+/dev/sda</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc digitar fdisk sem argumento algum, ele vai assumir /dev/hda que e' o
+padrao utilizado pela maioria das pessoas que vao instalar o Linux pela
+primeira vez. A nao ser que seu HD seja SCSI ou vc queira instalar no segundo
+HD... Dai vc deve olhar na lista.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+criar particoes Linux no segundo drive no seu sistema, simplesmente especifique
+/dev/hdb (para drives IDE) ou /dev/sdb (para drives SCSI) quando for rodar
+o fdisk.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Suas
+particoes Linux nao precisam estar no mesmo drive. Vc pode criar uma particao
+de sistema de arquivos de raiz em /dev/hda e sua particao swap em /dev/hdb,
+por exemplo. Para isto apenas rode o FDISK para escolher o drive.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+uso do fdisk e' simples. O comando ''p'' mostra uma tabela com as particoes
+correntes. ''n'' cria uma nova particao, e ''d'' deleta uma particao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>No
+Linux, particoes ganham um nome no drive onde as quais iniciam. Por exemplo,
+a primeira particao no drive /dev/hda e'/dev/hda1, a segunda e' /dev/hda2,
+e assim vai. Se vc tem uma ou mais particoes logicas, elas sao numeradas
+iniciando com /dev/hda5, /dev/hda6 e vai subindo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>NOTA:</B>
+Vc nao pode criar ou deletar particoes de outros sistemas operacionais
+a nao ser do Linux, com o FDISK do Linux. E' isto, nao crie ou delete particoes
+MS-DOS com o FDISK do Linux. Use o FDISK do MS-DOS para isto. Se vc tentar
+criar particoes MS-DOS com o FDISK do Linux, serao maiores as chances do
+MS-DOS recognizar a particao e nao dar o boot corretamente.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Este
+e' um exemplo do uso do fdisk. Aqui, nos temos uma simples particao MS-DOS
+usando 61693 blocks no drive, e o resto do drive esta livre para o Linux.(No
+Linux, um block e' 1024 bytes. Entao, 61693 blocks sao 61 megas.) Nos vamos
+criar duas particoes Linux: uma para swap e outra para o sistema de arquivos
+de raiz, tambem chamada de Linux Native.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Primeiro,
+vamos usar o comando ''p'' para mostrar a tabela das particoes correntes.
+Assim vc pode ver, /dev/hda1 (a primeira particao em /dev/hda) e' uma particao
+MS-DOS de 61693 blocks.</FONT></FONT>
+<PRE><FONT FACE="Arial"><FONT SIZE=-1>&nbsp; ______________________________________________________________________
+&nbsp; Command (m for help): p
+&nbsp; Disk /dev/hda: 16 heads, 38 sectors, 683 cylinders
+&nbsp; Units = cylinders of 608 * 512 bytes
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Device&nbsp; Boot&nbsp; Begin&nbsp;&nbsp; Start&nbsp;&nbsp;&nbsp;&nbsp; End&nbsp; Blocks&nbsp;&nbsp; Id&nbsp; System
+&nbsp;&nbsp;&nbsp; /dev/hda1&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp; 203&nbsp;&nbsp; 61693&nbsp;&nbsp;&nbsp; 6&nbsp; DOS 16-bit >=32M
+
+&nbsp; Command (m for help):
+&nbsp; ______________________________________________________________________</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois,
+usamos o comando ''n'' para criar uma nova particao. A particao Linux Native
+tera 80 megas em tamanho nesse exemplo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+(m for help): n</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+action</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;
+e extended</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;
+p primary partition (1-4)</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>p</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Aqui
+fomos perguntados se queremos que crie uma particao extendida ou primaria.
+Na maioria dos casos vc pode usar particoes primarias, exceto se vc precisar
+mais de 4 particoes no drive. Veja a secao ''Reparticionando'', anteriormente,
+para mais informacoes.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Partition
+number (1-4): 2</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>First
+cylinder (204-683): 204</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Last
+cylinder or +size or +sizeM or +sizeK (204-683): +80M</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+primeiro cilindro da nova particao deve ser o cilindro que vem depois do
+cilindro na qual a primeira particao termina. Neste caso, /dev/hda1 termina
+no cilindro 203, entao iniciaremos a nova particao no cilindro 204.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Como
+vc pode ver, se usarmos a notacao ``+80M'', isto especifica uma particao
+de 80 megas em tamanho. Tambem, a notacao ``+80K'' vai especificar uma
+particao de 80 kilobytes, e ``+80'' vai especificar uma particao de apenas
+80 bytes.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Agora,
+vamos criar uma particao swap de 10 megas, /dev/hda3.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+(m for help): n</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+action</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;
+e extended</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;
+p primary partition (1-4)</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>p</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Partition
+number (1-4): 3</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>First
+cylinder (474-683): 474</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Last
+cylinder or +size or +sizeM or +sizeK (474-683): +10M</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Novamente,
+vemos a tabela de particoes. Esteja certo de anotar as informacoes exibidas
+na tabela de particoes, especialmente o tamanho de cada particao em blocks.
+Vc vai precisar desta informacao depois.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+(m for help): p</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Disk
+/dev/hda: 16 heads, 38 sectors, 683 cylinders</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Units
+= cylinders of 608 * 512 bytes</FONT></FONT>
+<PRE>
+<FONT FACE="Arial"><FONT SIZE=-1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Device&nbsp;&nbsp;&nbsp; Boot&nbsp;&nbsp; Begin&nbsp;&nbsp; Start&nbsp;&nbsp;&nbsp;&nbsp; End&nbsp;&nbsp;&nbsp; Blocks&nbsp;&nbsp;&nbsp;&nbsp; Id&nbsp;&nbsp;&nbsp; System
+&nbsp;&nbsp;&nbsp; /dev/hda1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp; 203&nbsp;&nbsp;&nbsp;&nbsp; 61693&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6&nbsp;&nbsp;&nbsp; DOS 16-bit >=32M
+&nbsp;&nbsp;&nbsp; /dev/hda2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 204&nbsp;&nbsp;&nbsp;&nbsp; 204&nbsp;&nbsp;&nbsp;&nbsp; 473&nbsp;&nbsp;&nbsp;&nbsp; 82080&nbsp;&nbsp;&nbsp;&nbsp; 83&nbsp;&nbsp;&nbsp; Linux native
+&nbsp;&nbsp;&nbsp; /dev/hda3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 474&nbsp;&nbsp;&nbsp;&nbsp; 474&nbsp;&nbsp;&nbsp;&nbsp; 507&nbsp;&nbsp;&nbsp;&nbsp; 10336&nbsp;&nbsp;&nbsp;&nbsp; 83&nbsp;&nbsp;&nbsp; Linux native</FONT></FONT></PRE>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Note
+que a particao Linux swap (aqui, /dev/hda3) esta com o nome de ''Linux
+native''. Nos precisamos mudar o tipo da particao swap para ''Linux swap''
+para que o programa de instalacao possa detecta-la. Entao vc vai usar o
+comando ''t'' do FDISK para fazer essa alteracao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Command
+(m for help): t</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Partition
+number (1-4): 3</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Hex
+code (type L to list codes): 82</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>______________________________________________________________________</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc usar o comando ``L'' para listar os codigos para cada tipo de particao
+vc vai ver que o codigo 82 corresponde a Linux swap.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+sair do fdisk e salvar as alteracoes para a tabela de particoes, use o
+comando ''w''. Para sair do fdisk sem salvar as alteracoes, use o comando
+''q''.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+que sair do fdisk, o sistema vai pedir para dar um reboot na maquina para
+que as alteracoes tenham efeito. Geralmente nao ha' razao para dar um reboot
+depois que usar o fdisk---a versao do fdisk na distribuicao Slackware ja
+faz o update das particoes sem precisar reinicializar.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.6.
+Preparando o espaco swap</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc tem 4 megas de RAM (ou menos) na sua maquina, vc precisa criar uma particao
+swap (usando fdisk) e ativa-la para uso apos a instalacao do software.
+Aqui, vou descrever como formatar e ativar a sua particao swap.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc tem mais que 4 megas de RAM, vc precisa apenas criar sua(s) particao
+(oes)---nao e' necessario formatar e ativar a particao antes de instalar
+o software. Neste caso vc pode pular para a secao ``Instalando o Software''.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc receber algum erro ``out of memory'' durante o processo de instalacao
+vc pode criar uma particao swap e ativa-la como e' descrito aqui:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+preparar o espaco swap, vamos usar o comando mkswap. Use a linha</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>mkswap
+-c&nbsp;</FONT></FONT><particao><tamanho></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Onde&nbsp;<particao>e'
+o nome da particao, como /dev/hda3, e&nbsp;<tamanho>e' o tamanho da particao
+em blocks.(lembra-se que pedi para anotar ?)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+exemplo, se vc criou a particao swap em /dev/hda3 e com tamanho de 10336
+blocks, use o comando</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>mkswap
+-c /dev/hda3 10336</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A opcao
+-c manda o mkswap checar por bad blocks na particao quando estiver preparando
+o espaco swap. Se vc ver alguma mensagem de erro ''read_intr'' durante
+a operacao do mkswap, quer dizer que foram encontrados bad blocks e foram
+corrigidos. Entao vc pode ignorar estes erros.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Para
+ativar a particao swap no novo device, use o comando</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>swapon&nbsp;</FONT></FONT><particao></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+exemplo, para a particao swap em /dev/hda3, vamos usar</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>swapon
+/dev/hda3 Onde agora vc estara com mais 10 megas de memoria virtual.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+pode executar o mkswap e swapon para cada particao swap que vc criou.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.7.
+Instalando o software</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Instalar
+a versao Slackware e' muito simples; E' tudo automatico. Vc usa o comando
+setup, onde vai aparecer uma serie de menus que permitem a vc especificar
+o meio de instalacao, particoes a serem usadas, e muito mais. E' tudo automatico.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Aqui,
+nao vou documentar algum tipo especifico para usar o setup, pq ele muda
+de versao para versao, pouca coisa mas muda. Para dar a vc uma ideia, vou
+descrever quais os tipos de instalacao que possui o setup.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Antes
+de comecar, esteja certo de que vc tenha a mao um disquete de alta-densidade
+formatado. Vc vai usa-lo para criar o disquete de boot do Linux.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+de rodar o fdisk (e mkswap, swapon e tudo o que foi descrito antes), use
+o comando</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>#
+setup</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Isto
+vai presentear vc com um menu colorido com varias opcoes como ''Addswap''
+(para configurar sua particao swap), ''Source'' (para especificar a origem
+do software para ser instalado, como disquetes ou HD), ''Target'' (para
+especificar onde instalar o software), e assim vai.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Geralmente,
+vc pode usar os comandos do menu na seguinte ordem:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>1.
+Addswap. Se vc criou uma particao swap (usando fdisk), use a opcao addswap
+para dizer ao sistema sobre ela. Esta opcao vai mostrar uma lista a vc
+com as possiveis particoes swap; apenas digite o nome da sua particao swap
+que vc vai usar (como /dev/hda3). O sistema vai perguntar a vc se vc deseja
+formatar a particao swap. Vc pode escolher ``yes'' para formatar a particao
+swap, exceto se vc usou o processo de formatar e ativar a particao swap
+manualmente descrito na secao acima.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>2.
+Source. Esta opcao permite a vc especificar a origem do software para a
+instalacao. Vc pode escolher varios meios de instalacao, como via disquetes
+ou HD. Se vc optar por instalar via disquetes, o sistema vai perguntar
+a vc qual o drive de disco ira usar. Se vc for instalar do proprio HD,
+o sistema vai perguntar a vc em qual particao os arquivos estao gravados
+e qual diretorio eles estao dentro.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Por
+exemplo, se vc estiver instalando de uma particao MS-DOS no seu HD, e os
+arquivos do Slackware estao no diretorio C:\SLACKWAR, vc pode digitar o
+nome da particao MS-DOS (como /dev/hda1) e o nome do diretorio (como /slackwar).
+Note que vc vai usar barras para frente (/), e nao barras para tras (\),
+no nome do diretorio. O Linux opera os diretorios somente com barras para
+frente.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Ha'
+outros meios de instalacao, como via CD-ROM. Este metodo eh tao facil quanto
+os descritos acima.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>3.
+Target. Este menu permite a vc especificar em qual(is) particao(oes) sera
+instalado o software. O sistema vai mostrar uma lista de possiveis particoes.
+Primeiro vc vai ser perguntado por qual o nome da particao raiz, ou Linux
+Native (como /dev/hda2). Depois vc vai ser perguntado se deseja formatar
+esta particao; Confirme e escolha o tipo que procura por bad blocks. Esta
+opcao demora um pouco mais, mas corrige possiveis erros na particao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+tera a chance de usar particoes adicionais por partes diferentes da arvore
+de diretorios. Por exemplo, se vc criou uma particao separada para o sistema
+de arquivos /usr, vc pode digitar o nome da particao e o diretorio que
+este corresponde (/usr) quando for perguntado.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>4.
+Disksets. Esta opcao permite a vc escolher quais disk sets vc deseja instalar.
+Use as setas para cima e para baixo e use a barra de espacos para selecionar
+ou deselecionar um disk set. Aperte OK la embaixo quando vc terminar de
+fazer as escolhas.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Neste
+momento vc pode instalar o sistema minimo. Apenas o disk set A e' requerido.
+Depois de vc instalar o software, vc pode rodar o setup e instalar outros
+disk sets que vc escolher caso nao tenha os instalado na primeira instalacao.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>5.
+Install. Depois de responder a todos os parametros acima, vc esta pronto
+para instalar o software. Primeiro o sistema vai perguntar o tipo de prompt
+vc deseja usar; escolha o metodo ''normal''.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+sistema simplesmente vai pegar cada disk set que vc selecionou e vai iniciar
+a instalacao do software. Para cada pacote de software, uma caixa de dialogo
+azul sera exibida descrevendo o software. Pacotes de softwares que sao
+requeridos no sistema sao instalados automaticamente. Para pacotes opcionais
+de software vc podera escolher em instalar ou nao instalar o pacote. (Se
+vc nao instalar algum pacote na instalacao, vc pode rodar o setup e instala-lo
+mais tarde)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Enquanto
+o software estiver sendo instalado, observe por mensagens de erro que podem
+ser exibidas. A mensagem mais comum de erro e' tipo ''device full'', que
+diz que vc nao tem espaco suficiente nas suas particoes Linux. Mas o programa
+de instalacao vai ignorar esta mensagem e continuar o processo. Se vc receber
+outra qualquer mensagem de erro durante o processo de instalacao, vc pode
+parar o programa de instalacao pressionando Ctrl-C para gravar a instalacao
+(aconselho iniciar a instalacao novamente). A unica solucao para o erro
+``device full'' e' recriar suas particoes Linux com diferentes tamanhos,
+ou reinstalar o software sem instalar pacotes de software muito grandes.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.8.
+Apos a instalacao</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Apos
+completar a instalacao, e tudo ocorrido bem, o programa lhe dara uma opcao
+''standard boot disk'', que serve para criar um disco de boot para o Linux.
+Com ele vc pode inicializar o sistema atraves do disco. Eu aconselho que
+vc crie este disco para o caso de alguma emergencia. Para isto vc precisa
+de um disco de alta densidade formatado (se nao estiver formatado, vc podera
+formata-lo na hora). Insira o disco e escolha a opcao para criar o disquete
+de boot. (Lembre-se que este disco nao tem nada haver com o bootdisk que
+vc usou la no comeco de todo o processo)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+do disco de boot vc tera a chance de instalar o LILO no seu HD. LILO (que
+significa LInux LOader) e' um programa que permite a vc a dar boot no Linux
+(como outros sistemas operacionais, como MS-DOS) do seu proprio HD (Instalando
+o LILO, vc nao precisara do disco de boot do linux, mas sempre e' bom te-lo).
+Se vc quiser instalar o LILO, apenas selecione as opcoes e digite o que
+for pedido nos prompts. Sugiro a vc escolher a opcao ``MBR....esqueci :(''
+que instala o LILO no Master Boot Record e escolha a opcao que quando vc
+estiver dando boot no sistema, aparecera um menu no qual vc digitara o
+nome do sistema operacional que quer inicializar. Aparece assim:</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>LILO
+Boot: win95</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Inicializando
+o Windows 95... ( digitando win95 vc rodara o Windows 95)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>LILO
+Boot: Linux</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Loading
+Linux... (digitando Linux vc rodara o linux. ou so pressione ENTER no prompt.)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc estiver usando o Boot Manager do OS/2, o menu vai incluir uma opcao
+para configurar o LILO para o uso com o Boot Manager, entao vc pode dar
+boot no Linux do mesmo.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Note
+que esse processo de instalacao do LILO nao e'seguro; ha' situacoes em
+que este pode falhar. Esteja certo de que vc tenha um jeito de dar boot
+no MS-DOS, Linux e outros sistemas operacionais via disquete antes de vc
+instalar o LILO. Se a instalacao do LILO falhar vc podera dar boot no seu
+sistema via disquete e corrigir o problema. (Lembra-se do disco de boot
+do Linux ? :) Vc tem que ser esperto se nao quiser ter muita dor de cabeca!</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+o seu LILO nao funcionar peca ajuda para alguem e leia o LILO-HOWTO.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1><B>2.9.
+Dando boot no seu novo sistema</B></FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+tudo ocorreu como planejado, vc esta pronto para dar boot pelo disco de
+boot do Linux (nao eh o disco de instalacao do Slackware, mas o disco criado
+apos a instalacao do software.). Ou, se vc instalou o LILO, vc pode dar
+boot no Linux do seu proprio HD. Depois de dar o boot, de login no sistema
+como root. Parabens! Vc tem seu novo sistema Linux :)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Se
+vc estiver dando boot com o LILO instalado, tente as teclas shift ou control
+durante o boot para fazer o prompt do LILO aparecer na sua tela. Agora
+se vc optou pelo jeito do LILO Boot vc nao precisa apertar nada, pois o
+prompt aparece automaticamente. Quando aparecer o prompt do LILO, aperte
+a <B>tecla tab</B> para ver os sistemas operacionais que vc quer dar boot.
+Digite o nome e pronto.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+de dar boot no seu Linux e logar como root, uma das primeiras coisas que
+vc deve fazer e' criar uma conta de usuario para vc mesmo. O comando adduser
+pode ser usado para essa tarefa. Por exemplo,</FONT></FONT>
+<UL><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>#
+adduser</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Login
+to add (^C to quit): RosS</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Full
+Name: RosS</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>GID
+[100]: 100</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>UID
+[501]: 501</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Home
+Directory [/home/rafael]: /home/ross</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Shell
+[/bin/bash]: /bin/bash</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Password
+[rafael]: 123456</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Information
+for new user [ross]:</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Home
+directory: [/home/ross] Shell: [/bin/bash]</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Password:
+[123456] UID: [502] GID:[100]</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Is
+this correct? [y/n]: y</FONT></FONT></UL>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>adduser
+vai perguntar a vc por varios parametros, como username, nome completo,
+GID (group ID), UID (user ID), e outros. Para a maioria vc pode usar os
+defaults. Agora sugiro a vc um bom livro de sistema UNIX para vc aprender
+a configurar e usar seu novo sistema.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Vc
+agora pode logar com o novo usuario. Vc pode usar as teclas Alt-F1 a Alt-F8
+para abrir os consoles virtuais (mais detalhes na secao DICAS, "Consoles
+Virtuais"), que vao permitir a vc logar varias vezes no sistema e permitindo
+que vc possa fazer mais de uma coisa ao mesmo tempo. O comando <B>passwd</B>
+pode ser usado para mudar as senhas nas suas novas contas e a de root principalmente.
+Lembre-se que a conta de root e' a que da acesso a todo o seu sistema.
+Mude ela assim que instalar o software.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>O
+hostname da sua maquina eh escolhido no setup, na configuracao de rede.
+Ou vc pode tambem editar o arquivo /etc/rc.d/rc.M para escolher o hostname
+da sua maquina. Veja as linhas que comecam com hostname ou hostname_notcp.
+O hostname default e' slackware.</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Obviamente,
+ha' varios meios para configurar sua maquina. Mas novamente, eu lhe recomendo
+um bom livro de sistema UNIX, hehehe. Vc nao espera que tudo venha a sua
+mao como esse manual em portugues, ne'? :) Ah, vale lembrar que bons livros
+de UNIX sao em ingles e se vc ainda nao sabe nem o que significa ''dog'',
+hehehe, se prepare! :)</FONT></FONT>
+
+<P><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Depois
+disso, o sistema e' todo seu... ate + !</FONT></FONT>
+
+<P>
+<HR width=98% align=center size=1 noshade color=white>
+<UL>
+<H5>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>A base
+desse tutorial foi retirado do "The Linux Installation HOWTO" by Matt Welsh</FONT></FONT></H5>
+<FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Updated
+by Patrick Volkerding for Slackware version 3.3.0</FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Portuguese
+version. Traducted by <A HREF="mailto:rubik@matrix.com.br">Rafael Rubik</A></FONT></FONT>
+<BR><FONT FACE="Arial, Verdana, MS Sans Serif, Helvetica"><FONT SIZE=-1>Resumido
+e atualizado por <A HREF="mailto:ano2001@sti.com.br">RosS</A></FONT></FONT></UL>
+
+<script language="JavaScript" type="text/javascript">
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+if (width>=639 && height>=468 || top.location.href == window.location.href) {
+}
+rp_account   = '9645';rp_site      = '17527';rp_zonesize  = '1527362-51';rp_slot   = 'ad_group_786919';rp_adtype    = 'js';rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write(' src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt>');}</script>
+</BODY>
+</HTML>
+</div><style> 
+.zoomout { -webkit-transition: -webkit-transform 0.5s ease;
+-moz-transition: -moz-transform 0.5s ease;
+-o-transition: -o-transform 0.5s ease;
+transition: transform 0.5s;
+-ms-transition: transform 0.5s ease;}
+.zoomin { 
+filter: blur(0)
+-webkit-transform: scaleY(1.15);
+-moz-transform: scaleY(1.15);
+-o-transform: scaleY(1.15);
+transform: scaleYY(1.15);
+-ms-transform: scaleY(1.15);
+} 
+#archive:hover { zoom:101%;)
+</style>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+var width  = window.innerWidth || (window.document.documentElement.clientWidth ||  window.document.body.clientWidth);
+var height = window.innerHeight || (window.document.documentElement.clientHeight || window.document.body.clientHeight);
+var d = document;
+
+if (width>=806 && height>=468 || top.location.href == window.location.href) {
+d.write('<div id="archive" onMouseOver="className=\'zoomin\';this.style.zIndex=\'99\'"  onMouseOut="className=\'zoomout\';this.style.zIndex=\'5\'" style="padding-left:25px;background-image:url(https://www.oocities.org/d.jpg); background-repeat:repeat-x; filter:alpha(opacity=88); -moz-opacity:0.88 ; opacity:0.88; position:fixed; background-color:#FFFFFF; width:100%; min-width:970px;  overflow:hidden; left:0px; top:0px; font-family:times; font-size:9px; border-bottom:5px solid #f7f7f7; color:#000000;background-color:#ffffe0;z-Index:5;"><font style="font-size:16px" color="#000000"> This Page is an outdated, user-generated website brought to you by an archive</font><font style="font-family:times; font-size:9px" color="#000000">.It was mirrored from Geocities at the end of October, 2009.<br>For any questions concerning this page try to contact the respective author. (To report any malicious content send the URL to oocities(at gmail dot com). For question about the archive visit: <a style="color:#005577" href="//oocities.org" target="_new" title="geocities archive">OoCities.org</a>.</font><div onClick="archive.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:17px;position:absolute;left:3px;top:3px;color:#999;line-height:20px">[x]</div><div onClick="archive.style.display=\'none\';footer.style.display=\'none\'"  onMouseOver="style.cursor=\'pointer\'" style="font-size:19px;position:absolute;right:30px;top:0px;color:#777;line-height:20px">[x]</div></div>');
+var x =  d.getElementById('content').offsetWidth;
+d.write('<div id="foot" style="position:fixed;left:1018px;top:31px;z-index:10;padding-bottom:3px"><div id="ft72">');
+rp_account   = '9645';
+rp_site      = '17527';
+rp_zonesize  = '55620-15';
+rp_slot   = 's';
+rp_adtype    = 'iframe';
+rp_width     = '300';
+rp_height    = '250';
+rp_smartfile = '[SMART FILE URL]';
+d.write('<script language="JavaScript" type="text/javascript"');
+d.write('src="https://ads.rubiconproject.com/ad/9645.js">');
+d.write('<\/scr'+'ipt></div>');
+if ( height>=543) {
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'"></script>')
+}
+
+d.write('<div id="ft73"><span onClick="foot.style.display=\'none\'"  style="font-size:16px;position:relative;left:7px;color:#555;background-color:ccc;line-height:19px"> \[x\]close <\/span><\/div>');
+
+
+if ( width-x>=440 || width>=1425) { 
+d.write('<div id="footer" style="position:fixed;left:1310px;top:31px;z-index:11;padding-bottom:3px"><div id="ft74">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp3" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">')
+d.write('<\/scr'+'ipt><\/div><div id="ft75">');
+
+var cb = Math.random();
+var iframe = "&fr=" + (window != top);
+var ref = "";
+try {
+    if (window != top) {
+        ref = "&rf="+escape(d.referrer);
+    }
+} catch (ignore) { }
+d.write('<script id="rp4" language="JavaScript" type="text/javascript"');
+d.write('src="https://optimized-by.rubiconproject.com/a/9645/17527/55620-15.js?cb='+cb+ref+iframe+'">');
+d.write('<\/scr'+'ipt></div></div>');
+}}
+-->
+</script>
+<script type="text/javascript">
+if (x<=1015){d.getElementById('foot').style.left = x + "px";}
+d.getElementById('footer').style.left = x + d.getElementById('foot').offsetWidth + "px";
+</script>
+
+<script type="text/javascript">
+<!--
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-26808115-1']);
+  _gaq.push(['_setDomainName', 'oocities.org']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+-->
+</script><script type="text/javascript"> window.google_analytics_uacct = "UA-26808115-1"; </script>
+
+
+
+
